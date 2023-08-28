@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-08-21">
+
+<title>Structural Bioinformatics 2023-24 - 1D Features</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./advanced.html" rel="next">
+<link href="./homology.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="include/webex.css">
+<meta name="twitter:title" content="Structural Bioinformatics 2023-24 - 1D Features">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="pics/imageSwap.gif">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./1d.html">1D Features</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Structural Bioinformatics 2023-24</a> 
+        <div class="sidebar-tools-main">
+    <a href="mailto:modesto.redrejo@uam.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-paper"></i></a>
+    <a href="https://github.com/StrBio/strbio.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">StrBio 2023-24</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ddbb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Structures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homology Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1d.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1D Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced homology modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein modeling in the AlphaFold era</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modeling Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#protein-secondary-structure-prediction" id="toc-protein-secondary-structure-prediction" class="nav-link active" data-scroll-target="#protein-secondary-structure-prediction"><span class="header-section-number">1</span> Protein secondary structure prediction</a>
+  <ul class="collapse">
+  <li><a href="#multiple-state-of-secondary-structures" id="toc-multiple-state-of-secondary-structures" class="nav-link" data-scroll-target="#multiple-state-of-secondary-structures">Multiple state of secondary structures</a></li>
+  <li><a href="#evolution-of-prediction-methods" id="toc-evolution-of-prediction-methods" class="nav-link" data-scroll-target="#evolution-of-prediction-methods">Evolution of Prediction methods</a></li>
+  </ul></li>
+  <li><a href="#structural-disorder-and-solvent-accessibility" id="toc-structural-disorder-and-solvent-accessibility" class="nav-link" data-scroll-target="#structural-disorder-and-solvent-accessibility"><span class="header-section-number">2</span> Structural disorder and solvent accessibility</a></li>
+  <li><a href="#trans-membrane-motifs-and-membrane-topology" id="toc-trans-membrane-motifs-and-membrane-topology" class="nav-link" data-scroll-target="#trans-membrane-motifs-and-membrane-topology"><span class="header-section-number">3</span> Trans-membrane motifs and membrane topology</a></li>
+  <li><a href="#subcellular-localization-tags-and-post-translational-modification-sites" id="toc-subcellular-localization-tags-and-post-translational-modification-sites" class="nav-link" data-scroll-target="#subcellular-localization-tags-and-post-translational-modification-sites"><span class="header-section-number">4</span> Subcellular localization tags and post-translational modification sites</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">1D Features</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 21, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 28, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>By definition 1D features are protein features that can be decoded directly from the protein primary structure and represented as values (categories, %, …) associated to individual residues in the sequence. For instance, we can assign a secondary structure state (symbol or probability) to each residue. Many structure prediction methods implement or call third parties methods to predict secondary structure and other 1D features, as important additional information during modeling process.</p>
+<p>You can find links to several 1D features prediction tools in the <a href="links.html">Modeling Resources</a> section.</p>
+<section id="protein-secondary-structure-prediction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Protein secondary structure prediction</h1>
+<section id="multiple-state-of-secondary-structures" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-state-of-secondary-structures">Multiple state of secondary structures</h2>
+<p>Secondary structures are assigned to structures using <strong>DSSP</strong> (<em>Define Secondary Structure of Proteins</em>) algorithm, originally written in 1983 and updated several times throughout the years, being the last version from 2021 (available on <a href="https://github.com/PDB-REDO/dssp">GitHub</a>). This algorithm classifies each residue considering its geometry and H-bonds prediction by comparison with pre-existing patterns in DSSP database. Remarkably, <u>DSSP does not predict</u> secondary structures, it just extracts this information from the 3D coordinates.</p>
+<p>Most protein secondary structure prediction (<strong>PSSP</strong>) methods use a three-state secondary structure, in which the secondary structure elements consist of helix (H), sheet (E), and coil (C). Helix and sheet are the two main conformations suggested in early times of structural biology by Linus Pauling (see <a href="intro.html#ss">Intro Lesson</a>), whereas Coil (C) denotes an amino acid that does not fit both H and E. This representation is very important and still used by many structural biologist, however it imposes several limitations that cannot be overlooked. This is because three secondary structure states are only a coarse-grained representation of the backbone structure with helical and sheet residues that very often can deviate from the standard helix and sheet conformations.</p>
+<p>Already in the 80s, a eight-state secondary structure was proposed (see <span class="citation" data-cites="ismi2022">Ismi, Pulungan, and Afiahayati (<a href="#ref-ismi2022" role="doc-biblioref">2022</a>)</span>), consisting in α-helix (H), 3<sub>10</sub>-helix (G), parallel/anti-parallel β-sheet (E), isolated β-bridge (B), bend (S), turn (T), π-helix (I) and coli (C). In fact, DSSP, defines the eight states in experimentally obtained structures and it also contains transformations that rule the mapping of eight-state secondary structures to the three-states.</p>
+<p>More recently, in 2020, four-state and five-state PSSP were proposed to simplify predictions and increase the true-positives. The reason for proposing four-state and five-state PSSP was the imbalanced samples of each class: isolated β-bridge (B) and bend (S) have a small number of samples and low true-positive rates. In five-state PSSP, B and S are considered as C, whereas in four-state PSSP, B, S, and G are considered as C. Moreover, 75% of π-helix (I) was located at the beginning or the end of an a-helix structure (H), so it was categorized as H. The full potential of this new categories is still to be analyzed in detail</p>
+</section>
+<section id="evolution-of-prediction-methods" class="level2">
+<h2 class="anchored" data-anchor-id="evolution-of-prediction-methods">Evolution of Prediction methods</h2>
+<p>Protein secondary structure prediction (PSSP) from protein sequences is based in the hypothesis that Segments of consecutive residues have preferences for certain secondary structure states. Similar to other methods in bioinformatics, including protein modeling, approaches to SS prediction evolved during the last 50 years (see Table 1).</p>
+<p>First generation methods rely on statistics approaches and prediction depends on assigning a set of prediction values to a residue and then applying a simple algorithm to those numbers. I.e. apply a probability score based on single amino acid propensity. In the 1990’s, new algorithms included the information of the flanking residues (3-50 nearby amino acids) in the so-called Nearest Neighbor (N-N) Methods. These methods increased the accuracy in many cases but still had strong limitations, as they only considered three possible states (helix, strand or turn). Moreover, as you know from the secondary structure practice, β-strands predictions are more difficult and did not improve much thanks to N-N methods. Additionally, predicted helices and strands were usually too short.</p>
+<p>By the end of 1990 decade, new methods boosted the accuracy to values near to 80%. These methods included two innovations, one conceptual and one methodological. The conceptual innovation was the inclusion of evolutionary information in the predictions, by considering the information of multiple sequence alignments or profiles. If a residue or a type of residue is evolutionary conserved, it is likely that it is important to define SS stretches. The second innovation was the use of neural networks (see <a href="#sec-NN">below</a>) in which multiple layers of sequence-to-structure predictions were compared with a independently trained networks (see PHD paper by Burkhard Rost <a href="https://www.rostlab.org/papers/1996_phd/paper.html">here</a>).</p>
+<p>Since the 2000s, most commonly used methods are meta-servers that compare several algorithms, mostly based o neural-networks, like <a href="http://www.compbio.dundee.ac.uk/jpred/">JPred</a> or <a href="https://www.ibi.vu.nl/programs/sympredwww/">SYMPRED</a>, among others.</p>
+<p>In the recent years, deep neural networks trained with large datasets have become the primary method for protein secondary structure prediction (and almost any other prediction in StrBio). In the Alphafold era (see <a href="ai.html">last</a> lesson), methods adapted from image processing or natural language processing (NLP) are also used (for instance in NetSurfP-3.0, see <span class="citation" data-cites="høie2022">Høie et al. (<a href="#ref-høie2022" role="doc-biblioref">2022</a>)</span>), allowing protein secondary structure predictions to focus on specific objectives, such as enhancing the quality of evolutionary information for protein modeling <span class="citation" data-cites="ismi2022">(<a href="#ref-ismi2022" role="doc-biblioref">Ismi, Pulungan, and Afiahayati 2022</a>)</span>.</p>
+<table class="table">
+<caption>Evolution of secondary structure prediction methods (modified from <span class="citation" data-cites="ismi2022">Ismi, Pulungan, and Afiahayati (<a href="#ref-ismi2022" role="doc-biblioref">2022</a>)</span>).</caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 48%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Generation</strong></td>
+<td><strong>Method</strong></td>
+<td><strong>Accuracy</strong></td>
+</tr>
+<tr class="even">
+<td>1st: Statistics</td>
+<td>Chow &amp; Fassman (1974-)</td>
+<td>57%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>GOR (1978-)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2nd: Nearest Neighbor (N-N) methods</td>
+<td>PREDATOR (1996)</td>
+<td>75%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NNSSP (1995)</td>
+<td>72%</td>
+</tr>
+<tr class="even">
+<td>3rd: N-N neural network &amp; evolutionary info</td>
+<td>APSSP</td>
+<td>Up to 86%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PsiPRED (1999-)</td>
+<td><p>75.7% (1999)</p>
+<p>84% (2019)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>PHD (1997)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>4th: Multiple layers of info</td>
+<td>Extra layers of info, such as conserved domains, frequent patterns, contact maps or predicted residue solvent accessibility (2000s)</td>
+<td>&lt;80%</td>
+</tr>
+<tr class="even">
+<td>5th generation</td>
+<td><p>Sophisticated deep learning architectures and NLP (2010s, 2020s).</p>
+<p>RaptorX-Property, (2018), SPIDER3 (2020) and NetSurfP-3.0 (2022), among others.</p></td>
+<td>&gt;80%</td>
+</tr>
+<tr class="odd">
+<td><strong>META-Servers</strong></td>
+<td>Jpred4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>GeneSilico (Discontinued)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SYMPRED</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="structural-disorder-and-solvent-accessibility" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Structural disorder and solvent accessibility</h1>
+<p>The expression <em>disorder</em> denote protein stretches that cannot be assigned to any SS. They are usually dynamic/flexible, thus with high B-factor or even missing in crystal structures. These fragments show a low complexity and they are usually rich in polar residues, whereas aromatic residues are rarely found in disordered regions. These motifs are usually at the ends of proteins or domain boundaries (as linkers). Additionally, they are frequently related to specific functionalities, such in the case of proteolytic targets or protein-protein interactions (PPI). More rarely, large disordered domains can be conserved in protein families and associated with relevant functions, as in the case of some transcription factors, transcription regulators, kinases…</p>
+<p>There are many methods and servers to predict disordered regions. You can see a list in the Wikipedia <a href="https://en.wikipedia.org/wiki/List_of_disorder_prediction_software">here</a> or in the review by <span class="citation" data-cites="atkins2015">Atkins et al. (<a href="#ref-atkins2015" role="doc-biblioref">2015</a>)</span>. The best-known server is <a href="https://www.disprot.org/">DisProt</a>, which uses a large curated database of intrinsically disordered proteins and regions from the literature, which has been recently improved to version 9 in 2022, as described in <span class="citation" data-cites="quaglia2022">Quaglia et al. (<a href="#ref-quaglia2022" role="doc-biblioref">2022</a>)</span>.</p>
+<p>Interestingly, a low plDDT (see <a href="ai.html#sec-AF2">below</a>) score in Alphafold2 models has been also suggested as a good indicator of protein disorder <span class="citation" data-cites="wilson2022">(<a href="#ref-wilson2022" role="doc-biblioref">Wilson, Choy, and Karttunen 2022</a>)</span>.</p>
+<div id="fig-disprot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/imageSwap.gif" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Examples of disordered regions. From <a href="http://original.disprot.org/index.php">Database of disordered regions</a>.</figcaption>
+</figure>
+</div>
+<p><em>Hydrophobic collapse</em> is usually referred to as a key step in protein folding. Hydrophobic residues tend to be buried inside the protein, whereas hydrophilic, polar amino acids are exposed to the aqueous solvent.</p>
+<div id="fig-collapse" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/collapse.png" title="Hydrophobic collapse" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Hydrophobic collapse as a early step in protein folding. From Feenstra &amp; Abeln, <a href="https://www.studocu.com/row/document/bangladesh-agricultural-university/protein-folding/introduction-to-structural-bioinformatics/11627608">Introduction to Structural Bioinformatics</a>.</figcaption>
+</figure>
+</div>
+<p>Solvent accessibility correlates with residue hydrofobicity (accessibility methods usually better performance). Therefore, estimation of how likely each residue is exposed to the solvent or buried inside the protein is useful to obtain and analyze protein models. Moreover, this information is useful to predict PPIs as well as ligand binding or functional sites. Most methods only classify each residue into two groups: Buried, for those with relative accessibility probability &lt;16% and Exposed, for accessibility residues &gt;16%.</p>
+<p>Most common recent methods, like <a href="http://webapps.bifi.es/ProtSA/">ProtSA</a> or <a href="www.rostab.org">PROFacc</a>, combine evolutionary information with neural networks to predict accessibility.</p>
+</section>
+<section id="trans-membrane-motifs-and-membrane-topology" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Trans-membrane motifs and membrane topology</h1>
+<p>Identification of transmembrane motifs is also a key step in protein modeling. About 25-30% of human proteins contain transmembrane elements, most of them in alpha helices.</p>
+<div id="fig-TM" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/mb.png" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Different topologies of transmembrane proteins</figcaption>
+</figure>
+</div>
+<p>The PDBTM (<a href="http://pdbtm.enzim.hu/">Protein Data Bank of Transmembrane Proteins</a>) is a comprehensive and up-to-date transmembrane protein selection. As of September 2022, it contains more than 7600 transmembrane proteins, 92.6% of them with alpha helices TM elements. This number of TM proteins is relatively low, as compared with more than 160k structures in PDB, as TM proteins are usually harder to purify and crystalization conditions are often elusive. Thus, although difficult, accurate predictions of TM motifs and overall protein topology can be essential to define protein architecture and identify domains that could be structurally or functionally studied independently.</p>
+<div id="fig-topo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/alphaTM.jpg" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Different topologies of TM helices.</figcaption>
+</figure>
+</div>
+<p>Current state-of-the-art TM prediction protocols show an accuracy of 90% for definition of TM elements, but only a 80% regarding the protein topology. However, some authors claim that in some types of proteins, the accuracy is not over 70%, due to the small datasets of TM proteins. Most recent methods, based in deep-learning seem to have increased the accuracy to values near 90% for several groups of proteins <span class="citation" data-cites="hallgren">(<a href="#ref-hallgren" role="doc-biblioref">Hallgren et al. 2022</a>)</span>.</p>
+</section>
+<section id="subcellular-localization-tags-and-post-translational-modification-sites" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Subcellular localization tags and post-translational modification sites</h1>
+<p>Many cellular functions are compartmentalized in the nucleus, mitochondria, endoplasmatic reticulum (ER), or other organules. Therefore, many proteins should be located in those compartments. That is achieved by the presence of some labels, in form of short peptidic sequences that regulate traffic and compartmentalization of proteins within the cells. Typically, N-terminal signals direct proteins to the mitochondrial matrix, ER, or peroxisomes, whereas nucleus traffic is regulated by nuclear localization signals (NLS) and nuclear export signals (NES).</p>
+<p>Similarly, post-translational modifications very often occur in conserved motifs that contain target residues for phosphorylation or ubiquitination, among other modifications.</p>
+<p>These short motifs are difficult to predict, as datasets of validated signals are small. The use of consensus sequences allowed predictions, although in many cases with a high level of uncertainty.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-atkins2015" class="csl-entry" role="listitem">
+Atkins, Jennifer D., Samuel Y. Boateng, Thomas Sorensen, and Liam J. McGuffin. 2015. <span>“Disorder Prediction Methods, Their Applicability to Different Protein Targets and Their Usefulness for Guiding Experimental Studies.”</span> <em>International Journal of Molecular Sciences</em> 16 (8): 19040–54. <a href="https://doi.org/10.3390/ijms160819040">https://doi.org/10.3390/ijms160819040</a>.
+</div>
+<div id="ref-hallgren" class="csl-entry" role="listitem">
+Hallgren, Jeppe, Konstantinos D. Tsirigos, Mads Damgaard Pedersen, José Juan Almagro Armenteros, Paolo Marcatili, Henrik Nielsen, Anders Krogh, and Ole Winther. 2022. <span>“DeepTMHMM Predicts Alpha and Beta Transmembrane Proteins Using Deep Neural Networks.”</span> <a href="https://doi.org/10.1101/2022.04.08.487609">https://doi.org/10.1101/2022.04.08.487609</a>.
+</div>
+<div id="ref-høie2022" class="csl-entry" role="listitem">
+Høie, Magnus Haraldson, Erik Nicolas Kiehl, Bent Petersen, Morten Nielsen, Ole Winther, Henrik Nielsen, Jeppe Hallgren, and Paolo Marcatili. 2022. <span>“NetSurfP-3.0: Accurate and Fast Prediction of Protein Structural Features by Protein Language Models and Deep Learning.”</span> <em>Nucleic Acids Research</em> 50 (W1): W510–15. <a href="https://doi.org/10.1093/nar/gkac439">https://doi.org/10.1093/nar/gkac439</a>.
+</div>
+<div id="ref-ismi2022" class="csl-entry" role="listitem">
+Ismi, Dewi Pramudi, Reza Pulungan, and null Afiahayati. 2022. <span>“Deep learning for protein secondary structure prediction: Pre and post-AlphaFold.”</span> <em>Computational and Structural Biotechnology Journal</em> 20: 6271–86. <a href="https://doi.org/10.1016/j.csbj.2022.11.012">https://doi.org/10.1016/j.csbj.2022.11.012</a>.
+</div>
+<div id="ref-quaglia2022" class="csl-entry" role="listitem">
+Quaglia, Federica, Bálint Mészáros, Edoardo Salladini, András Hatos, Rita Pancsa, Lucía B. Chemes, Mátyás Pajkos, et al. 2022. <span>“DisProt in 2022: improved quality and accessibility of protein intrinsic disorder annotation.”</span> <em>Nucleic Acids Research</em> 50 (D1): D480–87. <a href="https://doi.org/10.1093/nar/gkab1082">https://doi.org/10.1093/nar/gkab1082</a>.
+</div>
+<div id="ref-wilson2022" class="csl-entry" role="listitem">
+Wilson, Carter J., Wing-Yiu Choy, and Mikko Karttunen. 2022. <span>“AlphaFold2: A Role for Disordered Protein/Region Prediction?”</span> <em>International Journal of Molecular Sciences</em> 23 (9): 4591. <a href="https://doi.org/10.3390/ijms23094591">https://doi.org/10.3390/ijms23094591</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./homology.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Homology Modeling</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./advanced.html" class="pagination-link">
+        <span class="nav-page-text">Advanced homology modeling</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by-nc/2.0/">
+      <i class="bi bi-badge-cc-fill" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

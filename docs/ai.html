@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-08-21">
+
+<title>Structural Bioinformatics 2023-24 - Protein modeling in the AlphaFold era</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./links.html" rel="next">
+<link href="./advanced.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="include/webex.css">
+<meta name="twitter:title" content="Structural Bioinformatics 2023-24 - Protein modeling in the AlphaFold era">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="pics/casp13.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./ai.html">Protein modeling in the AlphaFold era</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Structural Bioinformatics 2023-24</a> 
+        <div class="sidebar-tools-main">
+    <a href="mailto:modesto.redrejo@uam.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-paper"></i></a>
+    <a href="https://github.com/StrBio/strbio.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">StrBio 2023-24</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ddbb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Structures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homology Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1D Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced homology modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Protein modeling in the AlphaFold era</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modeling Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#the-history-of-protein-structure-modeling-is-told-by-a-competition-casp" id="toc-the-history-of-protein-structure-modeling-is-told-by-a-competition-casp" class="nav-link active" data-scroll-target="#the-history-of-protein-structure-modeling-is-told-by-a-competition-casp"><span class="header-section-number">1</span> The history of protein structure modeling is told by a competition (CASP)</a></li>
+  <li><a href="#casp14-or-when-protein-structure-prediction-come-to-age-for-non-structural-biologists" id="toc-casp14-or-when-protein-structure-prediction-come-to-age-for-non-structural-biologists" class="nav-link" data-scroll-target="#casp14-or-when-protein-structure-prediction-come-to-age-for-non-structural-biologists"><span class="header-section-number">2</span> CASP14 or when protein structure prediction come to age for (non structural) biologists</a></li>
+  <li><a href="#sec-AF2" id="toc-sec-AF2" class="nav-link" data-scroll-target="#sec-AF2"><span class="header-section-number">3</span> Alphafold as the paradigm of a New Era</a>
+  <ul class="collapse">
+  <li><a href="#why-is-alphafold-so-freaking-accurate" id="toc-why-is-alphafold-so-freaking-accurate" class="nav-link" data-scroll-target="#why-is-alphafold-so-freaking-accurate">Why is Alphafold so freaking accurate?</a></li>
+  <li><a href="#wanna-try-alphafold" id="toc-wanna-try-alphafold" class="nav-link" data-scroll-target="#wanna-try-alphafold"><span style="color:green">Wanna try Alphafold?</span></a></li>
+  <li><a href="#now-what-the-post-alphafold-era" id="toc-now-what-the-post-alphafold-era" class="nav-link" data-scroll-target="#now-what-the-post-alphafold-era">Now what? The Post-AlphaFold era</a></li>
+  <li><a href="#corollary-did-deepmind-fold-levinthals-paradox" id="toc-corollary-did-deepmind-fold-levinthals-paradox" class="nav-link" data-scroll-target="#corollary-did-deepmind-fold-levinthals-paradox">Corollary: Did Deepmind “fold” Levinthal’s paradox?</a></li>
+  </ul></li>
+  <li><a href="#quizz" id="toc-quizz" class="nav-link" data-scroll-target="#quizz"><span class="header-section-number">4</span> <span style="color:green">Review Quizz</span></a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links"><span class="header-section-number">5</span> Useful links</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Protein modeling in the AlphaFold era</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 21, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 28, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="the-history-of-protein-structure-modeling-is-told-by-a-competition-casp" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> The history of protein structure modeling is told by a competition (CASP)</h1>
+<p>Every two years since 1994, groups in the field of structural bioinformatics have conducted a worldwide experiment in which they predict a set of unknown protein structures in a controlled, blind test-like competition and compare their results with the experimentally obtained structures. That is the <strong>CASP</strong> or <a href="https://predictioncenter.org/"><em>Critical assessment of Protein Structure Prediction</em></a>.</p>
+<div id="fig-CASP13" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/casp13.png" title="CASP13 results" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Comparative Z-score of CASP13 participants. The score is based in the GDT_TS (Global distance test).</figcaption>
+</figure>
+</div>
+<p>The best research groups in the field test their new methods and protocols in the CASP. However, at CASP13 (2018), an AI company called <a href="https://en.wikipedia.org/wiki/DeepMind">Deepmind</a> (Google Subsidiary) entered the scene. Their method, named Alphafold <span class="citation" data-cites="senior2020">(<a href="#ref-senior2020" role="doc-biblioref">Senior et al. 2020</a>)</span> clearly won CASP13. Alphafold (v.1) implemented improvements in some recently used approaches and created an entirely new pipeline. Instead of creating contact maps from the alignment and then folding the structure, they used an MRF unit (Markov Random Field) to extract the main features of the sequence and MSA in advance and process all this information into a multilayer NN (called ResNet) that also predicted distance probabilities instead of contacts, resulting in high accuracy. Then, Alphafold uses all the possibly obtained information to create the structure and then improve it by energy minimization (steepest descent method) and substitution of portions with a selected DB of protein fragments.</p>
+<div id="fig-alphafold1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/alphafold1.png" title="Alphafold1" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Workflow of the first Alphafold method presented in CASP13. MSA stands for multiple sequence alignment; PSSM indicates Position-specific-scoring matrix and MRF stands for Markov Random Field (or Potts model). From the Sergei Ovchinnikov and Martin Steinegger presentation of Alphafold2 to the Boston Protein Design Group (slides and video in the <a href="#links">link below</a>).</figcaption>
+</figure>
+</div>
+<p>After Alphafold, similar methods were also developed and made available to the general public, like the <em>trRosetta</em> <span class="citation" data-cites="yang2020">(<a href="#ref-yang2020" role="doc-biblioref">Yang et al. 2020</a>)</span>, from the <a href="https://www.bakerlab.org/">Baker lab</a>, available in <a href="https://www.rosettacommons.org/software">Rosetta</a> open source software and in the <a href="https://robetta.bakerlab.org/">Robetta</a> server. This led to some controversy (mostly on Twitter) about the open access to the CASP software and later on DeepMind publishes all the code on GitHub.</p>
+</section>
+<section id="casp14-or-when-protein-structure-prediction-come-to-age-for-non-structural-biologists" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> CASP14 or when protein structure prediction come to age for (non structural) biologists</h1>
+<p>There was a lot of hype in CASP14 and the guys from DeepMind did not disappoint anyone. Alphafold2 left all competitors far behind, both in relative terms (score against the other groups) and in absolute terms (lowest alpha-carbon RMSD). As highlighted earlier, the accuracy of many of the predicted structures was <em>within</em> the margin of error of the experimental determination methods <span class="citation" data-cites="mirdita2022">(see for instance <a href="#ref-mirdita2022" role="doc-biblioref">Mirdita et al. 2022</a>)</span>.</p>
+<div id="fig-casp14" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="https://predictioncenter.org/casp14/zscores_final.cgi?formula=gdt_ts"><img src="pics/casp14.png" title="CASP14 scores" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Comparative CASP14 scores</figcaption>
+</figure>
+</div>
+<div id="fig-alphafold2bench" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="https://www.nature.com/articles/s41586-021-03819-2/figures/1"><img src="pics/jumper2021.png" title="Alphafold2" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Performance of Alphafold2 the CASP14 dataset relative to the top-15 entries. Data are median and the 95% confidence interval of the median, for alpha-carbom RMSD. Panels b-c-d show example comparison between model and experimental structures.</figcaption>
+</figure>
+</div>
+<p>Deepming took some time (eight months, which is an eternity nowadays) to publish the method (<span class="citation" data-cites="jumper2021">Jumper et al. (<a href="#ref-jumper2021" role="doc-biblioref">2021</a>)</span>) and to release the code on <a href="https://github.com/deepmind/alphafold">Github</a>, but other new methods, such as RoseTTAfold (<span class="citation" data-cites="baek2021">Baek et al. (<a href="#ref-baek2021" role="doc-biblioref">2021</a>)</span>) and C-I-Tasser (<span class="citation" data-cites="zheng2021">Zheng et al. (<a href="#ref-zheng2021" role="doc-biblioref">2021</a>)</span>) were able to obtain similar results and were available on public servers, which may have pushed Deepmind to make it all available to the scientific community<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Not surprisingly, a group of independent scientists (<a href="https://twitter.com/sokrypton">Sergey Ovchinnikov</a>, <a href="https://twitter.com/milot_mirdita">Milot Mirdita</a>, and <a href="https://twitter.com/thesteinegger">Martin Steinegger</a>), decided to implement Alphafold2 in a <a href="https://github.com/sokrypton/ColabFold">Colab notebook</a>, called <strong>ColabFold</strong> <span class="citation" data-cites="mirdita2022">Mirdita et al. (<a href="#ref-mirdita2022" role="doc-biblioref">2022</a>)</span>, which freely available online using <em>Google Colab</em> notebooks platform. Other free implementations of Alphafold have been and are available, but ColabFold has been the most widely discussed and well known. They implemented some tricks to speed up the modeling, most notably the use of <a href="https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI/present#slide=id.ge58c80b745_0_15">MMSeqs2</a> (developed by Martin Steinegger’s group) to search for homologous structures on Uniref30, which made Colabfold a fast method that made all the previous advanced methods almost useless. This was the real breakthrough in the field of protein structure prediction, making Alphafold accessible and, also very importantly, facilitated the further development of the method, implementing very quickly new features, like the prediction of protein complexes, which was actually first mentioned on <a href="https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI/present#slide=id.ge58c80b745_0_15">Twitter</a> and then led to several new dedicated methods, including AlphaFold-multimer <span class="citation" data-cites="evans2022">(<a href="#ref-evans2022" role="doc-biblioref">Evans et al. 2022</a>)</span> from Deepmind or AlphaPullDown <span class="citation" data-cites="yu2023">(<a href="#ref-yu2023" role="doc-biblioref">Yu et al. 2023</a>)</span>.</p>
+</section>
+<section id="sec-AF2" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Alphafold as the paradigm of a New Era</h1>
+<section id="why-is-alphafold-so-freaking-accurate" class="level2">
+<h2 class="anchored" data-anchor-id="why-is-alphafold-so-freaking-accurate">Why is Alphafold so freaking accurate?</h2>
+<p>The philosophy behind Alphafold v.2 (from now on, just Alphafold) and related methods is to treat the protein folding problem as a machine learning problem, similar to image processing. In all of these problems, the input to the Deep Learning model is a volume (3D tensor). In the case of computer vision, 2D images expand as volumes because of the RGB or HSV channels. Similarly, in the case of distance prediction, predicted 1D and 2D features are transformed and packed into a 3D volume with many channels of inter-residue information <span class="citation" data-cites="pakhrin2021">(<a href="#ref-pakhrin2021" role="doc-biblioref">Pakhrin et al. 2021</a>)</span>.</p>
+<div id="fig-deep" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/machine_fold.png" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: From the perspective of Deep Learning method development, the problem of protein distogram or real-valued distance prediction (bottom row) is similar to the ‘depth prediction problem’ in computer vision. From <span class="citation" data-cites="pakhrin2021">Pakhrin et al. (<a href="#ref-pakhrin2021" role="doc-biblioref">2021</a>)</span>.</figcaption>
+</figure>
+</div>
+<p>Alphafold can be explained as a pipeline with three interconected tasks (see picture below). First, in contrast to Alphafold v.1, the input to Alphafold is a “raw” MSA, i.e., the deep learning network extracts the co-evolutionary information directly from the MSA. It queries several databases of protein sequences and constructs an MSA that is used to select templates. This can be a limiting step, affecting the speed of modeling (see below), but it can be also related to model accuracy, as has been recently shown in CASP15 <span class="citation" data-cites="lee peng2023">(<a href="#ref-lee" role="doc-biblioref">Lee et al., n.d.</a>; <a href="#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>.</p>
+<p>In the second part of the diagram, AlphaFold takes the multiple sequence alignment and the templates, and processes them in a <em>transformer</em>. This process has been referred by some authors as inter-residue interaction map-threading <span class="citation" data-cites="bhattacharya2021">(<a href="#ref-bhattacharya2021" role="doc-biblioref">Bhattacharya et al. 2021</a>)</span>. The objective of this part is to extract layers of information to generate residue interaction maps. A better model of the MSA will improve the network’s characterization of the geometry, which simultaneously will help refine the model of the MSA. Importantly, in the AF2 Evoformer, this process is iterative and the information goes back and forth throughout the network. At every recycling step, the complexity of the map increases and thus, the model improves (the original model uses 3 cycles). As explained in the great <a href="https://www.blopig.com/blog/2021/07/alphafold-2-is-here-whats-behind-the-structure-prediction-miracle/">post</a> from Carlos Outerial at the OPIG site:</p>
+<blockquote class="blockquote">
+<p><em>This is easier to understand as an example. Suppose that you look at the multiple sequence alignment and notice a correlation between a pair of amino acids. Let’s call them A and B. You hypothesize that A and B are close, and translate this assumption into your model of the structure. Subsequently, you examine said model and observe that, since A and B are close, there is a good chance that C and D should be close. This leads to another hypothesis, based on the structure, which can be confirmed by searching for correlations between C and D in the MSA. By repeating this several times, you can build a pretty good understanding of the structure.</em></p>
+</blockquote>
+<p>The third part of the pipeline is the structure building module, which uses the information from the previous steps to construct a 3D model structure protein of the query sequence. This network will give you a single model, without any energy optimization step. Model building is based in a new concept of 3D structures generation, named <strong>IPA</strong> (Invariant Point Attention) and the use of a curated list of parametrised list of torsion angles to generate the side chains. Earlier attempts to develop and end-to-end method were unsuccessful because the structure representation was not optimal. Even methods implemented after AlphaFold, like RoseTTAFold, use less efficient methods and often predict very quickly and accurately the backbone coordinates but require external programs to generate an all-atoms model</p>
+<div id="fig-af2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/alphafols2.png" title="Alphafold2" class="figure img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: Oxford Proteins Informatics Group Blog, modified from <span class="citation" data-cites="jumper2021">Jumper et al. (<a href="#ref-jumper2021" role="doc-biblioref">2021</a>)</span></figcaption>
+</figure>
+</div>
+<p>Like for most of the previous methods Alphafold would give your better results with proteins with related structures known and with a lot of homologs in Uniref databases. However, comparing to nothing, it will likely give you (limited) useful results for the so-called “dark genome”. I work with phages and bacterial mobile elements, and sequencing that is often frustrating as more than 50% of the proteins have no homologous in the database. So you have a bunch of proteins of unknown function… However, as we do know that structure is more conserved than sequence, we may use the structure to find out the function of our dark proteins. There are a few resources for this, I’d suggest you to try <a href="https://search.foldseek.com/search">FoldSeek</a> <span class="citation" data-cites="kempen">(<a href="#ref-kempen" role="doc-biblioref">Kempen et al., n.d.</a>)</span> and <a href="http://ekhidna2.biocenter.helsinki.fi/dali/">Dali</a> <span class="citation" data-cites="holm2022">(<a href="#ref-holm2022" role="doc-biblioref">Holm 2022</a>)</span> servers. You can upload the PDB file of your model and search for related structures in RCSB PDB database and also in Alphafold database.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>FoldSeek</em> needs only a few seconds/minutes and is therefore faster than <em>Dali</em>. Therefore, it is better to use Dali for some selected searches that require a double check or a more reliable result, even if it may take a few days.</p>
+</div>
+</div>
+<p>As mentioned above, Colabfold aims to make the process faster by using MMSeqs in the first block. Additionally, the number of recycling steps can also be adapted. Moreover, different Colabfold notebooks have been developed (and evolved) to allow some customization and other feature, like batch processing of multiple proteins avoiding recompilation and identification of protein-protein interactions <span class="citation" data-cites="mirdita2022">(<a href="#ref-mirdita2022" role="doc-biblioref">Mirdita et al. 2022</a>)</span>.</p>
+<p>Alphafold models can be evaluated by the mean <strong>pLDDT</strong>, a per-residue confidence metric. It is stored in the B-factor fields of the mmCIF and PDB files available for download (although unlike a B-factor, higher pLDDT is better). The model confidence can vary greatly along a chain so it is important to consult the confidence when interpreting structural features. Very often, the lower confidence fragments are not product of a poor prediction but an indicator of protein disorder <span class="citation" data-cites="wilson2022">(<a href="#ref-wilson2022" role="doc-biblioref">Wilson, Choy, and Karttunen 2022</a>)</span>.</p>
+<p>Alphafold also partnered with EMBL-EBI and Uniprot and generated a huge curated database of proteins from model organisms <span class="citation" data-cites="varadi2022">(<a href="#ref-varadi2022" role="doc-biblioref">Varadi et al. 2022</a>)</span>, the <a href="https://alphafold.ebi.ac.uk/">Alphafold database</a>. This is an amazing resource that may be also very helpful for you. Just consider that this database increased from 48% to 76% the fraction of human proteome with structural data, and also it also means great increases in the case of other model organisms, like, including microorganisms and plants <span class="citation" data-cites="portapardo2022">(<a href="#ref-portapardo2022" role="doc-biblioref">Porta-Pardo et al. 2022</a>)</span>.</p>
+<div id="fig-afDDBB" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/journal.png" title="Changes in protein structural coverage in model organisms." class="figure img-fluid figure-img" width="433"></p>
+<figcaption class="figure-caption">Figure&nbsp;7: Changes in protein structural coverage in model organisms (From <span class="citation" data-cites="portapardo2022">Porta-Pardo et al. (<a href="#ref-portapardo2022" role="doc-biblioref">2022</a>)</span>).</figcaption>
+</figure>
+</div>
+</section>
+<section id="wanna-try-alphafold" class="level2">
+<h2 class="anchored" data-anchor-id="wanna-try-alphafold"><span style="color:green">Wanna try Alphafold?</span></h2>
+<p><em>Section under construction!</em></p>
+<p>As mentioned above, the grand breakthrough of Alphafold would not have been the same without the Colabfold, a free open tool that made the state-of-the-art of AI-fueled protein prediction available to everyone.</p>
+<div id="fig-colabfold" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><a href="https://github.com/sokrypton/ColabFold"><img src="pics/qrcode.png" title="ColabFold" class="img-fluid figure-img" width="441"></a></p>
+<figcaption class="figure-caption">Figure&nbsp;8: ColabFold GitHub repository</figcaption>
+</figure>
+</div>
+<p>The <a href="https://github.com/sokrypton/ColabFold">Colabfold</a> repository on GitHub contains links to several Python notebooks developed on <a href="https://colab.research.google.com/">Google Colab</a>, a platform to develop and share Python scripts on a Jupyter Notebook format. Notebooks are very important also for reproducibility in computer sciences, as they allow you to have the background and details and the actual code in a single document and also execute it. You can share those notebooks very easily and also update quickly as they are stored in your Google Drive.</p>
+<p>Colabfold allow you to run notebooks of Alphafold, RoseTTAfold, and ESMFold for specific applications, allowing even to run a bunch of proteins in batch. You can see a more detailed description in <span class="citation" data-cites="mirdita2022">Mirdita et al. (<a href="#ref-mirdita2022" role="doc-biblioref">2022</a>)</span>. We are using the <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb">Alphafold2_mmseqs2</a> notebook, that allow you most of the common features. You need to allow Colab to use your Google account.</p>
+<div id="fig-colabfold2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/colab1.jpg" title="Input sequence" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;9: Introducing your sequence in Colabfold</figcaption>
+</figure>
+</div>
+<p>Then paste your sequence and chose a name. For more accurate models you can click “use_amber” option. It will run a short <a href="https://en.wikipedia.org/wiki/Molecular_dynamics"><em>Molecular Dynamics</em></a> protocol that ultimately optimize the modeling, but it will also take some more time, so better try at home.</p>
+<p>As you can see, an this is a recent feature, you can also add your own template, which combines the classical “homology modeling” based upon a single template with the advanced AlphaFold model construction method. That will safe time, but of course without any guarantee. If you have a template of a related protein, like an alternative splicing or a disease mutant, I’d advise you to try with and without the template. You may surprise.</p>
+<div id="fig-colabfold3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/colab_execute.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;10: Executing Colabfold</figcaption>
+</figure>
+</div>
+<p>At this point, you may execute the whole pipeline or may some more customization. MSA stage can be also optimized to reduce execution time, by reducing database or even by providing your own MSA. Very often you may want to fold a protein with different parameters, particularly in the <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/AlphaFold2_advanced.ipynb#scrollTo=rowN0bVYLe9n">Advanced Colabfold</a>, which may very convenient to reuse an MSA from a previous run (although they recently updated servers for MMSeqs and made it really faster). If your proteins are in the same operon or by any other reason you think that they should have co-evolved, you prefer a “paired” alignment. But you can always do both.</p>
+<p>Advanced settings are specially needed for protein-protein complexes. Also the number of recycling steps will improve your model, particularly for targets with no MSA info from used databases. Then you can just get your model (and companion info and plots) in your GDrive or download it.</p>
+<p><span style="color:green"><strong>What do you think is the ideal protein for AlphaFold? Do you think homology modeling is dead?</strong></span></p>
+</section>
+<section id="now-what-the-post-alphafold-era" class="level2">
+<h2 class="anchored" data-anchor-id="now-what-the-post-alphafold-era">Now what? The Post-AlphaFold era</h2>
+<p>As mentioned earlier, RoseTTAFold was released at the same time as AlphaFold’s paper and code, although it is clearly inspired by AlphaFold’s capabilities in CASP14. It is based on a three-track network, and recent implementations have allowed prediction of protein interactions with nucleic acids. Other methods such as AlphaFold and RoseTTAFold were released later, as were <a href="https://openfold.io/">OpenFold</a> and <a href="https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb">UniFold</a>, which are based on the PyTorch Transformers AI framework.</p>
+<p>The use of MSA has been cited as a limitation for AlphaFold and related methods. However, the predictions are significantly worse without MSA or with MSAs without depth. One way to improve predictions is to use a protein natural language model (PLN), i.e., a model trained to predict sequence from sequence and not dependent on good MSAs. <a href="https://github.com/HeliXonProtein/OmegaFold">Omegafold</a> and <a href="https://esmatlas.com/resources?action=fold">ESMfold</a> (also in Colabfold, <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/omegafold.ipynb">here</a> and <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/ESMFold.ipynb">here</a>, respectively) are two new implementations that require only a single sequence. They are quite fast and perform better than AlphaFold when using a single sequence. However, since PLN is trained on existing sequences, these methods still perform significantly worse on orphan sequences. That is, the language models seem to just remember the training MSAs <span class="citation" data-cites="elofsson2023">Elofsson (<a href="#ref-elofsson2023" role="doc-biblioref">2023</a>)</span>.</p>
+<p>The appearance of ESMfold and the companion <a href="https://esmatlas.com/">Metagenomic Atlas</a> <span class="citation" data-cites="lin2023">Lin et al. (<a href="#ref-lin2023" role="doc-biblioref">2023</a>)</span> was seen as a new step that could trigger a new revolution in the field, since it was developed by scientists at META <span class="citation" data-cites="callaway2022">Callaway (<a href="#ref-callaway2022" role="doc-biblioref">2022</a>)</span>. So it was now a sort of Google versus Facebook battle for the most powerful AI methods for protein modeling. Last summer, however, we learned that META had decided to discontinue the ESM project.</p>
+<p></p><div id="tweet-49378"></div><script>tweet={"url":"https:\/\/twitter.com\/KevinKaichuang\/status\/1689071501998260224","author_name":"Kevin K. Yang 楊凱筌","author_url":"https:\/\/twitter.com\/KevinKaichuang","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESad news as meta lays off their protein machine learning team. For a while, it was a valuable combination of scientific curiosity, openness, and industrial-scale engineering. \u003Ca href=\"https:\/\/t.co\/y9LY6XCBGh\"\u003Ehttps:\/\/t.co\/y9LY6XCBGh\u003C\/a\u003E\u003C\/p\u003E&mdash; Kevin K. Yang 楊凱筌 (@KevinKaichuang) \u003Ca href=\"https:\/\/twitter.com\/KevinKaichuang\/status\/1689071501998260224?ref_src=twsrc%5Etfw\"\u003EAugust 9, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-49378").innerHTML = tweet["html"];</script><p></p>
+<p>AlphaFold was again the protagonist of CASP15, which took place in 2020, but it did not overwhelm the rest like in 2018.</p>
+<p></p><div id="tweet-32173"></div><script>tweet={"url":"https:\/\/twitter.com\/sokrypton\/status\/1601596893355642882","author_name":"Sergey Ovchinnikov \uD83C\uDDFA\uD83C\uDDE6","author_url":"https:\/\/twitter.com\/sokrypton","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESome exciting results from CASP15! (1\/6) \u003Ca href=\"https:\/\/t.co\/qx8QSJPU4J\"\u003Ehttps:\/\/t.co\/qx8QSJPU4J\u003C\/a\u003E\u003C\/p\u003E&mdash; Sergey Ovchinnikov \uD83C\uDDFA\uD83C\uDDE6 (@sokrypton) \u003Ca href=\"https:\/\/twitter.com\/sokrypton\/status\/1601596893355642882?ref_src=twsrc%5Etfw\"\u003EDecember 10, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-32173").innerHTML = tweet["html"];</script><p></p>
+<p>AlphaFold was used in some form in more than half of the protocols, and while the standard AlphaFold method performed better than many other methods, several groups achieved significant improvements for monomeric proteins and protein assemblies. In short, we learned at CASP15 that there are two main ways to improve AlphaFold: (1) more efficient use of templates, increasing the size of the database or sampling through more efficient MSAs, or (2) hacking AlphaFold to use dropouts to generate thousands of models for each target, which increases computational time but also increases the chances of better models. Other small improvements have been proposed, such as using improved template search or new scoring capabilities based on Voronoi surfaces or Deep Learning <span class="citation" data-cites="elofsson2023">Elofsson (<a href="#ref-elofsson2023" role="doc-biblioref">2023</a>)</span>.</p>
+<section id="short-summary-in-one-iconify-fa6-brands-x-twitter-wire" class="level3">
+<h3 class="anchored" data-anchor-id="short-summary-in-one-iconify-fa6-brands-x-twitter-wire">2021-2023 - Short summary in one <iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon> wire</h3>
+<p></p><div id="tweet-87254"></div><script>tweet={"url":"https:\/\/twitter.com\/simocristea\/status\/1626304239931912192","author_name":"Simona Cristea","author_url":"https:\/\/twitter.com\/simocristea","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThe incredible field of protein structure prediction has come a long way since AlphaFold&#39;s breakthrough in 2021.\u003Cbr\u003E\u003Cbr\u003ENow in 2023, \u003Ca href=\"https:\/\/twitter.com\/naturemethods?ref_src=twsrc%5Etfw\"\u003E@naturemethods\u003C\/a\u003E has written an editorial highlighting how the field has evolved.\u003Cbr\u003E\u003Cbr\u003EHere&#39;s a compilation of these \u003Ca href=\"https:\/\/twitter.com\/hashtag\/DeepLearning?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#DeepLearning\u003C\/a\u003E protein resources\uD83D\uDC47 \u003Ca href=\"https:\/\/t.co\/szWhgFc3z2\"\u003Epic.twitter.com\/szWhgFc3z2\u003C\/a\u003E\u003C\/p\u003E&mdash; Simona Cristea (@simocristea) \u003Ca href=\"https:\/\/twitter.com\/simocristea\/status\/1626304239931912192?ref_src=twsrc%5Etfw\"\u003EFebruary 16, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-87254").innerHTML = tweet["html"];</script><p></p>
+</section>
+</section>
+<section id="corollary-did-deepmind-fold-levinthals-paradox" class="level2">
+<h2 class="anchored" data-anchor-id="corollary-did-deepmind-fold-levinthals-paradox">Corollary: Did Deepmind “fold” Levinthal’s paradox?</h2>
+<p>The development of Alphafold and the <a href="https://alphafold.ebi.ac.uk/">Alphafold structures Database</a> in collaboration with <a href="https://www.ebi.ac.uk/about">EMBL-EBI</a> was been the origin of a New Era. Moreover, in a further turn, the <a href="https://esmatlas.com/">Metagenomic Atlas</a> by Meta AI uncovers virtually the whole protein space. Scientific publications and journals worldwide published long articles about the meaning of this breakthrough in science and its applications in biotechnology and biomedicine<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and DeepMind claimed to have <a href="https://www.deepmind.com/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology">Solved a 50-years Grand Challenge in biochemistry</a>. The coverage of the protein structure space has been greatly increased <span class="citation" data-cites="portapardo2022">(<a href="#ref-portapardo2022" role="doc-biblioref">Porta-Pardo et al. 2022</a>)</span>.</p>
+<p>However, some scientists have claimed that Alphafold2 and RoseTTAfold actually “cheat” a bit as it does not really solve the problem but generate a deep learning pipeline that “bypass” the problem <span class="citation" data-cites="pederson2021">(<a href="#ref-pederson2021" role="doc-biblioref">Pederson 2021</a>)</span>. In agreement with that, it has been shown that machine learning methods actually do not reproduce the expected folding pathways while improving the structures during the recycling steps <span class="citation" data-cites="outeiral">Outeiral, Nissley, and Deane (<a href="#ref-outeiral" role="doc-biblioref">n.d.</a>)</span>.</p>
+<p>In other words, would it no longer be necessary to conduct X-ray crystallography or Nuclear Magnetic Resonance after AlphaFold? First, AlphaFold models can be used in electron density maps and help to solve complex cases. Thus, framework helps crystallographers to concentrate their work on the most unresolved and challenging structures, e.g., coiled—coils inducing modulations and challenges in crystallographic method development.</p>
+<p>In conclusion, I do believe that Levinthal’s paradox has not been (yet) fully solved, although it seems to be close <span class="citation" data-cites="aljanabi2022">(<a href="#ref-aljanabi2022" role="doc-biblioref">Al-Janabi 2022</a>)</span>. In <em>practical terms</em> it is solved for most of the protein space, but if your protein has no homologous in databases, you still will have some open questions.</p>
+</section>
+</section>
+<section id="quizz" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <span style="color:green">Review Quizz</span></h1>
+<strong>AlphaFold and RoseTTAFold are two programs that have been designed to?</strong>
+<div id="radio_CUPRGTXTLT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CUPRGTXTLT" value=""> <span>Predict how proteins fold (The protein folding problem)</span></label><label><input type="radio" autocomplete="off" name="radio_CUPRGTXTLT" value=""> <span>Predict putative binding sites on proteins (for drug design) </span></label><label><input type="radio" autocomplete="off" name="radio_CUPRGTXTLT" value="answer"> <span>Predict the native structure of a protein (The protein structure prediction problem)</span></label><label><input type="radio" autocomplete="off" name="radio_CUPRGTXTLT" value=""> <span>Predict if two proteins interact, and, if they do, the structure of the complex</span></label>
+</div>
+<strong>Which of these statements related to AlphaFold is most likely to be incorrect?</strong>
+<div id="radio_CSKIPZXQVG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CSKIPZXQVG" value=""> <span>AlphaFold needs information from large databases of protein sequences and structures</span></label><label><input type="radio" autocomplete="off" name="radio_CSKIPZXQVG" value="answer"> <span>AlphaFold performs <em>best</em> on multimeric proteins</span></label><label><input type="radio" autocomplete="off" name="radio_CSKIPZXQVG" value=""> <span>AlphaFold is likely to perform poorly on a protein that has a very small number of homologs</span></label><label><input type="radio" autocomplete="off" name="radio_CSKIPZXQVG" value=""> <span>AlphaFold does not predict the structures of RNA</span></label>
+</div>
+<strong>Protein sequence co-evolution gives information on</strong>
+<div id="radio_GCOJYHEQRV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GCOJYHEQRV" value=""> <span>The conformations of sidechains in a protein</span></label><label><input type="radio" autocomplete="off" name="radio_GCOJYHEQRV" value=""> <span>The presence of tryptophanes in a protein</span></label><label><input type="radio" autocomplete="off" name="radio_GCOJYHEQRV" value=""> <span>The stability of a protein</span></label><label><input type="radio" autocomplete="off" name="radio_GCOJYHEQRV" value="answer"> <span>3D contacts between residues in a protein</span></label>
+</div>
+<strong>Your target sequence is 90% identical to a template structure. You… </strong>
+<div id="radio_GZFXRYSQIW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GZFXRYSQIW" value=""> <span>Use SwissModel or Modeller, because AlphaFold cannot outperform homology modeling with that high sequence similarity</span></label><label><input type="radio" autocomplete="off" name="radio_GZFXRYSQIW" value="answer"> <span>Use Alphafold because the model generation is better</span></label><label><input type="radio" autocomplete="off" name="radio_GZFXRYSQIW" value=""> <span>Use Alphafold only if the proteins are orphans</span></label><label><input type="radio" autocomplete="off" name="radio_GZFXRYSQIW" value=""> <span>Use I-Tasser</span></label>
+</div>
+<strong>Two protein sequences differ by a single amino acid. You use AlphaFold to predict the structures of those sequences and find two structure models that are basically identical. You… </strong>
+<div id="radio_TIWGGOEXJA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TIWGGOEXJA" value=""> <span>Trust those results as this is exactly what you expected</span></label><label><input type="radio" autocomplete="off" name="radio_TIWGGOEXJA" value="answer"> <span>Do not fully trust those results in high detail as single mutations are known to often alter the structure of a protein</span></label><label><input type="radio" autocomplete="off" name="radio_TIWGGOEXJA" value=""> <span>Trust those results as AlphaFold has solved the protein structure prediction problem</span></label><label><input type="radio" autocomplete="off" name="radio_TIWGGOEXJA" value=""> <span>Do not trust those results at all as AlphaFold has not solved the protein structure prediction problem</span></label>
+</div>
+<strong>Which of the following statements is incorrect?</strong>
+<div id="radio_CEMAZULVZN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CEMAZULVZN" value=""> <span>AlphaFold relies heavily on multiple sequence alignment</span></label><label><input type="radio" autocomplete="off" name="radio_CEMAZULVZN" value=""> <span>AlphaFold is an end-to-end modelling software, i.e., it predicts the full conformation of a protein, including the conformations of its sidechains</span></label><label><input type="radio" autocomplete="off" name="radio_CEMAZULVZN" value="answer"> <span>Last version of AlphaFold does not rely on MSAs</span></label><label><input type="radio" autocomplete="off" name="radio_CEMAZULVZN" value=""> <span>AlphaFold does not consider information about ions or ligands when reading a file defining the structure of a protein</span></label>
+</div>
+<strong>To assess the quality of a protein structure prediction, we compute either the RMSD or the TM score between the model and the actual experimental structure of the protein. What can you say about those scores? </strong>
+<div id="radio_ILQBMJVBKP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ILQBMJVBKP" value=""> <span>The higher the RMSD, the better the prediction</span></label><label><input type="radio" autocomplete="off" name="radio_ILQBMJVBKP" value="answer"> <span>The higher the TM score, the better the prediction</span></label><label><input type="radio" autocomplete="off" name="radio_ILQBMJVBKP" value=""> <span>A reasonable value for a good TM score is 10 </span></label>
+</div>
+<strong>To assess the quality of AlphaFold models, it provides the pLDDT score and the PAE. What can you say about those scores? </strong>
+<div id="radio_VSYIGVERYE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VSYIGVERYE" value=""> <span>The PAE is used to color the model and it is stored in the PDB file</span></label><label><input type="radio" autocomplete="off" name="radio_VSYIGVERYE" value="answer"> <span>The PAE assess confidence in the domain packing and domain topology of the protein</span></label><label><input type="radio" autocomplete="off" name="radio_VSYIGVERYE" value=""> <span>Regions with low pLDDT are expected to be modelled to high accuracy</span></label>
+</div>
+</section>
+<section id="links" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Useful links</h1>
+<ul>
+<li><p>Introductory article to Neural Networks at the IBM site: <a href="https://www.ibm.com/cloud/learn/neural-networks" class="uri">https://www.ibm.com/cloud/learn/neural-networks</a></p></li>
+<li><p>ColabFold Tutorial presented presented by Sergey Ovchinnikov and Martin Steineggerat the Boston Protein Design and Modeling Club (6 ago 2021). <a href="https://www.youtube.com/watch?v=Rfw7thgGTwI">[video]</a> <a href="https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI">[slides]</a>.</p></li>
+<li><p>Post about Alphafold2 in the Oxford Protein Informatics Group site: <a href="https://www.blopig.com/blog/2021/07/alphafold-2-is-here-whats-behind-the-structure-prediction-miracle/" class="uri">https://www.blopig.com/blog/2021/07/alphafold-2-is-here-whats-behind-the-structure-prediction-miracle/</a></p></li>
+<li><p>A very good digest article about the AlphaFold2 paper: <a href="https://moalquraishi.wordpress.com/2021/07/25/the-alphafold2-method-paper-a-fount-of-good-ideas/" class="uri">https://moalquraishi.wordpress.com/2021/07/25/the-alphafold2-method-paper-a-fount-of-good-ideas/</a></p></li>
+<li><p>Post on the AlphaFold revolution meaning in biomedicine at the the UK Institute for Cancer Research website: <a href="https://www.icr.ac.uk/blogs/the-drug-discoverer/page-details/reflecting-on-deepmind-s-alphafold-artificial-intelligence-success-what-s-the-real-significance-for-protein-folding-research-and-drug-discovery" class="uri">https://www.icr.ac.uk/blogs/the-drug-discoverer/page-details/reflecting-on-deepmind-s-alphafold-artificial-intelligence-success-what-s-the-real-significance-for-protein-folding-research-and-drug-discovery</a></p></li>
+<li><p>A post that explain how AlphaFold and related methods can be used to create new structures: <a href="https://theconversation.com/when-researchers-dont-have-the-proteins-they-need-they-can-get-ai-to-hallucinate-new-structures-173209" class="uri">https://theconversation.com/when-researchers-dont-have-the-proteins-they-need-they-can-get-ai-to-hallucinate-new-structures-173209</a></p></li>
+</ul>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-aljanabi2022" class="csl-entry" role="listitem">
+Al-Janabi, Aisha. 2022. <span>“Has DeepMind’s AlphaFold Solved the Protein Folding Problem?”</span> <em>BioTechniques</em> 72 (3): 73–76. <a href="https://doi.org/10.2144/btn-2022-0007">https://doi.org/10.2144/btn-2022-0007</a>.
+</div>
+<div id="ref-baek2021" class="csl-entry" role="listitem">
+Baek, Minkyung, Frank DiMaio, Ivan Anishchenko, Justas Dauparas, Sergey Ovchinnikov, Gyu Rie Lee, Jue Wang, et al. 2021. <span>“Accurate prediction of protein structures and interactions using a three-track neural network.”</span> <em>Science (New York, N.Y.)</em> 373 (6557): 871–76. <a href="https://doi.org/10.1126/science.abj8754">https://doi.org/10.1126/science.abj8754</a>.
+</div>
+<div id="ref-bhattacharya2021" class="csl-entry" role="listitem">
+Bhattacharya, Sutanu, Rahmatullah Roche, Md Hossain Shuvo, and Debswapna Bhattacharya. 2021. <span>“Recent Advances in Protein Homology Detection Propelled by Inter-Residue Interaction Map Threading.”</span> <em>Frontiers in Molecular Biosciences</em> 8: 643752. <a href="https://doi.org/10.3389/fmolb.2021.643752">https://doi.org/10.3389/fmolb.2021.643752</a>.
+</div>
+<div id="ref-callaway2022" class="csl-entry" role="listitem">
+Callaway, Ewen. 2022. <span>“AlphaFold<span>’</span>s New Rival? Meta AI Predicts Shape of 600 Million Proteins.”</span> <em>Nature</em> 611 (7935): 211–12. <a href="https://doi.org/10.1038/d41586-022-03539-1">https://doi.org/10.1038/d41586-022-03539-1</a>.
+</div>
+<div id="ref-elofsson2023" class="csl-entry" role="listitem">
+Elofsson, Arne. 2023. <span>“Progress at protein structure prediction, as seen in CASP15.”</span> <em>Current Opinion in Structural Biology</em> 80 (June): 102594. <a href="https://doi.org/10.1016/j.sbi.2023.102594">https://doi.org/10.1016/j.sbi.2023.102594</a>.
+</div>
+<div id="ref-evans2022" class="csl-entry" role="listitem">
+Evans, Richard, Michael O’Neill, Alexander Pritzel, Natasha Antropova, Andrew Senior, Tim Green, Augustin Žídek, et al. 2022. <span>“Protein Complex Prediction with AlphaFold-Multimer.”</span> <a href="https://www.biorxiv.org/content/10.1101/2021.10.04.463034v2">https://www.biorxiv.org/content/10.1101/2021.10.04.463034v2</a>.
+</div>
+<div id="ref-holm2022" class="csl-entry" role="listitem">
+Holm, Liisa. 2022. <span>“Dali Server: Structural Unification of Protein Families.”</span> <em>Nucleic Acids Research</em> 50 (W1): W210–15. <a href="https://doi.org/10.1093/nar/gkac387">https://doi.org/10.1093/nar/gkac387</a>.
+</div>
+<div id="ref-jumper2021" class="csl-entry" role="listitem">
+Jumper, John, Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov, Olaf Ronneberger, Kathryn Tunyasuvunakool, et al. 2021. <span>“Highly Accurate Protein Structure Prediction with AlphaFold.”</span> <em>Nature</em> 596 (7873): 583–89. <a href="https://doi.org/10.1038/s41586-021-03819-2">https://doi.org/10.1038/s41586-021-03819-2</a>.
+</div>
+<div id="ref-kempen" class="csl-entry" role="listitem">
+Kempen, Michel van, Stephanie S. Kim, Charlotte Tumescheit, Milot Mirdita, Cameron L. M. Gilchrist, Johannes Söding, and Martin Steinegger. n.d. <span>“Foldseek: Fast and Accurate Protein Structure Search.”</span> <a href="https://doi.org/10.1101/2022.02.07.479398">https://doi.org/10.1101/2022.02.07.479398</a>.
+</div>
+<div id="ref-lee" class="csl-entry" role="listitem">
+Lee, Sewon, Gyuri Kim, Eli Levy Karin, Milot Mirdita, Sukhwan Park, Rayan Chikhi, Artem Babaian, Andriy Kryshtafovych, and Martin Steinegger. n.d. <span>“Petascale Homology Search for Structure Prediction.”</span> <a href="https://doi.org/10.1101/2023.07.10.548308">https://doi.org/10.1101/2023.07.10.548308</a>.
+</div>
+<div id="ref-lin2023" class="csl-entry" role="listitem">
+Lin, Zeming, Halil Akin, Roshan Rao, Brian Hie, Zhongkai Zhu, Wenting Lu, Nikita Smetanin, et al. 2023. <span>“Evolutionary-Scale Prediction of Atomic-Level Protein Structure with a Language Model.”</span> <em>Science</em> 379 (6637): 1123–30. <a href="https://doi.org/10.1126/science.ade2574">https://doi.org/10.1126/science.ade2574</a>.
+</div>
+<div id="ref-mirdita2022" class="csl-entry" role="listitem">
+Mirdita, Milot, Konstantin Schütze, Yoshitaka Moriwaki, Lim Heo, Sergey Ovchinnikov, and Martin Steinegger. 2022. <span>“ColabFold: making protein folding accessible to all.”</span> <em>Nature Methods</em> 19 (6): 679–82. <a href="https://doi.org/10.1038/s41592-022-01488-1">https://doi.org/10.1038/s41592-022-01488-1</a>.
+</div>
+<div id="ref-outeiral" class="csl-entry" role="listitem">
+Outeiral, Carlos, Daniel A. Nissley, and Charlotte M. Deane. n.d. <span>“Current Protein Structure Predictors Do Not Produce Meaningful Folding Pathways.”</span> <a href="https://doi.org/10.1101/2021.09.20.461137">https://doi.org/10.1101/2021.09.20.461137</a>.
+</div>
+<div id="ref-pakhrin2021" class="csl-entry" role="listitem">
+Pakhrin, Subash C., Bikash Shrestha, Badri Adhikari, and Dukka B. Kc. 2021. <span>“Deep Learning-Based Advances in Protein Structure Prediction.”</span> <em>International Journal of Molecular Sciences</em> 22 (11): 5553. <a href="https://doi.org/10.3390/ijms22115553">https://doi.org/10.3390/ijms22115553</a>.
+</div>
+<div id="ref-pederson2021" class="csl-entry" role="listitem">
+Pederson, Thoru. 2021. <span>“Protein Structure: Has Levinthal’s Paradox <span>“</span>Folded<span>”</span>?”</span> <em>The FASEB Journal</em> 35 (3): e21416. <a href="https://doi.org/10.1096/fj.202100136">https://doi.org/10.1096/fj.202100136</a>.
+</div>
+<div id="ref-peng2023" class="csl-entry" role="listitem">
+Peng, Zhenling, Wenkai Wang, Hong Wei, Xiaoge Li, and Jianyi Yang. 2023. <span>“Improved protein structure prediction with trRosettaX2, AlphaFold2, and optimized MSAs in CASP15.”</span> <em>Proteins</em>, August. <a href="https://doi.org/10.1002/prot.26570">https://doi.org/10.1002/prot.26570</a>.
+</div>
+<div id="ref-portapardo2022" class="csl-entry" role="listitem">
+Porta-Pardo, Eduard, Victoria Ruiz-Serra, Samuel Valentini, and Alfonso Valencia. 2022. <span>“The Structural Coverage of the Human Proteome Before and After AlphaFold.”</span> <em>PLOS Computational Biology</em> 18 (1): e1009818. <a href="https://doi.org/10.1371/journal.pcbi.1009818">https://doi.org/10.1371/journal.pcbi.1009818</a>.
+</div>
+<div id="ref-senior2020" class="csl-entry" role="listitem">
+Senior, Andrew W., Richard Evans, John Jumper, James Kirkpatrick, Laurent Sifre, Tim Green, Chongli Qin, et al. 2020. <span>“Improved protein structure prediction using potentials from deep learning.”</span> <em>Nature</em> 577 (7792): 706–10. <a href="https://doi.org/10.1038/s41586-019-1923-7">https://doi.org/10.1038/s41586-019-1923-7</a>.
+</div>
+<div id="ref-varadi2022" class="csl-entry" role="listitem">
+Varadi, Mihaly, Stephen Anyango, Mandar Deshpande, Sreenath Nair, Cindy Natassia, Galabina Yordanova, David Yuan, et al. 2022. <span>“AlphaFold Protein Structure Database: Massively Expanding the Structural Coverage of Protein-Sequence Space with High-Accuracy Models.”</span> <em>Nucleic Acids Research</em> 50 (D1): D439–44. <a href="https://doi.org/10.1093/nar/gkab1061">https://doi.org/10.1093/nar/gkab1061</a>.
+</div>
+<div id="ref-wilson2022" class="csl-entry" role="listitem">
+Wilson, Carter J., Wing-Yiu Choy, and Mikko Karttunen. 2022. <span>“AlphaFold2: A Role for Disordered Protein/Region Prediction?”</span> <em>International Journal of Molecular Sciences</em> 23 (9): 4591. <a href="https://doi.org/10.3390/ijms23094591">https://doi.org/10.3390/ijms23094591</a>.
+</div>
+<div id="ref-yang2020" class="csl-entry" role="listitem">
+Yang, Jianyi, Ivan Anishchenko, Hahnbeom Park, Zhenling Peng, Sergey Ovchinnikov, and David Baker. 2020. <span>“Improved Protein Structure Prediction Using Predicted Interresidue Orientations.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (3): 1496–1503. <a href="https://doi.org/10.1073/pnas.1914677117">https://doi.org/10.1073/pnas.1914677117</a>.
+</div>
+<div id="ref-yu2023" class="csl-entry" role="listitem">
+Yu, Dingquan, Grzegorz Chojnowski, Maria Rosenthal, and Jan Kosinski. 2023. <span>“AlphaPulldown<span></span>a Python Package for Protein<span></span>protein Interaction Screens Using AlphaFold-Multimer.”</span> <em>Bioinformatics</em> 39 (1): btac749. <a href="https://doi.org/10.1093/bioinformatics/btac749">https://doi.org/10.1093/bioinformatics/btac749</a>.
+</div>
+<div id="ref-zheng2021" class="csl-entry" role="listitem">
+Zheng, Wei, Chengxin Zhang, Yang Li, Robin Pearce, Eric W. Bell, and Yang Zhang. 2021. <span>“Folding non-homologous proteins by coupling deep-learning contact maps with I-TASSER assembly simulations.”</span> <em>Cell Reports Methods</em> 1 (3): 100014. <a href="https://doi.org/10.1016/j.crmeth.2021.100014">https://doi.org/10.1016/j.crmeth.2021.100014</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See https://www.wired.com/story/without-code-for-deepminds-protein-ai-this-lab-wrote-its-own/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://www.bbc.com/news/science-environment-57929095</p>
+<p>https://www.forbes.com/sites/robtoews/2021/10/03/alphafold-is-the-most-important-achievement-in-ai-ever/</p>
+<p>https://elpais.com/ciencia/2021-07-22/la-forma-de-los-ladrillos-basicos-de-la-vida-abre-una-nueva-era-en-la-ciencia.html<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./advanced.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Advanced homology modeling</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./links.html" class="pagination-link">
+        <span class="nav-page-text">Modeling Resources</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by-nc/2.0/">
+      <i class="bi bi-badge-cc-fill" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+</body></html>

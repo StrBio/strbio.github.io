@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-08-21">
+
+<title>Structural Bioinformatics 2023-24 - Protein Databases</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./pdb.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="include/webex.css">
+<meta name="twitter:title" content="Structural Bioinformatics 2023-24 - Protein Databases">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="pics/rmsd.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein Databases</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Structural Bioinformatics 2023-24</a> 
+        <div class="sidebar-tools-main">
+    <a href="mailto:modesto.redrejo@uam.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-paper"></i></a>
+    <a href="https://github.com/StrBio/strbio.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">StrBio 2023-24</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ddbb.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Protein Databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Structures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homology Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced homology modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">State-of-the-art protein modeling (in 2022)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modeling Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-alignment" id="toc-sec-alignment" class="nav-link active" data-scroll-target="#sec-alignment"><span class="header-section-number">1</span> Structure comparison and alignment</a></li>
+  <li><a href="#major-protein-databases" id="toc-major-protein-databases" class="nav-link" data-scroll-target="#major-protein-databases"><span class="header-section-number">2</span> Major protein databases</a>
+  <ul class="collapse">
+  <li><a href="#sequence-databases" id="toc-sequence-databases" class="nav-link" data-scroll-target="#sequence-databases">Sequence databases</a></li>
+  <li><a href="#strDDBB" id="toc-strDDBB" class="nav-link" data-scroll-target="#strDDBB">Structure databases</a></li>
+  <li><a href="#graphical-summary" id="toc-graphical-summary" class="nav-link" data-scroll-target="#graphical-summary">Graphical summary</a></li>
+  </ul></li>
+  <li><a href="#ddbbs-practice" id="toc-ddbbs-practice" class="nav-link" data-scroll-target="#ddbbs-practice"><span class="header-section-number">3</span> <span style="color:green"><strong>DDBBs Practice</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#classify-the-following-protein-structures-into-groups-and-subgroups" id="toc-classify-the-following-protein-structures-into-groups-and-subgroups" class="nav-link" data-scroll-target="#classify-the-following-protein-structures-into-groups-and-subgroups">Classify the following protein structures into “groups” and “subgroups”</a></li>
+  <li><a href="#answer-these-questions" id="toc-answer-these-questions" class="nav-link" data-scroll-target="#answer-these-questions">Answer these questions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Protein Databases</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 21, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 25, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="sec-alignment" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Structure comparison and alignment</h1>
+<p>As in the case of sequences, comparison and alignment of protein structures is a fundamental and widely used task in computational structure biology. The identification and statistical measure of the similarities between two or more structures allow their classification and infer functional and evolutionary relationships. Moreover, this process is essential during protein modeling, allowing to identify, assess, and select intermediate models.</p>
+<p>It is also important to clear up any possible confusion between alignment and superposition, as they are often interchanged in the literature. An structural alignment tries to identify similarities and differences between two structures, while structure superposition requires the previous knowledge of such equivalences. Thus, superposition tires to minimize the distance between already known equivalent structures by finding a transformation that produces either the lowest root-mean-square deviation (<a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions"><strong>RMSD</strong></a>) or the maximal equivalences within an RMSD cutoff. The RMSD can be calculated for any pair of molecules. Regarding proteins, we usually refer to the <em>RMSD of the alpha-carbons</em>. A better alignment will allow a better superposition. Thus, although alignment and superposition are two different processes, the RMSD can be used as an indication of both (the lowest RMSD, the best alignment/superposition).</p>
+<div id="fig-rmsd" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/rmsd.png" title="RMSD_example" class="figure img-fluid figure-img" width="500"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Structural alignment of three different AP endoncleases with the <u><em>cealign</em></u> algorithm implemented in Pymol. The RMSD and the number of aligned residues for each pair of structures is indicated.</figcaption>
+</figure>
+</div>
+</section>
+<section id="major-protein-databases" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Major protein databases</h1>
+<p>Classification of protein sequences allow to understand the diversity of different proteins by their sequence, i.e., the protein sequence space. However, classification of protein structures aim to group proteins based on their structural relationships. Some of these classification schemes explore the concept of structural neighbourhood (structural continuum), whereas other utilize the notion of protein evolution as a driving force of diversification and thus provide a discrete rather than continuum protein structure space <span class="citation" data-cites="andreeva2012">(<a href="#ref-andreeva2012" role="doc-biblioref">Andreeva 2012</a>)</span>.</p>
+<p>This section does not aim to comprehensively review all protein databases in detail. Indeed, you probably already know most of the databases we are discussing. We will clarify the main differences and applications of Pfam, Uniprot, Prosite, PDB, SCOP &amp; CATH. As usual, I encourage you to check out online in the references mentioned below for more detailed information.</p>
+<div id="fig-ddbb" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="pics/ddbb.png" title="Protein databases" class="figure img-fluid figure-img" width="383"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Major protein databases. Although most of these databases are around 30 years old (or more), since they were created (or renovated) during the last years of the 20th century or the early 21st.</figcaption>
+</figure>
+</div>
+<p>In bioinformatics, databases are often categorized as primary or secondary. <strong>Primary databases</strong> are populated with experimentally derived data such as nucleotide sequence, protein sequence or macromolecular structure. Importantly, once given a database accession number, the data in primary databases are never changed: they form part of the scientific record. By contrast, <strong>secondary databases</strong> comprise data derived from the results of analysing primary data. Secondary databases often draw upon information from numerous sources, including other databases and the scientific literature. They are highly curated, often using a complex combination of computational algorithms and/or manual analysis and interpretation to derive new knowledge from the public record of science.</p>
+<p>The main protein primary databases are NCBI Protein for protein sequenes and RCSB-PDB for protein structures. Uniprot (see below) also contains a primary sequence database, named TrEMBL. It also incorporated in 2002 PIR-PSD, joining the databases of the Protein information Resource, EMBL and SIB in a single (meta)database (see <a href="https://proteininformationresource.org/pirwww/dbinfo/pir_psd.shtml" class="uri">https://proteininformationresource.org/pirwww/dbinfo/pir_psd.shtml</a>). On the other hand, RCSB-PDB is the major structural primary database, whereas SCOP2 and CATH are secondary databases.</p>
+<section id="sequence-databases" class="level2">
+<h2 class="anchored" data-anchor-id="sequence-databases">Sequence databases</h2>
+<section id="uniprot" class="level3">
+<h3 class="anchored" data-anchor-id="uniprot">Uniprot</h3>
+<p>The <a href="https://www.uniprot.org/">Uniprot</a> databases are maintained by the Uniprot consortium, created in 2002 by <a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EMBL-EBI</a>, <a href="https://en.wikipedia.org/wiki/Swiss_Institute_of_Bioinformatics">SIB</a>, and <a href="https://en.wikipedia.org/wiki/Protein_Information_Resource">PIR</a>. Uniprot can be considered nowadays as a metadatabase as its entries contain information from diverse sources. It was created with two goals, constitute a non-redundant comprehensive protein sequence database and enrich that database with annotation of those proteins. Annotations include, but it is not limited to: protein and gene families, function and structure-function available data, interactions with other proteins or cofactor, localization, patterns of expression, variants… Thus, it aims to join the goals of both primary and secondary DDBBs.</p>
+<p>The central hub of Uniprot databases is <a href="https://www.uniprot.org/help/uniprotkb">Uniprot Knowledgebase</a>. It is a collection of functional information on proteins, with accurate, consistent, and rich annotation. The UniProtKB consists of two internal databases: a section containing manually-annotated records with information extracted from literature, community suggestions, and curator-evaluated computational analysis, and a section with computationally analyzed records. For the sake of continuity and name recognition, the two sections are referred to as “UniProtKB/Swiss-Prot” (reviewed, manually annotated) and “UniProtKB/TrEMBL” (unreviewed, automatically annotated), respectively.</p>
+<p>Besides cross-references to structural information, in the last years, UniprotKB has also incorporated structural data from <a href="https://alphafold.ebi.ac.uk/">Alphafold</a> database (created by DeepMind and EBI), <a href="ai.html">see “State-of-the-art protein modeling with Deep Learning-based methods” module</a>.</p>
+<p>Sequences with different detail of annotation can be found in two overlapping and complementary databases in Uniprot: <a href="https://www.uniprot.org/help/uniparc">Uniparc</a> and <a href="https://www.uniprot.org/help/uniref">Uniref</a>. Briefly, UniParc (UniProt Archive) is a comprehensive and non-redundant database that contains most of the publicly available protein sequences in the world. UniParc avoided redundancy by storing each unique sequence only once and giving it a stable and unique identifier (<strong>UPI</strong>) making it possible to identify the same protein from different source databases. A UPI is never removed, changed, or reassigned. On the other hand, UniRef (UniProt Reference Clusters) provide clustered sets of sequences from the UniprotKB (and selected UniParc records) in order to obtain complete coverage of the sequence space at several resolutions while hiding redundant sequences (but not their descriptions) from view. The UniRef100 database combines identical sequences into a single UniRef entry, displaying the sequence of a representative protein, the accession numbers of all the merged entries, and links to the corresponding. UniRef90 is built by clustering UniRef100 sequences using the MMseqs2 algorithm <span class="citation" data-cites="steinegger2018">(<a href="#ref-steinegger2018" role="doc-biblioref">Steinegger and Söding 2018</a>)</span> such that each cluster is composed of sequences that have at least 90% sequence identity and 80% overlap with the longest sequence (a.k.a. <a href="https://www.uniprot.org/help/uniref_seed"><strong>seed sequence</strong></a> ) of the cluster. Similarly, UniRef50 is built by clustering UniRef90 seed sequences that have at least 50% sequence identity to and 80% overlap with the longest sequence in the cluster. UniParc and Uniref contain only protein sequences. All other information about the protein must be retrieved from the source databases using the database cross-references.</p>
+</section>
+<section id="pfam" class="level3">
+<h3 class="anchored" data-anchor-id="pfam">Pfam</h3>
+<p>Pfam is a protein database that aims to classify sequences by their evolutionary relationships. It was founded in 1995 and it has been very useful for functional annotation of genomic data. Pfam’s website (<a href="http://pfam.xfam.org/" class="uri">http://pfam.xfam.org/</a>) was closed by the end of 2022. However, Pfam database was not discontinued, but integrated into the <strong>InterPro</strong> site (see the <a href="https://xfam.wordpress.com/2022/08/04/pfam-website-decommission/">Xfam Blog entry</a>).</p>
+<p>Pfam uses <a href="https://www.ebi.ac.uk/training/online/courses/protein-classification-intro-ebi-resources/what-are-protein-signatures/signature-types/what-are-hmms/">HMM</a> profiles (we will discuss HMMs in the <a href="./homology.html">Homology Modeling</a> module) to classify proteins into families, which are grouped into clans. Check out the EBI course about using Pfam: <a href="https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/" class="uri">https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/</a></p>
+<p>The current release (35.0) contains 19,632 entries (families and clans). Pfam was designed as a database that should be often updated in the fast-forward genomic era. To this aim, they use two alignment types. Each Pfam family has a seed alignment that contains a representative set of sequences for the entry. A profile hidden Markov model (HMM) is automatically built from the seed alignment and searched against a sequence database called <em>pfamseq</em> using the HMMER3 software (<a href="http://hmmer.org/" class="uri">http://hmmer.org/</a>). All sequence regions that satisfy a family-specific curated threshold, also known as the gathering threshold, are aligned to the profile HMM to create the full alignment <span class="citation" data-cites="mistry2020">(<a href="#ref-mistry2020" role="doc-biblioref">Mistry et al. 2020</a>)</span>.</p>
+<p>In addition to the HMM-based Pfam entries (<strong>Pfam-A</strong>), the Pfam profiles are used to provide a set of unannotated, computationally generated multiple sequence alignments called <strong>Pfam-B</strong>. However, in the last Pfam versions, the Pfam-B alignments are presently only released on the Pfam FTP site.</p>
+<p>Pfam has also been used in the creation of other resources such as <a href="https://rfam.org/">Rfam</a> (RNA families) and <a href="https://www.dfam.org/">Dfam</a> (transposable DNA elements).</p>
+</section>
+<section id="interpro" class="level3">
+<h3 class="anchored" data-anchor-id="interpro">InterPro</h3>
+<p><a href="https://www.ebi.ac.uk/interpro/">InterPro</a> aims to be a functional secondary database, by classifying proteins into families, domains, and important sites. To classify proteins in this way, InterPro uses predictive models, known as signatures, provided by several different databases (up to 13) that make up the InterPro consortium. InterPro combines those different signatures representing equivalent families, domains, or sites, and provides additional information such as descriptions, literature references, and Gene Ontology (GO) terms, to produce a comprehensive resource for protein classification (see <span class="citation" data-cites="blum2021">Blum et al. (<a href="#ref-blum2021" role="doc-biblioref">2021</a>)</span>).</p>
+<p>InterPro database is updated every 2 months and it is very useful for <strong>annotation</strong> of ORFans or divergent proteins. In the last years, it has integrated more resources, including Pfam, as well as structural data and predictions, giving rise to a very handy resource for multiple purposes in protein science <span class="citation" data-cites="paysan-lafosse2023">(<a href="#ref-paysan-lafosse2023" role="doc-biblioref">Paysan-Lafosse et al. 2023</a>)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Interpro was created as a sequence DDBB, but it is currently in between. I’d rather say that it is more a “meta-database” containing sequence and structure information.</strong></p>
+</div>
+</div>
+</section>
+</section>
+<section id="strDDBB" class="level2">
+<h2 class="anchored" data-anchor-id="strDDBB">Structure databases</h2>
+<section id="rcsb-pdb" class="level3">
+<h3 class="anchored" data-anchor-id="rcsb-pdb">RCSB-PDB</h3>
+<p>The Protein Data Bank (PDB, <a href="www.rcsb.org">www.rcsb.org</a>) database is the major macromolecule structural primary database <span class="citation" data-cites="burley2021">(<a href="#ref-burley2021" role="doc-biblioref">Burley et al. 2020</a>)</span>. It contains mostly protein structures, but also spans nucleic acids and nucleoprotein complexes. PDB turned 50 in 2021 and you can see a detailed overview of its <a href="https://www.rcsb.org/pages/about-us/history">history in the RCSB-PDB site.</a></p>
+<p>Briefly, the PDB was established in 1971 at Brookhaven National Laboratory with only 7 structures. Then, the <strong>Research Collaboratory for Structural Bioinformatics</strong> (RCSB), formed by Rutgers, UCSD/SDSC, and CARB/NIST, became responsible for the management of the PDB in 1998 in response to an RFP and a lengthy review process.&nbsp;In 2003, the Worldwide Protein Data Bank (<a href="http://wwpdb.org/">wwPDB</a>) was formed to maintain a single PDB archive of macromolecular structural data that is freely and publicly available to the global community. It consists of organizations that act as deposition, data processing and distribution centers for PDB data.</p>
+<p>PDB structures are largely obtained by X-ray crystallography, but it accepts derived from EM and RMN data since 1989 and 1991, respectively. Indeed, the BMRB (<a href="https://bmrb.io/">Biological Magnetic Resonance Bank</a>) has partnered with the PDB since 2006 and the EMBD (<a href="https://www.ebi.ac.uk/emdb/">Electron Microscopy Data Bank</a>) since 2021. Furthermore, <a href="https://www.rcsb.org/news/6304ee57707ecd4f63b3d3db">starting September 2022</a>, the PDB also contains computed models from the <a href="https://alphafold.ebi.ac.uk/">Alphafold database</a> (which we will discuss later in this course) and <a href="https://www.modelarchive.org/">RoseTTAFold-ModelArchive</a>. <strong>Thus, the PDB database is the major hub that centralizes biological structures nowadays.</strong></p>
+<p>PDB database has four mirrors and websites (<a href="www.rcsb.org">RCSB</a>, <a href="https://www.ebi.ac.uk/pdbe/">Europe</a>, <a href="https://bmrb.io/">BMRB</a>, and <a href="https://pdbj.org/">Japan</a>) with mainly overlapping information, although they have some specialization. The RCSB PDB site has also an educational section (<a href="https://pdb101.rcsb.org/">PDB-101</a>) with very useful info and resources for teaching and learning structural biology and the work with PDB structures.</p>
+<p>The PDB entries contain all the information about the structure, spanning from the protein sequence and source to the experiment details, as well as the structure assessment (see <a href="pdb.html#sec-assess">Structural quality assurance</a> section) and visualization. You can download all this information and the structure coordinates in diverse file formats.</p>
+</section>
+<section id="scop" class="level3">
+<h3 class="anchored" data-anchor-id="scop">SCOP</h3>
+<p>The Structural Classification of Proteins (SCOP, <a href="http://scop.mrc-lmb.cam.ac.uk/">http://scop.mrc-lmb.cam.ac.uk</a>) database is a <em>classification of protein domains</em> organized according to their evolutionary and structural relationships in hierarchical categories. The main unit is the <em>family</em> that groups related proteins with clear evidence for their evolutionary origin while the <em>superfamily</em> brings together more distantly related protein domains. Further, superfamilies are grouped into distinct <em>folds</em> on the basis of the global structural features shared by the majority of their members. Domain definitions are provided for the two main levels of the SCOP classification, family and superfamily, and the domain boundaries for each of these can coincide or differ <span class="citation" data-cites="andreeva2020">(<a href="#ref-andreeva2020" role="doc-biblioref">Andreeva et al. 2020</a>)</span>.</p>
+<p>For each group, a representative is selected based on its sequence (UniProtKB) and structure (PDB) and used for SCOP classification. Thus, the SCOP domain boundaries are assigned to both, the PDB and UniProtKB entry.</p>
+</section>
+<section id="cath" class="level3">
+<h3 class="anchored" data-anchor-id="cath">CATH</h3>
+<p>CATH (<a href="www.cathdb.info">www.cathdb.info</a>) is a free, publicly available resource that identifies protein domains within proteins from the Protein Data Bank and classifies them into evolutionary-related groups according to sequence, structure, and function information. It assumes that related proteins which fold alike often exhibit similar functions (this only could be demonstrated if we find intermediates). CATH uses a hierarchical classification scheme where the units compared and classified are structural domains. Domains, defined here as globular structural domains capable of semi-independent folding, are extracted from experimentally determined protein structures available in the PDB database. The domains are classified into the following hierarchical levels that compose the CATH name: Class (<strong>C</strong>), Architecture (<strong>A</strong>), Topology (<strong>T</strong>), and Homologous superfamilies (<strong>H</strong>).</p>
+<p>CATH uses a combination of several structure-based (SSAP, CATHEDRAL) and sequence-based (Needleman-Wunsch-based sequence alignments, Jackhmmer, Profile Comparer, and HHsearch) algorithms to assess the similarity of domains to each other and to identify protein homologues <span class="citation" data-cites="sillitoe2021">(<a href="#ref-sillitoe2021" role="doc-biblioref">Sillitoe et al. 2021</a>)</span>.</p>
+<p>CATH has a sister resource, Gene3D, that adds in additional protein domain sequences with no known structure, which brings the current total number of domains in CATH-Gene3D up to 95 million.</p>
+<p>CATH database is updated quite regularly through daily snapshots (CATH-B), but a full release with more tools, named CATH+ is released every 12 months. CATH-plus contains functional families (CATH-FunFams), structural clusters, and other tools <span class="citation" data-cites="sillitoe2021">(<a href="#ref-sillitoe2021" role="doc-biblioref">Sillitoe et al. 2021</a>)</span>.</p>
+</section>
+</section>
+<section id="graphical-summary" class="level2">
+<h2 class="anchored" data-anchor-id="graphical-summary">Graphical summary</h2>
+<div id="fig-full" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="https://github.com/StrBio/strbio2022_23/raw/main/pics/bbdd_full.pdf"><img src="pics/bbdd_full.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Main features of protein databases (updated in 2020)</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="ddbbs-practice" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>DDBBs Practice</strong></span></h1>
+<p>Remember to work on groups as assigned. Groups should be the same for all the course exercises.</p>
+<section id="classify-the-following-protein-structures-into-groups-and-subgroups" class="level2">
+<h2 class="anchored" data-anchor-id="classify-the-following-protein-structures-into-groups-and-subgroups">Classify the following protein structures into “groups” and “subgroups”</h2>
+<p>Focus only in structural databases (CATH, Scop2), but any given database can be helpful in a different way. Use generic terms, valid for any hierarchical classification, independent of the database(s) used.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Structures</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2MNA</td>
+</tr>
+<tr class="even">
+<td>2WB0</td>
+</tr>
+<tr class="odd">
+<td>1C0A</td>
+</tr>
+<tr class="even">
+<td>1QUM</td>
+</tr>
+<tr class="odd">
+<td>5ZHZ</td>
+</tr>
+<tr class="even">
+<td>5CFE</td>
+</tr>
+<tr class="odd">
+<td>1DE9</td>
+</tr>
+<tr class="even">
+<td>6WCD</td>
+</tr>
+<tr class="odd">
+<td>1AKO</td>
+</tr>
+<tr class="even">
+<td>6KHY</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="answer-these-questions" class="level2">
+<h2 class="anchored" data-anchor-id="answer-these-questions">Answer these questions</h2>
+<section id="a.-can-you-suggest-the-structural-and-evolutionary-relationship-between-them" class="level4">
+<h4 class="anchored" data-anchor-id="a.-can-you-suggest-the-structural-and-evolutionary-relationship-between-them"><strong>a. Can you suggest the structural and evolutionary relationship between them?</strong></h4>
+</section>
+<section id="b.-which-of-the-structures-is-more-difficult-to-group" class="level4">
+<h4 class="anchored" data-anchor-id="b.-which-of-the-structures-is-more-difficult-to-group"><strong>b. Which of the structures is more difficult to group</strong></h4>
+</section>
+<section id="c.-which-are-the-proscons-of-each-database" class="level4">
+<h4 class="anchored" data-anchor-id="c.-which-are-the-proscons-of-each-database"><strong>c.&nbsp;Which are the pros/cons of each database?</strong></h4>
+<p>Answer briefly.</p>
+
+
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-andreeva2012" class="csl-entry" role="listitem">
+Andreeva, Antonina. 2012. <span>“Classification of Proteins: Available Structural Space for Molecular Modeling.”</span> In, edited by Andrew J. W. Orry and Ruben Abagyan, 1–31. Totowa, NJ: Humana Press. <a href="https://doi.org/10.1007/978-1-61779-588-6_1">https://doi.org/10.1007/978-1-61779-588-6_1</a>.
+</div>
+<div id="ref-andreeva2020" class="csl-entry" role="listitem">
+Andreeva, Antonina, Eugene Kulesha, Julian Gough, and Alexey G. Murzin. 2020. <span>“The SCOP database in 2020: expanded classification of representative family and superfamily domains of known protein structures.”</span> <em>Nucleic Acids Research</em> 48 (D1): D376–82. <a href="https://doi.org/10.1093/nar/gkz1064">https://doi.org/10.1093/nar/gkz1064</a>.
+</div>
+<div id="ref-blum2021" class="csl-entry" role="listitem">
+Blum, Matthias, Hsin-Yu Chang, Sara Chuguransky, Tiago Grego, Swaathi Kandasaamy, Alex Mitchell, Gift Nuka, et al. 2021. <span>“The InterPro Protein Families and Domains Database: 20 Years On.”</span> <em>Nucleic Acids Research</em> 49 (D1): D344–54. <a href="https://doi.org/10.1093/nar/gkaa977">https://doi.org/10.1093/nar/gkaa977</a>.
+</div>
+<div id="ref-burley2021" class="csl-entry" role="listitem">
+Burley, Stephen K, Charmi Bhikadiya, Chunxiao Bi, Sebastian Bittrich, Li Chen, Gregg V Crichlow, Cole H Christie, et al. 2020. <span>“<span class="nocase">RCSB Protein Data Bank: powerful new tools for exploring 3D structures of biological macromolecules for basic and applied research and education in fundamental biology, biomedicine, biotechnology, bioengineering and energy sciences</span>.”</span> <em>Nucleic Acids Research</em> 49 (D1): D437–51. <a href="https://doi.org/10.1093/nar/gkaa1038">https://doi.org/10.1093/nar/gkaa1038</a>.
+</div>
+<div id="ref-mistry2020" class="csl-entry" role="listitem">
+Mistry, Jaina, Sara Chuguransky, Lowri Williams, Matloob Qureshi, Gustavo&nbsp;A Salazar, Erik L L Sonnhammer, Silvio C E Tosatto, et al. 2020. <span>“Pfam: The Protein Families Database in 2021.”</span> <em>Nucleic Acids Research</em> 49 (D1): D412–19. <a href="https://doi.org/10.1093/nar/gkaa913">https://doi.org/10.1093/nar/gkaa913</a>.
+</div>
+<div id="ref-paysan-lafosse2023" class="csl-entry" role="listitem">
+Paysan-Lafosse, Typhaine, Matthias Blum, Sara Chuguransky, Tiago Grego, Beatriz Lázaro Pinto, Gustavo&nbsp;A Salazar, Maxwell&nbsp;L Bileschi, et al. 2023. <span>“InterPro in 2022.”</span> <em>Nucleic Acids Research</em> 51 (D1): D418–27. <a href="https://doi.org/10.1093/nar/gkac993">https://doi.org/10.1093/nar/gkac993</a>.
+</div>
+<div id="ref-sillitoe2021" class="csl-entry" role="listitem">
+Sillitoe, Ian, Nicola Bordin, Natalie Dawson, Vaishali P. Waman, Paul Ashford, Harry M. Scholes, Camilla S. M. Pang, et al. 2021. <span>“CATH: increased structural coverage of functional space.”</span> <em>Nucleic Acids Research</em> 49 (D1): D266–73. <a href="https://doi.org/10.1093/nar/gkaa1079">https://doi.org/10.1093/nar/gkaa1079</a>.
+</div>
+<div id="ref-steinegger2018" class="csl-entry" role="listitem">
+Steinegger, Martin, and Johannes Söding. 2018. <span>“Clustering huge protein sequence sets in linear time.”</span> <em>Nature Communications</em> 9 (1): 2542. <a href="https://doi.org/10.1038/s41467-018-04964-5">https://doi.org/10.1038/s41467-018-04964-5</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./pdb.html" class="pagination-link">
+        <span class="nav-page-text">Protein Structures</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by-nc/2.0/">
+      <i class="bi bi-badge-cc-fill" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

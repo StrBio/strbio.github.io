@@ -1,0 +1,47 @@
+---
+title: "StrBio 2023-24"
+author:
+  name: Modesto
+  affiliation: Department of Biochemistry, School of Medicine, UAM
+
+date: "August 21, 2023"
+date-modified: "`r Sys.Date()`"
+suppress-bibliography: true
+toc: false 
+toc_float: false
+format:
+  html:
+    page-layout: full
+    theme: simplex
+    toc: false
+---
+
+```{r}
+
+```
+
+# About
+
+::: {style="float: right; position: relative; top: 0px; padding: 9px;"}
+![](pics/QR_master.png "Master's Degree in Bioinformatics & Computational Biology"){fig-align="right"}
+:::
+
+This site contains the materials for the *Structural Bioinformatics* course of fall 2023 in the [Master's Degree in Bioinformatics & Computational Biology \@UAM](https://www-uam-es.translate.goog/Medicina/MasterBioinformaticaBiologiaComputacional/1446820907497.htm?language=es&nodepath=M?ster+Universitario+en+Bioinform?tica+y+Biolog?a+Computacional&_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp). All these materials is open access and it is shared under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/2.0/ "CC BY-NC license"). Course syllabus is [here](2023_33082_es.pdf) (in Spanish). Detailed academic information about the course contents, dates and assessment only can be found at the UAM [Moodle](https://posgrado.uam.es/) site.
+
+Besides some already classic books, reviews, and articles that are referenced, the contents of this short course are also largely inspired by the works of others that shared their course materials, tips, and other resources on their own blogs or websites, as well as discussions on Twitter, including [Alexandre Bovin](https://www.uu.nl/staff/amjjbonvin), [Sergey Ovchinnikov](https://twitter.com/sokrypton), [Martin Steinegger](https://twitter.com/thesteinegger) and [Carlos Outeiral](https://twitter.com/c_outeiral?lang=es), among many others. I tried to acknowledge and provide links to each one of those contributions but I'd like to apologize beforehand for those that I may have not mentioned.
+
+The course contains three practical exercises that will guide you through the use of Pymol for molecules visualization and modeling proteins by homology modeling and alphafold. [Moreover, in some of the sections there are several exercises/questions, highlighted in green that pretend to motivate you to think about the acquired knowledge and skills and go a little bit forward in the interpretation of the results.]{style="color:green"}
+
+As a suggestion, I would also like to invite you to check the set of exercises on Structural Bioinformatics from the Pontificia Universidad Católica de Chile, described in [Engelberger et al. (2021)](https://pubs.acs.org/doi/10.1021/acs.jchemed.1c00022): <https://github.com/pb3lab/ibm3202>
+
+::: callout-warning
+## Under construction
+:::
+
+Note that this site is a draft under development and I only expect to have a first complete version by the end of the semester at the earliest (December 2023). Any feedback, help or suggestions will be very warmly welcome.
+
+![](pics/8275a.jpg "Under construction...")
+
+## Contact
+
+Please let me know if you find some mistake or a missing reference. Definitely, I'll appreciate any suggestion, request or correction. You can reach me by [email](mailto::modesto.redrejo@uam.es) or [{{< iconify fa6-brands x-twitter >}}(f.k.a. Twitter)](https://twitter.com/mredrejo "Twitter").

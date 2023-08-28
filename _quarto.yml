@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  twitter-card: true
+  title: "Structural Bioinformatics 2023-24"
+  sidebar:
+    style: "docked"
+    
+    search: true
+    contents:
+      - index.qmd
+      - section: "Background"
+        contents:
+          - intro.qmd
+          - ddbb.qmd
+          - pdb.qmd
+      - section: "Modeling"
+        contents:
+          - homology.qmd
+          - 1d.qmd
+          - advanced.qmd
+          - ai.qmd
+          - links.qmd
+    tools:
+
+      - icon: envelope-paper
+        href: mailto:modesto.redrejo@uam.es
+      - icon: github
+        href: https://github.com/StrBio/strbio.github.io
+  page-footer:
+    left: "Modesto Redrejo Rodríguez, 2023"
+    right:
+    - icon: badge-cc-fill
+      href: https://creativecommons.org/licenses/by-nc/2.0/
+    - text: "{{< iconify fa6-brands x-twitter >}}"
+      href: https://twitter.com/mredrejo
+    - icon: github
+      href: https://github.com/StrBio/strbio.github.io
+  page-navigation: true
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css:
+    - styles.css
+    - include/webex.css
+    toc: true
+    include-after-body: include/webex.js
+    smooth-scroll: true
+    anchor-sections: true
+    link-external-icon: true
+    link-external-newwindow: true
+    cover-image: pics/cover.png
+  pdf:
+    documentclass: scrbook
+    cover-image: pics/cover.png
+
+
+
