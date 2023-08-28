@@ -348,14 +348,14 @@ The development of Alphafold and the [Alphafold structures
 Database](https://alphafold.ebi.ac.uk/) in collaboration with
 [EMBL-EBI](https://www.ebi.ac.uk/about) was been the origin of a New Era.
 Moreover, in a further turn, the [Metagenomic Atlas](https://esmatlas.com/) by
-Meta AI uncovers virtually the whole protein space. Scientific publications and
-journals worldwide published long articles about the meaning of this
-breakthrough in science and its applications in biotechnology and
-biomedicine[^2] and DeepMind claimed to have [Solved a 50-years Grand Challenge
-in
+Meta AI uncovers virtually the whole protein space. Thanks to these milestones
+the coverage of the protein structure space has been greatly increased
+[@portapardo2022], which virtually close the sequence-structure gap. Since 2020,
+many scientific publications and journals worldwide published long articles
+about the meaning of this breakthrough in science and its applications in
+biotechnology and biomedicine[^2] and DeepMind claimed to have [Solved a
+50-years Grand Challenge in
 biochemistry](https://www.deepmind.com/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology).
-The coverage of the protein structure space has been greatly increased
-[@portapardo2022].
 
 [^2]: https://www.bbc.com/news/science-environment-57929095
 
@@ -363,19 +363,19 @@ The coverage of the protein structure space has been greatly increased
 
     https://elpais.com/ciencia/2021-07-22/la-forma-de-los-ladrillos-basicos-de-la-vida-abre-una-nueva-era-en-la-ciencia.html
 
-However, some scientists have claimed that Alphafold2 and RoseTTAfold actually
-"cheat" a bit as it does not really solve the problem but generate a deep
-learning pipeline that "bypass" the problem [@pederson2021]. In agreement with
-that, it has been shown that machine learning methods actually do not reproduce
-the expected folding pathways while improving the structures during the
-recycling steps @outeiral.
-
 In other words, after AlphaFold, would it no longer be necessary to perform
 X-ray crystallography or nuclear magnetic resonance? First, AlphaFold models can
 be used in electron density maps and help solve complex cases. Thus, the new
 framework helps crystallographers focus their work on the most unresolved and
 difficult structures, such as coiled-coils or holoproteins, which cause
 modulations and challenges in the development of crystallographic methods.
+
+However, some scientists argued that Alphafold2 and RoseTTAfold actually *cheat*
+as they do not really solve the problem but generate a deep learning pipeline
+that is able to bypass the problem [@pederson2021]. In agreement with that, it
+has been shown that machine learning methods actually do not reproduce the
+expected folding pathways while improving the structures during the recycling
+steps @outeiral.
 
 In conclusion, I believe that the Levinthal paradox is not (yet) fully solved,
 although it seems to be close [@aljanabi2022]. Practically, it is solved for

@@ -41,6 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -67,7 +68,6 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
 <meta name="twitter:title" content="Structural Bioinformatics 2023-24 - Modeling Resources">
-<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./links.html">Modeling Resources</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./links.html">Modeling Resources</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -96,10 +96,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Structural Bioinformatics 2023-24</a> 
-        <div class="sidebar-tools-main tools-wide">
-    <a href="https://twitter.com/mredrejo" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+        <div class="sidebar-tools-main">
     <a href="mailto:modesto.redrejo@uam.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-paper"></i></a>
-    <a href="https://github.com/strBio/strbio2023_24" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/StrBio/strbio.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -119,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Basics</span></a>
+ <span class="menu-text">Background</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -162,6 +161,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./1d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1D Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./advanced.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Advanced homology modeling</span></a>
   </div>
@@ -169,27 +174,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ai.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State-of-the-art protein modeling (in 2022)</span></a>
+ <span class="menu-text">Protein modeling in the AlphaFold era</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./links.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Modeling Resources</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#template-search" id="toc-template-search" class="nav-link active" data-scroll-target="#template-search"><span class="header-section-number">1</span> <strong>Template search</strong></a></li>
+  <li><a href="#secondary-structure-and-1d-features-services" id="toc-secondary-structure-and-1d-features-services" class="nav-link" data-scroll-target="#secondary-structure-and-1d-features-services"><span class="header-section-number">2</span> <strong>Secondary structure and 1D features services</strong></a></li>
+  <li><a href="#protein-modeling" id="toc-protein-modeling" class="nav-link" data-scroll-target="#protein-modeling"><span class="header-section-number">3</span> <strong>Protein modeling</strong></a></li>
+  <li><a href="#model-quality-assessment" id="toc-model-quality-assessment" class="nav-link" data-scroll-target="#model-quality-assessment"><span class="header-section-number">4</span> <strong>Model quality assessment</strong></a></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources"><span class="header-section-number">5</span> <strong>Other resources</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -211,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 22, 2023</p>
+      <p class="date-modified">August 28, 2023</p>
     </div>
   </div>
     
@@ -220,22 +235,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Disclaimer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is not a comprehensive list of Protein Modeling resources. Rather, it contains some of the references, methods, and online servers that I found useful through the years.</p>
+<p>Most useful links (IMHO) are highlighted in bold. Other (many) tools may be useful for you, feel free to let me know and I’ll update the list.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-This is not a comprehensive list of Protein Modeling resources. Rather, it contains some of the references, methods, and online servers that I found useful through the years.
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Most useful links (IMHO) are highlighted in bold. Other (many) tools may be useful for you, feel free to let me know and I’ll update the list.</p>
-</div>
-</div>
 <p>Links accessed on 21/September/2022</p>
-<section id="template-search" class="level3">
-<h3 class="anchored" data-anchor-id="template-search"><strong>1. Template search</strong></h3>
+</div>
+</div>
+<section id="template-search" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> <strong>Template search</strong></h1>
 <ul>
 <li><p><strong>BLAST</strong>: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p></li>
 <li><p><strong>HHPRED</strong>: <a href="https://toolkit.tuebingen.mpg.de/tools/hhpred" class="uri">https://toolkit.tuebingen.mpg.de/tools/hhpred</a></p></li>
@@ -245,8 +273,8 @@ This is not a comprehensive list of Protein Modeling resources. Rather, it conta
 </ul></li>
 </ul>
 </section>
-<section id="secondary-structure-and-1d-features-services" class="level3">
-<h3 class="anchored" data-anchor-id="secondary-structure-and-1d-features-services"><strong>2. Secondary structure and 1D features services</strong></h3>
+<section id="secondary-structure-and-1d-features-services" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> <strong>Secondary structure and 1D features services</strong></h1>
 <ul>
 <li><p><strong>Jpred4</strong>: <a href="http://www.compbio.dundee.ac.uk/jpred/" class="uri">http://www.compbio.dundee.ac.uk/jpred/</a></p>
 <ul>
@@ -322,8 +350,8 @@ This is not a comprehensive list of Protein Modeling resources. Rather, it conta
 </ul></li>
 </ul>
 </section>
-<section id="protein-modeling" class="level3">
-<h3 class="anchored" data-anchor-id="protein-modeling"><strong>3. Protein modeling</strong></h3>
+<section id="protein-modeling" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <strong>Protein modeling</strong></h1>
 <ul>
 <li><p><strong>SwissModel</strong>: <a href="https://swissmodel.expasy.org/" class="uri">https://swissmodel.expasy.org/</a></p>
 <ul>
@@ -374,8 +402,8 @@ This is not a comprehensive list of Protein Modeling resources. Rather, it conta
 </ul></li>
 </ul>
 </section>
-<section id="model-quality-assessment" class="level3">
-<h3 class="anchored" data-anchor-id="model-quality-assessment"><strong>4. Model quality assessment</strong></h3>
+<section id="model-quality-assessment" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <strong>Model quality assessment</strong></h1>
 <ul>
 <li><p><strong>QMEAN</strong>: <a href="https://swissmodel.expasy.org/qmean/" class="uri">https://swissmodel.expasy.org/qmean/</a></p>
 <ul>
@@ -401,8 +429,8 @@ This is not a comprehensive list of Protein Modeling resources. Rather, it conta
 </ul></li>
 </ul>
 </section>
-<section id="other-resources" class="level3">
-<h3 class="anchored" data-anchor-id="other-resources"><strong>5. Other resources</strong></h3>
+<section id="other-resources" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> <strong>Other resources</strong></h1>
 <ul>
 <li><p><strong>DALI</strong>: <a href="http://ekhidna2.biocenter.helsinki.fi/dali/" class="uri">http://ekhidna2.biocenter.helsinki.fi/dali/</a></p>
 <ul>
@@ -930,10 +958,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./ai.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">State-of-the-art protein modeling (in 2022)</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Protein modeling in the AlphaFold era</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -954,9 +982,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </i> 
     </a>
   </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+  </li>  
     <li class="nav-item compact">
-    <a class="nav-link active" href="https://twitter.com/mredrejo" aria-current="page">
-      <i class="bi bi-twitter" role="img">
+    <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
+      <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  

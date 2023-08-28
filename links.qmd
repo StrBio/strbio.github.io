@@ -22,15 +22,22 @@ editor:
 library(webexercises)
 ```
 
-::: callout-note
-### This is not a comprehensive list of Protein Modeling resources. Rather, it contains some of the references, methods, and online servers that I found useful through the years.
+::: callout-warning
+### Disclaimer
+
+This is not a comprehensive list of Protein Modeling resources. Rather, it contains some of the references, methods, and online servers that I found useful through the years.
 
 Most useful links (IMHO) are highlighted in bold. Other (many) tools may be useful for you, feel free to let me know and I'll update the list.
 :::
 
+::: callout-note
 Links accessed on 21/September/2022
+:::
 
-### **1. Template search**
+
+
+
+# **Template search**
 
 -   **BLAST**: <https://blast.ncbi.nlm.nih.gov/Blast.cgi>
 
@@ -40,7 +47,7 @@ Links accessed on 21/September/2022
 
     -   Ref. <https://nar.oxfordjournals.org/content/46/W1/W200>
 
-### **2. Secondary structure and 1D features services**
+# **Secondary structure and 1D features services**
 
 -   **Jpred4**: <http://www.compbio.dundee.ac.uk/jpred/>
 
@@ -120,7 +127,7 @@ Links accessed on 21/September/2022
 
     -   A collection of molecular biology tools, includin a number of services for 1D features prediction\
 
-### **3. Protein modeling**
+# **Protein modeling**
 
 -   **SwissModel**: <https://swissmodel.expasy.org/>
 
@@ -174,7 +181,7 @@ Links accessed on 21/September/2022
 
     -   Fold recognition & fragment assembler\
 
-### **4. Model quality assessment**
+# **Model quality assessment**
 
 -   **QMEAN**: <https://swissmodel.expasy.org/qmean/>
 
@@ -200,7 +207,7 @@ Links accessed on 21/September/2022
 
     -   Ref. <https://www.tandfonline.com/doi/abs/10.1080/00268970410001728636?journalCode=tmph20>
 
-### **5. Other resources**
+# **Other resources**
 
 -   **DALI**: <http://ekhidna2.biocenter.helsinki.fi/dali/>
 
