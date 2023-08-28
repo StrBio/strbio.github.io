@@ -370,17 +370,17 @@ that, it has been shown that machine learning methods actually do not reproduce
 the expected folding pathways while improving the structures during the
 recycling steps @outeiral.
 
-In other words, would it no longer be necessary to conduct X-ray crystallography
-or Nuclear Magnetic Resonance after AlphaFold? First, AlphaFold models can be
-used in electron density maps and help to solve complex cases. Thus, framework
-helps crystallographers to concentrate their work on the most unresolved and
-challenging structures, e.g., coiled---coils inducing modulations and challenges
-in crystallographic method development.
+In other words, after AlphaFold, would it no longer be necessary to perform
+X-ray crystallography or nuclear magnetic resonance? First, AlphaFold models can
+be used in electron density maps and help solve complex cases. Thus, the new
+framework helps crystallographers focus their work on the most unresolved and
+difficult structures, such as coiled-coils or holoproteins, which cause
+modulations and challenges in the development of crystallographic methods.
 
-In conclusion, I do believe that Levinthal's paradox has not been (yet) fully
-solved, although it seems to be close [@aljanabi2022]. In *practical terms* it
-is solved for most of the protein space, but if your protein has no homologous
-in databases, you still will have some open questions.
+In conclusion, I believe that the Levinthal paradox is not (yet) fully solved,
+although it seems to be close [@aljanabi2022]. Practically, it is solved for
+most of the protein space, but if your protein does not have a homolog in the
+databases, you will still have some open questions.
 
 # [Review Quizz]{style="color:green"} {#quizz}
 
