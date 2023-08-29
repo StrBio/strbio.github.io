@@ -17,11 +17,11 @@ editor:
   markdown: 
     wrap: 80
 ---
+
 ```{r echo=FALSE, output=FALSE}
 
 library(webexercises)
 ```
-
 
 # Modeling protein structures: Mind the gap
 
@@ -39,7 +39,7 @@ interpretation and modeling new data on previously released structures. Thus,
 despite substantial efforts that started at the beginning of the 21st century to
 implement high-throughput structural biology methods [see for instance
 @manjasetty2008], the availability of protein structures is more than 1,000
-times less than the number of sequences (>226M sequences for Uniprot and ∽195k
+times less than the number of sequences (\>226M sequences for Uniprot and ∽195k
 structures in RCSB Protein Databank in August 2022). This difference is called
 the *protein structure gap* and it is constantly widening [@muhammed2019].
 
@@ -61,10 +61,10 @@ may be huge. Indeed, upon their determination of the three-dimensional globular
 structure (myoglobin, 1958), John Kendrew and his coworkers seemed very
 disappointed [@kendrew1958]:
 
-*Perhaps the most remarkable features of the molecule are its complexity and its
-lack of symmetry. The arrangement seems to be almost totally lacking in the kind
-of regularities which one instinctively anticipates, and it is more complicated
-that has been anticipated by any theory of protein structure.*
+> *Perhaps the most remarkable features of the molecule are its complexity and
+> its lack of symmetry. The arrangement seems to be almost totally lacking in
+> the kind of regularities which one instinctively anticipates, and it is more
+> complicated that has been anticipated by any theory of protein structure.*
 
 Not much later, in 1968, Cyrus Levinthal (1922--1990) published the so-called
 *Levinthal's paradox*, stating that proteins fold in nano/milliseconds, but even
@@ -107,11 +107,11 @@ traps (misfolded states). From
 .figure}](https://www.sciencedirect.com/science/article/pii/S0968000400017072?casa_token=BR_maX_GNYYAAAAA:IZrQqI9jIbiv-ZeA6aOMHQxsVcp-wgy0XPFO3DRcFiAi7TSrX-3cc7Jb6dhTHdXSQseEhF3l#BIB49)
 
 ::: callout-important
-### Important
+### Conclusion
 
-In conclusion, prediction of protein structures is possible, as protein folding
-relies only on the protein sequence, but it will require virtually infinite time
-and computational resources.
+Prediction of protein structures is possible, as protein folding relies only on
+the protein sequence, but it will require virtually infinite time and
+computational resources ...or highly efficient ones, as we will see.
 :::
 
 Homology modeling is one of the most convenient *tricks* to bypass that
@@ -133,13 +133,13 @@ structure. But, how do we do
 it?](pics/modeling.png "Protein modeling"){#fig-nutshell .figure}
 
 Traditionally and conceptually, the prediction of protein structures can be
-addressed from two different perspectives: *comparative modeling* and *ab initio*
-prediction. In the comparative modeling approach, one can predict 3D structure
-for protein sequences only if their homologs are found in the database of
-proteins with known structures. Obviously, the identification of such homologs
-is the keyword here. Until recently, most of the evolution in protein modeling
-was driven by the evolution of methods to identify distant sequence similarities
-that would reflex similar protein folds.
+addressed from two different perspectives: *comparative modeling* and *ab
+initio* prediction. In the comparative modeling approach, one can predict 3D
+structure for protein sequences only if their homologs are found in the database
+of proteins with known structures. Obviously, the identification of such
+homologs is the keyword here. Until recently, most of the evolution in protein
+modeling was driven by the evolution of methods to identify distant sequence
+similarities that would reflex similar protein folds.
 
 [![Two different approaches for structure
 prediction.](pics/predway.jpeg "Two different approaches for structure prediction."){#fig-modelingways
@@ -418,7 +418,7 @@ QMEANDisCo can be used to analyze models obtained with other methods in order to
 make them comparable (note that you can use QMEANDisCo for models obtained with
 any method, you just need a `.pdb` file). There are other independent model
 assessing tools commonly used to assess protein models, like
-[VoroMQA](https://bioinformatics.lt/wtsam/voromqa) \[@olechnovi2017\] or
+[VoroMQA](https://bioinformatics.lt/wtsam/voromqa) [@olechnovi2017] or
 [MoldFold](https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD8_form.html)
 [@mcguffin2021]. VoroMQA is very quick method that combines the idea of
 statistical potentials (i.e. a knowledge-based score function) with the use of
@@ -447,7 +447,7 @@ or using molecular visualization apps, like
 ## Corollary: What can I do with my model and what I cannot? {#corollary}
 
 [![Accuracy and application of protein structure models (in 2001). From
-.](pics/sali.jpeg "Accuracy and application of protein structure models."){#fig-baker
+@baker2001.](pics/sali.jpeg "Accuracy and application of protein structure models."){#fig-baker
 .figure}](https://www.science.org/doi/10.1126/science.1065659)
 
 A big power entails a big responsibility. The use of models entails a precaution

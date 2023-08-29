@@ -1,0 +1,2815 @@
+{
+  "timestamp": 1693297114618,
+  "version": "3.38.3",
+  "current": "QxMGmgp2SMxxigDkGVjdfA",
+  "playback": {
+    "isPlaying": false,
+    "nextSnapshotDelayInMs": 1500
+  },
+  "entries": [
+    {
+      "timestamp": 1693295980747,
+      "snapshot": {
+        "id": "QxMGmgp2SMxxigDkGVjdfA",
+        "data": {
+          "tree": {
+            "transforms": [
+              {
+                "parent": "-=root=-",
+                "transformer": "build-in.root",
+                "params": {},
+                "ref": "-=root=-",
+                "version": "nZJya4MO1BsYwKTUizvu3g"
+              },
+              {
+                "parent": "-=root=-",
+                "transformer": "ms-plugin.download",
+                "params": {
+                  "url": {
+                    "kind": "url",
+                    "id": "tPD1kuDU3472ItXZlLtgrw",
+                    "url": "https://www.ebi.ac.uk/pdbe/entry-files/download/1con.bcif"
+                  },
+                  "label": "PDBe: 1con (updated cif)",
+                  "isBinary": true
+                },
+                "state": {
+                  "isGhost": true
+                },
+                "ref": "kNbVFM6ks4PkkzDqdLqBkQ",
+                "version": "Xy9AoLMCjGEhB0Y0dDQSyA"
+              },
+              {
+                "parent": "kNbVFM6ks4PkkzDqdLqBkQ",
+                "transformer": "ms-plugin.parse-cif",
+                "params": {},
+                "state": {
+                  "isGhost": true
+                },
+                "ref": "aaJ4eR_mJd9mD67IRxQhHg",
+                "version": "53m1vP2MKhGzd_CEViV9QA"
+              },
+              {
+                "parent": "aaJ4eR_mJd9mD67IRxQhHg",
+                "transformer": "ms-plugin.trajectory-from-mmcif",
+                "params": {
+                  "blockHeader": "1CON"
+                },
+                "state": {
+                  "isCollapsed": true
+                },
+                "ref": "ZIJzQ89CgMtKyK4aScXxRQ",
+                "version": "GdkV7SyOiK91DwnHW3zIzA"
+              },
+              {
+                "parent": "ZIJzQ89CgMtKyK4aScXxRQ",
+                "transformer": "ms-plugin.model-from-trajectory",
+                "params": {
+                  "modelIndex": 0
+                },
+                "ref": "Hy-3wX4wvVlq5NDExdUZxw",
+                "version": "FKMabBEJ3sbbmG4E-9eZqg"
+              },
+              {
+                "parent": "Hy-3wX4wvVlq5NDExdUZxw",
+                "transformer": "ms-plugin.custom-model-properties",
+                "params": {
+                  "autoAttach": [
+                    "sifts_sequence_mapping"
+                  ],
+                  "properties": {
+                    "asym_id_offset": {
+                      "value": {
+                        "auth": 0,
+                        "label": 0
+                      }
+                    },
+                    "index": {
+                      "value": 0
+                    },
+                    "sifts_sequence_mapping": {},
+                    "pdbe_structure_quality_report": {
+                      "serverUrl": "https://www.ebi.ac.uk/pdbe/api/validation/residuewise_outlier_summary/entry/"
+                    },
+                    "rcsb_validation_report": {
+                      "source": {
+                        "name": "server",
+                        "params": {
+                          "baseUrl": "//ftp.rcsb.org/pub/pdb/validation_reports"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ref": "ivlGe-w1NPCHyFz08ODw2Q",
+                "version": "1-draX7RPVaFCkYdsMEKRA"
+              },
+              {
+                "parent": "ivlGe-w1NPCHyFz08ODw2Q",
+                "transformer": "ms-plugin.structure-from-model",
+                "params": {
+                  "type": {
+                    "name": "assembly",
+                    "params": {
+                      "id": "1",
+                      "dynamicBonds": false
+                    }
+                  }
+                },
+                "ref": "5tWOIzICwlXgqsFlmP7hlw",
+                "version": "G9SMH0W-7fzq1XSFJKDcRQ"
+              },
+              {
+                "parent": "5tWOIzICwlXgqsFlmP7hlw",
+                "transformer": "ms-plugin.custom-structure-properties",
+                "params": {
+                  "autoAttach": [],
+                  "properties": {
+                    "index": {
+                      "value": 0
+                    },
+                    "molstar_accessible_surface_area": {
+                      "numberOfSpherePoints": 92,
+                      "probeSize": 1.4,
+                      "nonPolymer": false,
+                      "traceOnly": false
+                    },
+                    "molstar_computed_interactions": {
+                      "providers": {
+                        "ionic": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "pi-stacking": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 5.5,
+                            "offsetMax": 2,
+                            "angleDevMax": 30
+                          }
+                        },
+                        "cation-pi": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 6,
+                            "offsetMax": 2
+                          }
+                        },
+                        "halogen-bonds": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 4,
+                            "angleMax": 30
+                          }
+                        },
+                        "hydrogen-bonds": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 3.5,
+                            "backbone": true,
+                            "accAngleDevMax": 45,
+                            "donAngleDevMax": 45,
+                            "accOutOfPlaneAngleMax": 90,
+                            "donOutOfPlaneAngleMax": 45,
+                            "water": false,
+                            "sulfurDistanceMax": 4.1
+                          }
+                        },
+                        "weak-hydrogen-bonds": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "hydrophobic": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "metal-coordination": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 3
+                          }
+                        }
+                      },
+                      "contacts": {
+                        "lineOfSightDistFactor": 1
+                      }
+                    },
+                    "molstar_computed_secondary_structure": {
+                      "type": {
+                        "name": "model",
+                        "params": {}
+                      }
+                    },
+                    "molstar_computed_valence_model": {
+                      "assignCharge": "auto",
+                      "assignH": "auto"
+                    },
+                    "rcsb_struct_symmetry": {
+                      "serverUrl": "https://data.rcsb.org/graphql",
+                      "symmetryIndex": 0
+                    },
+                    "anvil_computed_membrane_orientation": {
+                      "numberOfSpherePoints": 175,
+                      "stepSize": 1,
+                      "minThickness": 20,
+                      "maxThickness": 40,
+                      "asaCutoff": 40,
+                      "adjust": 14,
+                      "tmdetDefinition": false
+                    }
+                  }
+                },
+                "ref": "SDCl5iKUEN9E-2NDMeml3Q",
+                "version": "AKvNNEE9SX7SAB9R8XXPzw"
+              },
+              {
+                "parent": "SDCl5iKUEN9E-2NDMeml3Q",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "expression",
+                    "params": {
+                      "head": {
+                        "name": "structure-query.generator.all"
+                      }
+                    }
+                  },
+                  "nullIfEmpty": true,
+                  "label": "All"
+                },
+                "tags": [
+                  "structure-component-glBMylgQatC5284i9mbPaw"
+                ],
+                "ref": "rnma3hTdOmRyupW-eFhhiA",
+                "version": "k6OZ4e49GypCK9ZT6eXfaw"
+              },
+              {
+                "parent": "rnma3hTdOmRyupW-eFhhiA",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "cartoon",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 2,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic",
+                        "spheres"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.2,
+                      "aspectRatio": 5,
+                      "arrowFactor": 1.5,
+                      "tubularHelices": false,
+                      "helixProfile": "elliptical",
+                      "detail": 0,
+                      "linearSegments": 8,
+                      "radialSegments": 16,
+                      "visuals": [
+                        "polymer-trace"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "chain-id",
+                    "params": {
+                      "asymId": "auth",
+                      "palette": {
+                        "name": "colors",
+                        "params": {
+                          "list": {
+                            "kind": "set",
+                            "colors": [
+                              1810039,
+                              14245634,
+                              7696563,
+                              15149450,
+                              6727198,
+                              15117058,
+                              10909213,
+                              6710886,
+                              14948892,
+                              3636920,
+                              5091146,
+                              9981603,
+                              16744192,
+                              16777011,
+                              10901032,
+                              16220607,
+                              10066329,
+                              6734501,
+                              16551266,
+                              9281739,
+                              15174339,
+                              10934356,
+                              16767279,
+                              15058068,
+                              11776947
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "uniform",
+                    "params": {
+                      "value": 1
+                    }
+                  }
+                },
+                "ref": "-kxzFPVRzdoeBvpWSIAq_g",
+                "version": "u1QTYAzOu8ABkBEUlBdQvw"
+              },
+              {
+                "parent": "SDCl5iKUEN9E-2NDMeml3Q",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "bundle",
+                    "params": {
+                      "hash": 121924180,
+                      "elements": [
+                        {
+                          "groupedUnits": [
+                            [
+                              0,
+                              4,
+                              8,
+                              12
+                            ]
+                          ],
+                          "set": [],
+                          "ranges": [
+                            754,
+                            765
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "nullIfEmpty": true,
+                  "label": "Custom Selection"
+                },
+                "tags": [
+                  "structure-component-CwyS6ZisvvjsB1rxwzPLLQ"
+                ],
+                "ref": "tsVNhcoKiQg1AtVYM7ADoQ",
+                "version": "SXzslmB0SxyXndK7gZq_Ag"
+              },
+              {
+                "parent": "tsVNhcoKiQg1AtVYM7ADoQ",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "ball-and-stick",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.15,
+                      "detail": 0,
+                      "ignoreHydrogens": false,
+                      "traceOnly": false,
+                      "tryUseImpostor": true,
+                      "sizeAspectRatio": 0.6666666666666666,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "includeTypes": [
+                        "covalent",
+                        "metal-coordination",
+                        "hydrogen-bond",
+                        "disulfide",
+                        "aromatic",
+                        "computed"
+                      ],
+                      "excludeTypes": [],
+                      "aromaticBonds": true,
+                      "multipleBonds": "symmetric",
+                      "adjustCylinderLength": false,
+                      "visuals": [
+                        "element-sphere",
+                        "intra-bond",
+                        "inter-bond"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "element-symbol",
+                    "params": {
+                      "carbonColor": {
+                        "name": "chain-id",
+                        "params": {
+                          "asymId": "auth",
+                          "palette": {
+                            "name": "colors",
+                            "params": {
+                              "list": {
+                                "kind": "set",
+                                "colors": [
+                                  1810039,
+                                  14245634,
+                                  7696563,
+                                  15149450,
+                                  6727198,
+                                  15117058,
+                                  10909213,
+                                  6710886,
+                                  14948892,
+                                  3636920,
+                                  5091146,
+                                  9981603,
+                                  16744192,
+                                  16777011,
+                                  10901032,
+                                  16220607,
+                                  10066329,
+                                  6734501,
+                                  16551266,
+                                  9281739,
+                                  15174339,
+                                  10934356,
+                                  16767279,
+                                  15058068,
+                                  11776947
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "saturation": 0,
+                      "lightness": 0.2,
+                      "colors": {
+                        "name": "default",
+                        "params": {}
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "physical",
+                    "params": {
+                      "scale": 1
+                    }
+                  }
+                },
+                "ref": "4KTYAyLyptYuouW4XiS-GQ",
+                "version": "somElPk7QzjG_Qs_Spnn5Q"
+              },
+              {
+                "parent": "ivlGe-w1NPCHyFz08ODw2Q",
+                "transformer": "ms-plugin.model-unitcell-3d",
+                "params": {
+                  "alpha": 1,
+                  "quality": "auto",
+                  "material": {
+                    "metalness": 0,
+                    "roughness": 1,
+                    "bumpiness": 0
+                  },
+                  "clip": {
+                    "variant": "pixel",
+                    "objects": []
+                  },
+                  "instanceGranularity": false,
+                  "doubleSided": false,
+                  "flipSided": false,
+                  "flatShaded": false,
+                  "ignoreLight": false,
+                  "xrayShaded": false,
+                  "transparentBackfaces": "off",
+                  "bumpFrequency": 0,
+                  "bumpAmplitude": 1,
+                  "cellColor": 16753920,
+                  "cellScale": 2,
+                  "ref": "model",
+                  "attachment": "corner"
+                },
+                "state": {
+                  "isHidden": true
+                },
+                "ref": "0FlpzY1iyOrW9c2m7HI3GQ",
+                "version": "-DKtYEbCU5VDso7Gz304gg"
+              },
+              {
+                "parent": "-=root=-",
+                "transformer": "ms-plugin.download",
+                "params": {
+                  "url": {
+                    "kind": "url",
+                    "id": "Rey6KqmWdTf7G2OYWIq3GQ",
+                    "url": "https://www.ebi.ac.uk/pdbe/entry-files/download/1jbc.bcif"
+                  },
+                  "label": "PDBe: 1jbc (updated cif)",
+                  "isBinary": true
+                },
+                "state": {
+                  "isGhost": true
+                },
+                "ref": "VqoPqsivUsnIUwT9JzjVNw",
+                "version": "aylDQp-igTTKIT5UdrtAvg"
+              },
+              {
+                "parent": "VqoPqsivUsnIUwT9JzjVNw",
+                "transformer": "ms-plugin.parse-cif",
+                "params": {},
+                "state": {
+                  "isGhost": true
+                },
+                "ref": "SevDpoeEihByA6fjRy2Bsg",
+                "version": "finhVSbAvAFwnF5sNu3wPw"
+              },
+              {
+                "parent": "SevDpoeEihByA6fjRy2Bsg",
+                "transformer": "ms-plugin.trajectory-from-mmcif",
+                "params": {
+                  "blockHeader": "1JBC"
+                },
+                "state": {
+                  "isCollapsed": true
+                },
+                "ref": "1wODy6CXMFPWqEJllt6nkQ",
+                "version": "P8vyJlH9BPL5LuaUmDk3JQ"
+              },
+              {
+                "parent": "1wODy6CXMFPWqEJllt6nkQ",
+                "transformer": "ms-plugin.model-from-trajectory",
+                "params": {
+                  "modelIndex": 0
+                },
+                "ref": "zCyHgqMK1mYt4CM-wo4QBA",
+                "version": "PEzidSjxZ0rJfLxDtBzTpw"
+              },
+              {
+                "parent": "zCyHgqMK1mYt4CM-wo4QBA",
+                "transformer": "ms-plugin.custom-model-properties",
+                "params": {
+                  "autoAttach": [
+                    "sifts_sequence_mapping"
+                  ],
+                  "properties": {
+                    "asym_id_offset": {
+                      "value": {
+                        "auth": 1,
+                        "label": 5
+                      }
+                    },
+                    "index": {
+                      "value": 1
+                    },
+                    "sifts_sequence_mapping": {},
+                    "pdbe_structure_quality_report": {
+                      "serverUrl": "https://www.ebi.ac.uk/pdbe/api/validation/residuewise_outlier_summary/entry/"
+                    },
+                    "rcsb_validation_report": {
+                      "source": {
+                        "name": "server",
+                        "params": {
+                          "baseUrl": "//ftp.rcsb.org/pub/pdb/validation_reports"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ref": "w7cEPt_BnWlgsxk-3YOX1g",
+                "version": "r8Mss8AicOy8PnJ0qEo2iQ"
+              },
+              {
+                "parent": "w7cEPt_BnWlgsxk-3YOX1g",
+                "transformer": "ms-plugin.structure-from-model",
+                "params": {
+                  "type": {
+                    "name": "assembly",
+                    "params": {
+                      "id": "1",
+                      "dynamicBonds": false
+                    }
+                  }
+                },
+                "ref": "PQLOQcWURdKP0vfknTXQoA",
+                "version": "L1K86T2WDuVvXWJf-l1i2w"
+              },
+              {
+                "parent": "PQLOQcWURdKP0vfknTXQoA",
+                "transformer": "ms-plugin.transform-structure-conformation",
+                "params": {
+                  "transform": {
+                    "name": "matrix",
+                    "params": {
+                      "data": [
+                        -0.0038279581199016643,
+                        -0.01558056136825997,
+                        -0.9998712576032762,
+                        0,
+                        -0.0035288737509978074,
+                        -0.9998721167711508,
+                        0.015594085457844853,
+                        0,
+                        -0.9999864162696195,
+                        0.0035881135248114204,
+                        0.003772547811569316,
+                        0,
+                        89.18378135859305,
+                        86.85065614509867,
+                        60.86890607049437,
+                        1
+                      ],
+                      "transpose": false
+                    }
+                  }
+                },
+                "tags": [
+                  "SuperpositionTransform"
+                ],
+                "ref": "SRpI2zVXnU-snmNS9l2crg",
+                "version": "n1Ux77YnY1LtEYKt13VRyQ"
+              },
+              {
+                "parent": "SRpI2zVXnU-snmNS9l2crg",
+                "transformer": "ms-plugin.custom-structure-properties",
+                "params": {
+                  "autoAttach": [],
+                  "properties": {
+                    "index": {
+                      "value": 1
+                    },
+                    "molstar_accessible_surface_area": {
+                      "numberOfSpherePoints": 92,
+                      "probeSize": 1.4,
+                      "nonPolymer": false,
+                      "traceOnly": false
+                    },
+                    "molstar_computed_interactions": {
+                      "providers": {
+                        "ionic": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "pi-stacking": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 5.5,
+                            "offsetMax": 2,
+                            "angleDevMax": 30
+                          }
+                        },
+                        "cation-pi": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 6,
+                            "offsetMax": 2
+                          }
+                        },
+                        "halogen-bonds": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 4,
+                            "angleMax": 30
+                          }
+                        },
+                        "hydrogen-bonds": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 3.5,
+                            "backbone": true,
+                            "accAngleDevMax": 45,
+                            "donAngleDevMax": 45,
+                            "accOutOfPlaneAngleMax": 90,
+                            "donOutOfPlaneAngleMax": 45,
+                            "water": false,
+                            "sulfurDistanceMax": 4.1
+                          }
+                        },
+                        "weak-hydrogen-bonds": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "hydrophobic": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "metal-coordination": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 3
+                          }
+                        }
+                      },
+                      "contacts": {
+                        "lineOfSightDistFactor": 1
+                      }
+                    },
+                    "molstar_computed_secondary_structure": {
+                      "type": {
+                        "name": "model",
+                        "params": {}
+                      }
+                    },
+                    "molstar_computed_valence_model": {
+                      "assignCharge": "auto",
+                      "assignH": "auto"
+                    },
+                    "rcsb_struct_symmetry": {
+                      "serverUrl": "https://data.rcsb.org/graphql",
+                      "symmetryIndex": 0
+                    },
+                    "anvil_computed_membrane_orientation": {
+                      "numberOfSpherePoints": 175,
+                      "stepSize": 1,
+                      "minThickness": 20,
+                      "maxThickness": 40,
+                      "asaCutoff": 40,
+                      "adjust": 14,
+                      "tmdetDefinition": false
+                    }
+                  }
+                },
+                "ref": "wKhdospjt2yPRs6xWa6kuA",
+                "version": "vvfDvkTbrXvZU2M72bgIdA"
+              },
+              {
+                "parent": "wKhdospjt2yPRs6xWa6kuA",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "expression",
+                    "params": {
+                      "head": {
+                        "name": "structure-query.generator.all"
+                      }
+                    }
+                  },
+                  "nullIfEmpty": true,
+                  "label": "All"
+                },
+                "tags": [
+                  "structure-component-glBMylgQatC5284i9mbPaw"
+                ],
+                "ref": "Vwn4q0RaLaLx5I24qhRQGw",
+                "version": "DzfXPY1TTAZWLPxBDMOiwg"
+              },
+              {
+                "parent": "Vwn4q0RaLaLx5I24qhRQGw",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "cartoon",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 2,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic",
+                        "spheres"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.2,
+                      "aspectRatio": 5,
+                      "arrowFactor": 1.5,
+                      "tubularHelices": false,
+                      "helixProfile": "elliptical",
+                      "detail": 0,
+                      "linearSegments": 8,
+                      "radialSegments": 16,
+                      "visuals": [
+                        "polymer-trace"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "chain-id",
+                    "params": {
+                      "asymId": "auth",
+                      "palette": {
+                        "name": "colors",
+                        "params": {
+                          "list": {
+                            "kind": "set",
+                            "colors": [
+                              1810039,
+                              14245634,
+                              7696563,
+                              15149450,
+                              6727198,
+                              15117058,
+                              10909213,
+                              6710886,
+                              14948892,
+                              3636920,
+                              5091146,
+                              9981603,
+                              16744192,
+                              16777011,
+                              10901032,
+                              16220607,
+                              10066329,
+                              6734501,
+                              16551266,
+                              9281739,
+                              15174339,
+                              10934356,
+                              16767279,
+                              15058068,
+                              11776947
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "uniform",
+                    "params": {
+                      "value": 1
+                    }
+                  }
+                },
+                "ref": "ZfnoobbpinrI7auduJYCUg",
+                "version": "vxp8qqa7I5d8BXQbCih_Ew"
+              },
+              {
+                "parent": "wKhdospjt2yPRs6xWa6kuA",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "bundle",
+                    "params": {
+                      "hash": 568087574,
+                      "elements": [
+                        {
+                          "groupedUnits": [
+                            [
+                              0,
+                              4,
+                              8,
+                              12
+                            ]
+                          ],
+                          "set": [],
+                          "ranges": [
+                            780,
+                            791
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "nullIfEmpty": true,
+                  "label": "Custom Selection"
+                },
+                "tags": [
+                  "structure-component-CwyS6ZisvvjsB1rxwzPLLQ"
+                ],
+                "ref": "iLhNRKSKa5uhbHfDgv1iVQ",
+                "version": "WGl_bXzk9KY65Ox0pnfocA"
+              },
+              {
+                "parent": "iLhNRKSKa5uhbHfDgv1iVQ",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "ball-and-stick",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.15,
+                      "detail": 0,
+                      "ignoreHydrogens": false,
+                      "traceOnly": false,
+                      "tryUseImpostor": true,
+                      "sizeAspectRatio": 0.6666666666666666,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "includeTypes": [
+                        "covalent",
+                        "metal-coordination",
+                        "hydrogen-bond",
+                        "disulfide",
+                        "aromatic",
+                        "computed"
+                      ],
+                      "excludeTypes": [],
+                      "aromaticBonds": true,
+                      "multipleBonds": "symmetric",
+                      "adjustCylinderLength": false,
+                      "visuals": [
+                        "element-sphere",
+                        "intra-bond",
+                        "inter-bond"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "element-symbol",
+                    "params": {
+                      "carbonColor": {
+                        "name": "chain-id",
+                        "params": {
+                          "asymId": "auth",
+                          "palette": {
+                            "name": "colors",
+                            "params": {
+                              "list": {
+                                "kind": "set",
+                                "colors": [
+                                  1810039,
+                                  14245634,
+                                  7696563,
+                                  15149450,
+                                  6727198,
+                                  15117058,
+                                  10909213,
+                                  6710886,
+                                  14948892,
+                                  3636920,
+                                  5091146,
+                                  9981603,
+                                  16744192,
+                                  16777011,
+                                  10901032,
+                                  16220607,
+                                  10066329,
+                                  6734501,
+                                  16551266,
+                                  9281739,
+                                  15174339,
+                                  10934356,
+                                  16767279,
+                                  15058068,
+                                  11776947
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "saturation": 0,
+                      "lightness": 0.2,
+                      "colors": {
+                        "name": "default",
+                        "params": {}
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "physical",
+                    "params": {
+                      "scale": 1
+                    }
+                  }
+                },
+                "ref": "V9iVZ6VcvIIXCkOaY90Giw",
+                "version": "4uKlkfUZP2QN8P6kZQVBvw"
+              },
+              {
+                "parent": "w7cEPt_BnWlgsxk-3YOX1g",
+                "transformer": "ms-plugin.model-unitcell-3d",
+                "params": {
+                  "alpha": 1,
+                  "quality": "auto",
+                  "material": {
+                    "metalness": 0,
+                    "roughness": 1,
+                    "bumpiness": 0
+                  },
+                  "clip": {
+                    "variant": "pixel",
+                    "objects": []
+                  },
+                  "instanceGranularity": false,
+                  "doubleSided": false,
+                  "flipSided": false,
+                  "flatShaded": false,
+                  "ignoreLight": false,
+                  "xrayShaded": false,
+                  "transparentBackfaces": "off",
+                  "bumpFrequency": 0,
+                  "bumpAmplitude": 1,
+                  "cellColor": 16753920,
+                  "cellScale": 2,
+                  "ref": "model",
+                  "attachment": "corner"
+                },
+                "state": {
+                  "isHidden": true
+                },
+                "ref": "ms9vhWfGEbIKxx3PeF6KtA",
+                "version": "3bRWM8Ey0X6xCnapjg46rQ"
+              },
+              {
+                "parent": "-=root=-",
+                "transformer": "ms-plugin.create-group",
+                "params": {
+                  "label": "Measurements",
+                  "description": ""
+                },
+                "state": {
+                  "isHidden": true
+                },
+                "tags": [
+                  "measurement-group"
+                ],
+                "ref": "glL2Ki0J33x1PIgkWzEiUw",
+                "version": "dWvdg8ohep7UPxbxfHztrQ"
+              },
+              {
+                "parent": "-=root=-",
+                "transformer": "ms-plugin.download",
+                "params": {
+                  "url": {
+                    "kind": "url",
+                    "id": "91KLmUGwYTazqmASSpPE1Q",
+                    "url": "https://www.ebi.ac.uk/pdbe/entry-files/download/1val.bcif"
+                  },
+                  "label": "PDBe: 1val (updated cif)",
+                  "isBinary": true
+                },
+                "state": {
+                  "isGhost": true
+                },
+                "ref": "P7kRFqnDjMuuyI8GF2hoeQ",
+                "version": "o4TJqlhIG4UJa3M0OfrwVA"
+              },
+              {
+                "parent": "P7kRFqnDjMuuyI8GF2hoeQ",
+                "transformer": "ms-plugin.parse-cif",
+                "params": {},
+                "state": {
+                  "isGhost": true
+                },
+                "ref": "pDFd2VQMQtykXeLbpsItsw",
+                "version": "yeM1h_VJjnNoebe6xmKkug"
+              },
+              {
+                "parent": "pDFd2VQMQtykXeLbpsItsw",
+                "transformer": "ms-plugin.trajectory-from-mmcif",
+                "params": {
+                  "blockHeader": "1VAL"
+                },
+                "state": {
+                  "isCollapsed": true
+                },
+                "ref": "Tjr8LUpbJpe6_r2bv3AUQA",
+                "version": "npRAn2iP3dKHAMNqov0M6w"
+              },
+              {
+                "parent": "Tjr8LUpbJpe6_r2bv3AUQA",
+                "transformer": "ms-plugin.model-from-trajectory",
+                "params": {
+                  "modelIndex": 0
+                },
+                "ref": "Lqn2ayMfsN811mhPUoe9lg",
+                "version": "KjEwBwLPKD_TGzytf7MJVg"
+              },
+              {
+                "parent": "Lqn2ayMfsN811mhPUoe9lg",
+                "transformer": "ms-plugin.custom-model-properties",
+                "params": {
+                  "autoAttach": [
+                    "sifts_sequence_mapping"
+                  ],
+                  "properties": {
+                    "asym_id_offset": {
+                      "value": {
+                        "auth": 2,
+                        "label": 9
+                      }
+                    },
+                    "index": {
+                      "value": 2
+                    },
+                    "sifts_sequence_mapping": {},
+                    "pdbe_structure_quality_report": {
+                      "serverUrl": "https://www.ebi.ac.uk/pdbe/api/validation/residuewise_outlier_summary/entry/"
+                    },
+                    "rcsb_validation_report": {
+                      "source": {
+                        "name": "server",
+                        "params": {
+                          "baseUrl": "//ftp.rcsb.org/pub/pdb/validation_reports"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ref": "TDG7mZyPVMihO-_GsTHE1Q",
+                "version": "IR50nQJ5qTz0h6YbB--vDA"
+              },
+              {
+                "parent": "TDG7mZyPVMihO-_GsTHE1Q",
+                "transformer": "ms-plugin.structure-from-model",
+                "params": {
+                  "type": {
+                    "name": "assembly",
+                    "params": {
+                      "id": "1",
+                      "dynamicBonds": false
+                    }
+                  }
+                },
+                "ref": "2cRtGnA1r3siM-Aci4kWDw",
+                "version": "qkoXKRfHvEyjIXcOiunFFA"
+              },
+              {
+                "parent": "2cRtGnA1r3siM-Aci4kWDw",
+                "transformer": "ms-plugin.transform-structure-conformation",
+                "params": {
+                  "transform": {
+                    "name": "matrix",
+                    "params": {
+                      "data": [
+                        0.4128661296436107,
+                        0.2830521946748803,
+                        0.8656921925018253,
+                        0,
+                        -0.6142950054833847,
+                        0.7882897917579044,
+                        0.03522549263398389,
+                        0,
+                        -0.6724456582557821,
+                        -0.5463338211962281,
+                        0.4993357154862892,
+                        0,
+                        78.68638456014679,
+                        21.24068362058416,
+                        -22.84628404893629,
+                        1
+                      ],
+                      "transpose": false
+                    }
+                  }
+                },
+                "tags": [
+                  "SuperpositionTransform"
+                ],
+                "ref": "PFEb624cspVsRrHCpclpBA",
+                "version": "WTGOv5IkphdnK8HAqVKNcw"
+              },
+              {
+                "parent": "PFEb624cspVsRrHCpclpBA",
+                "transformer": "ms-plugin.custom-structure-properties",
+                "params": {
+                  "autoAttach": [],
+                  "properties": {
+                    "index": {
+                      "value": 2
+                    },
+                    "molstar_accessible_surface_area": {
+                      "numberOfSpherePoints": 92,
+                      "probeSize": 1.4,
+                      "nonPolymer": false,
+                      "traceOnly": false
+                    },
+                    "molstar_computed_interactions": {
+                      "providers": {
+                        "ionic": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "pi-stacking": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 5.5,
+                            "offsetMax": 2,
+                            "angleDevMax": 30
+                          }
+                        },
+                        "cation-pi": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 6,
+                            "offsetMax": 2
+                          }
+                        },
+                        "halogen-bonds": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 4,
+                            "angleMax": 30
+                          }
+                        },
+                        "hydrogen-bonds": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 3.5,
+                            "backbone": true,
+                            "accAngleDevMax": 45,
+                            "donAngleDevMax": 45,
+                            "accOutOfPlaneAngleMax": 90,
+                            "donOutOfPlaneAngleMax": 45,
+                            "water": false,
+                            "sulfurDistanceMax": 4.1
+                          }
+                        },
+                        "weak-hydrogen-bonds": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "hydrophobic": {
+                          "name": "off",
+                          "params": {}
+                        },
+                        "metal-coordination": {
+                          "name": "on",
+                          "params": {
+                            "distanceMax": 3
+                          }
+                        }
+                      },
+                      "contacts": {
+                        "lineOfSightDistFactor": 1
+                      }
+                    },
+                    "molstar_computed_secondary_structure": {
+                      "type": {
+                        "name": "model",
+                        "params": {}
+                      }
+                    },
+                    "molstar_computed_valence_model": {
+                      "assignCharge": "auto",
+                      "assignH": "auto"
+                    },
+                    "rcsb_struct_symmetry": {
+                      "serverUrl": "https://data.rcsb.org/graphql",
+                      "symmetryIndex": 0
+                    },
+                    "anvil_computed_membrane_orientation": {
+                      "numberOfSpherePoints": 175,
+                      "stepSize": 1,
+                      "minThickness": 20,
+                      "maxThickness": 40,
+                      "asaCutoff": 40,
+                      "adjust": 14,
+                      "tmdetDefinition": false
+                    }
+                  }
+                },
+                "ref": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "version": "iBOgNxrkOUUY0Ld8Rvf6Tw"
+              },
+              {
+                "parent": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "static",
+                    "params": "polymer"
+                  },
+                  "nullIfEmpty": true,
+                  "label": ""
+                },
+                "tags": [
+                  "structure-component-static-polymer"
+                ],
+                "ref": "jssKZOOr6b6sUYe4UIIqZQ",
+                "version": "HsZzkwunXALK6lENNt4C0A"
+              },
+              {
+                "parent": "jssKZOOr6b6sUYe4UIIqZQ",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "cartoon",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 2,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic",
+                        "spheres"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.2,
+                      "aspectRatio": 5,
+                      "arrowFactor": 1.5,
+                      "tubularHelices": false,
+                      "helixProfile": "elliptical",
+                      "detail": 0,
+                      "linearSegments": 8,
+                      "radialSegments": 16,
+                      "visuals": [
+                        "polymer-trace"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "chain-id",
+                    "params": {
+                      "asymId": "auth",
+                      "palette": {
+                        "name": "colors",
+                        "params": {
+                          "list": {
+                            "kind": "set",
+                            "colors": [
+                              1810039,
+                              14245634,
+                              7696563,
+                              15149450,
+                              6727198,
+                              15117058,
+                              10909213,
+                              6710886,
+                              14948892,
+                              3636920,
+                              5091146,
+                              9981603,
+                              16744192,
+                              16777011,
+                              10901032,
+                              16220607,
+                              10066329,
+                              6734501,
+                              16551266,
+                              9281739,
+                              15174339,
+                              10934356,
+                              16767279,
+                              15058068,
+                              11776947
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "uniform",
+                    "params": {
+                      "value": 1
+                    }
+                  }
+                },
+                "tags": [
+                  "polymer"
+                ],
+                "ref": "ay2dpbbFWuyNqnIZz2550w",
+                "version": "t2-V2r2l5og62AyByYzBMw"
+              },
+              {
+                "parent": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "static",
+                    "params": "branched"
+                  },
+                  "nullIfEmpty": true,
+                  "label": "Carbohydrate"
+                },
+                "tags": [
+                  "structure-component-static-branched"
+                ],
+                "ref": "Znzov-jFZ6qAFTLozAys3A",
+                "version": "XyOB1ikcRbtM9L8YqVDMUg"
+              },
+              {
+                "parent": "Znzov-jFZ6qAFTLozAys3A",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "ball-and-stick",
+                    "params": {
+                      "alpha": 0.3,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.15,
+                      "detail": 0,
+                      "ignoreHydrogens": false,
+                      "traceOnly": false,
+                      "tryUseImpostor": true,
+                      "sizeAspectRatio": 0.6666666666666666,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "includeTypes": [
+                        "covalent",
+                        "metal-coordination",
+                        "hydrogen-bond",
+                        "disulfide",
+                        "aromatic",
+                        "computed"
+                      ],
+                      "excludeTypes": [],
+                      "aromaticBonds": true,
+                      "multipleBonds": "symmetric",
+                      "adjustCylinderLength": false,
+                      "visuals": [
+                        "element-sphere",
+                        "intra-bond",
+                        "inter-bond"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "element-symbol",
+                    "params": {
+                      "carbonColor": {
+                        "name": "chain-id",
+                        "params": {
+                          "asymId": "auth",
+                          "palette": {
+                            "name": "colors",
+                            "params": {
+                              "list": {
+                                "kind": "set",
+                                "colors": [
+                                  1810039,
+                                  14245634,
+                                  7696563,
+                                  15149450,
+                                  6727198,
+                                  15117058,
+                                  10909213,
+                                  6710886,
+                                  14948892,
+                                  3636920,
+                                  5091146,
+                                  9981603,
+                                  16744192,
+                                  16777011,
+                                  10901032,
+                                  16220607,
+                                  10066329,
+                                  6734501,
+                                  16551266,
+                                  9281739,
+                                  15174339,
+                                  10934356,
+                                  16767279,
+                                  15058068,
+                                  11776947
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "saturation": 0,
+                      "lightness": 0.2,
+                      "colors": {
+                        "name": "default",
+                        "params": {}
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "physical",
+                    "params": {
+                      "scale": 1
+                    }
+                  }
+                },
+                "tags": [
+                  "branched-ball-and-stick"
+                ],
+                "ref": "-5CeqJQwGr-T8moiQocptQ",
+                "version": "Of2vZw-Ja_Kzqr7y02Q5hQ"
+              },
+              {
+                "parent": "Znzov-jFZ6qAFTLozAys3A",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "carbohydrate",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic",
+                        "spheres"
+                      ],
+                      "includeParent": false,
+                      "detail": 0,
+                      "sizeFactor": 1.75,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "linkSizeFactor": 0.3,
+                      "terminalLinkSizeFactor": 0.2,
+                      "visuals": [
+                        "carbohydrate-symbol",
+                        "carbohydrate-link",
+                        "carbohydrate-terminal-link"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "carbohydrate-symbol",
+                    "params": {}
+                  },
+                  "sizeTheme": {
+                    "name": "uniform",
+                    "params": {
+                      "value": 1
+                    }
+                  }
+                },
+                "tags": [
+                  "branched-snfg-3d"
+                ],
+                "ref": "LiYFeJlkegEZ3g9H4YFr3Q",
+                "version": "HzHh30mND9WOP3ObQSLE1w"
+              },
+              {
+                "parent": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "static",
+                    "params": "water"
+                  },
+                  "nullIfEmpty": true,
+                  "label": ""
+                },
+                "tags": [
+                  "structure-component-static-water"
+                ],
+                "ref": "QPqDC9UuAZaUpMmPAMDwUA",
+                "version": "FN-BSjKQbcwgD8qqnDaS4w"
+              },
+              {
+                "parent": "QPqDC9UuAZaUpMmPAMDwUA",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "ball-and-stick",
+                    "params": {
+                      "alpha": 0.6,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.15,
+                      "detail": 0,
+                      "ignoreHydrogens": false,
+                      "traceOnly": false,
+                      "tryUseImpostor": true,
+                      "sizeAspectRatio": 0.6666666666666666,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "includeTypes": [
+                        "covalent",
+                        "metal-coordination",
+                        "hydrogen-bond",
+                        "disulfide",
+                        "aromatic",
+                        "computed"
+                      ],
+                      "excludeTypes": [],
+                      "aromaticBonds": true,
+                      "multipleBonds": "symmetric",
+                      "adjustCylinderLength": false,
+                      "visuals": [
+                        "element-sphere",
+                        "intra-bond",
+                        "inter-bond"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "element-symbol",
+                    "params": {
+                      "carbonColor": {
+                        "name": "element-symbol",
+                        "params": {}
+                      },
+                      "saturation": 0,
+                      "lightness": 0.2,
+                      "colors": {
+                        "name": "default",
+                        "params": {}
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "physical",
+                    "params": {
+                      "scale": 1
+                    }
+                  }
+                },
+                "tags": [
+                  "water"
+                ],
+                "ref": "UhahOKTx0q7S6m20y03Q6A",
+                "version": "_HT3xGW1Prnve2z4Csva_Q"
+              },
+              {
+                "parent": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "static",
+                    "params": "ion"
+                  },
+                  "nullIfEmpty": true,
+                  "label": ""
+                },
+                "tags": [
+                  "structure-component-static-ion"
+                ],
+                "ref": "wjvckoszLk7GcbqdHIiWiA",
+                "version": "uNUnjuh78gVF2WwpoLEreg"
+              },
+              {
+                "parent": "wjvckoszLk7GcbqdHIiWiA",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "ball-and-stick",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.15,
+                      "detail": 0,
+                      "ignoreHydrogens": false,
+                      "traceOnly": false,
+                      "tryUseImpostor": true,
+                      "sizeAspectRatio": 0.6666666666666666,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "includeTypes": [
+                        "covalent",
+                        "metal-coordination",
+                        "hydrogen-bond",
+                        "disulfide",
+                        "aromatic",
+                        "computed"
+                      ],
+                      "excludeTypes": [],
+                      "aromaticBonds": true,
+                      "multipleBonds": "symmetric",
+                      "adjustCylinderLength": false,
+                      "visuals": [
+                        "element-sphere",
+                        "intra-bond",
+                        "inter-bond"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "element-symbol",
+                    "params": {
+                      "carbonColor": {
+                        "name": "element-symbol",
+                        "params": {}
+                      },
+                      "saturation": 0,
+                      "lightness": 0.2,
+                      "colors": {
+                        "name": "default",
+                        "params": {}
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "physical",
+                    "params": {
+                      "scale": 1
+                    }
+                  }
+                },
+                "tags": [
+                  "ion"
+                ],
+                "ref": "sEghV2XG7l6fgR7-gvq9eA",
+                "version": "XqwHBggMPz_CoweFI3D8sw"
+              },
+              {
+                "parent": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "expression",
+                    "params": {
+                      "head": {
+                        "name": "structure-query.generator.all"
+                      }
+                    }
+                  },
+                  "nullIfEmpty": true,
+                  "label": "All"
+                },
+                "tags": [
+                  "structure-component-glBMylgQatC5284i9mbPaw"
+                ],
+                "ref": "MoDdzcJCxTad9PIqbyPUBA",
+                "version": "0H-LirY-01JdttbVBwwNUw"
+              },
+              {
+                "parent": "MoDdzcJCxTad9PIqbyPUBA",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "cartoon",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 2,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic",
+                        "spheres"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.2,
+                      "aspectRatio": 5,
+                      "arrowFactor": 1.5,
+                      "tubularHelices": false,
+                      "helixProfile": "elliptical",
+                      "detail": 0,
+                      "linearSegments": 8,
+                      "radialSegments": 16,
+                      "visuals": [
+                        "polymer-trace"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "chain-id",
+                    "params": {
+                      "asymId": "auth",
+                      "palette": {
+                        "name": "colors",
+                        "params": {
+                          "list": {
+                            "kind": "set",
+                            "colors": [
+                              1810039,
+                              14245634,
+                              7696563,
+                              15149450,
+                              6727198,
+                              15117058,
+                              10909213,
+                              6710886,
+                              14948892,
+                              3636920,
+                              5091146,
+                              9981603,
+                              16744192,
+                              16777011,
+                              10901032,
+                              16220607,
+                              10066329,
+                              6734501,
+                              16551266,
+                              9281739,
+                              15174339,
+                              10934356,
+                              16767279,
+                              15058068,
+                              11776947
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "uniform",
+                    "params": {
+                      "value": 1
+                    }
+                  }
+                },
+                "ref": "h3ZmS19x4L6u7bGD5BhxEA",
+                "version": "YkmeGRWe1I7oRLkvidmnIg"
+              },
+              {
+                "parent": "-EC9BIA9Y7prZa8x2ysgBQ",
+                "transformer": "ms-plugin.structure-component",
+                "params": {
+                  "type": {
+                    "name": "bundle",
+                    "params": {
+                      "hash": 190073063,
+                      "elements": [
+                        {
+                          "groupedUnits": [
+                            [
+                              0
+                            ]
+                          ],
+                          "set": [],
+                          "ranges": [
+                            754,
+                            765
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "nullIfEmpty": true,
+                  "label": "Custom Selection"
+                },
+                "tags": [
+                  "structure-component-CwyS6ZisvvjsB1rxwzPLLQ"
+                ],
+                "ref": "LKnia8GvFgg7RfCjkH6JqA",
+                "version": "UwPXz3jyXoDZeqnokX-_aA"
+              },
+              {
+                "parent": "LKnia8GvFgg7RfCjkH6JqA",
+                "transformer": "ms-plugin.structure-representation-3d",
+                "params": {
+                  "type": {
+                    "name": "ball-and-stick",
+                    "params": {
+                      "alpha": 1,
+                      "quality": "highest",
+                      "material": {
+                        "metalness": 0,
+                        "roughness": 1,
+                        "bumpiness": 0
+                      },
+                      "clip": {
+                        "variant": "pixel",
+                        "objects": []
+                      },
+                      "instanceGranularity": false,
+                      "doubleSided": false,
+                      "flipSided": false,
+                      "flatShaded": false,
+                      "ignoreLight": true,
+                      "xrayShaded": false,
+                      "transparentBackfaces": "off",
+                      "bumpFrequency": 0,
+                      "bumpAmplitude": 1,
+                      "unitKinds": [
+                        "atomic"
+                      ],
+                      "includeParent": false,
+                      "sizeFactor": 0.15,
+                      "detail": 0,
+                      "ignoreHydrogens": false,
+                      "traceOnly": false,
+                      "tryUseImpostor": true,
+                      "sizeAspectRatio": 0.6666666666666666,
+                      "linkScale": 0.45,
+                      "linkSpacing": 1,
+                      "linkCap": false,
+                      "aromaticScale": 0.3,
+                      "aromaticSpacing": 1.5,
+                      "aromaticDashCount": 2,
+                      "dashCount": 4,
+                      "dashScale": 0.8,
+                      "dashCap": true,
+                      "stubCap": true,
+                      "radialSegments": 16,
+                      "includeTypes": [
+                        "covalent",
+                        "metal-coordination",
+                        "hydrogen-bond",
+                        "disulfide",
+                        "aromatic",
+                        "computed"
+                      ],
+                      "excludeTypes": [],
+                      "aromaticBonds": true,
+                      "multipleBonds": "symmetric",
+                      "adjustCylinderLength": false,
+                      "visuals": [
+                        "element-sphere",
+                        "intra-bond",
+                        "inter-bond"
+                      ]
+                    }
+                  },
+                  "colorTheme": {
+                    "name": "element-symbol",
+                    "params": {
+                      "carbonColor": {
+                        "name": "chain-id",
+                        "params": {
+                          "asymId": "auth",
+                          "palette": {
+                            "name": "colors",
+                            "params": {
+                              "list": {
+                                "kind": "set",
+                                "colors": [
+                                  1810039,
+                                  14245634,
+                                  7696563,
+                                  15149450,
+                                  6727198,
+                                  15117058,
+                                  10909213,
+                                  6710886,
+                                  14948892,
+                                  3636920,
+                                  5091146,
+                                  9981603,
+                                  16744192,
+                                  16777011,
+                                  10901032,
+                                  16220607,
+                                  10066329,
+                                  6734501,
+                                  16551266,
+                                  9281739,
+                                  15174339,
+                                  10934356,
+                                  16767279,
+                                  15058068,
+                                  11776947
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "saturation": 0,
+                      "lightness": 0.2,
+                      "colors": {
+                        "name": "default",
+                        "params": {}
+                      }
+                    }
+                  },
+                  "sizeTheme": {
+                    "name": "physical",
+                    "params": {
+                      "scale": 1
+                    }
+                  }
+                },
+                "ref": "frrnvbWztKlI25V9UrPC6A",
+                "version": "Zbdp8umV1sYkF8wUm5m1DA"
+              },
+              {
+                "parent": "TDG7mZyPVMihO-_GsTHE1Q",
+                "transformer": "ms-plugin.model-unitcell-3d",
+                "params": {
+                  "alpha": 1,
+                  "quality": "auto",
+                  "material": {
+                    "metalness": 0,
+                    "roughness": 1,
+                    "bumpiness": 0
+                  },
+                  "clip": {
+                    "variant": "pixel",
+                    "objects": []
+                  },
+                  "instanceGranularity": false,
+                  "doubleSided": false,
+                  "flipSided": false,
+                  "flatShaded": false,
+                  "ignoreLight": false,
+                  "xrayShaded": false,
+                  "transparentBackfaces": "off",
+                  "bumpFrequency": 0,
+                  "bumpAmplitude": 1,
+                  "cellColor": 16753920,
+                  "cellScale": 2,
+                  "ref": "model",
+                  "attachment": "corner"
+                },
+                "state": {
+                  "isHidden": true
+                },
+                "ref": "_DUu7TZSUmERJPXPFU9xzA",
+                "version": "OmP3OHrWYfuhw1xr1dF5lg"
+              }
+            ]
+          }
+        },
+        "animation": {
+          "state": {
+            "params": {
+              "current": "built-in.animate-model-index"
+            },
+            "animationState": "stopped"
+          },
+          "current": {
+            "paramValues": {
+              "mode": {
+                "name": "loop",
+                "params": {
+                  "direction": "forward"
+                }
+              },
+              "duration": {
+                "name": "fixed",
+                "params": {
+                  "durationInS": 5
+                }
+              }
+            },
+            "state": {}
+          }
+        },
+        "camera": {
+          "current": {
+            "mode": "perspective",
+            "fov": 0.7853981633974483,
+            "position": [
+              0.4976564545568358,
+              61.19926000778332,
+              47.08872180937605
+            ],
+            "up": [
+              -0.6253962130727863,
+              -0.6339400732274707,
+              -0.4549720433507137
+            ],
+            "target": [
+              28.537657739687507,
+              63.215823875943386,
+              5.735650693262618
+            ],
+            "radius": 107.2773966321426,
+            "radiusMax": 117.35634030644786,
+            "fog": 15,
+            "clipFar": true
+          },
+          "transitionStyle": "animate",
+          "transitionDurationInMs": 250
+        },
+        "canvas3d": {
+          "props": {
+            "camera": {
+              "mode": "perspective",
+              "helper": {
+                "axes": {
+                  "name": "on",
+                  "params": {
+                    "alpha": 0.51,
+                    "quality": "auto",
+                    "material": {
+                      "metalness": 0,
+                      "roughness": 1,
+                      "bumpiness": 0
+                    },
+                    "clip": {
+                      "variant": "pixel",
+                      "objects": []
+                    },
+                    "instanceGranularity": false,
+                    "doubleSided": false,
+                    "flipSided": false,
+                    "flatShaded": false,
+                    "ignoreLight": true,
+                    "xrayShaded": false,
+                    "transparentBackfaces": "off",
+                    "bumpFrequency": 0,
+                    "bumpAmplitude": 1,
+                    "colorX": 16711680,
+                    "colorY": 32768,
+                    "colorZ": 255,
+                    "scale": 0.33
+                  }
+                }
+              },
+              "stereo": {
+                "name": "off",
+                "params": {}
+              },
+              "fov": 45,
+              "manualReset": false
+            },
+            "cameraFog": {
+              "name": "on",
+              "params": {
+                "intensity": 15
+              }
+            },
+            "cameraClipping": {
+              "far": true,
+              "radius": 9
+            },
+            "cameraResetDurationMs": 250,
+            "sceneRadiusFactor": 1,
+            "transparentBackground": false,
+            "viewport": {
+              "name": "canvas",
+              "params": {}
+            },
+            "postprocessing": {
+              "occlusion": {
+                "name": "on",
+                "params": {
+                  "samples": 32,
+                  "radius": 5,
+                  "bias": 0.8,
+                  "blurKernelSize": 15,
+                  "resolutionScale": 1
+                }
+              },
+              "outline": {
+                "name": "on",
+                "params": {
+                  "scale": 1,
+                  "threshold": 0.33,
+                  "color": 0
+                }
+              },
+              "antialiasing": {
+                "name": "smaa",
+                "params": {
+                  "edgeThreshold": 0.1,
+                  "maxSearchSteps": 16
+                }
+              },
+              "background": {
+                "variant": {
+                  "name": "off",
+                  "params": {}
+                }
+              }
+            },
+            "marking": {
+              "enabled": true,
+              "highlightEdgeColor": 13119595,
+              "selectEdgeColor": 51712,
+              "edgeScale": 1,
+              "ghostEdgeStrength": 0.3,
+              "innerEdgeFactor": 1.5
+            },
+            "multiSample": {
+              "mode": "temporal",
+              "sampleLevel": 2
+            },
+            "renderer": {
+              "backgroundColor": 16579577,
+              "pickingAlphaThreshold": 0.5,
+              "interiorDarkening": 0.5,
+              "interiorColorFlag": true,
+              "interiorColor": 5000268,
+              "colorMarker": true,
+              "highlightColor": 16737945,
+              "selectColor": 3407641,
+              "highlightStrength": 0.3,
+              "selectStrength": 0.3,
+              "markerPriority": 1,
+              "xrayEdgeFalloff": 1,
+              "light": [
+                {
+                  "inclination": 150,
+                  "azimuth": 320,
+                  "color": 16777215,
+                  "intensity": 0.6
+                }
+              ],
+              "ambientColor": 16777215,
+              "ambientIntensity": 0.4
+            },
+            "trackball": {
+              "noScroll": true,
+              "rotateSpeed": 5,
+              "zoomSpeed": 7,
+              "panSpeed": 1,
+              "animate": {
+                "name": "off",
+                "params": {}
+              },
+              "staticMoving": true,
+              "dynamicDampingFactor": 0.2,
+              "minDistance": 5,
+              "maxDistance": 1173.5634030644787,
+              "gestureScaleFactor": 1,
+              "maxWheelDelta": 0.02,
+              "bindings": {
+                "dragRotate": {
+                  "triggers": [
+                    {
+                      "buttons": 1,
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Rotate",
+                  "description": "Drag using ${triggers}"
+                },
+                "dragRotateZ": {
+                  "triggers": [
+                    {
+                      "buttons": 1,
+                      "modifiers": {
+                        "shift": true,
+                        "alt": false,
+                        "control": true,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Rotate around z-axis (roll)",
+                  "description": "Drag using ${triggers}"
+                },
+                "dragPan": {
+                  "triggers": [
+                    {
+                      "buttons": 2,
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      }
+                    },
+                    {
+                      "buttons": 1,
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": true,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Pan",
+                  "description": "Drag using ${triggers}"
+                },
+                "dragZoom": {
+                  "triggers": [],
+                  "action": "",
+                  "description": ""
+                },
+                "dragFocus": {
+                  "triggers": [
+                    {
+                      "buttons": 8,
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Focus",
+                  "description": "Drag using ${triggers}"
+                },
+                "dragFocusZoom": {
+                  "triggers": [
+                    {
+                      "buttons": 4,
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Focus and zoom",
+                  "description": "Drag using ${triggers}"
+                },
+                "scrollZoom": {
+                  "triggers": [
+                    {
+                      "buttons": 4,
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Zoom",
+                  "description": "Scroll using ${triggers}"
+                },
+                "scrollFocus": {
+                  "triggers": [
+                    {
+                      "buttons": 4,
+                      "modifiers": {
+                        "shift": true,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      }
+                    }
+                  ],
+                  "action": "Clip",
+                  "description": "Scroll using ${triggers}"
+                },
+                "scrollFocusZoom": {
+                  "triggers": [],
+                  "action": "",
+                  "description": ""
+                },
+                "keyMoveForward": {
+                  "triggers": [
+                    {
+                      "code": "KeyW"
+                    }
+                  ],
+                  "action": "Move forward",
+                  "description": "Press ${triggers}"
+                },
+                "keyMoveBack": {
+                  "triggers": [
+                    {
+                      "code": "KeyS"
+                    }
+                  ],
+                  "action": "Move back",
+                  "description": "Press ${triggers}"
+                },
+                "keyMoveLeft": {
+                  "triggers": [
+                    {
+                      "code": "KeyA"
+                    }
+                  ],
+                  "action": "Move left",
+                  "description": "Press ${triggers}"
+                },
+                "keyMoveRight": {
+                  "triggers": [
+                    {
+                      "code": "KeyD"
+                    }
+                  ],
+                  "action": "Move right",
+                  "description": "Press ${triggers}"
+                },
+                "keyMoveUp": {
+                  "triggers": [
+                    {
+                      "code": "KeyR"
+                    }
+                  ],
+                  "action": "Move up",
+                  "description": "Press ${triggers}"
+                },
+                "keyMoveDown": {
+                  "triggers": [
+                    {
+                      "code": "KeyF"
+                    }
+                  ],
+                  "action": "Move down",
+                  "description": "Press ${triggers}"
+                },
+                "keyRollLeft": {
+                  "triggers": [
+                    {
+                      "code": "KeyQ"
+                    }
+                  ],
+                  "action": "Roll left",
+                  "description": "Press ${triggers}"
+                },
+                "keyRollRight": {
+                  "triggers": [
+                    {
+                      "code": "KeyE"
+                    }
+                  ],
+                  "action": "Roll right",
+                  "description": "Press ${triggers}"
+                },
+                "keyPitchUp": {
+                  "triggers": [
+                    {
+                      "modifiers": {
+                        "shift": true,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      },
+                      "code": "ArrowUp"
+                    }
+                  ],
+                  "action": "Pitch up",
+                  "description": "Press ${triggers}"
+                },
+                "keyPitchDown": {
+                  "triggers": [
+                    {
+                      "modifiers": {
+                        "shift": true,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      },
+                      "code": "ArrowDown"
+                    }
+                  ],
+                  "action": "Pitch down",
+                  "description": "Press ${triggers}"
+                },
+                "keyYawLeft": {
+                  "triggers": [
+                    {
+                      "modifiers": {
+                        "shift": true,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      },
+                      "code": "ArrowLeft"
+                    }
+                  ],
+                  "action": "Yaw left",
+                  "description": "Press ${triggers}"
+                },
+                "keyYawRight": {
+                  "triggers": [
+                    {
+                      "modifiers": {
+                        "shift": true,
+                        "alt": false,
+                        "control": false,
+                        "meta": false
+                      },
+                      "code": "ArrowRight"
+                    }
+                  ],
+                  "action": "Yaw right",
+                  "description": "Press ${triggers}"
+                },
+                "boostMove": {
+                  "triggers": [
+                    {
+                      "code": "ShiftLeft"
+                    }
+                  ],
+                  "action": "Boost move",
+                  "description": "Press ${triggers}"
+                },
+                "enablePointerLock": {
+                  "triggers": [
+                    {
+                      "modifiers": {
+                        "shift": false,
+                        "alt": false,
+                        "control": true,
+                        "meta": false
+                      },
+                      "code": "Space"
+                    }
+                  ],
+                  "action": "Enable pointer lock",
+                  "description": "Press ${triggers}"
+                }
+              },
+              "autoAdjustMinMaxDistance": {
+                "name": "on",
+                "params": {
+                  "minDistanceFactor": 0,
+                  "minDistancePadding": 5,
+                  "maxDistanceFactor": 10,
+                  "maxDistanceMin": 20
+                }
+              }
+            },
+            "interaction": {
+              "maxFps": 30,
+              "preferAtomPixelPadding": 3
+            },
+            "debug": {
+              "sceneBoundingSpheres": false,
+              "visibleSceneBoundingSpheres": false,
+              "objectBoundingSpheres": false,
+              "instanceBoundingSpheres": false
+            },
+            "handle": {
+              "handle": {
+                "name": "off",
+                "params": {}
+              }
+            }
+          }
+        },
+        "interactivity": {
+          "props": {
+            "granularity": "residue"
+          }
+        },
+        "structureFocus": {},
+        "structureComponentManager": {
+          "options": {
+            "hydrogens": "all",
+            "visualQuality": "highest",
+            "ignoreLight": true,
+            "materialStyle": {
+              "metalness": 0,
+              "roughness": 1,
+              "bumpiness": 0
+            },
+            "clipObjects": {
+              "variant": "pixel",
+              "objects": []
+            },
+            "interactions": {
+              "providers": {
+                "ionic": {
+                  "name": "off",
+                  "params": {}
+                },
+                "pi-stacking": {
+                  "name": "on",
+                  "params": {
+                    "distanceMax": 5.5,
+                    "offsetMax": 2,
+                    "angleDevMax": 30
+                  }
+                },
+                "cation-pi": {
+                  "name": "on",
+                  "params": {
+                    "distanceMax": 6,
+                    "offsetMax": 2
+                  }
+                },
+                "halogen-bonds": {
+                  "name": "on",
+                  "params": {
+                    "distanceMax": 4,
+                    "angleMax": 30
+                  }
+                },
+                "hydrogen-bonds": {
+                  "name": "on",
+                  "params": {
+                    "distanceMax": 3.5,
+                    "backbone": true,
+                    "accAngleDevMax": 45,
+                    "donAngleDevMax": 45,
+                    "accOutOfPlaneAngleMax": 90,
+                    "donOutOfPlaneAngleMax": 45,
+                    "water": false,
+                    "sulfurDistanceMax": 4.1
+                  }
+                },
+                "weak-hydrogen-bonds": {
+                  "name": "off",
+                  "params": {}
+                },
+                "hydrophobic": {
+                  "name": "off",
+                  "params": {}
+                },
+                "metal-coordination": {
+                  "name": "on",
+                  "params": {
+                    "distanceMax": 3
+                  }
+                }
+              },
+              "contacts": {
+                "lineOfSightDistFactor": 1
+              }
+            }
+          }
+        },
+        "durationInMs": 1500
+      }
+    }
+  ]
+}

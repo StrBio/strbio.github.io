@@ -256,7 +256,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 25, 2023</p>
+      <p class="date-modified">August 29, 2023</p>
     </div>
   </div>
     
@@ -286,7 +286,9 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="are-protein-structures-predictable-at-all">Are protein structures predictable at all?</h2>
 <p>Amino acid properties determine the phi and psi angles that eventually shape the higher structural levels. Protein folding might be more complex though, as it should be coupled to protein synthesis.</p>
 <p>One can think that complexity and diversity of protein structures in the nature may be huge. Indeed, upon their determination of the three-dimensional globular structure (myoglobin, 1958), John Kendrew and his coworkers seemed very disappointed <span class="citation" data-cites="kendrew1958">(<a href="#ref-kendrew1958" role="doc-biblioref">Kendrew et al. 1958</a>)</span>:</p>
+<blockquote class="blockquote">
 <p><em>Perhaps the most remarkable features of the molecule are its complexity and its lack of symmetry. The arrangement seems to be almost totally lacking in the kind of regularities which one instinctively anticipates, and it is more complicated that has been anticipated by any theory of protein structure.</em></p>
+</blockquote>
 <p>Not much later, in 1968, Cyrus Levinthal (1922–1990) published the so-called <em>Levinthal’s paradox</em>, stating that proteins fold in nano/milliseconds, but even for small peptides it will take a huge time to test the astronomical number of possible conformations. Say a 100 aa small protein; it will have 99 peptidic bonds and 198 different phi and psi angles. Assuming only 3 alternative conformations for each bond, it will yield 3<sup>198</sup> (= 2.95 x 10<sup>95</sup>) possible conformations. If we design a highly efficient algorithm that tests 1 conformation per nanosecond:</p>
 <p>&nbsp;2.95 x 10<sup>85</sup> secs = <strong>9x10<sup>67</sup> billions years</strong></p>
 <p>Considering that the age of the universe is 13.8 billion years, predicting protein structures does not seem an easy task.</p>
@@ -310,11 +312,11 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Conclusion
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In conclusion, prediction of protein structures is possible, as protein folding relies only on the protein sequence, but it will require virtually infinite time and computational resources.</p>
+<p>Prediction of protein structures is possible, as protein folding relies only on the protein sequence, but it will require virtually infinite time and computational resources …or highly efficient ones, as we will see.</p>
 </div>
 </div>
 <p>Homology modeling is one of the most convenient <em>tricks</em> to bypass that limitation. Basically, the strategy is adding all the possible extra information to the amino acid properties, namely the evolutionary conservation of sequences and structures.</p>
@@ -462,7 +464,7 @@ Rather than provide just a recipe to make a model in two clics, the goal is to u
 <figcaption class="figure-caption">Figure&nbsp;17: HAdV-2 DNA polymerase model obtained with SWISS-MODEL (July 2022).</figcaption>
 </figure>
 </div>
-<p>QMEANDisCo can be used to analyze models obtained with other methods in order to make them comparable (note that you can use QMEANDisCo for models obtained with any method, you just need a <code>.pdb</code> file). There are other independent model assessing tools commonly used to assess protein models, like <a href="https://bioinformatics.lt/wtsam/voromqa">VoroMQA</a> [<span class="citation" data-cites="olechnovi2017">Olechnovič and Venclovas (<a href="#ref-olechnovi2017" role="doc-biblioref">2017</a>)</span>] or <a href="https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD8_form.html">MoldFold</a> <span class="citation" data-cites="mcguffin2021">(<a href="#ref-mcguffin2021" role="doc-biblioref">McGuffin et al. 2021</a>)</span>. VoroMQA is very quick method that combines the idea of statistical potentials (i.e.&nbsp;a knowledge-based score function) with the use of interatomic contact areas to provide a score in the range of [0,1]. When applied to PDB database, most of the high-quality experimentally-based structures have a VoroMQA score &gt;0.4. Thus, if the score is greater than 0.4, then the model is likely good and models with score &lt;0.3 are likely bad ones. Models with score 0.3-0.4 are uncertain and should not be classified with VoroMQA. On the other hand, ModFold is a meta-tool that provides you a very detailed report (and parseable files) with local and global scores, but it can take hours/days to obtain the result, so tend to use it only with selected models.</p>
+<p>QMEANDisCo can be used to analyze models obtained with other methods in order to make them comparable (note that you can use QMEANDisCo for models obtained with any method, you just need a <code>.pdb</code> file). There are other independent model assessing tools commonly used to assess protein models, like <a href="https://bioinformatics.lt/wtsam/voromqa">VoroMQA</a> <span class="citation" data-cites="olechnovi2017">(<a href="#ref-olechnovi2017" role="doc-biblioref">Olechnovič and Venclovas 2017</a>)</span> or <a href="https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD8_form.html">MoldFold</a> <span class="citation" data-cites="mcguffin2021">(<a href="#ref-mcguffin2021" role="doc-biblioref">McGuffin et al. 2021</a>)</span>. VoroMQA is very quick method that combines the idea of statistical potentials (i.e.&nbsp;a knowledge-based score function) with the use of interatomic contact areas to provide a score in the range of [0,1]. When applied to PDB database, most of the high-quality experimentally-based structures have a VoroMQA score &gt;0.4. Thus, if the score is greater than 0.4, then the model is likely good and models with score &lt;0.3 are likely bad ones. Models with score 0.3-0.4 are uncertain and should not be classified with VoroMQA. On the other hand, ModFold is a meta-tool that provides you a very detailed report (and parseable files) with local and global scores, but it can take hours/days to obtain the result, so tend to use it only with selected models.</p>
 <p>Another key parameter that you should know if you want to compare protein structures is the <strong>alpha carbon RMSD</strong> (see <a href="ddbb.html#sec-alignment">Structure alignment section</a>). Any protein structural alignment will give you this parameter as an estimation of the difference of the structures. You can align structure with many online servers, like <a href="https://www.rcsb.org/alignment">RCSB</a>, <a href="http://fatcat.godziklab.org/">FATCAT2</a> or using molecular visualization apps, like <a href="https://www.cgl.ucsf.edu/chimerax/">ChimeraX</a> or <a href="https://pymol.org/2/">PyMOL</a> (see <a href="pdb.html#sec-apps">Protein Structure Display</a> section).</p>
 <section id="which-model-is-better-which-regions-are-more-difficult-to-model-why" class="level4">
 <h4 class="anchored" data-anchor-id="which-model-is-better-which-regions-are-more-difficult-to-model-why"><span style="color:green">Which model is better? Which regions are more difficult to model? Why?</span></h4>
@@ -473,7 +475,7 @@ Rather than provide just a recipe to make a model in two clics, the goal is to u
 <div id="fig-baker" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><a href="https://www.science.org/doi/10.1126/science.1065659"><img src="pics/sali.jpeg" title="Accuracy and application of protein structure models." class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Figure&nbsp;18: Accuracy and application of protein structure models (in 2001). From .</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;18: Accuracy and application of protein structure models (in 2001). From <span class="citation" data-cites="baker2001">Baker and Sali (<a href="#ref-baker2001" role="doc-biblioref">2001</a>)</span>.</figcaption>
 </figure>
 </div>
 <p>A big power entails a big responsibility. The use of models entails a precaution and a need for experimental validation. However, knowing the limitations of our model is required for a realist use of it; and limits are defined by the model quality.</p>
@@ -497,6 +499,9 @@ Adiyaman, Recep, and Liam James McGuffin. 2019. <span>“Methods for the Refinem
 </div>
 <div id="ref-anfinsen1973" class="csl-entry" role="listitem">
 Anfinsen, C. B. 1973. <span>“Principles that govern the folding of protein chains.”</span> <em>Science (New York, N.Y.)</em> 181 (4096): 223–30. <a href="https://doi.org/10.1126/science.181.4096.223">https://doi.org/10.1126/science.181.4096.223</a>.
+</div>
+<div id="ref-baker2001" class="csl-entry" role="listitem">
+Baker, David, and Andrej Sali. 2001. <span>“Protein Structure Prediction and Structural Genomics.”</span> <em>Science</em> 294 (5540): 93–96. <a href="https://doi.org/10.1126/science.1065659">https://doi.org/10.1126/science.1065659</a>.
 </div>
 <div id="ref-haddad2020" class="csl-entry" role="listitem">
 Haddad, Yazan, Vojtech Adam, and Zbynek Heger. 2020. <span>“Ten Quick Tips for Homology Modeling of High-Resolution Protein 3D Structures.”</span> <em>PLOS Computational Biology</em> 16 (4): e1007449. <a href="https://doi.org/10.1371/journal.pcbi.1007449">https://doi.org/10.1371/journal.pcbi.1007449</a>.
