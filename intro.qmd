@@ -9,7 +9,7 @@ toc: true
 toc-location: right
 toc-depth: 2
 number-sections: true
-number-depth: 1
+number-depth: 2
 link-external-icon: true
 link-external-newwindow: true 
 bibliography: references.bib

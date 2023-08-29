@@ -295,7 +295,13 @@ allowed prediction of protein interactions with nucleic acids. Other methods
 such as AlphaFold and RoseTTAFold were released later, as were
 [OpenFold](https://openfold.io/) and
 [UniFold](https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb),
-which are based on the PyTorch Transformers AI framework.
+which are based on the PyTorch Transformers AI framework. More recently,
+RoseTTAFold2, which extends the three-track architecture over the whole network
+and incorporate other new advances and AlphaFold tricks, like the FAPE (frame
+aligned point error) or recycling steps during the training, giving rise to an
+end-to-end model equivalent in accuracy to AF2 for monomers and AF2-multimer for
+complexes, with better computational scaling on proteins and complexes larger
+than 1000 residues @baek.
 
 The use of MSA has been cited as a limitation for AlphaFold and related methods.
 However, the predictions are significantly worse without MSA or with MSAs
@@ -330,13 +336,14 @@ did not overwhelm the rest like in 2018.
 AlphaFold was used in some form in more than half of the protocols, and while
 the standard AlphaFold method performed better than many other methods, several
 groups achieved significant improvements for monomeric proteins and protein
-assemblies. In short, we learned at CASP15 that there are two main ways to
-improve AlphaFold: (1) more efficient use of templates, increasing the size of
-the database or sampling through more efficient MSAs, or (2) hacking AlphaFold
-to use dropouts to generate thousands of models for each target, which increases
-computational time but also increases the chances of better models. Other small
-improvements have been proposed, such as using improved template search or new
-scoring capabilities based on Voronoi surfaces or Deep Learning @elofsson2023.
+assemblies. In short (see @elofsson2023), we learned at CASP15 that there are
+two main ways to improve AlphaFold: (1) more efficient use of templates,
+increasing the size of the database or sampling through more efficient MSAs, or
+(2) hacking AlphaFold to use dropouts to generate thousands of models for each
+target, which increases computational time but also increases the chances of
+better models. Other small improvements have been proposed, such as refinement
+steps [@adiyaman2023] or using improved template search or new scoring
+capabilities based on Voronoi surfaces or Deep Learning.
 
 ### 2021-2023 - Short summary in one {{< iconify fa6-brands x-twitter >}} wire
 

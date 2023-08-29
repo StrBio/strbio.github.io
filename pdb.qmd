@@ -386,9 +386,9 @@ PyMOL is written in Python and can be used with interactive menus and also with
 command line. There are a lot of resources that can help you with PyMOL, like a
 [Documentation Reference Wiki](https://pymol.org/dokuwiki/) or a
 community-supported [PyMOLWiki](https://pymolwiki.org/index.php/Main_Page).
-Moreover, it allows the implementation of new functionalities as plugins, like
-[PyMod](http://schubert.bio.uniroma1.it/pymod/index.html) or
-[DockingPie](http://schubert.bio.uniroma1.it/dockingpie/index.html), among
+Moreover, it allows the implementation of new functionalities as plugins
+[@rosignoli2022], like [PyMod](http://schubert.bio.uniroma1.it/pymod/index.html)
+or [DockingPie](http://schubert.bio.uniroma1.it/dockingpie/index.html), among
 others. [PyMod](https://pymolwiki.org/index.php/PyMod) [@janson2021] is designed
 to act as simple and intuitive interface between PyMOL and several
 bioinformatics tools (i.e., PSI-BLAST, Clustal Omega, HMMER, MUSCLE, CAMPO,
@@ -420,7 +420,6 @@ There is an excellent ChimeraX User Guide, with examples at the RBVI\@UCSF site
 [here](https://www.rbvi.ucsf.edu/chimerax/docs/user/index.html).
 :::
 
-
 ### Molecular structures on your website: LiteMol and others
 
 [LiteMol Viewer](https://www.litemol.org/Viewer) is a powerful HTML5 web
@@ -434,9 +433,17 @@ tutorials](https://www.youtube.com/channel/UCRoyYUeP1hdH2r8XUW-WMoA).
 The same philosophy applies to other open-source viewers that were developed
 later and are now more widely used, like [NGL Viewer](https://nglviewer.org/)
 and [Mol\*](https://molstar.org/) @sehnal2021, used in
-[RCSB-PDB](https://www.rcsb.org/) and [PDBe](https://www.ebi.ac.uk/pdbe/) sites for 3D visualization of structures. With *Mol\** you can save your work
-session in `molj` (without the actual structures) or `molx` (with embedded
-structures) formats, as in the [Figure 8](#fig-molstar) above.
+[RCSB-PDB](https://www.rcsb.org/) and [PDBe](https://www.ebi.ac.uk/pdbe/) sites
+for 3D visualization of structures. With *Mol\** you can save your work session
+in `molj` (without the actual structures) or `molx` (with embedded structures)
+formats, as in the [Figure 8](#fig-molstar) above.
+
+Finally, for computational scientists, there are also many libraries that allow
+3D molecules representation, like 3Dmol Javascript library and its Python
+wrapper [**Py3Dmol**](https://github.com/avirshup/py3dmol), which you can use in
+Colab, Jupyter, Quarto or any other Python notebook (see code examples
+[here](https://william-dawson.github.io/using-py3dmol.html) or
+[here](https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb)).
 
 ::: {.callout-tip collapse="true"}
 # Mol\* & Quarto
@@ -449,24 +456,26 @@ it on this site.
 
 ::: {.callout-important collapse="true"}
 # A tribute to the pioneers
+
 Other applications that you may know, hear about or came into but are now
 discontinued are:
 
--   **SwissPDBViewer** (aka DeepView), developed to work with SWISS-MODEL homology
-    modeling app, is an application that provides a user-friendly interface
-    allowing to analyze several proteins at the same time. It has currently
-    fallen in disuse as the last version (4.1) is only a 32 bits application.
+-   **SwissPDBViewer** (aka DeepView), developed to work with SWISS-MODEL
+    homology modeling app, is an application that provides a user-friendly
+    interface allowing to analyze several proteins at the same time. It has
+    currently fallen in disuse as the last version (4.1) is only a 32 bits
+    application.
 
--  **RasMol** and **OpenRasMol** were developed initially in 1992 and its last release
-    was in 2009. It was a pioneer as a simple molecular display open-source
-    application, but it is outdated nowadays.
+-   **RasMol** and **OpenRasMol** were developed initially in 1992 and its last
+    release was in 2009. It was a pioneer as a simple molecular display
+    open-source application, but it is outdated nowadays.
 :::
 
 # [**PyMOL Practice**]{style="color:green"}
 
 Our PyMOL Practice has two parts.
 
-## [PART A: A 10-steps self-guided practice](https://www.evernote.com/shard/s62/sh/666c39a1-ac03-64c9-b8a0-cab9ff3959c7/9d20b6eadae8d130fdbe6652d60237f2)
+## [PART A: A 10-steps self-guided practice](https://www.evernote.com/shard/s62/sh/2e4a0157-55aa-2b63-fb31-071eb24c7d93/AoITZZrmczc9nHLyZb0DnquZptPEme4NBADOz-KWtIZgj1p88qXX7I27Hw)
 
 This is a [Evernote](https://evernote.com/intl/es) note that you can consult
 online and also copy into your Evenote account if you wish.
