@@ -305,6 +305,19 @@ Databases](ddbb.html#strDDBB) section.
 
 ![](pics/handson.png "Hands-on")
 
+::: {.callout-important}
+# Groups
+Remember to work on groups as assigned. Groups should be the same for all the course exercises.
+:::
+
+::: { .callout-note collapse="true"}
+# Evernote
+This is a [Evernote](https://evernote.com/intl/es) note that you can check on your web browser and also copy into your Evenote account/App if you wish.
+Link [here](https://www.evernote.com/shard/s62/nl/6844171/146913e2-a71b-a089-bcc5-c99ec0e5060b?title=StrBio%202023/2024%20-%201.%20(A)%20Secondary%20structures)
+:::
+
+
+
 There are a few online alternatives to model any peptide sequence and quickly
 see the effect of amino acid composition in the secondary structure. One of the
 best-known is Foldit ([www.fold.it](http://www.fold.it), @miller2020), a gaming
