@@ -32,9 +32,9 @@ site](https://swissmodel.expasy.org/static/course/files/PartIII_quality_assesmen
 The surrealist Belgian painter René Magritte created a collection of
 surrealistic paintings entitled [***La trahison des images***
 (1928--1929)](https://en.wikipedia.org/wiki/The_Treachery_of_Images "Magritte").
-The most renowned of those paintings show a smoking pipe and the following
+The most famous of these paintings show a smoking pipe with the following
 caption underneath: *"Ceci n'est pas une pipe"* (This is not a pipe). Yes,
-indeed! It is actually the painting of a pipe.
+indeed! It is actually a painting of a pipe.
 
 ::: callout-warning
 ## Warning for current and future structural biologists
@@ -45,15 +45,15 @@ structure of that protein.
 :::
 
 Even experimentally determined structures have two major limitations that we
-should always keep in mind: (1) they are a fixed structure (except RMN-based)
+should always keep in mind: (1) they are a fixed structure (except RMN-based),
 whereas proteins *in vivo* are flexible and dynamic and (2) they are subject to
-experimental error and they often contain regions of low confidence (see below
-@sec-assess). Moreover, even experimentally obtained macromolecular structures
-are to some extent models, with a variable ratio between experimental data and
+experimental error and often contain low confidence regions (see @sec-assess
+below). Moreover, even experimentally determined macromolecular structures are
+to some extent models, with a variable ratio between experimental data and
 computational predictions to match the experimental data (X-ray diffraction,
 cryo-EM density maps, NMR, SAXS, FRET...) with previously known structures or
 models. Of course, this does not mean that protein structures are useless, they
-can be very useful, but we must be aware of both the limitations and the
+can be very useful, but we need to be aware of both the limitations and the
 applications.
 
 # Experimental determination of protein structures
@@ -61,27 +61,27 @@ applications.
 The structure helps to understand the molecular mechanism of protein function at
 a higher level of detail. The 3D representation can help orient different
 domains/motifs/residues of interest. This can be critical for understanding
-population or pathogenic variants, drug design, and protein engineering.
-Moreover, the structures can also help in predicting protein function and
+populations or pathogenic variants, drug design, and protein engineering. In
+addition, the structures can also help in predicting protein function and
 evolution because they are more conserved than sequence, i.e., protein structure
 space is smaller than sequence space. However, obtaining detailed and reliable
-structural data can be technically difficult and time consuming and as we will
-see, protein structure modeling can often be a good complement or alternative.
-Experimentally obtained structures usually rely on three alternative techniques,
-X-ray crystallography, nuclear magnetic resonance (RMN), or electron
-cryomicroscopy (CryoEM).
+structural data can be technically difficult and time consuming. As we will see,
+protein structure modeling can often be a good complement or alternative.
+Experimentally obtained structures are usually based on three techniques: X-ray
+crystallography, nuclear magnetic resonance (RMN), or electron cryomicroscopy
+(CryoEM).
 
-## X-Ray crystallography or single crystal X-ray diffraction
+## X-ray crystallography or single crystal X-ray diffraction
 
-X-Ray crystallography or single-crystal X-ray diffraction, is a method for
+X-ray crystallography, or single-crystal X-ray diffraction, is a method for
 determining the atomic structure of molecules in regular, crystalline
 structures. It requires the generation of a crystal of the molecule of interest,
 which is then mounted on a goniometer and illuminated or irradiated with a
-focused beam of X-rays. The diffraction pattern of the X-rays on the other side
-of the crystal allows determination of the positions of the atoms, as well as
-their chemical bonds, their crystallographic disorder, and various other
-information. However, the link between the diffraction pattern and the electron
-density is not trivial and requires some complex maths, called [Fourier
+focused X-rays beam. The diffraction pattern of the X-rays on the other side of
+the crystal allows determination of the positions of the atoms, as well as their
+chemical bonds, crystallographic disorder, and various other information.
+However, the connection between the diffraction pattern and the electron density
+is not trivial and requires some complex maths, the so-called [Fourier
 transforms](http://pruffle.mit.edu/atomiccontrol/education/xray/fourier.php).
 
 ![Schematic workflow of X-ray crystallography. From Creative Structure
@@ -91,13 +91,14 @@ transforms](http://pruffle.mit.edu/atomiccontrol/education/xray/fourier.php).
 X-ray diffraction is a powerful method that allows obtaining high-resolution
 atomic-level structures of soluble or membrane proteins, either as apoenzymes or
 as holoenzymes bound to a substrate, cofactor or drugs. However, the sample must
-be crystallizable (i.e., homogeneous), which requires a considerable amount of
+be crystallizable (i.e., homogeneous), which requires a substantial amount of
 very pure protein. Another disadvantage of X-ray structures is that, as
 mentioned earlier, you only get one (or very few) static forms of the protein
-and the location of hydrogen atoms cannot be determined by conventional
-diffraction methods ---the fact that they have only one electron makes them very
-hard to detect with X-rays accurately because X-rays scatter at the electron
-density. They can be predicted, but that still hinders some chemical analysis.
+and the location of the hydrogen atoms cannot be determined by conventional
+diffraction methods ---the fact that they have only one electron makes it very
+difficult to detect them accurately with X-rays, since X-rays scatter at the
+electron density. They can be predicted, but that still hinders some chemical
+analyzes.
 
 ## Nuclear Magnetic Resonance
 
@@ -108,32 +109,32 @@ frequency of the magnetic field at the nucleus. This is the basis of nuclear
 magnetic resonance (NMR).
 
 We should also remember that the motion of the nucleus is not isolated and it
-interacts with the surrounding atoms both intra- and intermolecularly. Nuclear
-magnetic resonance spectroscopy can thus provide structural information about a
-particular molecule. Taking a protein as an example, its secondary structures,
-such as α-helix, β-sheet or turn, reflect the different arrangement of the main
-chain atoms of protein molecules in three dimensions. The spacing of the atomic
-nuclei in the different secondary structures, the interaction between nuclei,
-and the dynamic characteristics of polypeptide segments all directly reflect the
-three-dimensional structure of proteins. These nuclear features all contribute
-to spectroscopic behaviors of the analyzed sample, thus providing characteristic
-NMR signals. Interpretation of these signals by computer-aided methods leads to
-deciphering of the three-dimensional structure.
+interacts both intra- and intermolecularly with the surrounding atoms. Nuclear
+magnetic resonance spectroscopy can therefore provide structural information
+about a particular molecule. Taking a protein as an example, its secondary
+structures, such as α-helix, β-sheet, or turn, reflect the different arrangement
+of the main chain atoms of protein molecules in three dimensions. The distances
+between the atomic nuclei in the different secondary structures, the interaction
+between the nuclei, and the dynamic properties of the polypeptide segments all
+directly reflect the three-dimensional structure of proteins. These nuclear
+features all contribute to the spectroscopic behavior of the analyzed sample and
+thus provide characteristic NMR signals. Interpretation of these signals by
+computational methods leads to deciphering the three-dimensional structure.
 
 ![Basis of nuclear magnetic resonance. From Creative Structure
 [website](https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm).](images/paste-2013F0AC.png){#fig-rmn
 .figure}
 
 The most important feature of the NMR method is that the three-dimensional
-structure of macromolecules in the natural state can be measured directly in
-solution, and NMR may provide unique information about dynamics and
-intermolecular interactions. The resolution of the macromolecular
-three-dimensional structure can be as low as sub nanometer. However, the NMR
-spectrum of biomolecules with large molecular weight is very complicated and
-difficult to interpret, thereby limiting the application of NMR in analyzing
-large biomolecules, often below 20-30 kDa (see @fig-experimental). Additionally,
-this technique requires relatively large amounts of pure samples (on the order
-of several mg) to achieve a reasonable signal to noise level.
+structure of macromolecules in their natural state can be measured directly in
+solution, and NMR can provide unique information about the dynamics and
+intermolecular interactions. The resolution of the three-dimensional structure
+of macromolecules can extend to the subnanometer range. However, the NMR
+spectrum of large molecular weight biomolecules is very complicated and
+difficult to interpret, limiting the application of NMR in analyzing large
+biomolecules, often below 20-30 kDa (see @fig-experimental). In addition, this
+technique requires relatively large amounts of pure samples (on the order of
+several mg) to achieve a reasonable signal-to-noise ratio level.
 
 [![Coverage of molecular weight by structural technique. From
 .](images/paste-FA73AF1E.png){#fig-experimental
@@ -292,7 +293,7 @@ are outside of the high density values.
 Bad contact or
 [clashes](https://www.wwpdb.org/validation/XrayValidationReportHelp#close_contacts)
 indicate a poor model. It is obvious that two atoms cannot be in the same (or a
-very close) location. We can define this as a situation where two unbonded atoms
+very close) location. We can define this as a situation where two unbound atoms
 have a center-to-center distance smaller than the sum of their van der Walls
 radii.
 
@@ -336,7 +337,7 @@ the **B-factor**.
 
 Macromolecular crystals consist of many individual molecules packed in a
 symmetrical arrangement. In some crystals there are slight differences between
-the individua molecules. For instance, a sidechain on the surface may wag back
+the individual molecules. For instance, a sidechain on the surface may wag back
 and forth between several conformations, or a substrate may bind in two
 orientations at an active site, or a metal ion may be detected as bound to only
 a few of the molecules. When researchers build the atomic model of these
