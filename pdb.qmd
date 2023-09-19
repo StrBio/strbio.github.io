@@ -421,7 +421,7 @@ There is an excellent ChimeraX User Guide, with examples at the RBVI\@UCSF site
 [here](https://www.rbvi.ucsf.edu/chimerax/docs/user/index.html).
 :::
 
-### Molecular structures on your website: LiteMol and others
+### Molecular structures on your website: Mol\* and others
 
 [LiteMol Viewer](https://www.litemol.org/Viewer) is a powerful HTML5 web
 application for 3D visualization of molecules and other related data. It is used

@@ -268,7 +268,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 14, 2023</p>
+      <p class="date-modified">September 19, 2023</p>
     </div>
   </div>
     
@@ -383,7 +383,7 @@ Extra info
 </div>
 <p>    </p><div id="app-mol-star_state.molj" class="molstar-app"></div>
     <script type="text/javascript">
-    molstar.Viewer.create("app-mol-star_state.molj", {"layoutShowSequence":false,"pdbProvider":"rcsb","layoutShowControls":false,"layoutShowLog":false,"layoutShowLeftPanel":true,"layoutShowRemoteState":false,"viewportShowSelectionMode":false,"emdbProvider":"rcsb","layoutIsExpanded":false,"viewportShowAnimation":true,"viewportShowExpand":true}).then(viewer => {
+    molstar.Viewer.create("app-mol-star_state.molj", {"layoutShowRemoteState":false,"layoutShowLeftPanel":true,"layoutShowLog":false,"layoutIsExpanded":false,"viewportShowExpand":true,"emdbProvider":"rcsb","pdbProvider":"rcsb","viewportShowSelectionMode":false,"layoutShowSequence":false,"layoutShowControls":false,"viewportShowAnimation":true}).then(viewer => {
     viewer.loadSnapshotFromUrl(url="mol-star_state.molj", "molj");    });
     </script>
      Embedded reproduction of the <a href="#fig-reso">Figure&nbsp;7</a> with <em>Mol*</em>, which allow you to explore the structures.<p></p>
@@ -462,8 +462,8 @@ Note
 </div>
 </div>
 </section>
-<section id="molecular-structures-on-your-website-litemol-and-others" class="level3">
-<h3 class="anchored" data-anchor-id="molecular-structures-on-your-website-litemol-and-others">Molecular structures on your website: LiteMol and others</h3>
+<section id="molecular-structures-on-your-website-mol-and-others" class="level3">
+<h3 class="anchored" data-anchor-id="molecular-structures-on-your-website-mol-and-others">Molecular structures on your website: Mol* and others</h3>
 <p><a href="https://www.litemol.org/Viewer">LiteMol Viewer</a> is a powerful HTML5 web application for 3D visualization of molecules and other related data. It is used in a web browser, eliminating the need for external software and also allowing the integration with third-party sites as an embedded plugin. More information about LiteMol can be found on <span class="citation" data-cites="sehnal2017">Sehnal et al. (<a href="#ref-sehnal2017" role="doc-biblioref">2017</a>)</span>, the <a href="https://webchem.ncbr.muni.cz/Wiki/LiteMol:UserManual">wiki</a>, or <a href="https://www.youtube.com/channel/UCRoyYUeP1hdH2r8XUW-WMoA">YouTube tutorials</a>.</p>
 <p>The same philosophy applies to other open-source viewers that were developed later and are now more widely used, like <a href="https://nglviewer.org/">NGL Viewer</a> and <a href="https://molstar.org/">Mol*</a> <span class="citation" data-cites="sehnal2021">Sehnal et al. (<a href="#ref-sehnal2021" role="doc-biblioref">2021</a>)</span>, used in <a href="https://www.rcsb.org/">RCSB-PDB</a> and <a href="https://www.ebi.ac.uk/pdbe/">PDBe</a> sites for 3D visualization of structures. With <em>Mol*</em> you can save your work session in <code>molj</code> (without the actual structures) or <code>molx</code> (with embedded structures) formats, as in the <a href="#fig-molstar">Figure 8</a> above.</p>
 <p>Finally, for computational scientists, there are also many libraries that allow 3D molecules representation, like 3Dmol Javascript library and its Python wrapper <a href="https://github.com/avirshup/py3dmol"><strong>Py3Dmol</strong></a>, which you can use in Colab, Jupyter, Quarto or any other Python notebook (see code examples <a href="https://william-dawson.github.io/using-py3dmol.html">here</a> or <a href="https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb">here</a>).</p>
