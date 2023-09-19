@@ -39,10 +39,11 @@ interpretation and modeling new data on previously released structures. Thus,
 despite substantial efforts that started at the beginning of the 21st century to
 implement high-throughput structural biology methods [see for instance
 @manjasetty2008], the availability of protein structures is more than 1,000
-times less than the number of sequences (\>226M sequences for Uniprot and ∽205k
+times less than the number of sequences (\>250M sequences for Uniprot and ∽205k
 structures in RCSB Protein Databank in September 2023). This difference is
 called the ***protein sequence-structure gap*** and it is constantly widening
-[@muhammed2019], especially if we consider the metagenomics databases.
+[@muhammed2019], especially if we consider the sequences from metagenomics
+databases not available in Uniprot.
 
 [![Number of macromolecular structures in RCSB PDB database (accessed 19th
 September
@@ -233,7 +234,7 @@ of our protein with the sequence of all proteins in the PDB. However, the PDB
 was created as a repository to contain all the macromolecular structures, not to
 search templates for modeling. Similar to other end-to-end software, SWISS-MODEL
 has its own curated database, the **SMLT** (SWISS-MODEL template library). This
-is based on the PDB, is updated weekly, and is also annotated and indexed to
+is based on profiles alignments from the PDB, is updated weekly, and is also annotated and indexed to
 facilitating searching. As of September 13, 2023, SMLT contains 145,813 unique
 protein sequences that can map into 375,008 [biological
 units](https://proteopedia.org/wiki/index.php/Biological_Unit). Since 2023,
@@ -286,30 +287,30 @@ the implementation of the so-called **fold recognition** in homology modeling.
 [@kelley2009].](pics/profiles.jpg "From sequence vs. sequence search to profile-profile comparison"){#fig-profiles
 .figure width="669"}
 
-Template searches in SWISS-MODEL have evolved through the years towards more
-accurate results. Currently, this step is performed with HHblits [@remmert2011],
-a specific profile-profile method. We could search for templates also with Blast
+Template searching in SWISS-MODEL has evolved over the years toward more
+accurate results. Currently, this is done with **HHblits** [@remmert2011], a
+iterative profile-profile method. We can also search for templates using Blast
 or other profile-profile methods, like
 [Psi-BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch&PROGRAM=blastp&BLAST_PROGRAMS=psiBlast),
 [HHPred](https://toolkit.tuebingen.mpg.de/tools/hhpred), or
-[JackHMMER](https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer). Then, templates
-are ranked by two different numeric parameters ranging between 0 and 1: **GMQE**
-(global model quality estimate) and **QSQE** (quaternary structure quality
-estimate). Briefly, GMQE uses probability functions to assess several properties
-of the target-template alignment (sequence identity, sequence similarity,
-HHblits score, the agreement between predicted secondary structure of target and
-template, the agreement between predicted solvent accessibility between target
-and template; all normalized by alignment length) to predict the expected
-quality of the resulting model. QSQE assesses the oligomeric state probability
-of the model.
-
-Note: If you click on "Build Model", it will directly use the top-ranked
-template, so you'll miss some fun, but you can go back for that later on if you
-change your mind.
+[JackHMMER](https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer). Then, the
+templates are ranked between 0 and 1 using two different numerical parameters:
+**GMQE** (global model quality estimate) and QSQE (quaternary structure quality
+estimate). Briefly, GMQE uses likelihood functions to evaluate various
+properties of the target-template alignment (sequence identity, sequence
+similarity, HHblits score, the agreement between the predicted secondary
+structure of target and template, the agreement between the predicted solvent
+accessibility between target and template; all normalized by the alignment
+length) to predict the expected quality of the resulting model. QSQE evaluates
+the likelihood of the oligomeric state of the model.
 
 [![SWISS-MODEL modeling start. Just paste your sequences and click on
 Search.](pics/seach.png "SWISS-MODEL modeling"){#fig-swissmodel
 .figure}](https://swissmodel.expasy.org/interactive)
+
+::: callout-tip
+If you click on "Build Model", it will directly use the top-ranked template, so you'll miss some fun, but you can go back for that later on using the "Templates" tab.
+:::
 
 #### [Could you foresee which of our queries will give rise to a better model? Why?]{style="color:green"}
 
