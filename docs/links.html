@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Structural Bioinformatics 2023-24 - Modeling Resources</title>
+<title>Structural Bioinformatics at UAM - Modeling Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -67,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Structural Bioinformatics 2023-24 - Modeling Resources">
+<meta name="twitter:title" content="Structural Bioinformatics at UAM - Modeling Resources">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -95,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Structural Bioinformatics 2023-24</a> 
+      <a href="./">Structural Bioinformatics at UAM</a> 
         <div class="sidebar-tools-main">
     <a href="mailto:modesto.redrejo@uam.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-paper"></i></a>
     <a href="https://github.com/StrBio/strbio.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -226,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 28, 2023</p>
+      <p class="date-modified">September 28, 2023</p>
     </div>
   </div>
     
@@ -259,7 +278,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Links accessed on 21/September/2022</p>
+<p>Links checked on 28/September/2023, let me know if you find any broken link.</p>
 </div>
 </div>
 <section id="template-search" class="level1" data-number="1">
@@ -267,6 +286,7 @@ Note
 <ul>
 <li><p><strong>BLAST</strong>: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p></li>
 <li><p><strong>HHPRED</strong>: <a href="https://toolkit.tuebingen.mpg.de/tools/hhpred" class="uri">https://toolkit.tuebingen.mpg.de/tools/hhpred</a></p></li>
+<li><p><strong>HHblits</strong>: <a href="https://toolkit.tuebingen.mpg.de/tools/hhblits" class="uri">https://toolkit.tuebingen.mpg.de/tools/hhblits</a></p></li>
 <li><p><strong>JackHMMER</strong>: <a href="https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer" class="uri">https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer</a></p>
 <ul>
 <li>Ref. <a href="https://nar.oxfordjournals.org/content/46/W1/W200" class="uri">https://nar.oxfordjournals.org/content/46/W1/W200</a></li>
@@ -289,8 +309,8 @@ Note
 </ul></li>
 <li><p><strong>MULTICOM Toolbox</strong>: <a href="http://sysbio.rnet.missouri.edu/multicom_toolbox/web%20services.html" class="uri">http://sysbio.rnet.missouri.edu/multicom_toolbox/web%20services.html</a></p>
 <ul>
-<li><p>&nbsp;Pulls together protein structure and structural feature prediction tools.</p></li>
-<li><p>Server currently offline. Application available on GitHub: <a href="https://github.com/multicom-toolbox" class="uri">https://github.com/multicom-toolbox</a></p></li>
+<li><p>Pulls together protein structure and structural feature prediction tools.</p></li>
+<li><p>⚠️Server currently offline. Application available on GitHub: <a href="https://github.com/multicom-toolbox" class="uri">https://github.com/multicom-toolbox</a></p></li>
 </ul></li>
 <li><p><strong>SCRATCH</strong>: <a href="http://scratch.proteomics.ics.uci.edu/" class="uri">http://scratch.proteomics.ics.uci.edu/</a></p>
 <ul>
@@ -298,11 +318,7 @@ Note
 </ul></li>
 <li><p><strong>SYMPRED</strong>: <a href="http://www.ibi.vu.nl/programs/sympredwww/" class="uri">http://www.ibi.vu.nl/programs/sympredwww/</a></p>
 <ul>
-<li>Consensus secondary structure prediction</li>
-</ul></li>
-<li><p>Genesilico: <a href="http://genesilico.pl/" class="uri">http://genesilico.pl/</a></p>
-<ul>
-<li>Secondary structure prediction metaserver (currently out of service!)</li>
+<li>Consensus secondary structure prediction metaserver</li>
 </ul></li>
 <li><p><strong>MESSA</strong>: <a href="http://prodata.swmed.edu/MESSA/MESSA.cgi" class="uri">http://prodata.swmed.edu/MESSA/MESSA.cgi</a></p>
 <ul>
@@ -345,7 +361,7 @@ Note
 </ul></li>
 <li><p><strong>DTU Tech resources</strong>: <a href="https://services.healthtech.dtu.dk/" class="uri">https://services.healthtech.dtu.dk/</a></p>
 <ul>
-<li>A collection of molecular biology tools, includin a number of services for 1D features prediction<br>
+<li>A collection of molecular biology tools, including a number of services for 1D features prediction, such as DeepTMHMM <span class="citation" data-cites="hallgren">(<a href="#ref-hallgren" role="doc-biblioref">Hallgren et al. 2022</a>)</span> or NetSurfP <span class="citation" data-cites="høie2022">(<a href="#ref-høie2022" role="doc-biblioref">Høie et al. 2022</a>)</span>.<br>
 </li>
 </ul></li>
 </ul>
@@ -353,99 +369,66 @@ Note
 <section id="protein-modeling" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> <strong>Protein modeling</strong></h1>
 <ul>
-<li><p><strong>SwissModel</strong>: <a href="https://swissmodel.expasy.org/" class="uri">https://swissmodel.expasy.org/</a></p>
+<li><p><strong>SwissModel</strong> <span class="citation" data-cites="waterhouse2018">(<a href="#ref-waterhouse2018" role="doc-biblioref">Waterhouse et al. 2018</a>)</span>: <a href="https://swissmodel.expasy.org/" class="uri">https://swissmodel.expasy.org/</a></p></li>
+<li><p>PsiPRED <span class="citation" data-cites="buchan2019">(<a href="#ref-buchan2019" role="doc-biblioref">Buchan and Jones 2019</a>)</span>: <a href="http://bioinf.cs.ucl.ac.uk/psipred/" class="uri">http://bioinf.cs.ucl.ac.uk/psipred/</a></p>
 <ul>
-<li>Ref: <a href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gky427" class="uri">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gky427</a></li>
+<li>Fold recognition server (among other tools)</li>
+</ul></li>
+<li><p><strong>RaptorX</strong> <span class="citation" data-cites="wang2017">(<a href="#ref-wang2017" role="doc-biblioref">Wang et al. 2017</a>)</span>: <a href="http://raptorx.uchicago.edu/ContactMap/" class="uri">http://raptorx.uchicago.edu/ContactMap/</a></p>
+<ul>
+<li>Distance-based Protein Folding Powered by Deep Learning</li>
+</ul></li>
+<li><p><strong>Phyre2</strong> <span class="citation" data-cites="kelley2015">(<a href="#ref-kelley2015" role="doc-biblioref">Kelley et al. 2015</a>)</span>: <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index" class="uri">http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index</a></p>
+<ul>
+<li>Fold recognition &amp; fragment assembler</li>
 </ul></li>
 <li><p><strong>Robetta</strong> server: <a href="https://robetta.bakerlab.org/" class="uri">https://robetta.bakerlab.org/</a></p>
 <ul>
-<li>Several methods</li>
+<li>Several methods, including RosettaCM <span class="citation" data-cites="song2013">(<a href="#ref-song2013" role="doc-biblioref">Song et al. 2013</a>)</span> and RoseTTAFOLD <span class="citation" data-cites="baek2021a baeka">(<a href="#ref-baek2021a" role="doc-biblioref">Baek et al. 2021</a>; <a href="#ref-baeka" role="doc-biblioref">Baek et al., n.d.</a>)</span></li>
 </ul></li>
-<li><p><strong>ModWeb:</strong> <a href="https://modbase.compbio.ucsf.edu/modweb/" class="uri">https://modbase.compbio.ucsf.edu/modweb/</a></p>
+<li><p><strong>ModWeb</strong> <span class="citation" data-cites="pieper2014">(<a href="#ref-pieper2014" role="doc-biblioref">Pieper et al. 2014</a>)</span><strong>:</strong> <a href="https://modbase.compbio.ucsf.edu/modweb/" class="uri">https://modbase.compbio.ucsf.edu/modweb/</a></p>
 <ul>
-<li><p>Webserver using MODELLER (free registration required)</p></li>
-<li><p>Ref. <a href="https://pubmed.ncbi.nlm.nih.gov/24271400/" class="uri">https://pubmed.ncbi.nlm.nih.gov/24271400/</a></p></li>
+<li>Webserver using MODELLER (free registration required)</li>
 </ul></li>
-<li><p><strong>ColabFold</strong>: <a href="https://github.com/sokrypton/ColabFold" class="uri">https://github.com/sokrypton/ColabFold</a></p>
+<li><p><strong>ColabFold</strong> <span class="citation" data-cites="mirdita2022">(<a href="#ref-mirdita2022" role="doc-biblioref">Mirdita et al. 2022</a>)</span>: <a href="https://github.com/sokrypton/ColabFold" class="uri">https://github.com/sokrypton/ColabFold</a></p>
 <ul>
-<li><p>Several notebooks available</p></li>
-<li><p>Ref. <a href="https://www.nature.com/articles/s41592-022-01488-1" class="uri">https://www.nature.com/articles/s41592-022-01488-1</a></p></li>
+<li>Several notebooks available</li>
 </ul></li>
-<li><p>CPHmodels: <a href="https://services.healthtech.dtu.dk/service.php?CPHmodels-3.2" class="uri">https://services.healthtech.dtu.dk/service.php?CPHmodels-3.2</a></p>
+<li><p><strong>DeepMind’s AlphaFold colab</strong>: <a href="https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb" class="uri">https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb</a></p></li>
+<li><p><strong>Openfold</strong> <span class="citation" data-cites="ahdritz">(<a href="#ref-ahdritz" role="doc-biblioref">Ahdritz et al., n.d.</a>)</span> Colab: <a href="https://colab.research.google.com/github/aqlaboratory/openfold/blob/main/notebooks/OpenFold.ipyn" class="uri">https://colab.research.google.com/github/aqlaboratory/openfold/blob/main/notebooks/OpenFold.ipyn</a></p></li>
+<li><p><strong>Unifold</strong> <span class="citation" data-cites="li">(<a href="#ref-li" role="doc-biblioref">Ziyao Li et al., n.d.</a>)</span> Colab: <a href="https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb" class="uri">https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb</a></p></li>
+<li><p><strong>ESM Metagenomic Atlas</strong> (DDBB &amp; tools, <span class="citation" data-cites="lin2023">Lin et al. (<a href="#ref-lin2023" role="doc-biblioref">2023</a>)</span>): <a href="https://esmatlas.com/about" class="uri">https://esmatlas.com/about</a></p></li>
+<li><p><strong>PymolFold</strong>: A handy Pymol script that calls the ESM-Fold API</p>
 <ul>
-<li>Ref: <a href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkq535" class="uri">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkq535</a></li>
+<li><p><a href="https://github.com/JinyuanSun/PymolFold" class="uri">https://github.com/JinyuanSun/PymolFold</a></p></li>
+<li><p>Web version: <a href="http://103.79.77.89:8501/" class="uri">http://103.79.77.89:8501/</a></p></li>
 </ul></li>
 <li><p><strong>Zhang server</strong>: <a href="https://zhanggroup.org/services/" class="uri">https://zhanggroup.org/services/</a></p>
 <ul>
-<li><p>Multiple methods, including I-TASSER, C-I-TASSER or I-TASSER-MTD</p></li>
-<li><p>See references within.</p></li>
-</ul></li>
-<li><p>PsiPRED: <a href="http://bioinf.cs.ucl.ac.uk/psipred/" class="uri">http://bioinf.cs.ucl.ac.uk/psipred/</a></p>
-<ul>
-<li><p>Fold recognition server (among other tools)</p></li>
-<li><p>Ref: <a href="https://academic.oup.com/nar/article/47/W1/W402/5480136" class="uri">https://academic.oup.com/nar/article/47/W1/W402/5480136</a></p></li>
-</ul></li>
-<li><p>Multicom: <a href="http://sysbio.rnet.missouri.edu/multicom_cluster/" class="uri">http://sysbio.rnet.missouri.edu/multicom_cluster/</a></p>
-<ul>
-<li>Ref.<a href="https://bmcstructbiol.biomedcentral.com/articles/10.1186/1472-6807-13-2" class="uri">https://bmcstructbiol.biomedcentral.com/articles/10.1186/1472-6807-13-2</a></li>
-</ul></li>
-<li><p><strong>RaptorX</strong>: <a href="http://raptorx.uchicago.edu/ContactMap/" class="uri">http://raptorx.uchicago.edu/ContactMap/</a></p>
-<ul>
-<li><p>Distance-based Protein Folding Powered by Deep Learning</p></li>
-<li><p>Ref. <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005324" class="uri">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005324</a></p></li>
-</ul></li>
-<li><p><strong>Phyre2</strong>: <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index" class="uri">http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index</a></p>
-<ul>
-<li><p>Ref. <a href="http://www.nature.com/nprot/journal/v10/n6/ris/nprot.2015.053.ris" class="uri">http://www.nature.com/nprot/journal/v10/n6/ris/nprot.2015.053.ris</a></p></li>
-<li><p>Fold recognition &amp; fragment assembler<br>
-</p></li>
+<li>Multiple methods, including I-TASSER <span class="citation" data-cites="roy2010">(<a href="#ref-roy2010" role="doc-biblioref">Roy, Kucukural, and Zhang 2010</a>)</span>, C-I-TASSER <span class="citation" data-cites="zheng2021">(<a href="#ref-zheng2021" role="doc-biblioref">Zheng et al. 2021</a>)</span> or I-TASSER-MTD, among others.</li>
 </ul></li>
 </ul>
 </section>
 <section id="model-quality-assessment" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> <strong>Model quality assessment</strong></h1>
 <ul>
-<li><p><strong>QMEAN</strong>: <a href="https://swissmodel.expasy.org/qmean/" class="uri">https://swissmodel.expasy.org/qmean/</a></p>
-<ul>
-<li><p>Includes the new version QMEANDisCo</p></li>
-<li><p>Ref. <a href="https://doi.org/10.1093/bioinformatics/btz828" class="uri">https://doi.org/10.1093/bioinformatics/btz828</a></p></li>
-</ul></li>
-<li><p><strong>Modfold: <a href="https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD6_form.html" class="uri">https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD6_form.html</a></strong></p>
-<ul>
-<li>Ref: <a href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkx332" class="uri">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkx332</a></li>
-</ul></li>
-<li><p><strong>VoroMQA: <a href="http://bioinformatics.ibt.lt/wtsam/voromqa" class="uri">http://bioinformatics.ibt.lt/wtsam/voromqa</a></strong></p>
-<ul>
-<li>Ref: <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/prot.25278" class="uri">https://onlinelibrary.wiley.com/doi/full/10.1002/prot.25278</a></li>
-</ul></li>
-<li><p>Saves: <a href="https://servicesn.mbi.ucla.edu/SAVES/" class="uri">https://servicesn.mbi.ucla.edu/SAVES/</a></p>
-<ul>
-<li>Quality assessment in several “classic” servers</li>
-</ul></li>
-<li><p>SIFT: <a href="http://sift.cchmc.org/" class="uri">http://sift.cchmc.org/</a></p>
-<ul>
-<li><p><strong>S</strong>equence <strong>I</strong>ndependent (as well as dependent) <strong>F</strong>iltering <strong>T</strong>ools for efficient and accurate protein model quality assessment</p></li>
-<li><p>Ref. <a href="https://www.tandfonline.com/doi/abs/10.1080/00268970410001728636?journalCode=tmph20" class="uri">https://www.tandfonline.com/doi/abs/10.1080/00268970410001728636?journalCode=tmph20</a></p></li>
-</ul></li>
+<li><p><strong>QMEAN &amp; QMEANDisCo</strong> <span class="citation" data-cites="studer2020">(<a href="#ref-studer2020" role="doc-biblioref">Studer et al. 2020</a>)</span>: <a href="https://swissmodel.expasy.org/qmean/" class="uri">https://swissmodel.expasy.org/qmean/</a></p></li>
+<li><p><strong>Modfold</strong> <span class="citation" data-cites="mcguffin2021">(<a href="#ref-mcguffin2021" role="doc-biblioref">McGuffin et al. 2021</a>)</span><strong>:</strong> <a href="https://www.reading.ac.uk/bioinf/ModFOLD/" class="uri">https://www.reading.ac.uk/bioinf/ModFOLD/</a></p></li>
+<li><p><strong>VoroMQA</strong> <span class="citation" data-cites="olechnovic2019">(<a href="#ref-olechnovic2019" role="doc-biblioref">Olechnovič and Venclovas 2019</a>)</span><strong>: <a href="http://bioinformatics.ibt.lt/wtsam/voromqa" class="uri">http://bioinformatics.ibt.lt/wtsam/voromqa</a></strong></p></li>
+<li><p><strong>DeepUMQA</strong> <span class="citation" data-cites="guo2022">(<a href="#ref-guo2022" role="doc-biblioref">Guo et al. 2022</a>)</span>: <a href="http://zhanglab-bioinf.com/DeepUMQA/" class="uri">http://zhanglab-bioinf.com/DeepUMQA/</a></p></li>
 </ul>
 </section>
 <section id="other-resources" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> <strong>Other resources</strong></h1>
 <ul>
-<li><p><strong>DALI</strong>: <a href="http://ekhidna2.biocenter.helsinki.fi/dali/" class="uri">http://ekhidna2.biocenter.helsinki.fi/dali/</a></p>
+<li><p><strong>DALI</strong> <span class="citation" data-cites="holm2022">(<a href="#ref-holm2022" role="doc-biblioref">Holm 2022</a>)</span>: <a href="http://ekhidna2.biocenter.helsinki.fi/dali/" class="uri">http://ekhidna2.biocenter.helsinki.fi/dali/</a></p></li>
+<li><p><strong>FoldSeek</strong> <span class="citation" data-cites="vankempen2023">(<a href="#ref-vankempen2023" role="doc-biblioref">Kempen et al. 2023</a>)</span>: <a href="https://search.foldseek.com/search" class="uri">https://search.foldseek.com/search</a></p>
 <ul>
-<li><p>Web service for comparing protein structures in 3D</p></li>
-<li><p>Ref:<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/pro.3749" class="uri">https://onlinelibrary.wiley.com/doi/full/10.1002/pro.3749</a></p></li>
+<li>Fast search for structural similarities</li>
 </ul></li>
-<li><p><strong>FoldSeek</strong>: <a href="https://search.foldseek.com/search" class="uri">https://search.foldseek.com/search</a></p>
+<li><p>FatCat <span class="citation" data-cites="li2020">(<a href="#ref-li2020" role="doc-biblioref">Zhanwen Li et al. 2020</a>)</span><strong>:</strong> <a href="http://fatcat.godziklab.org/fatcat/fatcat_pair.html" class="uri">http://fatcat.godziklab.org/fatcat/fatcat_pair.html</a></p>
 <ul>
-<li><p>Find structural homologs</p></li>
-<li><p>Ref. <a href="https://www.biorxiv.org/content/10.1101/2022.02.07.479398v4" class="uri">https://www.biorxiv.org/content/10.1101/2022.02.07.479398v4</a></p></li>
-</ul></li>
-<li><p>FatCat<strong>:</strong> <a href="http://fatcat.godziklab.org/fatcat/fatcat_pair.html" class="uri">http://fatcat.godziklab.org/fatcat/fatcat_pair.html</a></p>
-<ul>
-<li><p>Pairwise structural alignment of PDB entries or .pdb files.</p></li>
-<li><p>Ref. <a href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkaa443" class="uri">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkaa443</a></p></li>
+<li>Structural alignment tool.</li>
 </ul></li>
 <li><p>LGA: <a href="http://proteinmodel.org/AS2TS/LGA/lga.html" class="uri">http://proteinmodel.org/AS2TS/LGA/lga.html</a></p>
 <ul>
@@ -500,9 +483,80 @@ Note
 </ul>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-ahdritz" class="csl-entry" role="listitem">
+Ahdritz, Gustaf, Nazim Bouatta, Christina Floristean, Sachin Kadyan, Qinghui Xia, William Gerecke, Timothy J. O’Donnell, et al. n.d. <span>“OpenFold: Retraining AlphaFold2 Yields New Insights into Its Learning Mechanisms and Capacity for Generalization.”</span> <a href="https://doi.org/10.1101/2022.11.20.517210">https://doi.org/10.1101/2022.11.20.517210</a>.
+</div>
+<div id="ref-baeka" class="csl-entry" role="listitem">
+Baek, Minkyung, Ivan Anishchenko, Ian R. Humphreys, Qian Cong, David Baker, and Frank DiMaio. n.d. <span>“Efficient and Accurate Prediction of Protein Structure Using RoseTTAFold2.”</span> <a href="https://doi.org/10.1101/2023.05.24.542179">https://doi.org/10.1101/2023.05.24.542179</a>.
+</div>
+<div id="ref-baek2021a" class="csl-entry" role="listitem">
+Baek, Minkyung, Frank DiMaio, Ivan Anishchenko, Justas Dauparas, Sergey Ovchinnikov, Gyu Rie Lee, Jue Wang, et al. 2021. <span>“Accurate prediction of protein structures and interactions using a three-track neural network.”</span> <em>Science (New York, N.Y.)</em> 373 (6557): 871–76. <a href="https://doi.org/10.1126/science.abj8754">https://doi.org/10.1126/science.abj8754</a>.
+</div>
+<div id="ref-buchan2019" class="csl-entry" role="listitem">
+Buchan, Daniel W A, and David T Jones. 2019. <span>“The PSIPRED Protein Analysis Workbench: 20 Years On.”</span> <em>Nucleic Acids Research</em> 47 (W1): W402–7. <a href="https://doi.org/10.1093/nar/gkz297">https://doi.org/10.1093/nar/gkz297</a>.
+</div>
+<div id="ref-guo2022" class="csl-entry" role="listitem">
+Guo, Sai-Sai, Jun Liu, Xiao-Gen Zhou, and Gui-Jun Zhang. 2022. <span>“DeepUMQA: ultrafast shape recognition-based protein model quality assessment using deep learning.”</span> <em>Bioinformatics (Oxford, England)</em> 38 (7): 1895–1903. <a href="https://doi.org/10.1093/bioinformatics/btac056">https://doi.org/10.1093/bioinformatics/btac056</a>.
+</div>
+<div id="ref-hallgren" class="csl-entry" role="listitem">
+Hallgren, Jeppe, Konstantinos D. Tsirigos, Mads Damgaard Pedersen, José Juan Almagro Armenteros, Paolo Marcatili, Henrik Nielsen, Anders Krogh, and Ole Winther. 2022. <span>“DeepTMHMM Predicts Alpha and Beta Transmembrane Proteins Using Deep Neural Networks.”</span> <a href="https://doi.org/10.1101/2022.04.08.487609">https://doi.org/10.1101/2022.04.08.487609</a>.
+</div>
+<div id="ref-høie2022" class="csl-entry" role="listitem">
+Høie, Magnus Haraldson, Erik Nicolas Kiehl, Bent Petersen, Morten Nielsen, Ole Winther, Henrik Nielsen, Jeppe Hallgren, and Paolo Marcatili. 2022. <span>“NetSurfP-3.0: Accurate and Fast Prediction of Protein Structural Features by Protein Language Models and Deep Learning.”</span> <em>Nucleic Acids Research</em> 50 (W1): W510–15. <a href="https://doi.org/10.1093/nar/gkac439">https://doi.org/10.1093/nar/gkac439</a>.
+</div>
+<div id="ref-holm2022" class="csl-entry" role="listitem">
+Holm, Liisa. 2022. <span>“Dali Server: Structural Unification of Protein Families.”</span> <em>Nucleic Acids Research</em> 50 (W1): W210–15. <a href="https://doi.org/10.1093/nar/gkac387">https://doi.org/10.1093/nar/gkac387</a>.
+</div>
+<div id="ref-kelley2015" class="csl-entry" role="listitem">
+Kelley, L. A., S. Mezulis, C. M. Yates, M. N. Wass, and M. J. Sternberg. 2015. <span>“The Phyre2 Web Portal for Protein Modeling, Prediction and Analysis.”</span> <em>Nat Protoc</em> 10 (6): 845–58. <a href="https://doi.org/10.1038/nprot.2015.053">https://doi.org/10.1038/nprot.2015.053</a>.
+</div>
+<div id="ref-vankempen2023" class="csl-entry" role="listitem">
+Kempen, Michel van, Stephanie S. Kim, Charlotte Tumescheit, Milot Mirdita, Jeongjae Lee, Cameron L. M. Gilchrist, Johannes Söding, and Martin Steinegger. 2023. <span>“Fast and Accurate Protein Structure Search with Foldseek.”</span> <em>Nature Biotechnology</em>, May, 1–4. <a href="https://doi.org/10.1038/s41587-023-01773-0">https://doi.org/10.1038/s41587-023-01773-0</a>.
+</div>
+<div id="ref-li2020" class="csl-entry" role="listitem">
+Li, Zhanwen, Lukasz Jaroszewski, Mallika Iyer, Mayya Sedova, and Adam Godzik. 2020. <span>“FATCAT 2.0: towards a better understanding of the structural diversity of proteins.”</span> <em>Nucleic Acids Research</em> 48 (W1): W60–64. <a href="https://doi.org/10.1093/nar/gkaa443">https://doi.org/10.1093/nar/gkaa443</a>.
+</div>
+<div id="ref-li" class="csl-entry" role="listitem">
+Li, Ziyao, Xuyang Liu, Weijie Chen, Fan Shen, Hangrui Bi, Guolin Ke, and Linfeng Zhang. n.d. <span>“Uni-Fold: An Open-Source Platform for Developing Protein Folding Models Beyond AlphaFold.”</span> <a href="https://doi.org/10.1101/2022.08.04.502811">https://doi.org/10.1101/2022.08.04.502811</a>.
+</div>
+<div id="ref-lin2023" class="csl-entry" role="listitem">
+Lin, Zeming, Halil Akin, Roshan Rao, Brian Hie, Zhongkai Zhu, Wenting Lu, Nikita Smetanin, et al. 2023. <span>“Evolutionary-Scale Prediction of Atomic-Level Protein Structure with a Language Model.”</span> <em>Science</em> 379 (6637): 1123–30. <a href="https://doi.org/10.1126/science.ade2574">https://doi.org/10.1126/science.ade2574</a>.
+</div>
+<div id="ref-mcguffin2021" class="csl-entry" role="listitem">
+McGuffin, Liam J., Fahd M. F. Aldowsari, Shuaa M. A. Alharbi, and Recep Adiyaman. 2021. <span>“ModFOLD8: accurate global and local quality estimates for 3D protein models.”</span> <em>Nucleic Acids Research</em> 49 (W1): W425–30. <a href="https://doi.org/10.1093/nar/gkab321">https://doi.org/10.1093/nar/gkab321</a>.
+</div>
+<div id="ref-mirdita2022" class="csl-entry" role="listitem">
+Mirdita, Milot, Konstantin Schütze, Yoshitaka Moriwaki, Lim Heo, Sergey Ovchinnikov, and Martin Steinegger. 2022. <span>“ColabFold: making protein folding accessible to all.”</span> <em>Nature Methods</em> 19 (6): 679–82. <a href="https://doi.org/10.1038/s41592-022-01488-1">https://doi.org/10.1038/s41592-022-01488-1</a>.
+</div>
+<div id="ref-olechnovic2019" class="csl-entry" role="listitem">
+Olechnovič, Kliment, and Česlovas Venclovas. 2019. <span>“VoroMQA web server for assessing three-dimensional structures of proteins and protein complexes.”</span> <em>Nucleic Acids Research</em> 47 (W1): W437–42. <a href="https://doi.org/10.1093/nar/gkz367">https://doi.org/10.1093/nar/gkz367</a>.
+</div>
+<div id="ref-pieper2014" class="csl-entry" role="listitem">
+Pieper, Ursula, Benjamin M. Webb, Guang Qiang Dong, Dina Schneidman-Duhovny, Hao Fan, Seung Joong Kim, Natalia Khuri, et al. 2014. <span>“ModBase, a database of annotated comparative protein structure models and associated resources.”</span> <em>Nucleic Acids Research</em> 42 (Database issue): D336–346. <a href="https://doi.org/10.1093/nar/gkt1144">https://doi.org/10.1093/nar/gkt1144</a>.
+</div>
+<div id="ref-roy2010" class="csl-entry" role="listitem">
+Roy, A., A. Kucukural, and Y. Zhang. 2010. <span>“I-TASSER: a unified platform for automated protein structure and function prediction.”</span> <em>Nat Protoc</em> 5 (4): 725–38. <a href="https://doi.org/nprot.2010.5 [pii] 10.1038/nprot.2010.5">https://doi.org/nprot.2010.5 [pii] 10.1038/nprot.2010.5</a>.
+</div>
+<div id="ref-song2013" class="csl-entry" role="listitem">
+Song, Yifan, Frank DiMaio, Ray Yu-Ruei Wang, David Kim, Chris Miles, TJ Brunette, James Thompson, and David Baker. 2013. <span>“High-Resolution Comparative Modeling with RosettaCM.”</span> <em>Structure</em> 21 (10): 1735–42. https://doi.org/<a href="https://doi.org/10.1016/j.str.2013.08.005">https://doi.org/10.1016/j.str.2013.08.005</a>.
+</div>
+<div id="ref-studer2020" class="csl-entry" role="listitem">
+Studer, Gabriel, Christine Rempfer, Andrew M. Waterhouse, Rafal Gumienny, Juergen Haas, and Torsten Schwede. 2020. <span>“QMEANDisCo-distance constraints applied on model quality estimation.”</span> <em>Bioinformatics (Oxford, England)</em> 36 (6): 1765–71. <a href="https://doi.org/10.1093/bioinformatics/btz828">https://doi.org/10.1093/bioinformatics/btz828</a>.
+</div>
+<div id="ref-wang2017" class="csl-entry" role="listitem">
+Wang, Sheng, Siqi Sun, Zhen Li, Renyu Zhang, and Jinbo Xu. 2017. <span>“Accurate De Novo Prediction of Protein Contact Map by Ultra-Deep Learning Model.”</span> <em>PLoS computational biology</em> 13 (1): e1005324. <a href="https://doi.org/10.1371/journal.pcbi.1005324">https://doi.org/10.1371/journal.pcbi.1005324</a>.
+</div>
+<div id="ref-waterhouse2018" class="csl-entry" role="listitem">
+Waterhouse, Andrew, Martino Bertoni, Stefan Bienert, Gabriel Studer, Gerardo Tauriello, Rafal Gumienny, Florian T Heer, et al. 2018. <span>“SWISS-MODEL: Homology Modelling of Protein Structures and Complexes.”</span> <em>Nucleic Acids Research</em> 46 (W1): W296–303. <a href="https://doi.org/10.1093/nar/gky427">https://doi.org/10.1093/nar/gky427</a>.
+</div>
+<div id="ref-zheng2021" class="csl-entry" role="listitem">
+Zheng, Wei, Chengxin Zhang, Yang Li, Robin Pearce, Eric W. Bell, and Yang Zhang. 2021. <span>“Folding non-homologous proteins by coupling deep-learning contact maps with I-TASSER assembly simulations.”</span> <em>Cell Reports Methods</em> 1 (3): 100014. <a href="https://doi.org/10.1016/j.crmeth.2021.100014">https://doi.org/10.1016/j.crmeth.2021.100014</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */

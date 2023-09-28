@@ -17,6 +17,7 @@ editor:
   markdown: 
     wrap: 80
 ---
+
 ```{r echo=FALSE, output=FALSE}
 
 library(webexercises)
@@ -25,23 +26,25 @@ library(webexercises)
 ::: callout-warning
 ### Disclaimer
 
-This is not a comprehensive list of Protein Modeling resources. Rather, it contains some of the references, methods, and online servers that I found useful through the years.
+This is not a comprehensive list of Protein Modeling resources. Rather, it
+contains some of the references, methods, and online servers that I found useful
+through the years.
 
-Most useful links (IMHO) are highlighted in bold. Other (many) tools may be useful for you, feel free to let me know and I'll update the list.
+Most useful links (IMHO) are highlighted in bold. Other (many) tools may be
+useful for you, feel free to let me know and I'll update the list.
 :::
 
 ::: callout-note
-Links accessed on 21/September/2022
+Links checked on 28/September/2023, let me know if you find any broken link.
 :::
-
-
-
 
 # **Template search**
 
 -   **BLAST**: <https://blast.ncbi.nlm.nih.gov/Blast.cgi>
 
 -   **HHPRED**: <https://toolkit.tuebingen.mpg.de/tools/hhpred>
+
+-   **HHblits**: <https://toolkit.tuebingen.mpg.de/tools/hhblits>
 
 -   **JackHMMER**: <https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer>
 
@@ -63,11 +66,14 @@ Links accessed on 21/September/2022
 
     -   Ref: <https://academic.oup.com/nar/article/47/W1/W402/5480136>
 
--   **MULTICOM Toolbox**: <http://sysbio.rnet.missouri.edu/multicom_toolbox/web%20services.html>
+-   **MULTICOM Toolbox**:
+    <http://sysbio.rnet.missouri.edu/multicom_toolbox/web%20services.html>
 
-    -    Pulls together protein structure and structural feature prediction tools.
+    -   Pulls together protein structure and structural feature prediction
+        tools.
 
-    -   Server currently offline. Application available on GitHub: <https://github.com/multicom-toolbox>
+    -   ⚠️Server currently offline. Application available on GitHub:
+        <https://github.com/multicom-toolbox>
 
 -   **SCRATCH**: <http://scratch.proteomics.ics.uci.edu/>
 
@@ -75,11 +81,7 @@ Links accessed on 21/September/2022
 
 -   **SYMPRED**: <http://www.ibi.vu.nl/programs/sympredwww/>
 
-    -   Consensus secondary structure prediction
-
--   Genesilico: <http://genesilico.pl/>
-
-    -   Secondary structure prediction metaserver (currently out of service!)
+    -   Consensus secondary structure prediction metaserver
 
 -   **MESSA**: <http://prodata.swmed.edu/MESSA/MESSA.cgi>
 
@@ -89,19 +91,22 @@ Links accessed on 21/September/2022
 
 -   **DeepTMHMM**: <https://dtu.biolib.com/DeepTMHMM>
 
-    -   Deep-learning 2022 version of the classic TMHMM predictor of transmembrane helices
+    -   Deep-learning 2022 version of the classic TMHMM predictor of
+        transmembrane helices
 
     -   Ref. <https://www.biorxiv.org/content/10.1101/2022.04.08.487609v1>
 
 -   **Phobius**: <https://www.ebi.ac.uk/Tools/pfa/phobius/>
 
-    -   Prediction of transmembrane topology and signal peptides from the amino acid sequence of a protein.
+    -   Prediction of transmembrane topology and signal peptides from the amino
+        acid sequence of a protein.
 
 -   **TopCons**: <http://topcons.cbr.su.se/>
 
     -   Consensus prediction of membrane protein topology and signal peptides
 
-    -   Ref. <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkv485>
+    -   Ref.
+        <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkv485>
 
 -   **PSORT**: <https://psort.hgc.jp/>
 
@@ -125,113 +130,93 @@ Links accessed on 21/September/2022
 
 -   **DTU Tech resources**: <https://services.healthtech.dtu.dk/>
 
-    -   A collection of molecular biology tools, includin a number of services for 1D features prediction\
+    -   A collection of molecular biology tools, including a number of services
+        for 1D features prediction, such as DeepTMHMM [@hallgren] or NetSurfP
+        [@høie2022].\
 
 # **Protein modeling**
 
--   **SwissModel**: <https://swissmodel.expasy.org/>
+-   **SwissModel** [@waterhouse2018]: <https://swissmodel.expasy.org/>
 
-    -   Ref: <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gky427>
-
--   **Robetta** server: <https://robetta.bakerlab.org/>
-
-    -   Several methods
-
--   **ModWeb:** <https://modbase.compbio.ucsf.edu/modweb/>
-
-    -   Webserver using MODELLER (free registration required)
-
-    -   Ref. <https://pubmed.ncbi.nlm.nih.gov/24271400/>
-
--   **ColabFold**: <https://github.com/sokrypton/ColabFold>
-
-    -   Several notebooks available
-
-    -   Ref. <https://www.nature.com/articles/s41592-022-01488-1>
-
--   CPHmodels: <https://services.healthtech.dtu.dk/service.php?CPHmodels-3.2>
-
-    -   Ref: <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkq535>
-
--   **Zhang server**: <https://zhanggroup.org/services/>
-
-    -   Multiple methods, including I-TASSER, C-I-TASSER or I-TASSER-MTD
-
-    -   See references within.
-
--   PsiPRED: <http://bioinf.cs.ucl.ac.uk/psipred/>
+-   PsiPRED [@buchan2019]: <http://bioinf.cs.ucl.ac.uk/psipred/>
 
     -   Fold recognition server (among other tools)
 
-    -   Ref: <https://academic.oup.com/nar/article/47/W1/W402/5480136>
-
--   Multicom: <http://sysbio.rnet.missouri.edu/multicom_cluster/>
-
-    -   Ref.<https://bmcstructbiol.biomedcentral.com/articles/10.1186/1472-6807-13-2>
-
--   **RaptorX**: <http://raptorx.uchicago.edu/ContactMap/>
+-   **RaptorX** [@wang2017]: <http://raptorx.uchicago.edu/ContactMap/>
 
     -   Distance-based Protein Folding Powered by Deep Learning
 
-    -   Ref. <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005324>
+-   **Phyre2** [@kelley2015]:
+    <http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index>
 
--   **Phyre2**: <http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index>
+    -   Fold recognition & fragment assembler
 
-    -   Ref. <http://www.nature.com/nprot/journal/v10/n6/ris/nprot.2015.053.ris>
+-   **Robetta** server: <https://robetta.bakerlab.org/>
 
-    -   Fold recognition & fragment assembler\
+    -   Several methods, including RosettaCM [@song2013] and RoseTTAFOLD
+        [@baek2021a; @baeka]
+
+-   **ModWeb** [@pieper2014]**:** <https://modbase.compbio.ucsf.edu/modweb/>
+
+    -   Webserver using MODELLER (free registration required)
+
+-   **ColabFold** [@mirdita2022]: <https://github.com/sokrypton/ColabFold>
+
+    -   Several notebooks available
+
+-   **DeepMind's AlphaFold colab**:
+    <https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb>
+
+-   **Openfold** [@ahdritz] Colab:
+    <https://colab.research.google.com/github/aqlaboratory/openfold/blob/main/notebooks/OpenFold.ipyn>
+
+-   **Unifold** [@li] Colab:
+    <https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb>
+
+-   **ESM Metagenomic Atlas** (DDBB & tools, @lin2023):
+    <https://esmatlas.com/about>
+
+-   **PymolFold**: A handy Pymol script that calls the ESM-Fold API
+
+    -   <https://github.com/JinyuanSun/PymolFold>
+
+    -   Web version: <http://103.79.77.89:8501/>
+
+-   **Zhang server**: <https://zhanggroup.org/services/>
+
+    -   Multiple methods, including I-TASSER [@roy2010], C-I-TASSER [@zheng2021]
+        or I-TASSER-MTD, among others.
 
 # **Model quality assessment**
 
--   **QMEAN**: <https://swissmodel.expasy.org/qmean/>
+-   **QMEAN & QMEANDisCo** [@studer2020]: <https://swissmodel.expasy.org/qmean/>
 
-    -   Includes the new version QMEANDisCo
+-   **Modfold** [@mcguffin2021]**:** <https://www.reading.ac.uk/bioinf/ModFOLD/>
 
-    -   Ref. <https://doi.org/10.1093/bioinformatics/btz828>
+-   **VoroMQA** [@olechnovic2019]**:
+    <http://bioinformatics.ibt.lt/wtsam/voromqa>**
 
--   **Modfold: <https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD6_form.html>**
-
-    -   Ref: <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkx332>
-
--   **VoroMQA: <http://bioinformatics.ibt.lt/wtsam/voromqa>**
-
-    -   Ref: <https://onlinelibrary.wiley.com/doi/full/10.1002/prot.25278>
-
--   Saves: <https://servicesn.mbi.ucla.edu/SAVES/>
-
-    -   Quality assessment in several "classic" servers
-
--   SIFT: <http://sift.cchmc.org/>
-
-    -   **S**equence **I**ndependent (as well as dependent) **F**iltering **T**ools for efficient and accurate protein model quality assessment
-
-    -   Ref. <https://www.tandfonline.com/doi/abs/10.1080/00268970410001728636?journalCode=tmph20>
+-   **DeepUMQA** [@guo2022]: <http://zhanglab-bioinf.com/DeepUMQA/>
 
 # **Other resources**
 
--   **DALI**: <http://ekhidna2.biocenter.helsinki.fi/dali/>
+-   **DALI** [@holm2022]: <http://ekhidna2.biocenter.helsinki.fi/dali/>
 
-    -   Web service for comparing protein structures in 3D
+-   **FoldSeek** [@vankempen2023]: <https://search.foldseek.com/search>
 
-    -   Ref:<https://onlinelibrary.wiley.com/doi/full/10.1002/pro.3749>
+    -   Fast search for structural similarities
 
--   **FoldSeek**: <https://search.foldseek.com/search>
+-   FatCat [@li2020]**:** <http://fatcat.godziklab.org/fatcat/fatcat_pair.html>
 
-    -   Find structural homologs
-
-    -   Ref. <https://www.biorxiv.org/content/10.1101/2022.02.07.479398v4>
-
--   FatCat**:** <http://fatcat.godziklab.org/fatcat/fatcat_pair.html>
-
-    -   Pairwise structural alignment of PDB entries or .pdb files.
-
-    -   Ref. <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkaa443>
+    -   Structural alignment tool.
 
 -   LGA: <http://proteinmodel.org/AS2TS/LGA/lga.html>
 
-    -   LGA program is being developed for structure comparative analysis of two selected 3D protein structures or fragments of 3D protein structures
+    -   LGA program is being developed for structure comparative analysis of two
+        selected 3D protein structures or fragments of 3D protein structures
 
-    -   Ref. <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkg571>
+    -   Ref.
+        <https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkg571>
 
 -   Galaxy Refine: <http://galaxy.seoklab.org/cgi-bin/submit.cgi?type=REFINE>
 
@@ -239,7 +224,8 @@ Links accessed on 21/September/2022
 
     -   Ref. <http://www.ncbi.nlm.nih.gov/pubmed/23737448>
 
--   Galaxy Refine2: [[galaxy.seoklab.org/cgi-bin/submit.cgi?type=REFINE2]{.ul}](http://galaxy.seoklab.org/cgi-bin/submit.cgi?type=REFINE2)
+-   Galaxy Refine2:
+    [[galaxy.seoklab.org/cgi-bin/submit.cgi?type=REFINE2]{.underline}](http://galaxy.seoklab.org/cgi-bin/submit.cgi?type=REFINE2)
 
     -   \<300 aa
 
@@ -249,7 +235,8 @@ Links accessed on 21/September/2022
 
     -   Modeling of 3D Structures of Complexes
 
-    -   Ref. <http://link.springer.com/article/10.1007/s10969-016-9208-y?wt_mc=Internal.Event.1.SEM.ArticleAuthorOnlineFirst>
+    -   Ref.
+        <http://link.springer.com/article/10.1007/s10969-016-9208-y?wt_mc=Internal.Event.1.SEM.ArticleAuthorOnlineFirst>
 
 -   pyDockWEB: <https://life.bsc.es/pid/pydockweb>
 
@@ -257,11 +244,13 @@ Links accessed on 21/September/2022
 
 -   Hex: <http://hexserver.loria.fr/>
 
-    -   Prediction of protein-protein interactions (homo- & hetero-oligomers modeling)
+    -   Prediction of protein-protein interactions (homo- & hetero-oligomers
+        modeling)
 
     -   Ref. <https://onlinelibrary.wiley.com/doi/full/10.1002/prot.24433>
 
--   DaReUs-Loop**:** <https://bioserv.rpbs.univ-paris-diderot.fr/services/DaReUS-Loop/>
+-   DaReUs-Loop**:**
+    <https://bioserv.rpbs.univ-paris-diderot.fr/services/DaReUS-Loop/>
 
     -   Modeling loops
 
@@ -271,13 +260,15 @@ Links accessed on 21/September/2022
 
     -   Loops refining
 
-    -   Ref. <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113811>
+    -   Ref.
+        <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113811>
 
 -   Expasy proteomics tools: <https://www.expasy.org/proteomics>
 
     -   List of qMultiple links and resources
 
--   Protein modeling links \@Sali Lab: <https://salilab.org/bioinformatics_resources.html>
+-   Protein modeling links \@Sali Lab:
+    <https://salilab.org/bioinformatics_resources.html>
 
 -   Homology modeling \@Proteopedia:
 
@@ -285,4 +276,5 @@ Links accessed on 21/September/2022
 
     -   <https://proteopedia.org/wiki/index.php/User:Wayne_Decatur/Homology_Modeling>
 
--   List of protein structure prediction software \@Wikipedia: <https://en.wikipedia.org/wiki/List_of_protein_structure_prediction_software>
+-   List of protein structure prediction software \@Wikipedia:
+    <https://en.wikipedia.org/wiki/List_of_protein_structure_prediction_software>
