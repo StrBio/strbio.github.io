@@ -2,6 +2,11 @@
 title: "BIBMS-3: StrBio Exercise"
 date: "August 21, 2023"
 date-modified: "`r Sys.Date()`"
+author: 
+  - name: Modesto
+    affiliation: Department of Biochemistry, UAM
+    affiliation_url: https://www.uam.es/
+    email: modesto.redrejo@uam.es
 format: 
   html:
     page-layout: full
@@ -34,6 +39,10 @@ differences between different structures.
     However, this is a shorter and updated version adapted for BIBMS\@UAM.
     Please let me know if you find any mistake or trouble.
 
+    ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png){width="77"
+    height="28"} Distributed with
+    [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+
 **Follow the given steps and then answer the questions in Moodle.**
 
 Questions are very welcome, but please use the *Moodle Q&A* forum so that your
@@ -61,79 +70,79 @@ substrate or inhibitors. Two of them are **2HU4** and **3CL0**.
 
 ### 2. Then go to [Mol\* Viewer](https://molstar.org/viewer/) to analyze them in more detail.
 
-<table class="caption-top table">
-<colgroup>
-<col style="width: 65%">
-<col style="width: 35%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>You can download the structures directly from PDB database using the IDs.</td>
-<td><img src="images/image.18.png" class="img-fluid" width="400"></td>
-</tr>
-<tr class="even">
-<td><p>Zoom-in on the structures and see how each protein interacts with the inhibitor. Just move the mouse pointer over each residue and you will easily identify them by a label on the bottom-right corner.</p>
-<p>Tips:</p>
-<ul>
-<li><p>Zoom in/out usually works with your mouse scroll</p></li>
-<li><p>Left button for rotation</p></li>
-<li><p>Right button (or control+left button) for translation without rotation.</p></li>
-<li><p>With SHIFT+Scroll you can move the Z-axis (I mean perpendicular to the screen plane) and show a “section plane” within the structure.</p></li>
-</ul></td>
-<td><img src="images/image.9.png" class="img-fluid" width="400"></td>
-</tr>
-<tr class="odd">
-<td><p>Trick:</p>
-<p>Click on the drug molecule and then use the right menu to change anything in the representation of the surrounding environment of the drug.</p>
-<p>For instance, you can add labels using <code>[Focus] Surroundings</code> &gt; <code>Add Representation</code> &gt; <code>Labels</code></p>
-<p>Then click in the <code>...</code>to close that menu.</p>
-<p>Do it for one monomer in each structure to see the differences in the binding pocket.</p></td>
-<td><img src="images/image.17.png" class="img-fluid" width="400"></td>
-</tr>
-<tr class="even">
-<td>You can also remove water molecules and extra ions that will not be useful for us at this point.</td>
-<td><img src="images/image.12.png" class="img-fluid" width="400"></td>
-</tr>
-</tbody>
-</table>
++---------------------------------------------------+--------------------------+
+| You can download the structures directly from PDB | ![](images/image.18.png) |
+| database using the IDs.                           |                          |
++---------------------------------------------------+--------------------------+
+| Zoom-in on the structures and see how each        | ![](images/image.9.png)  |
+| protein interacts with the inhibitor. Just move   |                          |
+| the mouse pointer over each residue and you will  |                          |
+| easily identify them by a label on the            |                          |
+| bottom-right corner.                              |                          |
+|                                                   |                          |
+| Tips:                                             |                          |
+|                                                   |                          |
+| -   Zoom in/out usually works with your mouse     |                          |
+|     scroll                                        |                          |
+|                                                   |                          |
+| -   Left button for rotation                      |                          |
+|                                                   |                          |
+| -   Right button (or control+left button) for     |                          |
+|     translation without rotation.                 |                          |
+|                                                   |                          |
+| -   With SHIFT+Scroll you can move the Z-axis (I  |                          |
+|     mean perpendicular to the screen plane) and   |                          |
+|     show a “section plane” within the structure.  |                          |
++---------------------------------------------------+--------------------------+
+| Trick:                                            | ![](images/image.17.png) |
+|                                                   |                          |
+| Click on the drug molecule and then use the right |                          |
+| menu to change anything in the representation of  |                          |
+| the surrounding environment of the drug.          |                          |
+|                                                   |                          |
+| For instance, you can add labels using            |                          |
+| `[Focus] Surroundings` \> `Add Representation` \> |                          |
+| `Labels`                                          |                          |
+|                                                   |                          |
+| Then click in the `...`to close that menu.        |                          |
+|                                                   |                          |
+| Do it for one monomer in each structure to see    |                          |
+| the differences in the binding pocket.            |                          |
++---------------------------------------------------+--------------------------+
+| You can also remove water molecules and extra     | ![](images/image.12.png) |
+| ions that will not be useful for us at this       |                          |
+| point.                                            |                          |
++---------------------------------------------------+--------------------------+
 
 ### 3. Now we want to compare them and check the details.
 
-<table class="caption-top table">
-<colgroup>
-<col style="width: 65%">
-<col style="width: 35%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>To align the structures:</p>
-<p>1. Select the “Toggle” tool</p></td>
-<td><img src="images/image.1.png" class="img-fluid" width="87"></td>
-</tr>
-<tr class="even">
-<td>2. Change the level for selecting to CHAIN</td>
-<td><img src="images/image.3.png" class="img-fluid" width="400"> <img src="images/image.4.png" class="img-fluid" width="400"></td>
-</tr>
-<tr class="odd">
-<td><p>3. Select one chain from each structure.</p>
-<p>Tip:</p>
-<p>Optionally, you can remove all the unwanted chains but one using the <code>-</code> option (indicated with the pink arrow) to keep the exercise simpler by using monomeric structures.</p></td>
-<td><img src="images/image.13.png" class="img-fluid" width="400"></td>
-</tr>
-<tr class="even">
-<td><p>4. Align them with the <code>Superposition</code> tool.</p>
-<p>The RMSD will be on the history bar (on the bottom).</p></td>
-<td><img src="images/image.6.png" class="img-fluid" width="400"></td>
-</tr>
-</tbody>
-</table>
++---------------------------------------------------+--------------------------+
+| To align the structures:                          | ![](images/image.1.png)  |
+|                                                   |                          |
+| 1\. Select the “Toggle” tool                      |                          |
++---------------------------------------------------+--------------------------+
+| 2\. Change the level for selecting to CHAIN       | ![](images/image.3.png)  |
+|                                                   | ![](images/image.4.png)  |
++---------------------------------------------------+--------------------------+
+| 3\. Select one chain from each structure.         | ![](images/image.13.png) |
+|                                                   |                          |
+| Tip:                                              |                          |
+|                                                   |                          |
+| Optionally, you can remove all the unwanted       |                          |
+| chains but one using the `-` option (indicated    |                          |
+| with the pink arrow) to keep the exercise simpler |                          |
+| by using monomeric structures.                    |                          |
++---------------------------------------------------+--------------------------+
+| 4\. Align them with the `Superposition` tool.     | ![](images/image.6.png)  |
+|                                                   |                          |
+| The RMSD will be on the history bar (on the       |                          |
+| bottom).                                          |                          |
++---------------------------------------------------+--------------------------+
 
 ### 4. Compare the residues in binding pocket.
 
-::: {.callout-tip}
+::: callout-tip
 Focus especially on residues 274 and 276 in each structure.
-
-
 :::
 
 ### 5. We just found a new virus with the following neuraminidase sequence:
@@ -153,31 +162,40 @@ DCYRACFYVDLIRGRPKEDKVWWTSNSIVSMCSSTEFIGQWNWPDGAKIEYFLGSA
 -   Check the target-template alignment and the model quality (Structure
     Assessment blue button).
 
-<table class="caption-top table">
-<colgroup>
-<col style="width: 65%">
-<col style="width: 35%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>You can use SWISS-MODEL: <a href="https://swissmodel.expasy.org/" class="uri">https://swissmodel.expasy.org/</a></p>
-<p>All the top templates are very similar, thus you can pick the first one to construct your model.</p>
-<p>Once you construct your model, you can download it in PDB format.</p></td>
-<td><img src="images/image.10.png" class="img-fluid"></td>
-</tr>
-<tr class="even">
-<td><p>Import your model in Mol* using the <code>Open Files</code> option in the <code>Home</code> menu (then click Apply) and compare your model with the other structures. Note that the numbers for equivalent residues in the alignment can be different in each sequence.</p>
-<p><em>Tip</em>: Remember also to change back the selection to “Residue” and switch off the <em>toggle</em> option.</p></td>
-<td><img src="images/image.15.png" class="img-fluid"></td>
-</tr>
-<tr class="odd">
-<td><p>Help: Try to solve the whole exercise yourself, but if you have trouble comparing the three proteins, at this point you can view my work session containing the three structures: <a href="mol-star_state_2023-10-3-10-33-7.molx">link</a></p>
-<p>You can import it using the OPEN option in the <code>Save Options</code> menu. <em>Note that this remove all your previous work if unsaved.</em></p>
-<p>After opening the session you should rotate and select the drug molecules to show the binding pocket in the structures. Then you can select the residue you want to check.</p></td>
-<td><img src="images/image.14.png" class="img-fluid"></td>
-</tr>
-</tbody>
-</table>
++---------------------------------------------------+--------------------------+
+| You can use SWISS-MODEL:                          | ![](images/image.10.png) |
+| <https://swissmodel.expasy.org/>                  |                          |
+|                                                   |                          |
+| All the top templates are very similar, thus you  |                          |
+| can pick the first one to construct your model.   |                          |
+|                                                   |                          |
+| Once you construct your model, you can download   |                          |
+| it in PDB format.                                 |                          |
++---------------------------------------------------+--------------------------+
+| Import your model in Mol\* using the `Open Files` | ![](images/image.15.png) |
+| option in the `Home` menu (then click Apply) and  |                          |
+| compare your model with the other structures.     |                          |
+| Note that the numbers for equivalent residues in  |                          |
+| the alignment can be different in each sequence.  |                          |
+|                                                   |                          |
+| *Tip*: Remember also to change back the selection |                          |
+| to “Residue” and switch off the *toggle* option.  |                          |
++---------------------------------------------------+--------------------------+
+| Help: Try to solve the whole exercise yourself,   | ![](images/image.14.png) |
+| but if you have trouble comparing the three       |                          |
+| proteins, at this point you can view my work      |                          |
+| session containing the three structures:          |                          |
+| [link](mol-star_state_2023-10-3-10-33-7.molx)     |                          |
+|                                                   |                          |
+| You can import it using the OPEN option in the    |                          |
+| `Save Options` menu. *Note that this remove all   |                          |
+| your previous work if unsaved.*                   |                          |
+|                                                   |                          |
+| After opening the session you should rotate and   |                          |
+| select the drug molecules to show the binding     |                          |
+| pocket in the structures. Then you can select the |                          |
+| residue you want to check.                        |                          |
++---------------------------------------------------+--------------------------+
 
 Now, compare the position of the drug and interacting residues within the
 binding pocket in structures 2HU4 (sensitive) and 3CL0 (resistant) with the
