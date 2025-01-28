@@ -351,7 +351,7 @@ is created. The most commonly referred approaches to this sort of classification
 are those used by SCOP and CATH databases, as we will see in the [Structural
 Databases](ddbb.html#strDDBB) section.
 
-## [**Hands on: Playing with secondary structures**]{style="color:green"}
+## [**Practice 1: Playing with secondary structures**]{style="color:green"}
 
 ![](pics/handson.png "Hands-on")
 
@@ -374,6 +374,7 @@ In this course we are going to try a more recent proposal, twitted by
 Sergey Ovchinnikov:
 
 {{< tweet sokrypton 1535857255647690753 >}}
+
 
 
 [![Basic protein amino acids stats for protein design with ColabFold
