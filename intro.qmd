@@ -27,25 +27,24 @@ library(webexercises)
 
 [Structural
 Bioinformatics](https://en.wikipedia.org/wiki/Structural_bioinformatics "Wikipedia")
-(SB) is a broad discipline that comprises data resources, algorithms, and tools
-for investigating, analyzing, predicting, and interpreting biomacromolecular
-structures @paiva2022. More specifically, we are interested in protein
-structural bioinformatics, spanning visualization and analysis of the structure
-of biomacromolecules as well as the prediction of protein structures and
-complexes. The great promise of SB is predicated on the belief that a
-high-resolution structural information about biological systems will allow us to
-precisely reason about the function of these systems and the effects of
-modifications and perturbations.
+(SB) is a broad discipline that encompasses data resources, algorithms, and
+tools for investigating, analyzing, predicting, and interpreting
+biomacromolecular structures @paiva2022. In this course, we will specifically
+focus on protein structural bioinformatics, including visualization and analysis
+of the structure of biomacromolecules as well as the prediction of protein
+structures and complexes. The premise of SB is that high-resolution structural
+information about biological systems enables precise reasoning about their
+functions and the effects of modifications and perturbations.
 
 The goals of SB require at least four different research lines (see Chapter 1 in
 @structur):
 
-1.  *Visualization* of complex structures with several sources of information:
-    sequence, structural data, electrostatic fields, location of functional
-    sites, and areas of variability.
+1.  *Visualization*: Dealing with one or many complex structures and integrating
+    various sources of information such as sequences, structural data,
+    electrostatic fields, locations of functional sites, and areas of
+    variability.
 
-2.  *Classification* of the structures, making if necessary to cluster similar
-    structures together in a hierarchical classification allow us to identify
+2.  *Classification*: Grouping similar structures hierarchically to identify
     common origins and diversification paths. Similar to other fields of biology
     classification is tedious but required to understand the structural space.
 
@@ -62,89 +61,93 @@ The goals of SB require at least four different research lines (see Chapter 1 in
     computation capacities may be limiting to reach a biologically relevant
     timescales.
 
-Powered by large amount of data and great technical advances, the field has
-experienced a great revolution in the last decade. The increase of experimental
-capacities to analyze the structure of proteins and other biological molecules
-and structures (see @callaway2020) and the development of Artificial
-Intelligence (AI)-assisted structure prediction boosted the capacity of
-life-science researchers to address a wide variety of questions regarding
-proteins diversity, evolution and function. This revolution underwent a great
-acceleration in the last 2-3 years and the implications in biology,
-biotechnology, and biomedicine are still unforeseen.
+Powered by vast amounts of data and significant technical advances, the field
+has undergone a substantial transformation over the past twenty years The
+enhancement of experimental capabilities to analyze the structure of proteins
+and other biological molecules and structures (see @callaway2020) and the
+advancement of Artificial Intelligence (AI)-assisted structure prediction have
+substantially increased the ability of life-science researchers to address
+various questions concerning protein diversity, evolution, and function. This
+transformation has boosted in the last 5 years, and its implications for
+biology, biotechnology, and biomedicine remain largely unpredictable.
 
 # Before going forward: Protein Structure 101 {#sec-str}
 
-Although you can make some protein modeling without being an expert in
-structural biology, a basic understanding of protein structure is strongly
-advisable. In this course there are some students without a background in
-biology. Moreover, over the years, I noticed that graduate students in biology,
-biomedicine, and related fields have a very different background on protein
-structure. If you want to review and update your background on protein
-structure, I recommend you reading Chapter 2 of @structur, the great recent
-review by @stollar2020 and the
+While it is possible to perform some protein modeling without expertise in
+structural biology, having a basic understanding of protein structure is highly
+recommended. In this course, there are often students who do not have a strong
+background in biology. Additionally, it has been observed that graduate students
+in biology, biomedicine, and related fields possess varying levels of knowledge
+about protein structure. For those looking to review or update their
+understanding of protein structure, it is suggested to read Chapter 2 of
+@structur, the great review by @stollar2020 and the
 [Wikipedia](https://en.wikipedia.org/wiki/Protein_structure) and
 [Proteopedia](https://proteopedia.org/wiki/index.php/Introduction_to_protein_structure)
-articles on protein structures, which constituted my main source for this brief
+articles on protein structures, which were the primary sources for this brief
 section (follow picture links).
 
 [![Protein structure levels, using human PCNA (PDB 1AXC) as an
 example.](pics/Protein_structure.png "Protein Structure"){#fig-str
 .figure}](https://en.wikipedia.org/wiki/Protein_structure)
 
-Proteins are key components of life, playing key roles in almost any possible
-vital function, either as structural, or scaffolding elements or as active
-enzymes that catalyze metabolic reactions. Proteins are built as polymers of
-amino acids and the sequence of amino acids of a particular protein can be also
-called the **primary structure** of the protein. Amino acid chains can
-spontaneously fold up into three-dimensional structures, mostly stabilized by
-hydrogen bonds between amino acids. The amino acid sequence determines different
-layers of 3D structure. Each of the 20 natural amino acids has different
-physicochemical properties that affect its preferred conformation. Thus, the
-first level of folding is called **secondary structure**, forming common
-patterns as we will see in a moment.
+Proteins are essential components of life, involved in various vital functions
+as structural elements, scaffolding elements, or active enzymes that catalyze
+metabolic reactions. Proteins are composed of polymers of amino acids, and the
+sequence of amino acids of a particular protein is referred to as the **Primary
+structure** of the protein. Amino acid chains can spontaneously fold into
+three-dimensional structures, mainly stabilized by hydrogen bonds between amino
+acids. The amino acid sequence determines different layers of 3D structure. Each
+of the 20 natural amino acids has specific physicochemical properties that
+influence its preferred conformation. Therefore, the initial level of folding is
+known as the **Secondary structure**, which forms common patterns as will be
+discussed further. These segments of secondary structure patterns are capable of
+folding into three-dimensional forms due to interactions between the side chains
+of amino acids, known as protein **Tertiary structure**. Additionally, two or
+more individual peptide chains can aggregate to form multisubunit proteins,
+referred to as having **Quaternary structure**.
 
 [![Amino acids classification by
 type](pics/aa.png "Amino acids clasification by type"){#fig-aa
 .figure}](https://www.reddit.com/r/chemistry/comments/acyald/venn_diagram_showing_the_properties_of_the_20/)
 
-These stretches of secondary structure patterns can fold in 3D due to
-interactions between the side chains of amino acids. This is called protein
-**Tertiary structure**. Finally, two or more individual peptide chains can form
-multisubunit proteins that have the so-called **Quaternary structure**.
-
-It should be noted that the peptide bond itself cannot rotate as it has a double
-bond-like character. Therefore, rotation can only occur about the bond between
-the Cα and the C = O group, (the phi (φ) angle) and the Cα and the NH group,
-(the psi (ψ) angle). In fact, the polypeptide backbone chain is composed of a
-repeating series of two rotatable bonds followed by one non-rotatable (peptide)
-bond. However, not all 360º of the psi and phi angles are possible as
-neighboring sidechains can clash due to steric hindrance. For certain angles and
-amino acid combinations, the atoms cannot be in the same physical place and this
-partly explains why some amino acids have a higher propensity (likelihood) to
-form different types of secondary structures.
+It is important to note that the peptide bond itself does not permit rotation as
+it possesses partial double bond characteristics. Hence, rotation is restricted
+to the bonds between the `Cα` and the `C = O` group (the phi (φ) angle) and the
+`Cα` and the `NH` group (the psi (ψ) angle). The polypeptide backbone chain thus
+consists of a repeating sequence of two rotatable bonds followed by one
+non-rotatable (peptide) bond. However, not all 360º of the φ and ψ angles are
+feasible due to potential steric clashes between neighboring sidechains. For
+specific angles and amino acid combinations, spatial constraints prevent atoms
+from occupying the same physical location, which partially accounts for the
+varying propensities of certain amino acids to adopt different types of
+secondary structures.
 
 [![Scheme of a generic polypeptide chain. Residue side chains are denoted as R.
 Coloured rectangles indicate sets of six atoms that are coplanar due to the
 double-bond character of the peptide bond. Arrows indicate the bonds that are
-free to rotate with the angle of rotation about the N--Cα known as phi and about
-the Cα--C known as psi. Note that only peptide backbone bonds are labeled and in
-most cases the R group bond is free to
+free to rotate with the angle of rotation about the N--Cα known as phi (φ) and
+about the Cα--C known as psi (ψ). Note that only peptide backbone bonds are
+labeled and in most cases the R group bond is free to
 rotate.](pics/peptide_bond.png "Peptide bond"){#fig-bond
 .figure}](https://portlandpress.com/essaysbiochem/article/64/4/649/226515/Uncovering-protein-structure)
 
-::: {#ss}
-Within these restraints, the two principal local conformations that avoid steric
-hindrance and maximize backbone--backbone hydrogen bonding are the **α-helix**
-and the **β-sheet** secondary structures. The α-helix was proposed initially as
-left-handed by [Linus Pauling](https://en.wikipedia.org/wiki/Linus_Pauling) in
-1951, but the crystal structure of myoglobin in 1958 showed that, although both
-can be found, the right-handed form is the common one. In the common
-right-handed helices, the backbone NH group hydrogen bonds to the backbone C = O
-group of the amino acid located four residues earlier along the protein
-sequence. This results in a polypeptide chain that twists in a regular coil
-shape with the R-groups pointing outwards away from the peptide backbone. It
-takes approximately 3.6 residues to complete a full turn of a helix.
-:::
+Furthermore, the side chains of amino acids possess their own torsion angles,
+known as χ1, χ2, χ3, and so forth (@fig-chi). These torsion angles significantly
+influence the secondary and, particularly, the tertiary structures of proteins.
+The various combinations of side-chain torsions defined by χ angles are referred
+to as *rotamers*.
+
+Within these constraints, the two primary local conformations that avoid steric
+hindrance and maximize backbone-backbone hydrogen bonding are the α-helix and
+the β-sheet secondary structures. [Linus
+Pauling](https://en.wikipedia.org/wiki/Linus_Pauling) initially proposed the
+**α-helix** as left-handed in 1951, but the myoglobin crystal structure in 1958
+revealed that the right-handed form is more common. In the typical right-handed
+helices, the backbone NH group hydrogen bonds to the backbone C=O group of the
+amino acid located four residues earlier along the protein sequence. This
+regular coil shape has the R-groups pointing outward, away from the peptide
+backbone, and requires about 3.6 residues to complete a full turn of the helix
+(@fig-alpha).
 
 ::: {layout-ncol="1"}
 [![Alpha helix.](pics/alpha.png "Alpha helix"){#fig-alpha
@@ -155,7 +158,7 @@ strands.](pics/beta.png "Beta sheet"){#fig-beta
 .figure}](https://en.wikipedia.org/wiki/Beta_sheet)
 :::
 
-Different amino-acid sequences have different propensities for forming α-helical
+Different amino-acid sequences have varying tendencies to form α-helical
 structures. [Methionine](https://en.wikipedia.org/wiki/Methionine "Methionine"),
 [alanine](https://en.wikipedia.org/wiki/Alanine "Alanine"),
 [leucine](https://en.wikipedia.org/wiki/Leucine "Leucine"),
@@ -165,29 +168,24 @@ helix-forming propensities, whereas
 [proline](https://en.wikipedia.org/wiki/Proline "Proline") and
 [glycine](https://en.wikipedia.org/wiki/Glycine "Glycine") have poor
 helix-forming propensities.
-[Proline](https://en.wikipedia.org/wiki/Proline "Proline") either breaks or
-kinks a helix, both because it cannot donate an amide [hydrogen
-bond](https://en.wikipedia.org/wiki/Hydrogen_bond "Hydrogen bond") (having no
-amide hydrogen), and also because its bulky sidechain interferes sterically with
-the backbone of the preceding turn.
-[Glycine](https://en.wikipedia.org/wiki/Glycine "Glycine") is also an alpha
-helix breaker. Glycine has only a hydrogen as its R-group and therefore has no
-constrains for its Φ and Ψ angles. This makes it entropically expensive to adopt
-the relatively constrained α-helical structure. In other words, glycine is too
-flexible to hold the structure needed for an alpha helix.
+[Proline](https://en.wikipedia.org/wiki/Proline "Proline") often disrupts or
+kinks a helix because it lacks an amide hydrogen to form [hydrogen
+bonds](https://en.wikipedia.org/wiki/Hydrogen_bond "Hydrogen bond") and its
+bulky side chain interferes with the preceding turn's backbone.
+[Glycine](https://en.wikipedia.org/wiki/Glycine "Glycine") with only a hydrogen
+as its R-group, is too flexible and entropically costly to maintain the
+constrained α-helical structure, making it an α-helix breaker.
 
-**β-Sheets** are composed of two or more extended polypeptide chains called
-β-strands that run alongside each other. They can be arranged in either a
-parallel or antiparallel manner. The residues arrange themselves in a regular
-zigzag manner with the adjacent peptide bonds pointing in opposite directions.
-In this arrangement, the NH group and the C = O group of each amino acid are
-hydrogen-bonded to the C = O group and NH group respectively on the adjacent
-strands. Chains can run in opposite directions, forming an antiparallel β-sheet,
-or in the same direction, forming a parallel β-sheet. Sidechains from each of
-the residues point away from the sheets and alternate in opposite directions
-between residues. It is common to see a pattern of alternating hydrophilic and
-hydrophobic residues in the primary structure, giving the β-sheets hydrophilic
-and hydrophobic faces.
+**β-Sheets** (@fig-beta) consist of two or more extended polypeptide chains
+called β-strands running alongside each other in either a parallel or
+antiparallel arrangement. In a β-sheet, residues arrange themselves in a zigzag
+pattern with adjacent peptide bonds pointing in opposite directions. The NH
+group and the C=O group of each amino acid form hydrogen bonds with the C=O
+group and NH group, respectively, on adjacent strands. The chains can run in
+opposite directions (*antiparallel β-sheet*) or the same direction (*parallel
+β-sheet*). Sidechains from each residue alternate in opposite directions, giving
+β-sheets hydrophilic and hydrophobic faces, often forming a pattern of
+alternating hydrophilic and hydrophobic residues in the primary structure.
 
 Large aromatic residues
 ([tyrosine](https://en.wikipedia.org/wiki/Tyrosine "Tyrosine"),
@@ -196,57 +194,103 @@ Large aromatic residues
 β-branched amino acids
 ([threonine](https://en.wikipedia.org/wiki/Threonine "Threonine"),
 [valine](https://en.wikipedia.org/wiki/Valine "Valine"),
-[isoleucine](https://en.wikipedia.org/wiki/Isoleucine "Isoleucine")) are favored
-to be found in β-strands. As in the case of α-helixes, β-strands are often ended
-by [glycines](https://en.wikipedia.org/wiki/Glycine "Glycine"), which are
+[isoleucine](https://en.wikipedia.org/wiki/Isoleucine "Isoleucine")) are
+commonly found in β-strands. As in the case of α-helixes, β-strands are often
+ended by [glycines](https://en.wikipedia.org/wiki/Glycine "Glycine"), which are
 especially common in β-turns (the most common connector between strands), as
-[amino acids](https://en.wikipedia.org/wiki/Amino_acid "Amino acid") with
-positive φ angles.
-
-The side chain of amino acids also have their torsion angles, referred as χ1,
-χ2, χ3...
+amino acids with positive φ angles.
 
 [![Dihedral angles in glutamate: Dihedral angles are the main degrees of freedom
 for the backbone (ϕ and ψ angles) and the side chain (χ angles) of an amino
 acid. The number of χ angles varies between zero and four for the 20 standard
 amino acids. The figure shows a ball-and-stick representation of glutamate,
-which has three χ angles (from
-@harder2010).](images/paste-6EE800AE.png){#fig-chi .figure
-width="450"}](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-306)
+which has three χ angles.](images/paste-6EE800AE.png){#fig-chi .figure
+width="301"}](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-306)
+
+Protein secondary, tertiary, and quaternary structures are maintained by
+interactions between amino acids (@fig-interaction). These interactions are
+typically classified into four types:
+
+1.  *Ionic bonding*: Ionic bonds arise from electrostatic attractions between
+    positively and negatively charged amino acid side chains. For example, the
+    attraction between an aspartic acid carboxylate ion and a lysine ammonium
+    ion helps stabilize a specific folded region of a protein.
+2.  *Hydrogen bonding*: Hydrogen bonds form between a highly electronegative
+    oxygen or nitrogen atom and a hydrogen atom attached to another oxygen or
+    nitrogen atom, such as those in polar amino acid side chains. Hydrogen bonds
+    are crucial for both intra- and intermolecular interactions in proteins,
+    like in alpha-helixes.
+3.  *Disulfide linkages*. When two cysteine amino acids come close together
+    during protein folding under appropriate redox conditions, oxidation can
+    link their sulfur atoms, forming a disulfide bond. Unlike ionic or hydrogen
+    bonds, these are covalent links, and are thus a classic example of a
+    spontaneus reaction, occurring as a post-translational modification.
+    Although they are sensitive to reducing agents, greatly stabilize the
+    tertiary structure and are vital for the quaternary structure of many
+    proteins, like antibodies.
+4.  *Hydrophobic interactions.* Dispersion forces arise when a normally nonpolar
+    atom becomes momentarily polar due to an uneven distribution of electrons,
+    leading to an instantaneous dipole that induces a shift of electrons in a
+    neighboring nonpolar atom. Dispersion forces are weak but can be important
+    when other types of interactions are either missing or minimal. The term
+    *hydrophobic interaction* is often misused as a synonym for dispersion
+    forces. Hydrophobic interactions arise because water molecules engage in
+    hydrogen bonding with other water molecules (or groups in proteins capable
+    of hydrogen bonding). Because nonpolar groups cannot engage in hydrogen
+    bonding, the protein folds in such a way that these groups are buried in the
+    interior part of the protein structure, minimizing their contact with water.
+
+![Four interactions stabilize the tertiary structure of a protein: (a) ionic
+bonding, (b) hydrogen bonding, (c) disulfide linkages, and (d) dispersion
+forces](images/interactions-01.png){#fig-interaction .figure width="574"}
+
+Other less frequent intramolecular interactions might be relevant in some
+proteins, like the so-called **Isopeptide bonds**, formed between two protein
+groups, at least one of which is not an α-amino or α-carboxy group. Examples
+include ubiquitylation, sumoylation, transglutamination, sortase-mediated cell
+surface protein anchoring and pilus formation [@kang2011]. As detailed in
+@fig-iso, all these processes share several feature: 1. All involve the reaction
+ofa lysine ε-amino group on one protein with the main α-carboxy group on another
+protein, except for transglutamination, where the lysine targets a glutamine
+side chain carboxyamide group 2. All processes are enzyme-mediated and involve a
+transient thioester intermediate formed by the active site's cysteine. This
+intermediate is resolved through nucleophilic attack by the lysine ε-amino
+group, which completes the bond formation.
+
+[![Enzyme-mediated formation of intermolecular isopeptide bonds. Examples are
+shown for three different biological processes: ubiquitylation,
+transglutamination and sortase-mediated pilus assembly in Gram-positive
+bacteria. Proteins linked by isopeptide bonds are coloured blue and purple and
+the isopeptide bond-forming enzymes are coloured green. Reproduced from
+@kang2011.](images/iso.jpg){#fig-iso
+.figure}](https://www.sciencedirect.com/science/article/pii/S0968000410001842)
 
 ## Ramachandran Plot {#sec-rama}
 
-As you probably already figure out, many combinations of φ and ψ angles are
-forbidden because of the principle of steric exclusion: two atoms cannot be in
-the same place at the same time. This was initially shown by [Gopalasamudram
-Ramachandran](https://en.wikipedia.org/wiki/G._N._Ramachandran), who also
-devised a plot to visualize the allowed angle values, so-called Ramachandran
-plot. This plot can represent the angles of a particular amino acid, of all the
-amino acids in a protein or many proteins. Analysis of φ and ψ angles in known
-proteins clearly show that roughly three-quarters of all possible φ, ψ
-combinations are excluded.
+As you likely deduced already, many combinations of φ and ψ angles are
+prohibited due to the principle of steric exclusion, which dictates that two
+atoms cannot occupy the same space simultaneously. This concept was initially
+demonstrated by [Gopalasamudram
+Ramachandran](https://en.wikipedia.org/wiki/G._N._Ramachandran), who developed a
+plot to visualize the permissible angle values, known as the Ramachandran plot.
+This plot can display the angles of a specific amino acid, all amino acids in a
+single protein, or even across many proteins. Analysis of φ and ψ angles in
+known proteins reveals that approximately three-quarters of all possible φ, ψ
+combinations are not allowed (@fig-rama0) that correspond with common secondary
+structure motifs (@fig-rama).
 
 [![General Ramachandran plot. The density of points reflects how likely is each
 angle combination, defining the core (red line) and tolerance (orange)
 regions.](pics/Ramachandran_plot_general_100K.jpg "General Ramachandran plot"){#fig-rama0
 .figure}](https://proteopedia.org/wiki/index.php/Ramachandran_Plot)
 
-The core regions in the Rama plot also correspond with common secondary
-structures, as usually represented in textbooks.
 
 ![Definition of secondary structure alternatives by their combination of phi,
 psi angles.](pics/rama2.png "Textbook Rama plot"){#fig-ram .figure}
 
-Functionally and structurally relevant residues are more likely than others to
-have torsion angles that can be distributed into the [allowed but
-disfavored]{.underline} regions of a Ramachandran plot. The specific geometry of
-these functionally relevant residues, while somewhat energetically unfavorable,
-may be important for the protein's function, catalytic or otherwise. Such
-conformations need to be stabilized by the protein using H-bonds, steric
-packing, or other means, and should very seldom occur for highly solvent-exposed
-residues.
+Functionally relevant residues are more likely than others to have torsion angles that plot to the allowed but disfavored regions of a Ramachandran plot. The specific geometry of these functionally relevant residues, while somewhat energetically unfavorable, may be important for the protein's function, catalytic or otherwise. Such conformations need to be stabilized by the protein using H-bonds, steric packing, or other means, and should very seldom occur for highly solvent-exposed residues.
 
-[![Ramachandran plots for glycine (lef) and proline (right) Inner contour
+[![Ramachandran plots for glycine (left) and proline (right) Inner contour
 encloses 98% and 99.9% of Top structures data, indicating the favored and
 allowed regions, respectively
 .](pics/Ramachandran_Gly_Pro_data_and_contours_T8000_small.jpg){#fig-rama2
@@ -254,7 +298,7 @@ allowed regions, respectively
 
 ## Protein folds, domains and motifs
 
-The final three dimensional tertiary structure of a protein is commonly referred
+The global three dimensional tertiary structure of a protein is commonly referred
 as its **fold**. Within the overall protein fold, we can recognize distinct
 **domains** and **motifs.** Domains are compact sections of the protein that
 represent structurally and (usually) functionally independent regions. That
@@ -286,6 +330,12 @@ question.
 {{< mol-rcsb 3MWD viewportShowAnimation=false >}}
 
 ```{r wd, echo = FALSE, results = 'asis'}
+opts_p <- c("1",answer = "2",
+    "3",
+   ">3")
+
+cat("**How many unique protein chains are there is this protein?**",longmcq(opts_p))
+
 opts_p <- c("All-α", "All β",
    answer = "α/β",
    "α+β",
@@ -305,15 +355,11 @@ Databases](ddbb.html#strDDBB) section.
 
 ![](pics/handson.png "Hands-on")
 
-::: {.callout-important}
+::: callout-important
 # Groups
-Remember to work on groups as assigned. Groups should be the same for all the course exercises.
-:::
 
-::: { .callout-note collapse="true"}
-# Evernote
-This is a [Evernote](https://evernote.com/intl/es) note that you can check on your web browser and also copy into your Evenote account/App if you wish.
-Link [here](https://www.evernote.com/shard/s62/nl/6844171/146913e2-a71b-a089-bcc5-c99ec0e5060b?title=StrBio%202023/2024%20-%201.%20(A)%20Secondary%20structures)
+Remember to work on groups as assigned. Groups should be the same for all the
+course exercises.
 :::
 
 
@@ -324,26 +370,26 @@ best-known is Foldit ([www.fold.it](http://www.fold.it), @miller2020), a gaming
 platform for biochemistry and structural biology teaching. It is a highly
 recommended alternative for most courses related to protein structure.
 
-In this course we are going to try a more recent proposal, recently twitted by
+In this course we are going to try a more recent proposal, twitted by
 Sergey Ovchinnikov:
 
 {{< tweet sokrypton 1535857255647690753 >}}
 
-This is based on ColabFold (see <https://github.com/sokrypton/ColabFold> and
-@mirdita2022), an Alphafold2 (see @jumper2021) free notebook in [Google Colab
-notebook](https://colab.research.google.com/?hl=en). All you need is a Google
-account and the following *cheatsheet*.
 
 [![Basic protein amino acids stats for protein design with ColabFold
 Single](pics/cheatsheet.png "Protein hallucination"){#fig-single
-.figure}](https://twitter.com/sokrypton/status/1535857255647690753)
+.figure width=350}](https://twitter.com/sokrypton/status/1535857255647690753)
+
+This is based on ColabFold (see <https://github.com/sokrypton/ColabFold> and
+@mirdita2022), an Alphafold2 (see @jumper2021) free notebook in [Google Colab
+notebook](https://colab.research.google.com/?hl=en). All you need is a Google
+account and the *cheatsheet* in @fig-single.
+
 
 Now go to ColabFold Single:
 <https://colab.research.google.com/github/sokrypton/af_backprop/blob/beta/examples/AlphaFold_single.ipynb>
 
-Construct some small proteins and compare the output. Note that the first model
-will take 3-5 min, but the others will be faster. I provide here some
-interesting examples (IUPAC one-letter amino acid code):
+Construct some small proteins and compare the output. Use 6 recycle steps to obtain diverse structures and then click in the "Animate trajectories" chunk. Note that the first model will take 2-4 min, but the others will be faster. I provide here some interesting examples (IUPAC one-letter amino acid code):
 
 1.  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 

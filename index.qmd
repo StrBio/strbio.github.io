@@ -1,5 +1,5 @@
 ---
-title: "StrBio 2023-24"
+title: "StrBio UAM"
 author:
   name: Modesto
   affiliation: Department of Biochemistry, School of Medicine, UAM
@@ -26,22 +26,27 @@ format:
 ![](pics/QR_master.png "Master's Degree in Bioinformatics & Computational Biology"){fig-align="right"}
 :::
 
-This is a [Quarto](https://quarto.org/) site containing the materials for the *Structural Bioinformatics* course of fall 2023 in the [Master's Degree in Bioinformatics & Computational Biology \@UAM](https://www-uam-es.translate.goog/Medicina/MasterBioinformaticaBiologiaComputacional/1446820907497.htm?language=es&nodepath=M?ster+Universitario+en+Bioinform?tica+y+Biolog?a+Computacional&_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp). All these materials is open access and it is shared under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/2.0/ "CC BY-NC license"). Course syllabus is [here](2023_33082_es.pdf) (in Spanish). Detailed academic information about the course contents, dates and assessment only can be found at the UAM [Moodle](https://posgrado.uam.es/) site.
+This is a [Quarto](https://quarto.org/) site containing the materials for the *Structural Bioinformatics* course in the [Master's Degree in Bioinformatics & Computational Biology \@UAM](https://www-uam-es.translate.goog/Medicina/MasterBioinformaticaBiologiaComputacional/1446820907497.htm?language=es&nodepath=M?ster+Universitario+en+Bioinform?tica+y+Biolog?a+Computacional&_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp). All these materials are open access and shared under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/2.0/ "CC BY-NC license"). These materials were originally elaborated for the 2022 course edition and is subsequently revised each year. The current Course syllabus for year 2024-2025 can be found [here](2024_33082_es.pdf) (in Spanish). Detailed academic information about the course contents, dates and assessment only can be found at the UAM [Moodle](https://posgrado.uam.es/) site.
 
-In addition to some already classic books, reviews, and articles referenced, the content of this short course is also largely inspired by the work of others who have shared their course materials, tips, and other resources on their own blogs or websites and in discussions on Twitter, including [Alexandre Bovin](https://www.uu.nl/staff/amjjbonvin), [Sergey Ovchinnikov](https://twitter.com/sokrypton), [Martin Steinegger](https://twitter.com/thesteinegger) and [Carlos Outeiral](https://twitter.com/c_outeiral?lang=es), among many others. I hace tried to acknowledge and link to each one of those contributions but I apologize in advance for those I may not have mentioned.
+::: callout-note
+This is primarily an introductory course (3 ECTS), designed to offer a general overview as well as tools and resources necessary for initiating SB research projects. Consequently, many fundamental concepts in protein biophysics, scripting tools for SB, and deep-learning methods will only be briefly covered. 
+:::
 
-The course includes three hands-on exercises that will guide you through using Pymol to visualize molecules and modeling proteins through homology modeling and AlphaFold. [In addition, there are several exercises/questions in some sections that are highlighted in green to motivate you to think about the knowledge and skills you have acquired and to go a little further in interpreting the results.]{style="color:green"}
+In addition to some already classic books, reviews, and articles referenced, the content also draws heavily on the work of others who have generously shared their course materials, tips, and resources on their blogs or websites, as well as discussions on Twitter, especially during the Alphafold2 revolution in 2020-2021. Notable contributions from [Alexandre Bovin](https://www.uu.nl/staff/amjjbonvin), [Sergey Ovchinnikov](https://twitter.com/sokrypton), [Martin Steinegger](https://twitter.com/thesteinegger) and [Carlos Outeiral](https://twitter.com/c_outeiral?lang=es), among many others. Every effort has been made to acknowledge and link to these contributions; however, I apologize in advance for any that may have been inadvertently omitted.
 
-As a suggestion, I would also like to invite you to check the set of exercises on Structural Bioinformatics from the Pontificia Universidad Católica de Chile, described in [Engelberger et al. (2021)](https://pubs.acs.org/doi/10.1021/acs.jchemed.1c00022): <https://github.com/pb3lab/ibm3202>
+The course includes three hands-on exercises designed to guide you through using Pymol to visualize molecules and model proteins via homology modeling and AlphaFold. [Additionally, several exercises and questions are highlighted in green throughout the sections to encourage you to reflect on the knowledge and skills acquired and to delve deeper into interpreting the results.]{style="color:green"} 
+I suggest you review also the Structural Bioinformatics exercises from Pontificia Universidad Católica de Chile, detailed in  [Engelberger et al. (2021)](https://pubs.acs.org/doi/10.1021/acs.jchemed.1c00022): <https://github.com/pb3lab/ibm3202>
+
+
 
 ::: callout-warning
 ## Under construction
-:::
 
-Please note that this website is a draft that is still under development, and that the earliest I can expect to have a first complete version is by the end of the semester (December 2023). Any feedback, help, or suggestions would be greatly appreciated.
+
+Please note that this website is a draft that is constantly under revision during the semester (May 2025). Any feedback, help, or suggestions would be greatly appreciated.
 
 ![](pics/8275a.jpg "Under construction...")
-
+:::
 ## Contact
 
-Please let me know if you find some mistake or a missing reference. Definitely, I'll appreciate any suggestion, request or correction. You can reach me by [email](mailto::modesto.redrejo@uam.es) or [{{< iconify fa6-brands x-twitter >}}(f.k.a. Twitter)](https://twitter.com/mredrejo "Twitter").
+Please let me know if you find some mistake or a missing reference. Definitely, I'll appreciate any suggestion, request or correction. You can reach me by [email](mailto::modesto.redrejo@uam.es), [{{< iconify fa6-brands x-twitter >}}(f.k.a. Twitter)](https://twitter.com/mredrejo "Twitter") or [{{< iconify simple-icons bluesky >}}](https://bsky.app/profile/mredrejo.bsky.social).

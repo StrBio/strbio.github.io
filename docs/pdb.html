@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Structural Bioinformatics at UAM - Protein Structures</title>
+<title>Protein Structures – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -71,7 +72,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -80,6 +87,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -90,10 +98,9 @@ div.csl-indent {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Structural Bioinformatics at UAM - Protein Structures">
+<meta name="twitter:title" content="Protein Structures – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="pics/magritte.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked">
@@ -102,13 +109,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -117,7 +124,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Structural Bioinformatics at UAM</a> 
@@ -137,14 +144,14 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">StrBio 2023-24</span></a>
+ <span class="menu-text">StrBio UAM</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Background</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -171,9 +178,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -213,7 +220,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -248,14 +255,14 @@ div.csl-indent {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Protein Structures</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
     <div>
@@ -268,21 +275,27 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 19, 2023</p>
+      <p class="date-modified">January 28, 2025</p>
     </div>
   </div>
     
   </div>
   
 
+
 </header>
+
 
 <section id="obtaining-and-working-with-protein-structures" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Obtaining and working with protein structures</h1>
-<div id="fig-magritte" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/magritte.png" title="Ceci n'est pas une proteine" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Ceci n’est pas une proteine. Source: <a href="https://swissmodel.expasy.org/static/course/files/PartIII_quality_assesment.pdf">SwissModel site</a>.</figcaption>
+<div id="fig-magritte" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-magritte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/magritte.png" title="Ceci n'est pas une proteine" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-magritte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Ceci n’est pas une proteine. Source: <a href="https://swissmodel.expasy.org/static/course/files/PartIII_quality_assesment.pdf">SwissModel site</a>.
+</figcaption>
 </figure>
 </div>
 <p>The surrealist Belgian painter René Magritte created a collection of surrealistic paintings entitled <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images" title="Magritte"><strong><em>La trahison des images</em></strong> (1928–1929)</a>. The most famous of these paintings show a smoking pipe with the following caption underneath: <em>“Ceci n’est pas une pipe”</em> (This is not a pipe). Yes, indeed! It is actually a painting of a pipe.</p>
@@ -299,7 +312,7 @@ Warning for current and future structural biologists
 <p>A picture of a protein, or a computer file containing the coordinates of a protein structure, is not a protein. It is a representation of ONE possible structure of that protein.</p>
 </div>
 </div>
-<p>Even experimentally determined structures have two major limitations that we should always keep in mind: (1) they are a fixed structure (except RMN-based), whereas proteins <em>in vivo</em> are flexible and dynamic and (2) they are subject to experimental error and often contain low confidence regions (see <a href="#sec-assess">Section&nbsp;3</a> below). Moreover, even experimentally determined macromolecular structures are to some extent models, with a variable ratio between experimental data and computational predictions to match the experimental data (X-ray diffraction, cryo-EM density maps, NMR, SAXS, FRET…) with previously known structures or models. Of course, this does not mean that protein structures are useless, they can be very useful, but we need to be aware of both the limitations and the applications.</p>
+<p>Even experimentally determined structures have two major limitations that we should always keep in mind: (1) they are a fixed structure (except RMN-based), whereas proteins <em>in vivo</em> are flexible and dynamic and (2) they are subject to experimental error and often contain low confidence regions (see <a href="#sec-assess" class="quarto-xref">Section&nbsp;3</a> below). Moreover, even experimentally determined macromolecular structures are to some extent models, with a variable ratio between experimental data and computational predictions to match the experimental data (X-ray diffraction, cryo-EM density maps, NMR, SAXS, FRET…) with previously known structures or models. Of course, this does not mean that protein structures are useless, they can be very useful, but we need to be aware of both the limitations and the applications.</p>
 </section>
 <section id="experimental-determination-of-protein-structures" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Experimental determination of protein structures</h1>
@@ -307,10 +320,14 @@ Warning for current and future structural biologists
 <section id="x-ray-crystallography-or-single-crystal-x-ray-diffraction" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="x-ray-crystallography-or-single-crystal-x-ray-diffraction"><span class="header-section-number">2.1</span> X-ray crystallography or single crystal X-ray diffraction</h2>
 <p>X-ray crystallography, or single-crystal X-ray diffraction, is a method for determining the atomic structure of molecules in regular, crystalline structures. It requires the generation of a crystal of the molecule of interest, which is then mounted on a goniometer and illuminated or irradiated with a focused X-rays beam. The diffraction pattern of the X-rays on the other side of the crystal allows determination of the positions of the atoms, as well as their chemical bonds, crystallographic disorder, and various other information. However, the connection between the diffraction pattern and the electron density is not trivial and requires some complex maths, the so-called <a href="http://pruffle.mit.edu/atomiccontrol/education/xray/fourier.php">Fourier transforms</a>.</p>
-<div id="fig-xray" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-F430F5B1.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Schematic workflow of X-ray crystallography. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.</figcaption>
+<div id="fig-xray" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xray-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-F430F5B1.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xray-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Schematic workflow of X-ray crystallography. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.
+</figcaption>
 </figure>
 </div>
 <p>X-ray diffraction is a powerful method that allows obtaining high-resolution atomic-level structures of soluble or membrane proteins, either as apoenzymes or as holoenzymes bound to a substrate, cofactor or drugs. However, the sample must be crystallizable (i.e., homogeneous), which requires a substantial amount of very pure protein. Another disadvantage of X-ray structures is that, as mentioned earlier, you only get one (or very few) static forms of the protein and the location of the hydrogen atoms cannot be determined by conventional diffraction methods —the fact that they have only one electron makes it very difficult to detect them accurately with X-rays, since X-rays scatter at the electron density. They can be predicted, but that still hinders some chemical analyzes.</p>
@@ -319,34 +336,50 @@ Warning for current and future structural biologists
 <h2 data-number="2.2" class="anchored" data-anchor-id="nuclear-magnetic-resonance"><span class="header-section-number">2.2</span> Nuclear Magnetic Resonance</h2>
 <p>All atomic nuclei are charged, fast spinning particles, which gave rise to resonance frequencies that are different for each atom. Therefore, if we apply a magnetic field we can obtain an electromagnetic signal with a characteristic frequency of the magnetic field at the nucleus. This is the basis of nuclear magnetic resonance (NMR).</p>
 <p>We should also remember that the motion of the nucleus is not isolated and it interacts both intra- and intermolecularly with the surrounding atoms. Nuclear magnetic resonance spectroscopy can therefore provide structural information about a particular molecule. Taking a protein as an example, its secondary structures, such as α-helix, β-sheet, or turn, reflect the different arrangement of the main chain atoms of protein molecules in three dimensions. The distances between the atomic nuclei in the different secondary structures, the interaction between the nuclei, and the dynamic properties of the polypeptide segments all directly reflect the three-dimensional structure of proteins. These nuclear features all contribute to the spectroscopic behavior of the analyzed sample and thus provide characteristic NMR signals. Interpretation of these signals by computational methods leads to deciphering the three-dimensional structure.</p>
-<div id="fig-rmn" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-2013F0AC.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Basis of nuclear magnetic resonance. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.</figcaption>
+<div id="fig-rmn" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rmn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-2013F0AC.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rmn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Basis of nuclear magnetic resonance. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.
+</figcaption>
 </figure>
 </div>
-<p>The most important feature of the NMR method is that the three-dimensional structure of macromolecules in their natural state can be measured directly in solution, and NMR can provide unique information about the dynamics and intermolecular interactions. The resolution of the three-dimensional structure of macromolecules can extend to the subnanometer range. However, the NMR spectrum of large molecular weight biomolecules is very complicated and difficult to interpret, limiting the application of NMR in analyzing large biomolecules, often below 20-30 kDa (see <a href="#fig-experimental">Figure&nbsp;4</a>). In addition, this technique requires relatively large amounts of pure samples (on the order of several mg) to achieve a reasonable signal-to-noise ratio level.</p>
-<div id="fig-experimental" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><a href="https://doi.org/10.1016/j.jsb.2022.107841"><img src="images/paste-FA73AF1E.png" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Coverage of molecular weight by structural technique. From .</figcaption>
+<p>The most important feature of the NMR method is that the three-dimensional structure of macromolecules in their natural state can be measured directly in solution, and NMR can provide unique information about the dynamics and intermolecular interactions. The resolution of the three-dimensional structure of macromolecules can extend to the subnanometer range. However, the NMR spectrum of large molecular weight biomolecules is very complicated and difficult to interpret, limiting the application of NMR in analyzing large biomolecules, often below 20-30 kDa (see <a href="#fig-experimental" class="quarto-xref">Figure&nbsp;4</a>). In addition, this technique requires relatively large amounts of pure samples (on the order of several mg) to achieve a reasonable signal-to-noise ratio level.</p>
+<div id="fig-experimental" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-experimental-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://doi.org/10.1016/j.jsb.2022.107841"><img src="images/paste-FA73AF1E.png" class="figure img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-experimental-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Coverage of molecular weight by structural technique. From .
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="electron-cryomicroscopy" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="electron-cryomicroscopy"><span class="header-section-number">2.3</span> Electron cryomicroscopy</h2>
 <p>The essential mechanism of Cryo-EM is the same of any electron microscopy method, i. e., electron scattering. Samples are prepared through cryopreservation prior to analysis. The, a source electrons is used as a light source to measure the sample. After the electron beam passes through the sample, a complex lens system converts the scattered signal into a magnified image recorded on the detector. A key subsequent step is signal processing, that transform thousands of images of the particles in any orientation into a three-dimensional structure of the sample.</p>
-<div id="fig-cryoEM" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-5E29F580.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: The process of Cryo-EM single particle analysis technique. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.</figcaption>
+<div id="fig-cryoEM" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cryoEM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-5E29F580.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cryoEM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: The process of Cryo-EM single particle analysis technique. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.
+</figcaption>
 </figure>
 </div>
-<p>The use of electron microscopy methods for structural biology was traditionally limited to very large macromolecular complexes, like viral capsids, and only recently it could be used for smaller particles (see <a href="#fig-experimental">Figure&nbsp;4</a>). The number of protein structures being determined by cryo-electron microscopy is growing at an explosive rate in the last 5-10 years. This is thanks to several technical improvements in the technique, spanning sample preparation, analysis and processing that allow obtaining pictures at the atomic level <span class="citation" data-cites="callaway2020">(<a href="#ref-callaway2020" role="doc-biblioref">Callaway 2020</a>)</span>. This advances were acknowledged by the <a href="https://www.nobelprize.org/prizes/chemistry/2017/press-release/">2017 Nobel Prize in Chemistry</a> to Jacques Dubochet, Joachim Frank and Richard Henderson.</p>
-<div id="fig-cryoEM2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-E5E5AE75.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Cryo-electron microscopy revolution. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.</figcaption>
+<p>The use of electron microscopy methods for structural biology was traditionally limited to very large macromolecular complexes, like viral capsids, and only recently it could be used for smaller particles (see <a href="#fig-experimental" class="quarto-xref">Figure&nbsp;4</a>). The number of protein structures being determined by cryo-electron microscopy is growing at an explosive rate in the last 5-10 years. This is thanks to several technical improvements in the technique, spanning sample preparation, analysis and processing that allow obtaining pictures at the atomic level <span class="citation" data-cites="callaway2020">(<a href="#ref-callaway2020" role="doc-biblioref">Callaway 2020</a>)</span>. This advances were acknowledged by the <a href="https://www.nobelprize.org/prizes/chemistry/2017/press-release/">2017 Nobel Prize in Chemistry</a> to Jacques Dubochet, Joachim Frank and Richard Henderson.</p>
+<div id="fig-cryoEM2" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cryoEM2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-E5E5AE75.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cryoEM2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Cryo-electron microscopy revolution. From Creative Structure <a href="https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm">website</a>.
+</figcaption>
 </figure>
 </div>
 <section id="tip" class="level3 callout-info" data-collapse="true">
@@ -375,18 +408,22 @@ Extra info
 <section id="global-parameters-in-experimentally-based-structures" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="global-parameters-in-experimentally-based-structures"><span class="header-section-number">3.1</span> Global parameters in experimentally-based structures</h2>
 <p>There are a number of different parameters that help us understand the quality and reliability of a structure. First, the <strong>resolution</strong> is a good indicator of the level of detail of the structure, as it can greatly affect affect how the experimental data are modeled.</p>
-<div id="fig-reso" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-C3031EBE.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: The effect of resolution on the quality of the electron density. The Tyr100 residue from concanavalin A as found in the indicated PDB structures at 3 Å, 2 Å and 1.2 Å. Reproduction of Figure 14.5 from <span class="citation" data-cites="structur">Gu and Bourne (<a href="#ref-structur" role="doc-biblioref">2009</a>)</span> rendered with Pymol (see <a href="../concanavalin.pse">concanavalin.pse</a> and <a href="../concanavalin.txt">concanavalin.txt</a> in the Repo for details about the picture display).</figcaption>
+<div id="fig-reso" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-C3031EBE.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: The effect of resolution on the quality of the electron density. The Tyr100 residue from concanavalin A as found in the indicated PDB structures at 3 Å, 2 Å and 1.2 Å. Reproduction of Figure 14.5 from <span class="citation" data-cites="structur">Gu and Bourne (<a href="#ref-structur" role="doc-biblioref">2009</a>)</span> rendered with Pymol (see <a href="../concanavalin.pse">concanavalin.pse</a> and <a href="../concanavalin.txt">concanavalin.txt</a> in the Repo for details about the picture display).
+</figcaption>
 </figure>
 </div>
 <p>    </p><div id="app-mol-star_state.molj" class="molstar-app"></div>
     <script type="text/javascript">
-    molstar.Viewer.create("app-mol-star_state.molj", {"layoutShowRemoteState":false,"layoutShowLeftPanel":true,"layoutShowLog":false,"layoutIsExpanded":false,"viewportShowExpand":true,"emdbProvider":"rcsb","pdbProvider":"rcsb","viewportShowSelectionMode":false,"layoutShowSequence":false,"layoutShowControls":false,"viewportShowAnimation":true}).then(viewer => {
+    molstar.Viewer.create("app-mol-star_state.molj", {"layoutShowLog":false,"layoutShowSequence":false,"layoutIsExpanded":false,"layoutShowControls":false,"layoutShowRemoteState":false,"viewportShowExpand":true,"pdbProvider":"rcsb","viewportShowAnimation":true,"viewportShowSelectionMode":false,"layoutShowLeftPanel":true,"emdbProvider":"rcsb"}).then(viewer => {
     viewer.loadSnapshotFromUrl(url="mol-star_state.molj", "molj");    });
     </script>
-     Embedded reproduction of the <a href="#fig-reso">Figure&nbsp;7</a> with <em>Mol*</em>, which allow you to explore the structures.<p></p>
+     Embedded reproduction of the <a href="#fig-reso" class="quarto-xref">Figure&nbsp;7</a> with <em>Mol*</em>, which allow you to explore the structures.<p></p>
 <p>Another important parameter is the <strong><em>R</em>-factor</strong>, which is the difference between the structure factors calculated from the model and those obtained from the experimental data. That is, the <em>R</em>-factor is the deviation between the calculated diffraction pattern of the model and the original experimental diffraction pattern. Typically, good structures with a resolution of 1-3 Å, have an <em>R-</em>factor of 0.2 (i.e., 20% of deviation). However, it should be noted that this factor is usually reduced after iterative refinement, which downplays its use as an indicator of reliability. A more reliable factor is the <strong><em>R<sub>free</sub></em></strong> factor. This is less susceptible to manipulation during refinement, as it is based on only a small portion of the experimental data (5-10%) that is not used during the refinement phase.</p>
 <p>A more intuitive, but only qualitative, way to understand the precision of the coordinates of a given atom is the <em>B-</em>factor. The temperature value or <em>B-</em>factor correlates with the position errors, although its mathematical definition is more complex. Normal values for a B-factor are in the range of 14-30, while values above 30 usually indicate that the atom is in a flexible or disordered region, and atoms with a <em>B-</em>factor above 40 are often ruled out as too unreliable.</p>
 <p>The root-mean-squared deviation (<strong>RMSD,</strong> <a href="ddbb.html#sec-alignment">see Structure alignment section</a>) is a traditional estimator of the quality of NMR-solved structures. Regions with high RMSD values are those that are less defined by data. However, it should also be noted that this parameter can be also misleading, as it is highly dependent on the procedure used to generate and select the data that is submitted to the PDB. An experimentalist could reduce the RMSD by selecting the “best” few structures for deposition from a much larger draft. Note that the RMSD has many other applications, like comparing different structures or models from the same or related sequences.</p>
@@ -422,17 +459,21 @@ PDB-101
 </div>
 </div>
 </div>
-<div id="fig-PDBfile" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-96FF761D.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Coordinates in the PDB file (6KI3)</figcaption>
+<div id="fig-PDBfile" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PDBfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-96FF761D.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PDBfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Coordinates in the PDB file (6KI3)
+</figcaption>
 </figure>
 </div>
 <section id="occupancy-and-b-factor" class="level3">
 <h3 class="anchored" data-anchor-id="occupancy-and-b-factor">Occupancy and B-factor</h3>
 <p>Except for the repetition of the atom type in the rightmost column, the last columns in the PDB file are the <strong>Occupancy</strong> and the <strong>temperature factor</strong> or the <strong>B-factor</strong>.</p>
 <p>Macromolecular crystals consist of many individual molecules packed in a symmetrical arrangement. In some crystals there are slight differences between the individual molecules. For instance, a sidechain on the surface may wag back and forth between several conformations, or a substrate may bind in two orientations at an active site, or a metal ion may be detected as bound to only a few of the molecules. When researchers build the atomic model of these portions, they can use the occupancy to estimate the amount of each conformation observed in the crystal. Therefore, by definition, the sum of <strong>occupancy</strong> values for each atom must be 1. Usually, we see a single record for an atom, with an occupancy value of 1, indicating that the atom is found in all of the molecules in the same place in the crystal. However, if a metal ion binds to only half of the molecules in the crystal, the researcher sees a faint image of the ion in the electron density map and can assign an occupancy of 0.5 for this atom in the PDB structure file. For each atom, two (or more) atom records are included with occupancies such as 0.5 and 0.5, or 0.4 and 0.6, or other fractions of occupancies that sum to a total of 1.</p>
-<p>On the other hand, the <strong>temperature value or <em>B</em>-factor is</strong> a measure of our confidence in the location of individual atoms, as described above (<a href="#sec-assess">Section&nbsp;3</a>). If you find an atom with a high temperature factor on the surface of a protein, keep in mind that this atom is likely to be moving around a lot and that the coordinates given in the PDB file are only a possible snapshot of its location. Thus, an atom dataset with an occupancy &lt; 1 may have a low B-factor if that position is safe.</p>
+<p>On the other hand, the <strong>temperature value or <em>B</em>-factor is</strong> a measure of our confidence in the location of individual atoms, as described above (<a href="#sec-assess" class="quarto-xref">Section&nbsp;3</a>). If you find an atom with a high temperature factor on the surface of a protein, keep in mind that this atom is likely to be moving around a lot and that the coordinates given in the PDB file are only a possible snapshot of its location. Thus, an atom dataset with an occupancy &lt; 1 may have a low B-factor if that position is safe.</p>
 <p>As you can imagine, this column is also used by computationally derived models to indicate a confidence value that can be parsed for diverse purposes, including structure coloring.</p>
 </section>
 </section>
@@ -522,7 +563,7 @@ A tribute to the pioneers
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-callaway2020" class="csl-entry" role="listitem">
 Callaway, Ewen. 2020. <span>“Revolutionary Cryo-EM Is Taking over Structural Biology.”</span> <em>Nature</em> 578 (7794): 201–1. <a href="https://doi.org/10.1038/d41586-020-00341-9">https://doi.org/10.1038/d41586-020-00341-9</a>.
 </div>
@@ -792,18 +833,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -835,11 +865,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -849,8 +925,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -862,7 +947,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -906,6 +1114,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -931,6 +1140,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -988,32 +1223,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./ddbb.html" class="pagination-link">
+      <a href="./ddbb.html" class="pagination-link" aria-label="Protein Databases">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Protein Databases</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./homology.html" class="pagination-link">
+      <a href="./homology.html" class="pagination-link" aria-label="Homology Modeling">
         <span class="nav-page-text">Homology Modeling</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1021,7 +1240,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-left">
+<p>Modesto Redrejo Rodríguez, 2025</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -1034,7 +1255,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+    <a class="nav-link" href="https://twitter.com/mredrejo">
+<p><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/mredrejo.bsky.social">
+<p><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></p>
+</a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
@@ -1046,6 +1274,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

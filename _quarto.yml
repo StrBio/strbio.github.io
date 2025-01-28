@@ -30,12 +30,14 @@ website:
       - icon: github
         href: https://github.com/StrBio/strbio.github.io
   page-footer:
-    left: "Modesto Redrejo Rodríguez, 2023"
+    left: "Modesto Redrejo Rodríguez, 2025"
     right:
     - icon: badge-cc-fill
       href: https://creativecommons.org/licenses/by-nc/2.0/
     - text: "{{< iconify fa6-brands x-twitter >}}"
       href: https://twitter.com/mredrejo
+    - text: "{{< iconify simple-icons bluesky >}}"
+      href: https://bsky.app/profile/mredrejo.bsky.social
     - icon: github
       href: https://github.com/StrBio/strbio.github.io
   page-navigation: true

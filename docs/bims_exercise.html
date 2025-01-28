@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Modesto">
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>StrBio UAM – Structural Bioinformatics at UAM</title>
+<title>BIBMS-3: StrBio Exercise – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="StrBio UAM – Structural Bioinformatics at UAM">
+<meta name="twitter:title" content="BIBMS-3: StrBio Exercise – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -89,7 +87,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">StrBio UAM</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Structural Bioinformatics at 	UAM
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,8 +120,8 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">StrBio UAM</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">StrBio 2023-24</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -199,33 +199,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">1</span> Goal</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">2</span> Background</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure"><span class="header-section-number">3</span> Procedure</a>
+  <ul class="collapse">
+  <li><a href="#look-for-those-structures-on-pdb-rcsb-database-and-compare-them." id="toc-look-for-those-structures-on-pdb-rcsb-database-and-compare-them." class="nav-link" data-scroll-target="#look-for-those-structures-on-pdb-rcsb-database-and-compare-them.">1. Look for those structures on PDB-RCSB database and compare them.</a></li>
+  <li><a href="#then-go-to-mol-viewer-to-analyze-them-in-more-detail." id="toc-then-go-to-mol-viewer-to-analyze-them-in-more-detail." class="nav-link" data-scroll-target="#then-go-to-mol-viewer-to-analyze-them-in-more-detail.">2. Then go to Mol* Viewer to analyze them in more detail.</a></li>
+  <li><a href="#now-we-want-to-compare-them-and-check-the-details." id="toc-now-we-want-to-compare-them-and-check-the-details." class="nav-link" data-scroll-target="#now-we-want-to-compare-them-and-check-the-details.">3. Now we want to compare them and check the details.</a></li>
+  <li><a href="#compare-the-residues-in-binding-pocket-and-focus-especially-residues-274-and-276-in-each-structure." id="toc-compare-the-residues-in-binding-pocket-and-focus-especially-residues-274-and-276-in-each-structure." class="nav-link" data-scroll-target="#compare-the-residues-in-binding-pocket-and-focus-especially-residues-274-and-276-in-each-structure.">4. Compare the residues in binding pocket and focus especially residues 274 and 276 in each structure.</a></li>
+  <li><a href="#we-just-found-a-new-virus-with-the-following-neuraminidase-sequence" id="toc-we-just-found-a-new-virus-with-the-following-neuraminidase-sequence" class="nav-link" data-scroll-target="#we-just-found-a-new-virus-with-the-following-neuraminidase-sequence">5. We just found a new virus with the following neuraminidase sequence:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">StrBio UAM</h1>
+<h1 class="title">BIBMS-3: StrBio Exercise</h1>
 </div>
 
 
-<div class="quarto-title-meta-author column-page-right">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Modesto </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Department of Biochemistry, School of Medicine, UAM
-          </p>
-      </div>
-  </div>
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-      
+    
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
@@ -236,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 28, 2025</p>
+      <p class="date-modified">Invalid Date</p>
     </div>
   </div>
     
@@ -247,54 +251,125 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level1">
-<h1>About</h1>
-<div style="float: right; position: relative; top: 0px; padding: 9px;">
-<div class="quarto-figure quarto-figure-right">
-<figure class="figure">
-<p><img src="pics/QR_master.png" title="Master's Degree in Bioinformatics &amp; Computational Biology" class="img-fluid quarto-figure quarto-figure-right figure-img"></p>
-</figure>
-</div>
-</div>
-<p>This is a <a href="https://quarto.org/">Quarto</a> site containing the materials for the <em>Structural Bioinformatics</em> course in the <a href="https://www-uam-es.translate.goog/Medicina/MasterBioinformaticaBiologiaComputacional/1446820907497.htm?language=es&amp;nodepath=M?ster+Universitario+en+Bioinform?tica+y+Biolog?a+Computacional&amp;_x_tr_sl=es&amp;_x_tr_tl=en&amp;_x_tr_hl=es&amp;_x_tr_pto=wapp">Master’s Degree in Bioinformatics &amp; Computational Biology @UAM</a>. All these materials are open access and shared under <a href="https://creativecommons.org/licenses/by-nc/2.0/" title="CC BY-NC license">CC BY-NC license</a>. These materials were originally elaborated for the 2022 course edition and is subsequently revised each year. The current Course syllabus for year 2024-2025 can be found <a href="2024_33082_es.pdf">here</a> (in Spanish). Detailed academic information about the course contents, dates and assessment only can be found at the UAM <a href="https://posgrado.uam.es/">Moodle</a> site.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is primarily an introductory course (3 ECTS), designed to offer a general overview as well as tools and resources necessary for initiating SB research projects. Consequently, many fundamental concepts in protein biophysics, scripting tools for SB, and deep-learning methods will only be briefly covered.</p>
-</div>
-</div>
-<p>In addition to some already classic books, reviews, and articles referenced, the content also draws heavily on the work of others who have generously shared their course materials, tips, and resources on their blogs or websites, as well as discussions on Twitter, especially during the Alphafold2 revolution in 2020-2021. Notable contributions from <a href="https://www.uu.nl/staff/amjjbonvin">Alexandre Bovin</a>, <a href="https://twitter.com/sokrypton">Sergey Ovchinnikov</a>, <a href="https://twitter.com/thesteinegger">Martin Steinegger</a> and <a href="https://twitter.com/c_outeiral?lang=es">Carlos Outeiral</a>, among many others. Every effort has been made to acknowledge and link to these contributions; however, I apologize in advance for any that may have been inadvertently omitted.</p>
-<p>The course includes three hands-on exercises designed to guide you through using Pymol to visualize molecules and model proteins via homology modeling and AlphaFold. <span style="color:green">Additionally, several exercises and questions are highlighted in green throughout the sections to encourage you to reflect on the knowledge and skills acquired and to delve deeper into interpreting the results.</span> I suggest you review also the Structural Bioinformatics exercises from Pontificia Universidad Católica de Chile, detailed in <a href="https://pubs.acs.org/doi/10.1021/acs.jchemed.1c00022">Engelberger et al.&nbsp;(2021)</a>: <a href="https://github.com/pb3lab/ibm3202" class="uri">https://github.com/pb3lab/ibm3202</a></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Please note that this website is a draft that is constantly under revision during the semester (May 2025). Any feedback, help, or suggestions would be greatly appreciated.</p>
-<p><img src="pics/8275a.jpg" title="Under construction..." class="img-fluid"></p>
-</div>
-</div>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<p>Please let me know if you find some mistake or a missing reference. Definitely, I’ll appreciate any suggestion, request or correction. You can reach me by <a href="mailto::modesto.redrejo@uam.es">email</a>, <a href="https://twitter.com/mredrejo" title="Twitter"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon>(f.k.a. Twitter)</a> or <a href="https://bsky.app/profile/mredrejo.bsky.social"><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></a>.</p>
+<section id="goal" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Goal</h1>
+<p>The goal of this exercise<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is to learn how to work with protein structures, analyze them, and understand the differences between different structures. <strong>Follow the indicated steps and then answer the questions in Moodle.</strong></p>
+<p>Questions are very welcome, but please use the <em>Moodle Q&amp;A</em> to allow your classmates see the discussions.</p>
+</section>
+<section id="background" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Background</h1>
+<p>As you know, viral diseases such as COVID-19, flu or common cold cannot be treated with antibiotics. Fortunately, there are some drugs targeting viral essential proteins that can be used instead. One example is oseltamivir (a.k.a. <em>Tamiflu</em>), an inhibitor of influenza virus Neuraminidase, whose substrate is sialic acid. There are several structures in the <a href="https://www.rcsb.org/">Protein Data Bank</a> (PDB) of neuraminidases from diverse influenza strains and with/without complexed substrate or inhibitors. Two of them are <strong>2HU4</strong> and <strong>3CL0</strong>.</p>
+</section>
+<section id="procedure" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Procedure</h1>
+<section id="look-for-those-structures-on-pdb-rcsb-database-and-compare-them." class="level3">
+<h3 class="anchored" data-anchor-id="look-for-those-structures-on-pdb-rcsb-database-and-compare-them.">1. Look for those structures on PDB-RCSB database and compare them.</h3>
+<ul>
+<li>You can use the tool <code>Structure Pairwise Alignment</code> from the ANALYZE menu on the top and test different alignment algorithms (for more info about the algorithms see <a href="https://www.rcsb.org/docs/tools/pairwise-structure-alignment" class="uri">https://www.rcsb.org/docs/tools/pairwise-structure-alignment</a>) .</li>
+</ul>
+</section>
+<section id="then-go-to-mol-viewer-to-analyze-them-in-more-detail." class="level3">
+<h3 class="anchored" data-anchor-id="then-go-to-mol-viewer-to-analyze-them-in-more-detail.">2. Then go to <a href="https://molstar.org/viewer/">Mol* Viewer</a> to analyze them in more detail.</h3>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>You can download the structures directly from PDB database using the IDs.</td>
+<td>! <a href="images /image.18 .png"></a>{wid th=“400”}</td>
+</tr>
+<tr class="even">
+<td>Zoom-in on the structures and see how each protein interacts with the inhibitor. Just move the mouse pointer over each residue and you will easily identify them by a label on the bottom-right corner.<br>Tips:<br><br>* Zoom in/out usually works with your mouse scroll<br>* Left button for rotation<br>* Right button (or control+left button) for translation without rotation<br>* With SHIFT+Scroll you can move the Z-axis (I mean perpendicular to the screen plane) and show a “section plane” within the structure.</td>
+<td><img src="image s/image.9 .png" class="img-fluid">{wid th=“400”}</td>
+</tr>
+<tr class="odd">
+<td>Trick:<br>Click on the drug molecule and then use the right menu to change anything in the representation of the surrounding environment of the drug.<br>For instance, you can add labels using <code>[Focus] Surroundings</code> &gt; <code>Add Representation</code> &gt; <code>Labels</code><br>Then click in the <code>...</code>to close that menu.<br><br><br>Do it for one monomer in each structure to see the differences in the binding pocket.</td>
+<td>! <a href="images /image.17 .png"></a>{wid th=“400”}</td>
+</tr>
+<tr class="even">
+<td>You can also remove water molecules and extra ions that will not be useful for us at this point.</td>
+<td>! <a href="images /image.12 .png"></a>{wid th=“400”}</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="now-we-want-to-compare-them-and-check-the-details." class="level3">
+<h3 class="anchored" data-anchor-id="now-we-want-to-compare-them-and-check-the-details.">3. Now we want to compare them and check the details.</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 75%">
+<col style="width: 24%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p>To align the structures:</p>
+<p>1. Select the “Toggle” tool</p></td>
+<td>![] (images/image.1. png){width=“80”}</td>
+</tr>
+<tr class="even">
+<td>2. Change the level for selecting to CHAIN</td>
+<td><img src="images/image.3.p ng" class="img-fluid" width="400"> <img src="images/image.4.p ng" class="img-fluid" width="400"></td>
+</tr>
+<tr class="odd">
+<td>3. Select one chain from each structure<br><br>Tip:<br>Optionally, you can remove all the unwanted chains but one using the “-” option (indicated with the pink arrow) to keep the exercise simpler by using monomeric structures.</td>
+<td><img src="i mages/image.13.p ng" class="img-fluid" width="400"> |</td>
+</tr>
+<tr class="even">
+<td>4. Align them with the <code>Superposition</code> tool<br><br>The RMSD will be on the history bar (on the bottom).</td>
+<td><img src="images/image.6.p ng" class="img-fluid" width="400"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="compare-the-residues-in-binding-pocket-and-focus-especially-residues-274-and-276-in-each-structure." class="level3">
+<h3 class="anchored" data-anchor-id="compare-the-residues-in-binding-pocket-and-focus-especially-residues-274-and-276-in-each-structure.">4. Compare the residues in binding pocket and focus especially residues 274 and 276 in each structure.</h3>
+</section>
+<section id="we-just-found-a-new-virus-with-the-following-neuraminidase-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="we-just-found-a-new-virus-with-the-following-neuraminidase-sequence">5. We just found a new virus with the following neuraminidase sequence:</h3>
+<pre><code>&gt;New_neuraminidase
+MNPNQKILCTTATAIVIGSIAVLIGIANLGLNIGLHLKPICNCSHSQPEATNASQTIINNYYNETNITQI 
+SNTNIQMEERASRGFNNLTKGLCTINSWHIYGKDNAVRIGENSDVLVTREPYVSCDPDECRFYALSQGTT 
+IRGKHSNGTIHDRSQYRALISWPLSSPPTVYNSRVECIGWSSTSCHDGKSRMSICISGPNNNASAVVWYN 
+RRPVAEINTWARNILRTQESECVCHNGSAVCPVVYTDGSATGPFDYRIYYFKEGKSALRWESLTGTAKWI
+ERCSCYGERTGITCTCRDNWQGSNRPVIQIDPVAMTHTSQYICSPVLTDNPRPNDPNVGKCNDPYPGNNN
+NGVKGFSYLDGVNTWLGRTISTASRSGYEMLKVPNALTDDRSKPIQGQTIVLNTDWSGYSGSFMDYWAEG
+DCYRACFYVDLIRGRPKEDKVWWTSNSIVSMCSSTEFIGQWNWPDGAKIEYFLGSA</code></pre>
+<ul>
+<li>Try to obtain a structural model of that protein sequence.</li>
+<li>Check the target-template alignment and the model quality (Structure Assessment blue button)</li>
+</ul>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><p>You can use SWISS-MODEL: <a href="https://swissmodel.expasy.org/" class="uri">https://swissmodel.expasy.org/</a></p>
+<p>All the top templates are very similar, thus you can pick the first one to construct your model.</p>
+<p>Once you construct your model, you can download it in PDB format.</p></td>
+<td><img src="images/image .10.png" class="img-fluid" width="400"></td>
+</tr>
+<tr class="even">
+<td>Import your model in Mol* using the <code>Open Files</code> option in the <code>Home</code> menu (then click Apply) and compare your model with the other structures. Note that the numbers for equivalent residues in the alignment can be different in each sequence. | | | Tip: | | Remember also to change back the selection to “Residue” and switch off the <em>toggle</em> option. |</td>
+<td><img src="images/image .15.png" class="img-fluid" width="400"></td>
+</tr>
+<tr class="odd">
+<td><p>Help: Try to solve the whole exercise yourself, but if you have trouble comparing the three proteins, at this point you can view my work session containing the three structures: <a href="mol-star_state_2023-10-3-10-33-7.molx">link</a></p>
+<p>You can import it using the OPEN option in the <code>Save Options</code> menu. <em>Note that this remove all your previous work if unsaved.</em></p>
+<p>After opening the session you should rotate and select the drug molecules to show the binding pocket in the structures. Then you can select the residue you want to check.</p></td>
+<td><img src="images/image .14.png" class="img-fluid" width="400"></td>
+</tr>
+</tbody>
+</table>
+<p>Compare the position of the drug and interacting residues within the binding pocket in structures 2HU4 (sensitive) and 3CL0 (resistant) with the structure of the binding pocket in your model.</p>
+<hr>
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This exercise is inspired in the “Homology Modeling” exercise in the Course <em>Bioinformatics &amp; Molecular Biology</em> by Department of Molecular Biosciences and Department of Informatics at the University of Oslo (UiO). However, this is a shorter and updated version adapted for BIBMS@UAM. Please let me know if you find any mistake or trouble.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -928,20 +1003,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Modesto Redrejo Rodríguez, 2025</p>
+<p>Modesto Redrejo Rodríguez, 2023</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -957,11 +1023,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <li class="nav-item">
     <a class="nav-link" href="https://twitter.com/mredrejo">
 <p><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://bsky.app/profile/mredrejo.bsky.social">
-<p><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></p>
 </a>
   </li>  
     <li class="nav-item compact">
