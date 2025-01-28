@@ -1,0 +1,204 @@
+---
+title: "BIBMS-3: StrBio Exercise"
+date: "August 21, 2023"
+date-modified: "`r Sys.Date()`"
+author: 
+  - name: Modesto
+    affiliation: Department of Biochemistry, UAM
+    affiliation_url: https://www.uam.es/
+    email: modesto.redrejo@uam.es
+format: 
+  html:
+    page-layout: full
+toc: true
+toc-location: right
+toc-depth: 3
+number-sections: true
+number-depth: 1
+link-external-icon: true
+link-external-newwindow: true 
+
+editor: 
+  markdown: 
+    wrap: 80
+---
+
+# Goal
+
+```{r}
+
+```
+
+The goal of this exercise[^1] is to learn how to work with protein structures in
+3D by using PDB files, comparing and analyzing them, and understanding the
+differences between different structures.
+
+[^1]: This exercise is inspired in the "Homology Modeling" exercise in the
+    Course *Bioinformatics & Molecular Biology* by Department of Molecular
+    Biosciences and Department of Informatics at the University of Oslo (UiO).
+    However, this is a shorter and updated version adapted for BIBMS\@UAM.
+    Please let me know if you find any mistake or trouble.
+
+    ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png){width="77"
+    height="28"} Distributed with
+    [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+
+**Follow the given steps and then answer the questions in Moodle.**
+
+Questions are very welcome, but please use the *Moodle Q&A* forum so that your
+classmates can see the discussions.
+
+# Background
+
+As you know, viral diseases such as COVID-19, seasonal flu or the common cold
+cannot be treated with antibiotics. Fortunately, there are some drugs that
+target essential viral proteins and can be used instead. One example is
+oseltamivir (also known as Tamiflu), an inhibitor of the influenza virus
+neuraminidase, whose substrate is sialic acid. In [Protein Data
+Bank](https://www.rcsb.org/) (PDB) there are several structures of
+neuraminidases from different influenza strains and with/without complexed
+substrate or inhibitors. Two of them are **2HU4** and **3CL0**.
+
+# Procedure
+
+### 1. Look for those structures on PDB-RCSB database and compare them.
+
+-   You can use the tool `Structure Pairwise Alignment` from the ANALYZE menu on
+    the top and test different alignment algorithms (for more info about the
+    algorithms see
+    <https://www.rcsb.org/docs/tools/pairwise-structure-alignment>) .
+
+### 2. Then go to [Mol\* Viewer](https://molstar.org/viewer/) to analyze them in more detail.
+
++---------------------------------------------------+--------------------------+
+| You can download the structures directly from PDB | ![](images/image.18.png) |
+| database using the IDs.                           |                          |
++---------------------------------------------------+--------------------------+
+| Zoom-in on the structures and see how each        | ![](images/image.9.png)  |
+| protein interacts with the inhibitor. Just move   |                          |
+| the mouse pointer over each residue and you will  |                          |
+| easily identify them by a label on the            |                          |
+| bottom-right corner.                              |                          |
+|                                                   |                          |
+| Tips:                                             |                          |
+|                                                   |                          |
+| -   Zoom in/out usually works with your mouse     |                          |
+|     scroll                                        |                          |
+|                                                   |                          |
+| -   Left button for rotation                      |                          |
+|                                                   |                          |
+| -   Right button (or control+left button) for     |                          |
+|     translation without rotation.                 |                          |
+|                                                   |                          |
+| -   With SHIFT+Scroll you can move the Z-axis (I  |                          |
+|     mean perpendicular to the screen plane) and   |                          |
+|     show a “section plane” within the structure.  |                          |
++---------------------------------------------------+--------------------------+
+| Trick:                                            | ![](images/image.17.png) |
+|                                                   |                          |
+| Click on the drug molecule and then use the right |                          |
+| menu to change anything in the representation of  |                          |
+| the surrounding environment of the drug.          |                          |
+|                                                   |                          |
+| For instance, you can add labels using            |                          |
+| `[Focus] Surroundings` \> `Add Representation` \> |                          |
+| `Labels`                                          |                          |
+|                                                   |                          |
+| Then click in the `...`to close that menu.        |                          |
+|                                                   |                          |
+| Do it for one monomer in each structure to see    |                          |
+| the differences in the binding pocket.            |                          |
++---------------------------------------------------+--------------------------+
+| You can also remove water molecules and extra     | ![](images/image.12.png) |
+| ions that will not be useful for us at this       |                          |
+| point.                                            |                          |
++---------------------------------------------------+--------------------------+
+
+### 3. Now we want to compare them and check the details.
+
++---------------------------------------------------+--------------------------+
+| To align the structures:                          | ![](images/image.1.png)  |
+|                                                   |                          |
+| 1\. Select the “Toggle” tool                      |                          |
++---------------------------------------------------+--------------------------+
+| 2\. Change the level for selecting to CHAIN       | ![](images/image.3.png)  |
+|                                                   | ![](images/image.4.png)  |
++---------------------------------------------------+--------------------------+
+| 3\. Select one chain from each structure.         | ![](images/image.13.png) |
+|                                                   |                          |
+| Tip:                                              |                          |
+|                                                   |                          |
+| Optionally, you can remove all the unwanted       |                          |
+| chains but one using the `-` option (indicated    |                          |
+| with the pink arrow) to keep the exercise simpler |                          |
+| by using monomeric structures.                    |                          |
++---------------------------------------------------+--------------------------+
+| 4\. Align them with the `Superposition` tool.     | ![](images/image.6.png)  |
+|                                                   |                          |
+| The RMSD will be on the history bar (on the       |                          |
+| bottom).                                          |                          |
++---------------------------------------------------+--------------------------+
+
+### 4. Compare the residues in binding pocket.
+
+::: callout-tip
+Focus especially on residues 274 and 276 in each structure.
+:::
+
+### 5. We just found a new virus with the following neuraminidase sequence:
+
+```         
+>New_neuraminidase
+MNPNQKILCTTATAIVIGSIAVLIGIANLGLNIGLHLKPICNCSHSQPEATNASQTIINNYYNETNITQI 
+SNTNIQMEERASRGFNNLTKGLCTINSWHIYGKDNAVRIGENSDVLVTREPYVSCDPDECRFYALSQGTT 
+IRGKHSNGTIHDRSQYRALISWPLSSPPTVYNSRVECIGWSSTSCHDGKSRMSICISGPNNNASAVVWYN 
+RRPVAEINTWARNILRTQESECVCHNGSAVCPVVYTDGSATGPFDYRIYYFKEGKSALRWESLTGTAKWI
+ERCSCYGERTGITCTCRDNWQGSNRPVIQIDPVAMTHTSQYICSPVLTDNPRPNDPNVGKCNDPYPGNNN
+NGVKGFSYLDGVNTWLGRTISTASRSGYEMLKVPNALTDDRSKPIQGQTIVLNTDWSGYSGSFMDYWAEG
+DCYRACFYVDLIRGRPKEDKVWWTSNSIVSMCSSTEFIGQWNWPDGAKIEYFLGSA
+```
+
+-   Try to obtain a structural model of that protein sequence.
+-   Check the target-template alignment and the model quality (Structure
+    Assessment blue button).
+
++---------------------------------------------------+--------------------------+
+| You can use SWISS-MODEL:                          | ![](images/image.10.png) |
+| <https://swissmodel.expasy.org/>                  |                          |
+|                                                   |                          |
+| All the top templates are very similar, thus you  |                          |
+| can pick the first one to construct your model.   |                          |
+|                                                   |                          |
+| Once you construct your model, you can download   |                          |
+| it in PDB format.                                 |                          |
++---------------------------------------------------+--------------------------+
+| Import your model in Mol\* using the `Open Files` | ![](images/image.15.png) |
+| option in the `Home` menu (then click Apply) and  |                          |
+| compare your model with the other structures.     |                          |
+| Note that the numbers for equivalent residues in  |                          |
+| the alignment can be different in each sequence.  |                          |
+|                                                   |                          |
+| *Tip*: Remember also to change back the selection |                          |
+| to “Residue” and switch off the *toggle* option.  |                          |
++---------------------------------------------------+--------------------------+
+| Help: Try to solve the whole exercise yourself,   | ![](images/image.14.png) |
+| but if you have trouble comparing the three       |                          |
+| proteins, at this point you can view my work      |                          |
+| session containing the three structures:          |                          |
+| [link](mol-star_state_2023-10-3-10-33-7.molx)     |                          |
+|                                                   |                          |
+| You can import it using the OPEN option in the    |                          |
+| `Save Options` menu. *Note that this remove all   |                          |
+| your previous work if unsaved.*                   |                          |
+|                                                   |                          |
+| After opening the session you should rotate and   |                          |
+| select the drug molecules to show the binding     |                          |
+| pocket in the structures. Then you can select the |                          |
+| residue you want to check.                        |                          |
++---------------------------------------------------+--------------------------+
+
+Now, compare the position of the drug and interacting residues within the
+binding pocket in structures 2HU4 (sensitive) and 3CL0 (resistant) with the
+structure of the binding pocket in your model.
+
+### 6. Go back to Moodle and answer the quiz entitled ***Structural Bioinformatics Assignment.***
