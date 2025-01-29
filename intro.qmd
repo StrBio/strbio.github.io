@@ -249,13 +249,15 @@ proteins, like the so-called **Isopeptide bonds**, formed between two protein
 groups, at least one of which is not an α-amino or α-carboxy group. Examples
 include ubiquitylation, sumoylation, transglutamination, sortase-mediated cell
 surface protein anchoring and pilus formation [@kang2011]. As detailed in
-@fig-iso, all these processes share several feature: 1. All involve the reaction
-ofa lysine ε-amino group on one protein with the main α-carboxy group on another
-protein, except for transglutamination, where the lysine targets a glutamine
-side chain carboxyamide group 2. All processes are enzyme-mediated and involve a
-transient thioester intermediate formed by the active site's cysteine. This
-intermediate is resolved through nucleophilic attack by the lysine ε-amino
-group, which completes the bond formation.
+@fig-iso, all these processes share several feature:
+
+1.  All involve the reaction of a lysine ε-amino group on one protein with the
+    main α-carboxy group on another protein, except for transglutamination,
+    where the lysine targets a glutamine side chain carboxyamide group.
+2.  All processes are enzyme-mediated and involve a transient thioester
+    intermediate formed by the active site's cysteine. This intermediate is
+    resolved through nucleophilic attack by the lysine ε-amino group, which
+    completes the bond formation.
 
 [![Enzyme-mediated formation of intermolecular isopeptide bonds. Examples are
 shown for three different biological processes: ubiquitylation,
@@ -264,6 +266,25 @@ bacteria. Proteins linked by isopeptide bonds are coloured blue and purple and
 the isopeptide bond-forming enzymes are coloured green. Reproduced from
 @kang2011.](images/iso.jpg){#fig-iso
 .figure}](https://www.sciencedirect.com/science/article/pii/S0968000410001842)
+
+In contrast to these enzyme-dependent processes, cross-linking isopeptide bonds
+form autocatalytically in *S. pyogenes* major pilin Spy0128 and other Gram+ cell
+surface proteins, as well as in HK97 phage capsid. In this case, the
+bond-forming reaction is a proximity-induced reaction that happens when
+participating amino acids are positioned together in a hydrophobic environment,
+either through protein folding concurrent with peptide bond formation at the
+ribosome or by capsid rearrangement (in HK97).
+
+::: callout-tip
+# Unnatural reactive amino acids
+
+Manipulating inter- and intramolecular amino acid interactions is common for
+altering protein properties. A classic example is adding nearby cysteines to
+form disulfide bonds, enhancing stability. Recently, Spy0128 motifs and
+unnatural reactive amino acids have enabled applications like creating protein
+staples, thermostable antibodies, and surfaces/nanoparticles that capture
+proteins [@cao2022].
+:::
 
 ## Ramachandran Plot {#sec-rama}
 
@@ -277,18 +298,23 @@ This plot can display the angles of a specific amino acid, all amino acids in a
 single protein, or even across many proteins. Analysis of φ and ψ angles in
 known proteins reveals that approximately three-quarters of all possible φ, ψ
 combinations are not allowed (@fig-rama0) that correspond with common secondary
-structure motifs (@fig-rama).
+structure motifs (@fig-ram).
 
 [![General Ramachandran plot. The density of points reflects how likely is each
 angle combination, defining the core (red line) and tolerance (orange)
 regions.](pics/Ramachandran_plot_general_100K.jpg "General Ramachandran plot"){#fig-rama0
 .figure}](https://proteopedia.org/wiki/index.php/Ramachandran_Plot)
 
-
 ![Definition of secondary structure alternatives by their combination of phi,
 psi angles.](pics/rama2.png "Textbook Rama plot"){#fig-ram .figure}
 
-Functionally relevant residues are more likely than others to have torsion angles that plot to the allowed but disfavored regions of a Ramachandran plot. The specific geometry of these functionally relevant residues, while somewhat energetically unfavorable, may be important for the protein's function, catalytic or otherwise. Such conformations need to be stabilized by the protein using H-bonds, steric packing, or other means, and should very seldom occur for highly solvent-exposed residues.
+Functionally relevant residues are more likely than others to have torsion
+angles that plot to the allowed but disfavored regions of a Ramachandran plot.
+The specific geometry of these functionally relevant residues, while somewhat
+energetically unfavorable, may be important for the protein's function,
+catalytic or otherwise. Such conformations need to be stabilized by the protein
+using H-bonds, steric packing, or other means, and should very seldom occur for
+highly solvent-exposed residues.
 
 [![Ramachandran plots for glycine (left) and proline (right) Inner contour
 encloses 98% and 99.9% of Top structures data, indicating the favored and
@@ -298,10 +324,10 @@ allowed regions, respectively
 
 ## Protein folds, domains and motifs
 
-The global three dimensional tertiary structure of a protein is commonly referred
-as its **fold**. Within the overall protein fold, we can recognize distinct
-**domains** and **motifs.** Domains are compact sections of the protein that
-represent structurally and (usually) functionally independent regions. That
+The global three dimensional tertiary structure of a protein is commonly
+referred as its **fold**. Within the overall protein fold, we can recognize
+distinct **domains** and **motifs.** Domains are compact sections of the protein
+that represent structurally and (usually) functionally independent regions. That
 means that a domain maintain its main features, even if separated from the
 overall protein. On the other hand, motifs are small substructures that are not
 necessarily independent and consist of only a few secondary structure stretches.
@@ -362,35 +388,33 @@ Remember to work on groups as assigned. Groups should be the same for all the
 course exercises.
 :::
 
-
-
 There are a few online alternatives to model any peptide sequence and quickly
 see the effect of amino acid composition in the secondary structure. One of the
 best-known is Foldit ([www.fold.it](http://www.fold.it), @miller2020), a gaming
 platform for biochemistry and structural biology teaching. It is a highly
 recommended alternative for most courses related to protein structure.
 
-In this course we are going to try a more recent proposal, twitted by
-Sergey Ovchinnikov:
+In this course we are going to try a more recent proposal, twitted by Sergey
+Ovchinnikov:
 
 {{< tweet sokrypton 1535857255647690753 >}}
 
-
-
 [![Basic protein amino acids stats for protein design with ColabFold
-Single](pics/cheatsheet.png "Protein hallucination"){#fig-single
-.figure width=350}](https://twitter.com/sokrypton/status/1535857255647690753)
+Single](pics/cheatsheet.png "Protein hallucination"){#fig-single .figure
+width="350"}](https://twitter.com/sokrypton/status/1535857255647690753)
 
 This is based on ColabFold (see <https://github.com/sokrypton/ColabFold> and
 @mirdita2022), an Alphafold2 (see @jumper2021) free notebook in [Google Colab
 notebook](https://colab.research.google.com/?hl=en). All you need is a Google
 account and the *cheatsheet* in @fig-single.
 
-
 Now go to ColabFold Single:
 <https://colab.research.google.com/github/sokrypton/af_backprop/blob/beta/examples/AlphaFold_single.ipynb>
 
-Construct some small proteins and compare the output. Use 6 recycle steps to obtain diverse structures and then click in the "Animate trajectories" chunk. Note that the first model will take 2-4 min, but the others will be faster. I provide here some interesting examples (IUPAC one-letter amino acid code):
+Construct some small proteins and compare the output. Use 6 recycle steps to
+obtain diverse structures and then click in the "Animate trajectories" chunk.
+Note that the first model will take 2-4 min, but the others will be faster. I
+provide here some interesting examples (IUPAC one-letter amino acid code):
 
 1.  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
