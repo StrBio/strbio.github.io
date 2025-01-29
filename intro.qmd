@@ -29,7 +29,7 @@ library(webexercises)
 Bioinformatics](https://en.wikipedia.org/wiki/Structural_bioinformatics "Wikipedia")
 (SB) is a broad discipline that encompasses data resources, algorithms, and
 tools for investigating, analyzing, predicting, and interpreting
-biomacromolecular structures @paiva2022. In this course, we will specifically
+biomacromolecular structures [@paiva2022]. In this course, we will specifically
 focus on protein structural bioinformatics, including visualization and analysis
 of the structure of biomacromolecules as well as the prediction of protein
 structures and complexes. The premise of SB is that high-resolution structural
@@ -401,7 +401,7 @@ Ovchinnikov:
 
 [![Basic protein amino acids stats for protein design with ColabFold
 Single](pics/cheatsheet.png "Protein hallucination"){#fig-single .figure
-width="350"}](https://twitter.com/sokrypton/status/1535857255647690753)
+width="500"}](https://twitter.com/sokrypton/status/1535857255647690753)
 
 This is based on ColabFold (see <https://github.com/sokrypton/ColabFold> and
 @mirdita2022), an Alphafold2 (see @jumper2021) free notebook in [Google Colab
