@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Structural Bioinformatics at UAM - Protein Databases</title>
+<title>Protein Databases – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -84,13 +92,41 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Structural Bioinformatics at UAM - Protein Databases">
+<meta name="twitter:title" content="Protein Databases – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="pics/rmsd.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked">
@@ -99,13 +135,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein Databases</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein Databases</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -114,7 +150,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Structural Bioinformatics at UAM</a> 
@@ -134,14 +170,14 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">StrBio 2023-24</span></a>
+ <span class="menu-text">StrBio UAM</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Background</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -168,9 +204,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -210,7 +246,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -222,27 +258,23 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#sequence-databases" id="toc-sequence-databases" class="nav-link" data-scroll-target="#sequence-databases">Sequence databases</a></li>
   <li><a href="#strDDBB" id="toc-strDDBB" class="nav-link" data-scroll-target="#strDDBB">Structure databases</a></li>
-  <li><a href="#graphical-summary" id="toc-graphical-summary" class="nav-link" data-scroll-target="#graphical-summary">Graphical summary</a></li>
+  <li><a href="#current-and-future-strategies-in-protein-databases" id="toc-current-and-future-strategies-in-protein-databases" class="nav-link" data-scroll-target="#current-and-future-strategies-in-protein-databases">Current and future strategies in protein databases</a></li>
   </ul></li>
-  <li><a href="#ddbbs-practice" id="toc-ddbbs-practice" class="nav-link" data-scroll-target="#ddbbs-practice"><span class="header-section-number">3</span> <span style="color:green"><strong>DDBBs Practice</strong></span></a>
-  <ul class="collapse">
-  <li><a href="#classify-the-following-protein-structures-into-groups-and-subgroups" id="toc-classify-the-following-protein-structures-into-groups-and-subgroups" class="nav-link" data-scroll-target="#classify-the-following-protein-structures-into-groups-and-subgroups">Classify the following protein structures into “groups” and “subgroups”</a></li>
-  <li><a href="#answer-these-questions" id="toc-answer-these-questions" class="nav-link" data-scroll-target="#answer-these-questions">Answer these questions</a></li>
-  </ul></li>
+  <li><a href="#practice-1b-protein-database" id="toc-practice-1b-protein-database" class="nav-link" data-scroll-target="#practice-1b-protein-database"><span class="header-section-number">3</span> <span style="color:green"><strong>Practice 1B: Protein Database</strong></span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein Databases</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Protein Databases</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
     <div>
@@ -255,38 +287,52 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 12, 2023</p>
+      <p class="date-modified">January 31, 2025</p>
     </div>
   </div>
     
   </div>
   
 
+
 </header>
+
 
 <section id="sec-alignment" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Structure comparison and alignment</h1>
-<p>As in the case of sequences, comparison and alignment of protein structures is a fundamental and widely used task in computational structure biology. The identification and statistical measure of the similarities between two or more structures allow their classification and infer functional and evolutionary relationships. Moreover, this process is essential during protein modeling, allowing to identify, assess, and select intermediate models.</p>
-<p>It is also important to clear up any possible confusion between alignment and superposition, as they are often interchanged in the literature. An <em>structural alignment</em> tries to identify similarities and differences between two structures, while structure superposition displays the structures using a given criteria, usually from a previous structural alignment. Thus, based on that criteria, superposition tries to minimize the distance between structures by finding a transformation that produces either the lowest root-mean-square deviation (<a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions"><strong>RMSD</strong></a>) or the maximal equivalences within an RMSD cutoff. The RMSD can be calculated for any pair of molecules. Regarding proteins, we usually refer to the <em>RMSD of the alpha-carbons</em>. A better alignment will allow a better superposition. Thus, although alignment and superposition are two different processes, the RMSD can be used as an indication of both (the lowest RMSD, the best alignment/superposition).</p>
-<div id="fig-rmsd" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/rmsd.png" title="RMSD_example" class="figure img-fluid figure-img" width="500"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Structural alignment of three different AP endoncleases with the <u><em>cealign</em></u> algorithm implemented in Pymol. The RMSD and the number of aligned residues for each pair of structures is indicated.</figcaption>
+<p>To understand the diversity and function of proteins, it is important to compare their sequences and structures. This helps to find common patterns and understand their diversity and evolutionary history. By measuring and analyzing these similarities, scientists can classify proteins and determine their relationships in terms of function and evolution. This process is also crucial in protein modeling, as it helps identify, evaluate, and choose intermediate models</p>
+<p>It is essential to clarify the distinction between alignment and superposition, as these terms are frequently conflated in the literature. A *structural alignment* aims to identify similarities and differences between two structures, whereas structure superposition displays the structures based on specific criteria, typically derived from a prior structural alignment. Consequently, superposition seeks to minimize the distance between structures by identifying a transformation that achieves either the lowest root-mean-square deviation (<a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions"><strong>RMSD</strong></a>) or the maximum equivalences within an RMSD cutoff.</p>
+<p><span id="eq-RMSD"><span class="math display">\[
+RMSD(v,w)=\sqrt{\frac{1}{n} \sum_{i=0}^n{||v_{i}-w_{i}||}^2}
+\tag{1}\]</span></span></p>
+<p>The RMSD can be calculated for any pair of molecules. In the context of proteins, we often refer to the <em>RMSD of the alpha-carbons</em>. A superior alignment will facilitate a better superposition. Therefore, although alignment and superposition are distinct processes, the RMSD can serve as an indicator of both; the lower the RMSD, the better the alignment/superposition. It is important to note that RMSD is an actual distance measure, not a score. That implies that we only can obtain the RMSD for aligned residues, not for the whole sequence of any of the two proteins. Therefore, an RMSD of 1 Å may indicate a close distance but, if it involves very few amino acids, it does not necessarily suggest good similarity. Both the RMSD value and the number of aligned residues must be considered for accurate analysis.</p>
+<div id="fig-rmsd" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rmsd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/rmsd.png" title="RMSD_example" class="figure img-fluid figure-img" width="500">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rmsd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Structural alignment of three different AP endoncleases obtained with the <code>cealign</code> algorithm implemented in Pymol. The RMSD and the number of aligned residues for each pair of structures is indicated.
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="major-protein-databases" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Major protein databases</h1>
-<p>Classification of protein sequences allow to understand the diversity of different proteins by their sequence, i.e., the protein sequence space. However, classification of protein structures aim to group proteins based on their structural relationships. Some of these classification schemes explore the concept of structural neighbourhood (structural continuum), whereas other utilize the notion of protein evolution as a driving force of diversification and thus provide a discrete rather than continuum protein structure space <span class="citation" data-cites="andreeva2012">(<a href="#ref-andreeva2012" role="doc-biblioref">Andreeva 2012</a>)</span>.</p>
-<p>This section does not aim to comprehensively review all protein databases in detail. Indeed, you probably already know most of the databases we are discussing. We will clarify the main differences and applications of Pfam, Uniprot, Prosite, PDB, SCOP &amp; CATH. As usual, I encourage you to check out online in the references mentioned below for more detailed information.</p>
-<div id="fig-ddbb" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/ddbb.png" title="Protein databases" class="figure img-fluid figure-img" width="383"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Major protein databases. Although most of these databases are around 30 years old (or more), since they were created (or renovated) during the last years of the 20th century or the early 21st.</figcaption>
+<p>Classification of protein sequences helps us understand the diversity of different proteins by examining their sequences, known as the <em>protein sequence space</em> (the mathematical concept of <a href="https://en.wikipedia.org/wiki/Space_(mathematics)">space</a>). On the other hand, classifying protein structures involves grouping proteins based on their structural relationships. Some classifications consider the structural neighborhood (structural continuum), while others use the concept of protein evolution as the main factor of diversification, resulting in a discrete rather than continuous <em>protein structure space</em> <span class="citation" data-cites="andreeva2012">(<a href="#ref-andreeva2012" role="doc-biblioref">Andreeva 2012</a>)</span>.</p>
+<p>This section does not intend to provide an exhaustive review of all protein databases. Many of the databases discussed are likely already familiar to the reader. Consequently, we will not cover in detail the <a href="https://www.ncbi.nlm.nih.gov/protein/">NCBI Protein Database</a>, which is widely used for various purposes and is likely mentioned in other courses. The NCBI Protein Database primarily serves as a main repository of sequences, with minimal emphasis on the analysis of protein diversity and classification. This section will highlight the main differences and applications of Pfam, Uniprot, Prosite, PDB, SCOP, and CATH. For more detailed information, please refer to the references cited below.</p>
+<div id="fig-ddbb" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ddbb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/ddbb.png" title="Protein databases" class="figure img-fluid figure-img" width="383">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ddbb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Major protein databases. Although most of these databases are around 30 years old (or more), since they were created (or renovated) during the last years of the 20th century or the early 21st.
+</figcaption>
 </figure>
 </div>
-<p>In bioinformatics, databases are often categorized as primary or secondary. <strong>Primary databases</strong> are populated with experimentally derived data such as nucleotide sequence, protein sequence or macromolecular structure. Importantly, once given a database accession number, the data in primary databases are never changed: they form part of the scientific record. By contrast, <strong>secondary databases</strong> comprise data derived from the results of analysing primary data. Secondary databases often draw upon information from numerous sources, including other databases and the scientific literature. They are highly curated, often using a complex combination of computational algorithms and/or manual analysis and interpretation to derive new knowledge from the public record of science.</p>
-<p>Although differences between primary and secondary databases are blurry nowadays because most databases currently contain data from different sources, we still can make some differences. The main protein primary databases are NCBI Protein for protein sequences and RCSB-PDB for protein structures. Uniprot (see below) also contains a primary sequence database, named TrEMBL. It also incorporated in 2002 PIR-PSD, joining the databases of the Protein information Resource, EMBL and SIB in a single (meta)database (see <a href="https://proteininformationresource.org/pirwww/dbinfo/pir_psd.shtml" class="uri">https://proteininformationresource.org/pirwww/dbinfo/pir_psd.shtml</a>). On the other hand, RCSB-PDB is the major structural primary database, whereas SCOP2 and CATH are secondary databases.</p>
+<p>In bioinformatics, databases are often classified as primary or secondary. <strong>Primary databases</strong> contain experimentally derived data such as nucleotide sequences, protein sequences, or macromolecular structures. It is important to note that once a database accession number is assigned, the data in primary databases remain unchanged, forming part of the scientific record. In contrast, <strong>secondary databases</strong> include data derived from analyzing primary data. These databases often utilize information from numerous sources, including other databases and the scientific literature. They are typically highly curated and involve a complex combination of computational algorithms and/or manual analysis and interpretation to generate new knowledge from the public record of science.</p>
+<p>Although the distinction between primary and secondary databases has become less clear in recent times due to the integration of data from various sources, some differences can still be discerned. The main primary databases for protein sequences include NCBI Protein and RCSB-PDB for protein structures. UniProt also hosts a primary sequence database named TrEMBL and, since 2002, incorporates the PIR-PSD database, which unites the resources of the Protein Information Resource, EMBL, and SIB into a single meta-database (see <a href="https://proteininformationresource.org/pirwww/dbinfo/pir_psd.shtml">PIR-PSD</a>). On the other hand, RCSB-PDB serves as the major structural primary database, while SCOP2 and CATH are notable secondary databases.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -297,23 +343,33 @@ Programatic access
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All of the databases we describe here allow programmatic and/or API access, which significantly increases the possibilities for systematic or batch data analysis</p>
+<p>All of the databases we describe here allow programmatic and/or API access, commonly with BioPython and R packages, which significantly increases the possibilities for scripting and batch data analysis</p>
 </div>
+</div>
+<div id="fig-full" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://github.com/StrBio/strbio2022_23/raw/main/pics/bbdd_full.pdf"><img src="pics/bbdd_full.png" class="figure img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Main features of protein databases (updated in 2020)
+</figcaption>
+</figure>
 </div>
 <section id="sequence-databases" class="level2">
 <h2 class="anchored" data-anchor-id="sequence-databases">Sequence databases</h2>
 <section id="uniprot" class="level3">
 <h3 class="anchored" data-anchor-id="uniprot">Uniprot</h3>
-<p>The <a href="https://www.uniprot.org/">Uniprot</a> databases are maintained by the Uniprot consortium, created in 2002 by <a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EMBL-EBI</a>, <a href="https://en.wikipedia.org/wiki/Swiss_Institute_of_Bioinformatics">SIB</a>, and <a href="https://en.wikipedia.org/wiki/Protein_Information_Resource">PIR</a>. Uniprot can be considered nowadays as a metadatabase as its entries contain information from diverse sources. It was created with two goals, constitute a non-redundant comprehensive protein sequence database and enrich that database with annotation of those proteins. Annotations include, but it is not limited to: protein and gene families, function and structure-function available data, interactions with other proteins or cofactor, localization, patterns of expression, variants… Thus, it aims to join the goals of both primary and secondary DDBBs.</p>
-<p>The central hub of Uniprot databases is <a href="https://www.uniprot.org/help/uniprotkb">Uniprot Knowledgebase</a>. It is a collection of functional information on proteins, with accurate, consistent, and rich annotation. The UniProtKB consists of two internal databases: a section containing manually-annotated records with information extracted from literature, community suggestions, and curator-evaluated computational analysis, and a section with computationally analyzed records. For the sake of continuity and name recognition, the two sections are referred to as “UniProtKB/Swiss-Prot” (reviewed, manually annotated) and “UniProtKB/TrEMBL” (unreviewed, automatically annotated), respectively.</p>
-<p>Besides cross-references to structural information, in the last years, UniprotKB has also incorporated structural data from <a href="https://alphafold.ebi.ac.uk/">Alphafold</a> database (created by DeepMind and EBI), <a href="ai.html">see “State-of-the-art protein modeling with Deep Learning-based methods” module</a>.</p>
-<p>Sequences with different detail of annotation can be found in two overlapping and complementary databases in Uniprot: <a href="https://www.uniprot.org/help/uniparc">Uniparc</a> and <a href="https://www.uniprot.org/help/uniref">Uniref</a>. Briefly, UniParc (UniProt Archive) is a comprehensive and non-redundant database that contains most of the publicly available protein sequences in the world. UniParc avoided redundancy by storing each unique sequence only once and giving it a stable and unique identifier (<strong>UPI</strong>) making it possible to identify the same protein from different source databases. A UPI is never removed, changed, or reassigned. On the other hand, UniRef (UniProt Reference Clusters) provide clustered sets of sequences from the UniprotKB (and selected UniParc records) in order to obtain complete coverage of the sequence space at several resolutions while hiding redundant sequences (but not their descriptions) from view. The UniRef100 database combines identical sequences into a single UniRef entry, displaying the sequence of a representative protein, the accession numbers of all the merged entries, and links to the corresponding. UniRef90 is built by clustering UniRef100 sequences using the MMseqs2 algorithm <span class="citation" data-cites="steinegger2018">(<a href="#ref-steinegger2018" role="doc-biblioref">Steinegger and Söding 2018</a>)</span> such that each cluster is composed of sequences that have at least 90% sequence identity and 80% overlap with the longest sequence (a.k.a. <a href="https://www.uniprot.org/help/uniref_seed"><strong>seed sequence</strong></a> ) of the cluster. Similarly, UniRef50 is built by clustering UniRef90 seed sequences that have at least 50% sequence identity to and 80% overlap with the longest sequence in the cluster. UniParc and Uniref contain only protein sequences. All other information about the protein must be retrieved from the source databases using the database cross-references.</p>
+<p>The <a href="https://www.uniprot.org/">Uniprot</a> databases are managed by the UniProt consortium, established in 2002 by <a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EMBL-EBI</a>, <a href="https://en.wikipedia.org/wiki/Swiss_Institute_of_Bioinformatics">SIB</a>, and <a href="https://en.wikipedia.org/wiki/Protein_Information_Resource">PIR</a>. Nowadays, UniProt can be considered a metadatabase as its entries contain information from various sources. It was created with two main goals: to establish a comprehensive, non-redundant protein sequence database and to enrich that database with detailed annotations. These annotations include protein and gene families, function and structure-function data, interactions with other proteins or cofactors, localization, expression patterns, variants, and more. Thus, it aims to fulfill the objectives of both primary and secondary databases.</p>
+<p>The central hub of the UniProt databases is the <a href="https://www.uniprot.org/help/uniprotkb">Uniprot Knowledgebase</a>. It is a collection of functional information on proteins, with accurate, consistent, and rich annotations. The UniProtKB consists of two internal databases: one section contains manually-annotated records with information drawn from literature, community suggestions, and curator-reviewed computational analysis. The other section includes computationally analyzed records. These sections are referred to as “UniProtKB/Swiss-Prot” (reviewed, manually annotated) and “UniProtKB/TrEMBL” (unreviewed, automatically annotated), respectively.</p>
+<p>In recent years, UniProtKB has incorporated structural data from the <a href="https://alphafold.ebi.ac.uk/">Alphafold</a> database, in addition to cross-references to structural information. See the module <a href="ai.html">“State-of-the-art protein modeling with Deep Learning-based methods”</a> for more information.</p>
+<p>UniProt contains sequences with varying levels of annotation detail in two complementary databases: <a href="https://www.uniprot.org/help/uniparc">Uniparc</a> and <a href="https://www.uniprot.org/help/uniref">Uniref</a>. Briefly, UniParc (UniProt Archive) is a comprehensive and non-redundant database that includes most publicly available protein sequences worldwide. UniParc avoids redundancy by storing each unique sequence only once and assigning it a stable, unique identifier (UPI), which allows the identification of the same protein from different source databases. A UPI is never removed, changed, or reassigned. On the other hand, UniRef (UniProt Reference Clusters) provides clustered sets of sequences from UniProtKB (and selected UniParc records) to ensure complete coverage of the sequence space at various resolutions while hiding redundant sequences (but not their descriptions) from view. The UniRef100 database combines identical sequences into a single UniRef entry, displaying the sequence of a representative protein, the accession numbers of all merged entries, and links to the corresponding databases. UniRef90 is built by clustering UniRef100 sequences using the MMseqs2 algorithm <span class="citation" data-cites="steinegger2018">(<a href="#ref-steinegger2018" role="doc-biblioref">Steinegger and Söding 2018</a>)</span>, so each cluster consists of sequences with at least 90% sequence identity and 80% overlap with the longest sequence (the <a href="https://www.uniprot.org/help/uniref_seed"><strong>seed sequence</strong></a> ) of the cluster. Similarly, UniRef50 is built by clustering UniRef90 seed sequences that have at least 50% sequence identity and 80% overlap with the longest sequence in the cluster. UniParc and UniRef contain only protein sequences; all other information about the proteins must be retrieved from the source databases using database cross-references.</p>
 </section>
 <section id="pfam" class="level3">
 <h3 class="anchored" data-anchor-id="pfam">Pfam</h3>
 <p>Pfam is a protein database that aims to classify sequences by their evolutionary relationships. It was founded in 1995 and it has been very useful for functional annotation of genomic data. Pfam’s website (<a href="http://pfam.xfam.org/" class="uri">http://pfam.xfam.org/</a>) was closed by the end of 2022. However, Pfam database was not discontinued, but integrated into the <strong>InterPro</strong> site (see the <a href="https://xfam.wordpress.com/2022/08/04/pfam-website-decommission/">Xfam Blog entry</a>).</p>
-<p>Pfam uses <a href="https://www.ebi.ac.uk/training/online/courses/protein-classification-intro-ebi-resources/what-are-protein-signatures/signature-types/what-are-hmms/">HMM</a> profiles (we will discuss HMMs in the <a href="./homology.html">Homology Modeling</a> module) to classify proteins into families, which are grouped into clans. Check out the EBI course about using Pfam: <a href="https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/" class="uri">https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/</a></p>
-<p>The current release (35.0) contains 19,632 entries (families and clans). Pfam was designed as a database that should be often updated in the fast-forward genomic era. To this aim, they use two alignment types. Each Pfam family has a seed alignment that contains a representative set of sequences for the entry. A profile hidden Markov model (HMM) is automatically built from the seed alignment and searched against a sequence database called <em>pfamseq</em> using the HMMER3 software (<a href="http://hmmer.org/" class="uri">http://hmmer.org/</a>). All sequence regions that satisfy a family-specific curated threshold, also known as the gathering threshold, are aligned to the profile HMM to create the full alignment <span class="citation" data-cites="mistry2020">(<a href="#ref-mistry2020" role="doc-biblioref">Mistry et al. 2020</a>)</span>.</p>
+<p>Pfam uses <a href="https://www.ebi.ac.uk/training/online/courses/protein-classification-intro-ebi-resources/what-are-protein-signatures/signature-types/what-are-hmms/">HMM</a> profiles to classify proteins into families, which are grouped into clans. Check out the EBI course about using Pfam: <a href="https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/" class="uri">https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/</a></p>
+<p>The current release (37.1) contains 23.794 entries and 751 clans. Pfam was designed as a database that should be often updated in the fast-forward genomic era. To this aim, they use two alignment types. Each Pfam family has a seed alignment that contains a representative set of sequences for the entry. A profile hidden Markov model (HMM) is automatically built from the seed alignment and searched against a sequence database called <em>pfamseq</em> using the HMMER3 software (<a href="http://hmmer.org/" class="uri">http://hmmer.org/</a>). All sequence regions that satisfy a family-specific curated threshold, also known as the gathering threshold, are aligned to the profile HMM to create the full alignment <span class="citation" data-cites="mistry2020">(<a href="#ref-mistry2020" role="doc-biblioref">Mistry et al. 2020</a>)</span>.</p>
 <p>In addition to the HMM-based Pfam entries (<strong>Pfam-A</strong>), the Pfam profiles are used to provide a set of unannotated, computationally generated multiple sequence alignments called <strong>Pfam-B</strong>. However, in the last Pfam versions, the Pfam-B alignments are presently only released on the Pfam FTP site.</p>
 <p>Pfam has also been used in the creation of other resources such as <a href="https://rfam.org/">Rfam</a> (RNA families) and <a href="https://www.dfam.org/">Dfam</a> (transposable DNA elements).</p>
 </section>
@@ -359,89 +415,79 @@ Note
 <p>CATH database is updated quite regularly through daily snapshots (CATH-B), but a full release with more tools, named CATH+ is released every 12 months. CATH-plus contains functional families (CATH-FunFams), structural clusters, and other tools <span class="citation" data-cites="sillitoe2021">(<a href="#ref-sillitoe2021" role="doc-biblioref">Sillitoe et al. 2021</a>)</span>.</p>
 </section>
 </section>
-<section id="graphical-summary" class="level2">
-<h2 class="anchored" data-anchor-id="graphical-summary">Graphical summary</h2>
-<div id="fig-full" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><a href="https://github.com/StrBio/strbio2022_23/raw/main/pics/bbdd_full.pdf"><img src="pics/bbdd_full.png" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Main features of protein databases (updated in 2020)</figcaption>
-</figure>
-</div>
+<section id="current-and-future-strategies-in-protein-databases" class="level2">
+<h2 class="anchored" data-anchor-id="current-and-future-strategies-in-protein-databases">Current and future strategies in protein databases</h2>
+<p>There is a significant trend towards the cross-referencing and integration of diverse data within <em>metadatabases</em>. An exemplary case is the <a href="https://www.proteinatlas.org/">Human Protein Atlas</a> which provides information about proteins classified by cell type or tissue, along with details on splicing variants, mutants, and more. Additionally, it is important to acknowledge the new structural databases, such as Deepmind’s <a href="https://alphafold.ebi.ac.uk/">Alphafold Database</a> and the <a href="https://esmatlas.com/">ESM Metagenomic Atlas</a>, which house millions of protein structures predicted using deep-learning methods. There are also specialized databases, like BFDV, that contain viral protein structures obtained through Alphafold and can be searched using <a href="https://search.foldseek.com/">Foldseek</a>, a method designed to identify structural similarities.</p>
+<p>Given the recent boost in the capacity for accurately obtain protein models, some author suggested (or desired) that future databases contain not only protein sequence variants and protein complexes, but also diverse conformations for each structure, which would help to gain insights into their function and biological role <span class="citation" data-cites="beck2024">(<a href="#ref-beck2024" role="doc-biblioref">Beck et al. 2024</a>)</span>.</p>
 </section>
 </section>
-<section id="ddbbs-practice" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>DDBBs Practice</strong></span></h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Evernote
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This is a <a href="https://evernote.com/intl/es">Evernote</a> note that you can check on your web browser and also copy into your Evenote account/App if you wish. Link <a href="https://www.evernote.com/shard/s62/nl/6844171/0e51e43f-5256-4d27-fd1e-7b7cc48db50a?title=StrBio%202023/2024%20-%20(B)%20Protein%20DDBB">here</a></p>
-</div>
-</div>
-</div>
-<p>The goal of this exercise is to get familiar with protein structures and their domain organization. Try to explore the estructures and identify similarities and differences (just by eye).</p>
-<section id="classify-the-following-protein-structures-into-groups-and-subgroups" class="level2">
-<h2 class="anchored" data-anchor-id="classify-the-following-protein-structures-into-groups-and-subgroups">Classify the following protein structures into “groups” and “subgroups”</h2>
-<p>Focus only in structural databases (CATH, Scop2), but any given database can be helpful in a different way. Use generic terms, valid for any hierarchical classification, independent of the database(s) used.</p>
-<table class="table">
+<section id="practice-1b-protein-database" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>Practice 1B: Protein Database</strong></span></h1>
+<p>The goal of this exercise is to get familiar with protein structures and their domain organization. First just try to explore the structures and identify similarities and differences by naked eye.</p>
+<div class="columns">
+<div class="column" style="width:15%;">
+<table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Structures</th>
+<th style="text-align: center;">Structures</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>2MNA</td>
+<td style="text-align: center;">2MNA</td>
 </tr>
 <tr class="even">
-<td>2WB0</td>
+<td style="text-align: center;">2WB0</td>
 </tr>
 <tr class="odd">
-<td>1C0A</td>
+<td style="text-align: center;">1C0A</td>
 </tr>
 <tr class="even">
-<td>1QUM</td>
+<td style="text-align: center;">1QUM</td>
 </tr>
 <tr class="odd">
-<td>5ZHZ</td>
+<td style="text-align: center;">5ZHZ</td>
 </tr>
 <tr class="even">
-<td>5CFE</td>
+<td style="text-align: center;">5CFE</td>
 </tr>
 <tr class="odd">
-<td>1DE9</td>
+<td style="text-align: center;">1DE9</td>
 </tr>
 <tr class="even">
-<td>6WCD</td>
+<td style="text-align: center;">6WCD</td>
 </tr>
 <tr class="odd">
-<td>1AKO</td>
+<td style="text-align: center;">1AKO</td>
 </tr>
 <tr class="even">
-<td>6KHY</td>
+<td style="text-align: center;">6KHY</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1EBM</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<section id="use-structural-databases-cath-scop2-or-pdb-to-classify-the-proteins." class="level3">
+<h3 class="anchored" data-anchor-id="use-structural-databases-cath-scop2-or-pdb-to-classify-the-proteins.">1. Use structural databases (CATH, Scop2 or PDB) to classify the proteins.</h3>
+<p>First, describe the structure in your own words. Then, using generic terms applicable to any hierarchical classification system, classify this small dataset of structures.</p>
 </section>
-<section id="answer-these-questions" class="level2">
-<h2 class="anchored" data-anchor-id="answer-these-questions">Answer these questions</h2>
+<section id="answer-the-following-questions" class="level3">
+<h3 class="anchored" data-anchor-id="answer-the-following-questions">2. Answer the following questions</h3>
+<p>No need of long answers, ~100 words each question would be fine.</p>
 <section id="a.-can-you-suggest-the-structural-and-evolutionary-relationship-between-them" class="level4">
 <h4 class="anchored" data-anchor-id="a.-can-you-suggest-the-structural-and-evolutionary-relationship-between-them"><strong>a. Can you suggest the structural and evolutionary relationship between them?</strong></h4>
 </section>
-<section id="b.-which-of-the-structures-is-more-difficult-to-group" class="level4">
-<h4 class="anchored" data-anchor-id="b.-which-of-the-structures-is-more-difficult-to-group"><strong>b. Which of the structures is more difficult to group</strong></h4>
+<section id="b.-how-many-domains-are-in-each-protein-in-scop2-and-cath-are-the-numbers-the-same-whywhy-not" class="level4">
+<h4 class="anchored" data-anchor-id="b.-how-many-domains-are-in-each-protein-in-scop2-and-cath-are-the-numbers-the-same-whywhy-not"><strong>b. How many domains are in each protein in Scop2 and Cath? Are the numbers the same? Why/why not?</strong></h4>
 </section>
 <section id="c.-which-are-the-proscons-of-each-database" class="level4">
 <h4 class="anchored" data-anchor-id="c.-which-are-the-proscons-of-each-database"><strong>c.&nbsp;Which are the pros/cons of each database?</strong></h4>
-<p>Answer briefly.</p>
+</section>
+<section id="references" class="level4">
+
 
 
 
@@ -449,12 +495,15 @@ Evernote
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-andreeva2012" class="csl-entry" role="listitem">
 Andreeva, Antonina. 2012. <span>“Classification of Proteins: Available Structural Space for Molecular Modeling.”</span> In, edited by Andrew J. W. Orry and Ruben Abagyan, 1–31. Totowa, NJ: Humana Press. <a href="https://doi.org/10.1007/978-1-61779-588-6_1">https://doi.org/10.1007/978-1-61779-588-6_1</a>.
 </div>
 <div id="ref-andreeva2020" class="csl-entry" role="listitem">
 Andreeva, Antonina, Eugene Kulesha, Julian Gough, and Alexey G. Murzin. 2020. <span>“The SCOP database in 2020: expanded classification of representative family and superfamily domains of known protein structures.”</span> <em>Nucleic Acids Research</em> 48 (D1): D376–82. <a href="https://doi.org/10.1093/nar/gkz1064">https://doi.org/10.1093/nar/gkz1064</a>.
+</div>
+<div id="ref-beck2024" class="csl-entry" role="listitem">
+Beck, Martin, Roberto Covino, Inga Hänelt, and Michaela Müller-McNicoll. 2024. <span>“Understanding the cell: Future views of structural biology.”</span> <em>Cell</em> 187 (3): 545–62. <a href="https://doi.org/10.1016/j.cell.2023.12.017">https://doi.org/10.1016/j.cell.2023.12.017</a>.
 </div>
 <div id="ref-blum2021" class="csl-entry" role="listitem">
 Blum, Matthias, Hsin-Yu Chang, Sara Chuguransky, Tiago Grego, Swaathi Kandasaamy, Alex Mitchell, Gift Nuka, et al. 2021. <span>“The InterPro Protein Families and Domains Database: 20 Years On.”</span> <em>Nucleic Acids Research</em> 49 (D1): D344–54. <a href="https://doi.org/10.1093/nar/gkaa977">https://doi.org/10.1093/nar/gkaa977</a>.
@@ -716,18 +765,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -759,11 +797,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -773,8 +857,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -786,7 +879,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -830,6 +1046,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -855,6 +1072,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -912,32 +1155,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pdb.html" class="pagination-link">
+      <a href="./pdb.html" class="pagination-link" aria-label="Protein Structures">
         <span class="nav-page-text">Protein Structures</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -945,7 +1172,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-left">
+<p>Modesto Redrejo Rodríguez, 2025</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -958,7 +1187,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+    <a class="nav-link" href="https://twitter.com/mredrejo">
+<p><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/mredrejo.bsky.social">
+<p><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></p>
+</a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
@@ -970,6 +1206,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

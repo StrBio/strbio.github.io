@@ -377,7 +377,7 @@ is created. The most commonly referred approaches to this sort of classification
 are those used by SCOP and CATH databases, as we will see in the [Structural
 Databases](ddbb.html#strDDBB) section.
 
-## [**Practice 1: Playing with secondary structures**]{style="color:green"}
+## [**Practice 1A: Playing with secondary structures**]{style="color:green"}
 
 ![](pics/handson.png "Hands-on")
 
