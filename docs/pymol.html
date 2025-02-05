@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-08-21">
+
+<title>Pymol Practice – Structural Bioinformatics at UAM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="include/webex.css">
+<meta name="twitter:title" content="Pymol Practice – Structural Bioinformatics at UAM">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Structural Bioinformatics at 	UAM
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Structural Bioinformatics at UAM</a> 
+        <div class="sidebar-tools-main">
+    <a href="mailto:modesto.redrejo@uam.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope-paper"></i></a>
+    <a href="https://github.com/StrBio/strbio.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">StrBio UAM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ddbb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein Structures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./homology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homology Modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1D Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced homology modeling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Protein modeling in the AlphaFold era</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modeling Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#note-about-installing-pymol" id="toc-note-about-installing-pymol" class="nav-link active" data-scroll-target="#note-about-installing-pymol"><span class="header-section-number">1</span> Note about installing Pymol</a></li>
+  <li><a href="#a-10-steps-self-guided-practice-to-learn-pymol" id="toc-a-10-steps-self-guided-practice-to-learn-pymol" class="nav-link" data-scroll-target="#a-10-steps-self-guided-practice-to-learn-pymol"><span class="header-section-number">2</span> A 10-steps self-guided practice to learn Pymol</a>
+  <ul class="collapse">
+  <li><a href="#get-a-structure." id="toc-get-a-structure." class="nav-link" data-scroll-target="#get-a-structure."><span class="header-section-number">2.1</span> 1. Get a structure.</a></li>
+  <li><a href="#choose-representation-and-color-schemes." id="toc-choose-representation-and-color-schemes." class="nav-link" data-scroll-target="#choose-representation-and-color-schemes."><span class="header-section-number">2.2</span> 2. Choose representation and color schemes.</a></li>
+  <li><a href="#create-new-object-andor-get-rid-of-what-you-dont-want" id="toc-create-new-object-andor-get-rid-of-what-you-dont-want" class="nav-link" data-scroll-target="#create-new-object-andor-get-rid-of-what-you-dont-want"><span class="header-section-number">2.3</span> 3. Create new object and/or get rid of what you don’t want</a></li>
+  <li><a href="#compare-structures" id="toc-compare-structures" class="nav-link" data-scroll-target="#compare-structures"><span class="header-section-number">2.4</span> 4. Compare structures</a></li>
+  <li><a href="#find-what-you-are-looking-for" id="toc-find-what-you-are-looking-for" class="nav-link" data-scroll-target="#find-what-you-are-looking-for"><span class="header-section-number">2.5</span> 5. Find what you are looking for</a></li>
+  <li><a href="#highlight-what-you-want" id="toc-highlight-what-you-want" class="nav-link" data-scroll-target="#highlight-what-you-want"><span class="header-section-number">2.6</span> 6. Highlight what you want</a></li>
+  <li><a href="#show-labels" id="toc-show-labels" class="nav-link" data-scroll-target="#show-labels"><span class="header-section-number">2.7</span> 7. Show labels</a></li>
+  <li><a href="#measure-distances" id="toc-measure-distances" class="nav-link" data-scroll-target="#measure-distances"><span class="header-section-number">2.8</span> 8. Measure distances</a></li>
+  <li><a href="#how-to-make-a-high-res-picture-ray-it" id="toc-how-to-make-a-high-res-picture-ray-it" class="nav-link" data-scroll-target="#how-to-make-a-high-res-picture-ray-it"><span class="header-section-number">2.9</span> 9. How to make a high-res picture: RAY IT!</a></li>
+  <li><a href="#bonus-track-more-info-and-useful-resources-about-pymol." id="toc-bonus-track-more-info-and-useful-resources-about-pymol." class="nav-link" data-scroll-target="#bonus-track-more-info-and-useful-resources-about-pymol."><span class="header-section-number">2.10</span> 10. BONUS TRACK: More info and useful resources about Pymol.</a></li>
+  <li><a href="#part-b-paper-figure-challenge" id="toc-part-b-paper-figure-challenge" class="nav-link" data-scroll-target="#part-b-paper-figure-challenge"><span class="header-section-number">2.11</span> PART B: Paper Figure Challenge</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Pymol Practice</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 21, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 5, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="note-about-installing-pymol" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Note about installing Pymol</h1>
+<p>There are two options to use Pymol in your computer:</p>
+<ol type="1">
+<li>Edu license:</li>
+</ol>
+<ul>
+<li>STEP 1: Install from https://pymol.org/2/ or by <a href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/02-working-with-environments/index.html">Conda</a>: <code>conda install -c schrodinger pymol-bundle</code></li>
+<li>STEP 2: Obtain a License here: https://pymol.org/edu/</li>
+</ul>
+<ol start="2" type="1">
+<li>Open Access version from GitHub:</li>
+</ol>
+<ul>
+<li><p>On Linux: https://pymolwiki.org/index.php/Linux_Install</p></li>
+<li><p>On MacOs: https://pymolwiki.org/index.php/MAC_Install</p></li>
+<li><p>UPDATE: for new MacOS, instead MacPorts use the following command to install dependencies:</p></li>
+</ul>
+<pre><code>brew install tcl-tk</code></pre>
+<ol start="3" type="1">
+<li>Open Access version from conda-forge channel</li>
+</ol>
+<pre><code>conda install -c conda-forge pymol-open-source</code></pre>
+</section>
+<section id="a-10-steps-self-guided-practice-to-learn-pymol" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> A 10-steps self-guided practice to learn Pymol</h1>
+<p>The first thing to do is to open PyMOL. You can do that by simply double-clicking on the icon or typing <code>pymol</code> in a&nbsp; Terminal window. From here and on, we will just use PyMOL by typing in the command line on the small window on top where it says ‘<code>PyMOL&gt;</code>’. Feel free to explore the graphical interface on your own.</p>
+<p>The next thing we are going to do is navigate to the directory (folder) where we want our files to be located. By default, Pymol opens in your home directory. Inside PyMOL, we can use command lines to navigate to that directory. If you type <code>ls</code>,&nbsp; you will see the files and folders that exist in the home&nbsp; directory and if you type the <code>cd</code> command and providing a path you can chance your working directory.</p>
+<section id="get-a-structure." class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="get-a-structure."><span class="header-section-number">2.1</span> 1. Get a structure.</h2>
+<p>There are two ways to get a structure ready to work on Pymol, you can open a file in your local machine or you can <em>fetch</em> it from the PDB.</p>
+<ul>
+<li><p>If you have already the PDB go to <em>File Menu&gt;Open PDB</em> or <em>GetPDB</em></p></li>
+<li><p>You can also fetch the directly from the PDB database, either by Menu File &gt; Get PDB or by Command line</p></li>
+</ul>
+<pre><code>fetch 6KI3</code></pre>
+<div class="callout-info" data-collapse="true">
+<p><strong>Note:</strong> You can customize the download by specifying one chain or adding the electron density map in the popup window or by command line.&nbsp; Check the wiki: <a href="https://www.pymolwiki.org/index.php/Fetch" class="uri">https://www.pymolwiki.org/index.php/Fetch</a></p>
+<p><strong>Note2</strong>: If you want to download structural models from AlphaFold you can install <em>Alphafold2import</em> plugin from here: <a href="https://github.com/APAJanssen/Alphafold2import" class="uri">https://github.com/APAJanssen/Alphafold2import</a></p>
+</div>
+<p><img src="images/22fefa28-b8fc-4995-bca6-b22e8e48ef5c.png" class="img-fluid"></p>
+<section id="what-do-you-see" class="level3">
+<h3 class="anchored" data-anchor-id="what-do-you-see"><span style="color:green">What do you see?</span></h3>
+<p>First thing you should do is playing around with your mouse. Most of you will have a 3-Button mouse. The panel in the right-bottom corner contains a description of mouse controls under the Viewing mode. You can also check it <a href="https://pymol.org/dokuwiki/doku.php?id=mouse">here</a>.</p>
+<p>If you have a 2-Button mouse, you can find more information about how to control the mouse <a href="https://pymol.org/dokuwiki/doku.php?id=mouse:two_button">here</a>.</p>
+</section>
+<section id="what-are-the-small-red-dots-and-the-big-spheres" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-small-red-dots-and-the-big-spheres"><span style="color:green">What are the small red dots and the big spheres?</span></h3>
+<p>Crystallography structures show protein oligomers and may also contain, enzyme substrates, cofactor or solvent molecules (water and ions). For most purposes, we may prefer to work only with a monomer and remove the water molecules.</p>
+<p>There are two options to remove the water molecules:</p>
+<ol type="a">
+<li><p>Use the <em><strong>H</strong>ide</em> menu on the right hand of the screen (marked with the yellow arrow in the picture above).</p>
+<ul>
+<li><strong>H</strong>&gt;waters</li>
+</ul></li>
+<li><p>On command-line you can also hide custom solven:</p></li>
+</ol>
+<pre><code>hide everything, solvent
+
+show wire, solvent #to bring it back
+
+show nb_spheres, solvent #alternative display</code></pre>
+<ol start="3" type="a">
+<li>Use the <em>Show</em> menu</li>
+</ol>
+<ul>
+<li><strong>S</strong>&gt;wire&gt;not_bounded</li>
+</ul>
+<p>As you can imagine, there are many different ways of visualizing the molecules and features you can show on the screen that you can explore on your own. In pymol we have <em>lines, ribbon, surface, everything, mesh, volume, cartoon, spheres, labels</em> and <em>sticks.</em></p>
+<p>Like in the example above, you can hide/show any representation for an object or selection using the following sintax:</p>
+<pre><code>hide \[representation\], \[selection-name\]
+
+show \[representation\], \[selection-name\]</code></pre>
+<p>The <code>selection-name</code>is an optional argument and can be very complex or specific, involving one or more portions of one or more objects.&nbsp; &nbsp;&nbsp;</p>
+<p>❗️You can see a detail explanation of the Pymol selection syntax in the Pymol wiki <a href="https://pymolwiki.org/index.php/Selection_Algebra">here</a>.</p>
+</section>
+<section id="before-moving-forward-what-if-i-made-a-mess" class="level3">
+<h3 class="anchored" data-anchor-id="before-moving-forward-what-if-i-made-a-mess">⚠️ Before moving forward: What if I made a mess? ⚠️</h3>
+<p>Starting in version 1.5, PyMOL contains an <code>undo</code> command (also <code>Ctrl+Z</code> or <code>Cmd+Z</code>). However, it only affect object edition (changes in the structure), no changes in visualization or diplaying features. If you made a mess in the visualization of your molecule(s), you only have two alternatives.</p>
+<ul>
+<li><p>Use&nbsp;<strong>File</strong>,&nbsp;<strong>Reinitialize</strong>&nbsp;to reset PyMOL to its initial state, but all work will be lost.</p></li>
+<li><p><strong>Save your session when you accomplish a wanted display:</strong></p>
+<ul>
+<li><p>A PyMOL sessions retains the state of your PyMOL instance. You can save the session to disk and reload it later. You can setup a complicated scene, with transitions and more, and simply save it as a PyMOL Session (.pse) file. Use&nbsp;<strong>File</strong>=&gt;<strong>Save Session</strong>&nbsp;or&nbsp;<strong>Save Session As…</strong>. or the command <code>save</code> <a href="https://pymolwiki.org/index.php/Save" class="uri">https://pymolwiki.org/index.php/Save</a></p></li>
+<li><p>Loading sessions is just as easy:&nbsp;<strong>File</strong>=&gt;<strong>Load</strong>&nbsp;and choose your session file with all your molecules with the same visualization.</p></li>
+<li><p>You can also save temporal scenes within your session, like frozen screenshoots while keep working, using the command <code>scene</code>: <a href="https://pymolwiki.org/index.php/Scene" class="uri">https://pymolwiki.org/index.php/Scene</a></p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="choose-representation-and-color-schemes." class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="choose-representation-and-color-schemes."><span class="header-section-number">2.2</span> 2. Choose representation and color schemes.</h2>
+<p>Different types of representation can be selected with <strong>S</strong>. There are also wide range of flavors for each representation. For example, for cartoons: <a href="https://pymolwiki.org/index.php/Cartoon" class="uri">https://pymolwiki.org/index.php/Cartoon</a></p>
+<p>We can color the protein by secondary structure using Menu <strong>C</strong></p>
+<p><img src="images/032047f9-afed-4fca-b02c-50532e7744ae.png" class="img-fluid"></p>
+<p>Spectrum color scheme is also useful to follow the secondary structure succession.</p>
+<p><img src="images/22fefa28-b8fc-4995-bca6-b22e8e48ef5c.png" class="img-fluid"></p>
+<p>Using upper menu (Settings and Display) we can also change several features of the image. Try yourself!</p>
+<p>It’s faster if you just type:</p>
+<pre><code>color tv_orange, ss h
+color paleyellow, ss s
+color grey, ss l+
+set sphere_color, tv_red
+bg_color white</code></pre>
+<p>Note: <code>l+</code> will color loops and other unassigned residues, including DNA</p>
+<p>🔝🔝Check other coloring alternatives: <a href="https://pymolwiki.org/index.php/Advanced_Coloring" class="uri">https://pymolwiki.org/index.php/Advanced_Coloring</a></p>
+<p>For DNA: <a href="https://pymolwiki.org/index.php/Examples_of_nucleic_acid_cartoons" class="uri">https://pymolwiki.org/index.php/Examples_of_nucleic_acid_cartoons</a></p>
+<p><img src="images/34b3b42a-638a-4f6f-81b8-7d7eff304be3.png" class="img-fluid"></p>
+<p>Example:</p>
+<pre><code>set cartoon_ring_mode, 3
+set cartoon_nucleic_acid_mode, 4
+cartoon oval
+cartoon automatic, 6KI3 and chain A or chain B
+set cartoon_ring_width, 0.2
+set cartoon_ring_color, deepsalmon
+set cartoon_nucleic_acid_color, deepsalmon</code></pre>
+</section>
+<section id="create-new-object-andor-get-rid-of-what-you-dont-want" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="create-new-object-andor-get-rid-of-what-you-dont-want"><span class="header-section-number">2.3</span> 3. Create new object and/or get rid of what you don’t want</h2>
+<p>If we want to work only with some objects or chains in the PDB file, you can do it in several ways. There are several options but you need to <strong>show the sequence</strong> (Menu Display or button <strong>S</strong> on the <u>botton-right corner</u>).</p>
+<p>You can remove objects (Option 1A or 1B) or copy a selection to a new object (Option 2A or 2B). You can test all with the instructions below, but I find more convenient to use command line alternatives (1B and 2B).</p>
+<p><em>Note: The options below are alternative ways to get the same results. Try only one option each time starting over from 6KI3 structure.</em></p>
+<ul>
+<li>Option 1A: select in the sequence panel the sequence you want to remove and remove it</li>
+</ul>
+<pre><code>remove sele</code></pre>
+<ul>
+<li><p>Option 1B: use command line</p>
+<ul>
+<li>Step 1: First you need to see the composition of your structure</li>
+</ul>
+<pre><code>get_chains 6KI3
+select chain A
+select chain B
+#to see who is who</code></pre>
+<ul>
+<li>Step 2: select the chains you want to remove and remove them</li>
+</ul></li>
+</ul>
+<pre><code>select kk, chain A or chain C or chain D or chain E
+delete kk</code></pre>
+<ul>
+<li><p>Option 2A: Select in the sequence panel the sequence or whole chains you want to keep: <strong>A</strong> &gt; “Copy to object” or “extract to object” will allow to work independently with that portion without removing the rest. Just click on the object to disable.</p></li>
+<li><p>Option 2B: use command line</p>
+<ul>
+<li>Step 1: Select and create:</li>
+</ul></li>
+</ul>
+<pre><code>select kk, chain B or chain F or chain G or chain H
+create monomer, kk</code></pre>
+<p>Or directly create an object with your selected chains:</p>
+<pre><code>create monomer, chain B or chain F or chain G or chain H
+</code></pre>
+<ul>
+<li>Step 2: Now you can remove the original object (if you wish)</li>
+</ul>
+<pre><code>remove 6KI3</code></pre>
+<p><img src="images/9cbdb7fb-ce22-44fd-a28e-c74c9966c862.png" class="img-fluid"></p>
+<p><strong>Some interesting points about selection on Pymol:</strong></p>
+<ul>
+<li><p>Unnamed selection are temporarily named “sele” and replaced after every <code>select</code> command execution.</p></li>
+<li><p>Selections can be renamed in the <strong>A</strong> (action menu on the left) or by command line : <a href="https://pymolwiki.org/index.php/Set_name" class="uri">https://pymolwiki.org/index.php/Set_name</a></p></li>
+<li><p>Multiple selection can be also done but syntax is tricky: <a href="https://pymolwiki.org/index.php/Selection_Algebra" class="uri">https://pymolwiki.org/index.php/Selection_Algebra</a></p></li>
+</ul>
+<section id="create-your-own-representation-of-the-monomer-ternary-complex-protein-metal-cofactor-dna" class="level3">
+<h3 class="anchored" data-anchor-id="create-your-own-representation-of-the-monomer-ternary-complex-protein-metal-cofactor-dna"><span style="color:green">Create your own representation of the monomer ternary complex (protein + metal cofactor + DNA)</span></h3>
+</section>
+</section>
+<section id="compare-structures" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="compare-structures"><span class="header-section-number">2.4</span> 4. Compare structures</h2>
+<p>Download some related structures, like 6KHY, 3AAM and 2NQH.</p>
+<p>Note that 6KHY also contains several chains. For comparison we don’t need the DNA, so we will use only the protein chain A.</p>
+<pre><code>fetch 6KHY
+
+create 6KHY_monomer, 6KHY and chain A #it also has several chains
+
+delete 6KHY #remove the original structure for clarity
+
+fetch 3AAM
+
+fetch 2NQH</code></pre>
+<p>Now you should have four structures: <code>6KI3</code> (or monomer), <code>6KHY_monomer</code>, <code>3AAM</code>, and <code>2NQH</code></p>
+<p>Pymol has several alternatives for structural alignments. The three more common are the commands <a href="https://pymolwiki.org/index.php/Super"><em>super</em></a>, <a href="https://pymolwiki.org/index.php/Align"><em>align</em></a>and <a href="https://pymolwiki.org/index.php/Cealign"><em>cealign</em></a><em>,</em> depending on the level of similarity. <code>super</code> is very fast and competent when proteins sequences are very similar, whereas <code>align</code> is a very quick alternative and useful for most purposes with a clear sequence similarity. On the other hand, <code>cealing</code> is based in the CE algorithm and although somewhat slower it provides better structural alignment for proteins without clear similarity.</p>
+<pre><code>align 6KHY_monomer, 6KI3
+
+align 3AAM, 6KI3
+
+align 2NQH, 6KI3
+
+zoom all #to center the view of all the proteins in the new position</code></pre>
+<p><img src="images/23df908f-5375-4f8c-8846-0ab70e8e868f.png" class="img-fluid"></p>
+<p><strong>A.4. Can you range the three new structures by their similarity with 6KI3?</strong></p>
+<p><strong>NOTE:</strong> From version 1.7.2, there is also a command to align multiple structures with a reference molecule, using <a href="https://pymolwiki.org/index.php/Extra_fit">extra_fit</a>.</p>
+</section>
+<section id="find-what-you-are-looking-for" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="find-what-you-are-looking-for"><span class="header-section-number">2.5</span> 5. Find what you are looking for</h2>
+<p>Now we can play with different representations for specific residues, like catalytic ones: D231, H182, H115, E142, H218, H78, E271, H233.</p>
+<p>You can select them directly picking from the sequence. If you want to keep this selection for the future you can name it in the <strong>A</strong> menu. Using show and color menu, you can also change how those residues are displayed.</p>
+<p>Quick alternative (note the different use of and-or and the parenthesis <a href="https://pymolwiki.org/index.php/Selection_Algebra" class="uri">https://pymolwiki.org/index.php/Selection_Algebra</a>):</p>
+<pre><code>select catalytic_res, monomer and (resi 231 or resi 182 or resi 115 or resi 142 or resi 218 or resi 78 or resi 179 or resi 271 or resi 233)
+      
+show sticks, catalytic_res
+        
+zoom catalytic_res</code></pre>
+<p><img src="images/d061307c-c633-4629-b834-0b2162b4d48d.png" class="img-fluid"></p>
+<p>There are also some interesting tricks for disclosing ligand binding or catalytic sites:</p>
+<p><img src="images/e4647891-db6f-4c76-906c-4571ecb0ce55.png" class="img-fluid"></p>
+<p>More info about selection of multiple objects in Pymol here: <a href="https://pymolwiki.org/index.php/Selection_Algebra" class="uri">https://pymolwiki.org/index.php/Selection_Algebra</a></p>
+</section>
+<section id="highlight-what-you-want" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="highlight-what-you-want"><span class="header-section-number">2.6</span> 6. Highlight what you want</h2>
+<p>You can also hide the cartoon partly or totally and color by elements</p>
+<pre><code>hide cartoon, monomer and chain A
+
+show sticks, chain D and resi 10
+
+show sticks, catalytic_res
+
+set_bond stick_radius, 0.25, catalytic_res
+
+color red, chain D and resi 10 and elem o</code></pre>
+<p><img src="images/1865e4a1-569b-4e2d-bee4-df83efc1b56d.png" class="img-fluid"></p>
+</section>
+<section id="show-labels" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="show-labels"><span class="header-section-number">2.7</span> 7. Show labels</h2>
+<ul>
+<li><p>Use the <strong>L</strong> menu to show the labels of your object/selection</p></li>
+<li><p>You can also use the command <code>label</code> to show labels</p></li>
+</ul>
+<pre><code>label [selection], [expression]</code></pre>
+<p>Labels can be <a href="https://pymolwiki.org/index.php/Label">formatted</a> in different ways, for example:</p>
+<pre><code>set label_outline_color, black
+        
+set label_font_id, 10
+         
+set label_size, -2.5
+        
+set label_position,(0,0,100), resi 87</code></pre>
+<p>You can also move the labels with “Edit mode”: <a href="http://polo.engr.colostate.edu/drillbits/lessons/59/#:~:text=To%20get%20labels%20exactly%20where,click%20to%20move%20the%20label." class="uri">http://polo.engr.colostate.edu/drillbits/lessons/59/#:~:text=To%20get%20labels%20exactly%20where,click%20to%20move%20the%20label.</a></p>
+<p><em>Be careful not to pick on the molecule (UNDO still partial!)</em></p>
+<section id="make-a-picture-of-the-catalytic-center-with-your-custom-representation-including-labels" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-picture-of-the-catalytic-center-with-your-custom-representation-including-labels"><span style="color:green">Make a picture of the catalytic center with your custom representation, including labels</span></h3>
+</section>
+</section>
+<section id="measure-distances" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="measure-distances"><span class="header-section-number">2.8</span> 8. Measure distances</h2>
+<p>Menu Wizard&gt;Measurements</p>
+<p><img src="images/1a271b33-2fac-4e7f-a894-80d9c3621943.png" class="img-fluid"></p>
+<p>Click “Done” on the right when you are done.</p>
+</section>
+<section id="how-to-make-a-high-res-picture-ray-it" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="how-to-make-a-high-res-picture-ray-it"><span class="header-section-number">2.9</span> 9. How to make a high-res picture: RAY IT!</h2>
+<p><img src="images/f51cf939-2d21-4220-a0dd-33a038f4f7af.png" class="img-fluid"></p>
+<p>Also by command line:</p>
+<pre><code>set ray_opaque_background, on
+        
+set ray_trace_mode, 1
+         
+ray
+        
+png picture.png</code></pre>
+<p>or:</p>
+<pre><code>set ray_trace_mode, 1
+         
+png /modesto/strbio/picture.png, width=2000, height=1200, dpi=600, ray=1</code></pre>
+<p><strong>NOTE</strong>. If Ray takes too long, you can try <code>ray=0</code> or&nbsp; draw: <a href="https://pymolwiki.org/index.php/Draw" class="uri">https://pymolwiki.org/index.php/Draw</a></p>
+<p>See:</p>
+<p><a href="https://pymolwiki.org/index.php/Ray" class="uri">https://pymolwiki.org/index.php/Ray</a></p>
+<p><a href="https://pymolwiki.org/index.php/Png" class="uri">https://pymolwiki.org/index.php/Png</a></p>
+<p><img src="images/aac2ed4f-82b4-4db5-903d-6f1a3948fddd.png" class="img-fluid"></p>
+<p>Note that objects in a deeper position look lighter. This is the “fog” effect</p>
+<p>See: <a href="https://pymolwiki.org/index.php/Fog" class="uri">https://pymolwiki.org/index.php/Fog</a> and <a href="https://pymolwiki.org/index.php/Depth_cue" class="uri">https://pymolwiki.org/index.php/Depth_cue</a></p>
+<p><strong>NOTE</strong>. If Ray takes too long, you can try draw: <a href="https://pymolwiki.org/index.php/Draw" class="uri">https://pymolwiki.org/index.php/Draw</a></p>
+</section>
+<section id="bonus-track-more-info-and-useful-resources-about-pymol." class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="bonus-track-more-info-and-useful-resources-about-pymol."><span class="header-section-number">2.10</span> 10. BONUS TRACK: More info and useful resources about Pymol.</h2>
+<ul>
+<li><p>More Pymol exercises:</p>
+<ul>
+<li><p><a href="http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_Pymol.pdf" class="uri">http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_Pymol.pdf</a></p></li>
+<li><p><a href="http://www.carlssonlab.org/pdfs/PYMOL.pdf" class="uri">http://www.carlssonlab.org/pdfs/PYMOL.pdf</a></p></li>
+<li><p><a href="https://rpubs.com/stodolli/121998" class="uri">https://rpubs.com/stodolli/121998</a></p></li>
+</ul></li>
+<li><p>Quick Reference Guide for Intermediate PyMOL Users: <a href="https://www.uml.edu/docs/PyMOL%20Quick%20Reference%20Guide_tcm18-230352.pdf" class="uri">https://www.uml.edu/docs/PyMOL%20Quick%20Reference%20Guide_tcm18-230352.pdf</a></p></li>
+<li><p>Short Pymol book: <a href="https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf" class="uri">https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf</a></p></li>
+<li><p>Practical Pymol for Beginners: <a href="https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners" class="uri">https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners</a></p></li>
+<li><p><strong>PyMOL-based protein structure workbook</strong></p>
+<ul>
+<li>Exploring Protein Structure: Principles and Practice:&nbsp; <a href="https://link.springer.com/book/10.1007/978-3-319-76858-8" class="uri">https://link.springer.com/book/10.1007/978-3-319-76858-8</a></li>
+</ul></li>
+<li><p>Another interesting tutorial: <a href="http://www.protein.osaka-u.ac.jp/rcsfp/supracryst/suzuki/jpxtal/Katsutani/en/index.php" class="uri">http://www.protein.osaka-u.ac.jp/rcsfp/supracryst/suzuki/jpxtal/Katsutani/en/index.php</a></p></li>
+<li><p><strong>Pymol for Begginers YouTube series in “Swanson Does Science” channel:</strong> <a href="https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew" class="uri">https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew</a></p>
+<ul>
+<li><p>1: Orientation - <a href="https://www.youtube.com/watch?v=wiKyOF-pGw4" class="uri">https://www.youtube.com/watch?v=wiKyOF-pGw4</a></p></li>
+<li><p>2: Labels - <a href="https://www.youtube.com/watch?v=nFY3EjBNPBQ" class="uri">https://www.youtube.com/watch?v=nFY3EjBNPBQ</a></p>
+<ul>
+<li>A more advances video here: <a href="https://www.youtube.com/watch?v=yBFzJ3ql4qU" class="uri">https://www.youtube.com/watch?v=yBFzJ3ql4qU</a></li>
+</ul></li>
+<li><p>3: Measurements - <a href="https://www.youtube.com/watch?v=lB-0WsZt8M8" class="uri">https://www.youtube.com/watch?v=lB-0WsZt8M8</a></p></li>
+<li><p>4: H-bonds - <a href="https://www.youtube.com/watch?v=xUdETtfhens" class="uri">https://www.youtube.com/watch?v=xUdETtfhens</a></p></li>
+<li><p>5: Alignments - <a href="https://www.youtube.com/watch?v=T0v1Dx6Yb-I" class="uri">https://www.youtube.com/watch?v=T0v1Dx6Yb-I</a></p>
+<ul>
+<li><p>TRICK: <a href="https://pymolwiki.org/index.php/TMalign" class="uri">https://pymolwiki.org/index.php/TMalign</a></p></li>
+<li><p>Alternative: FATCAT2 <a href="http://fatcat.godziklab.org/" class="uri">http://fatcat.godziklab.org/</a></p></li>
+</ul></li>
+<li><p>6: Mutagenesis - <a href="https://www.youtube.com/watch?v=M-VCBz83nfs" class="uri">https://www.youtube.com/watch?v=M-VCBz83nfs</a></p></li>
+</ul></li>
+<li><p><strong>Active sites with Pymol:</strong> <a href="https://www.youtube.com/watch?v=mBlMI82JRfI" class="uri">https://www.youtube.com/watch?v=mBlMI82JRfI</a></p></li>
+<li><p><strong>Movies with Pymol</strong>: <a href="https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable" class="uri">https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable</a>.</p></li>
+</ul>
+<hr>
+</section>
+<section id="part-b-paper-figure-challenge" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="part-b-paper-figure-challenge"><span class="header-section-number">2.11</span> PART B: Paper Figure Challenge</h2>
+<p><strong>B. Make a ready-to-publish picture of your favorite protein.</strong></p>
+<p>As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al. (<a href="https://www.science.org/doi/10.1126/science.abb7498">2020</a>) or Figure 4b from Cilleros-Rodríguez et al.&nbsp;(<a href="https://elifesciences.org/articles/78383">2022</a>), but any structure involving more than one domain and/or with a substrate/cofactor molecule can be a good challenge. You may use Pymol or any other application, including Py3Dmol in a Jupyter Notebook.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Modesto Redrejo Rodríguez, 2025</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://creativecommons.org/licenses/by-nc/2.0/">
+      <i class="bi bi-badge-cc-fill" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/mredrejo">
+<p><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/mredrejo.bsky.social">
+<p><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

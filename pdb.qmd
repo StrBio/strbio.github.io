@@ -39,102 +39,129 @@ indeed! It is actually a painting of a pipe.
 ::: callout-warning
 ## Warning for current and future structural biologists
 
-A picture of a protein, or a computer file containing the coordinates of a
-protein structure, is not a protein. It is a representation of ONE possible
-structure of that protein.
+An image of a protein, or a computer file with the coordinates of a protein
+structure, does not constitute the actual protein. Rather, it represents **one**
+possible conformation of that protein.
 :::
 
-Even experimentally determined structures have two major limitations that we
-should always keep in mind: (1) they are a fixed structure (except RMN-based),
-whereas proteins *in vivo* are flexible and dynamic and (2) they are subject to
-experimental error and often contain low confidence regions (see @sec-assess
-below). Moreover, even experimentally determined macromolecular structures are
-to some extent models, with a variable ratio between experimental data and
-computational predictions to match the experimental data (X-ray diffraction,
-cryo-EM density maps, NMR, SAXS, FRET...) with previously known structures or
-models. Of course, this does not mean that protein structures are useless, they
-can be very useful, but we need to be aware of both the limitations and the
-applications.
+Even experimentally determined structures have two major limitations that should
+*be kep*t in mind: (1) they represent a fixed structure (except those based on
+NMR), whereas proteins in vivo are flexible and dynamic, and (2) they are
+subject to experimental error and often contain low-confidence regions (see
+@sec-assess below). Furthermore, even experimentally determined macromolecular
+structures are, to some extent, models with varying ratios between experimental
+data and computational predictions used to match the experimental data (such as
+X-ray diffraction, cryo-EM density maps, NMR, SAXS, FRET...) with previously
+known structures or models. It is important to note that while protein
+structures can be highly valuable, we must remain cognizant of their limitations
+and applications.
 
 # Experimental determination of protein structures
 
-The structure helps to understand the molecular mechanism of protein function at
-a higher level of detail. The 3D representation can help orient different
-domains/motifs/residues of interest. This can be critical for understanding
-populations or pathogenic variants, drug design, and protein engineering. In
-addition, the structures can also help in predicting protein function and
-evolution because they are more conserved than sequence, i.e., protein structure
-space is smaller than sequence space. However, obtaining detailed and reliable
-structural data can be technically difficult and time consuming. As we will see,
-protein structure modeling can often be a good complement or alternative.
-Experimentally obtained structures are usually based on three techniques: X-ray
-crystallography, nuclear magnetic resonance (RMN), or electron cryomicroscopy
-(CryoEM).
+The structural analysis of proteins is crucial for understanding the molecular
+mechanisms underlying their functions in detail. A three-dimensional
+representation facilitates the orientation of various domains, motifs, or
+residues of interest, which is essential for comprehending population or
+pathogenic variants, drug design, and protein engineering. Additionally, protein
+structures can aid in predicting function and evolutionary relationships, as
+structural conservation is higher than sequence conservation; the protein
+structure space is smaller than the sequence space. However, obtaining accurate
+and detailed structural data can be both technically challenging and
+time-consuming. As discussed, protein structure modeling often serves as a
+valuable complement or alternative. Experimentally derived structures are
+typically obtained through X-ray crystallography, nuclear magnetic resonance
+(NMR), or electron cryomicroscopy (CryoEM).
 
 ## X-ray crystallography or single crystal X-ray diffraction
 
-X-ray crystallography, or single-crystal X-ray diffraction, is a method for
-determining the atomic structure of molecules in regular, crystalline
-structures. It requires the generation of a crystal of the molecule of interest,
-which is then mounted on a goniometer and illuminated or irradiated with a
-focused X-rays beam. The diffraction pattern of the X-rays on the other side of
-the crystal allows determination of the positions of the atoms, as well as their
-chemical bonds, crystallographic disorder, and various other information.
-However, the connection between the diffraction pattern and the electron density
-is not trivial and requires some complex maths, the so-called [Fourier
-transforms](http://pruffle.mit.edu/atomiccontrol/education/xray/fourier.php).
+X-ray crystallography, also known as single-crystal X-ray diffraction, is a
+technique used to determine the atomic structure of molecules within crystalline
+forms. This process involves creating a crystal of the molecule of interest,
+which is then positioned on a goniometer and exposed to a focused beam of X-rays
+(@fig-xray). The resulting diffraction pattern produced by the X-rays passing
+through the crystal allows for the determination of the atomic positions,
+chemical bonds, crystallographic disorder, and various other structural details.
+Interpreting the relationship between the diffraction pattern and the electron
+density requires complex mathematical calculations, specifically involving
+[Fourier
+transforms](http://pruffle.mit.edu/atomiccontrol/education/xray/fourier.php), to
+generate a 3D *model* of the structure.
 
 ![Schematic workflow of X-ray crystallography. From Creative Structure
 [website](https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm).](images/paste-F430F5B1.png){#fig-xray
 .figure}
 
-X-ray diffraction is a powerful method that allows obtaining high-resolution
-atomic-level structures of soluble or membrane proteins, either as apoenzymes or
-as holoenzymes bound to a substrate, cofactor or drugs. However, the sample must
-be crystallizable (i.e., homogeneous), which requires a substantial amount of
-very pure protein. Another disadvantage of X-ray structures is that, as
-mentioned earlier, you only get one (or very few) static forms of the protein
-and the location of the hydrogen atoms cannot be determined by conventional
-diffraction methods ---the fact that they have only one electron makes it very
-difficult to detect them accurately with X-rays, since X-rays scatter at the
-electron density. They can be predicted, but that still hinders some chemical
-analyzes.
+When collecting X-ray diffraction data from a crystal, we measure the
+intensities of diffracted waves scattered in all directions. These measurements
+give us the amplitudes but not the phase information needed to reconstruct an
+image (density map) of the molecule, which is known as the ‘phase problem’. This
+issue becomes more challenging with missing or poor data. In protein
+crystallography, phases are often obtained using atomic coordinates of a similar
+protein (molecular replacement, MR) or by identifying heavy atom positions.
+Heavy atoms scatter X-rays more strongly than lighter ones, helping us determine
+their positions within the crystal. By comparing diffraction patterns of the
+original crystal and one with added heavy atoms, we can deduce phase information
+through isomorphous replacement. Heavy atoms act as reference points to recover
+lost phase information, crucial for reconstructing the 3D structure of the
+molecule. Molecular replacement finds models that fit experimental intensities
+from known structures, typically needing to cover at least 50% of the total
+structure with a low Cα r.m.s.d. About 70% or more of PDB structures have been
+solved using this method, with the number rising as more homologous structures
+become available [@abergel2013]. Advances in *de novo* protein structure
+prediction have led to protocols like MR-Rosetta, QUARK, AWSEM-Suite,
+I-TASSER-MR, and Alphafold-guided MR, which generate native-like decoy
+structures useful for solving the phase problem [@wang2025].
+
+X-ray diffraction is a powerful technique that enables the acquisition of
+high-resolution atomic-level structures of both soluble and membrane proteins,
+whether as apoenzymes or holoenzymes bound to a substrate, cofactor, or drugs.
+However, the protein sample must be crystallizable (i.e., homogeneous),
+necessitating a substantial amount of very pure protein. A further limitation of
+X-ray structures is that they provide only one (or very few) static forms of the
+protein, and the locations of hydrogen atoms cannot be determined by
+conventional diffraction methods. Due to their single electron, hydrogen atoms
+are difficult to detect accurately with X-rays, which scatter at the electron
+density. Although hydrogen atoms can be predicted, this limitation still
+complicates some chemical analyses. Some proteins retain full functionality,
+permitting in crystallo experiments with certain enzymes [@chang2023], but there
+are also numerous examples where crystallization may lead to a biased
+representation of the protein and result in structural artifacts.
 
 ## Nuclear Magnetic Resonance
 
-All atomic nuclei are charged, fast spinning particles, which gave rise to
-resonance frequencies that are different for each atom. Therefore, if we apply a
-magnetic field we can obtain an electromagnetic signal with a characteristic
-frequency of the magnetic field at the nucleus. This is the basis of nuclear
-magnetic resonance (NMR).
+All atomic nuclei are charged, rapidly spinning particles that produce unique
+resonance frequencies for each atom. When a magnetic field is applied, an
+electromagnetic signal with a frequency characteristic of the magnetic field at
+the nucleus can be detected. This principle forms the basis of nuclear magnetic
+resonance (NMR, @fig-rmn).
 
-We should also remember that the motion of the nucleus is not isolated and it
-interacts both intra- and intermolecularly with the surrounding atoms. Nuclear
-magnetic resonance spectroscopy can therefore provide structural information
-about a particular molecule. Taking a protein as an example, its secondary
-structures, such as α-helix, β-sheet, or turn, reflect the different arrangement
-of the main chain atoms of protein molecules in three dimensions. The distances
-between the atomic nuclei in the different secondary structures, the interaction
-between the nuclei, and the dynamic properties of the polypeptide segments all
-directly reflect the three-dimensional structure of proteins. These nuclear
-features all contribute to the spectroscopic behavior of the analyzed sample and
-thus provide characteristic NMR signals. Interpretation of these signals by
-computational methods leads to deciphering the three-dimensional structure.
+It is important to note that the motion of the nucleus is not isolated; it
+interacts both intra- and intermolecularly with surrounding atoms. Consequently,
+nuclear magnetic resonance spectroscopy can provide structural information about
+specific molecules. For instance, in proteins, secondary structures such as
+α-helices, β-sheets, and turns indicate various arrangements of main chain atoms
+in three-dimensional space. The distances between atomic nuclei in these
+secondary structures, their interactions, and the dynamic properties of
+polypeptide segments all directly reveal the three-dimensional structure of
+proteins. These nuclear characteristics contribute to the spectroscopic behavior
+of the sample, yielding distinctive NMR signals. Computational interpretation of
+these signals facilitates the determination of the protein’s three-dimensional
+structure.
 
 ![Basis of nuclear magnetic resonance. From Creative Structure
 [website](https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm).](images/paste-2013F0AC.png){#fig-rmn
 .figure}
 
-The most important feature of the NMR method is that the three-dimensional
-structure of macromolecules in their natural state can be measured directly in
-solution, and NMR can provide unique information about the dynamics and
-intermolecular interactions. The resolution of the three-dimensional structure
-of macromolecules can extend to the subnanometer range. However, the NMR
-spectrum of large molecular weight biomolecules is very complicated and
-difficult to interpret, limiting the application of NMR in analyzing large
-biomolecules, often below 20-30 kDa (see @fig-experimental). In addition, this
-technique requires relatively large amounts of pure samples (on the order of
-several mg) to achieve a reasonable signal-to-noise ratio level.
+The primary advantage of the NMR method is that it allows for the direct
+measurement of the three-dimensional structure of macromolecules in their
+natural state in solution. NMR provides information about the dynamics and
+intermolecular interactions of these molecules. The resolution of the
+three-dimensional structure can extend to the subnanometer range. However, the
+NMR spectrum of large biomolecules is complex and challenging to interpret,
+limiting its application to analyzing large biomolecules, typically below 20-30
+kDa (see @fig-experimental). Additionally, this technique requires relatively
+large amounts of pure samples (several milligrams) to achieve a reasonable
+signal-to-noise ratio.
 
 [![Coverage of molecular weight by structural technique. From
 .](images/paste-FA73AF1E.png){#fig-experimental
@@ -142,30 +169,32 @@ several mg) to achieve a reasonable signal-to-noise ratio level.
 
 ## Electron cryomicroscopy
 
-The essential mechanism of Cryo-EM is the same of any electron microscopy
-method, i. e., electron scattering. Samples are prepared through
-cryopreservation prior to analysis. The, a source electrons is used as a light
-source to measure the sample. After the electron beam passes through the sample,
-a complex lens system converts the scattered signal into a magnified image
-recorded on the detector. A key subsequent step is signal processing, that
-transform thousands of images of the particles in any orientation into a
-three-dimensional structure of the sample.
+The fundamental principle of Cryo-EM is electron scattering, similar to other
+electron microscopy methods. Samples are prepared through cryopreservation prior
+to analysis. Then, an electron source is used as a light source to measure the
+sample. After the electron beam passes through the sample, a lens system
+converts the scattered signal into a magnified image recorded on the detector. A
+crucial subsequent step is signal processing, which transforms thousands of
+images of the particles in various orientations into a three-dimensional
+structure of the sample.
 
 ![The process of Cryo-EM single particle analysis technique. From Creative
 Structure
 [website](https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm).](images/paste-5E29F580.png){#fig-cryoEM
 .figure}
 
-The use of electron microscopy methods for structural biology was traditionally
-limited to very large macromolecular complexes, like viral capsids, and only
-recently it could be used for smaller particles (see @fig-experimental). The
-number of protein structures being determined by cryo-electron microscopy is
-growing at an explosive rate in the last 5-10 years. This is thanks to several
-technical improvements in the technique, spanning sample preparation, analysis
-and processing that allow obtaining pictures at the atomic level
-[@callaway2020]. This advances were acknowledged by the [2017 Nobel Prize in
+Traditionally, the use of electron microscopy methods for structural biology was
+limited to large macromolecular complexes, such as viral capsids (see
+@fig-experimental). Recently, it has also been applied to smaller particles. The
+number of protein structures determined by cryo-electron microscopy has
+significantly increased over the past 5-10 years (check it at PDB:
+<https://www.rcsb.org/stats/all-released-structures>). This increase is due to
+several technical improvements in the technique (@fig-cryoEM2), including sample
+preparation and preservation, analysis, and processing, allowing for
+atomic-level imaging [@callaway2020]. These advancements were recognized by the
+awarding of the [2017 Nobel Prize in
 Chemistry](https://www.nobelprize.org/prizes/chemistry/2017/press-release/) to
-Jacques Dubochet, Joachim Frank and Richard Henderson.
+Jacques Dubochet, Joachim Frank, and Richard Henderson. .
 
 ![Cryo-electron microscopy revolution. From Creative Structure
 [website](https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm).](images/paste-E5E5AE75.png){#fig-cryoEM2
@@ -179,24 +208,25 @@ Check the already classic article by @egelman2016 for more a detailed info. And
 for a great outreaching article after the Nobel Prize.
 :::
 
-CryoEM is widely use nowadays because, particularly for large molecular
-complexes or viral particles. Structures can be generated quickly, as it does
-not require a high amount of protein and it can generate good data even in the
-presence of impurities. However, new generation microscopes are only affordable
-by large institutions and small particles can have a high level of noise.
-Moreover, processing a large amount of images can be limiting to obtain
-high-quality structures.
+CryoEM is commonly used today, especially for large molecular complexes or viral
+particles. It allows structures to be generated quickly, requires a minimal
+amount of protein, and can produce reliable data even with impurities present.
+However, new generation microscopes are typically only affordable for large
+institutions, and small particles often have a high level of noise.
+Additionally, processing a large number of images can be challenging when aiming
+to obtain high-quality structures.
 
 # Structural quality assurance {#sec-assess}
 
-As pointed out at the beginning of this section, any structure, regardless of
-its origin or method of determination, is subject to error. Structures
-determined experimentally are actually models that were constructed to match
-with the experimental data. The quality of the original data and the precision
-with which the experiments were performed determine the reliability of the
-structural results. As in any other scientific discipline, experiments performed
-independently can lead to related models of the same molecule, but there are
-almost always differences; nevertheless, both can be good models.
+As mentioned at the outset of this section, every structure, regardless of its
+origin or method of determination, is susceptible to error. Experimentally
+determined structures are, in reality, models that have been constructed to
+align with experimental data. The quality of the initial data and the precision
+of the experimental procedures significantly influence the reliability of the
+structural outcomes. Similar to other scientific disciplines, independent
+experiments can yield related models of the same molecule, though there are
+typically variations; nonetheless, both models may still be considered accurate
+representations.
 
 ::: callout-note
 ### Extra info
@@ -446,14 +476,40 @@ Colab, Jupyter, Quarto or any other Python notebook (see code examples
 [here](https://william-dawson.github.io/using-py3dmol.html) or
 [here](https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb)).
 
-::: {.callout-tip collapse="true"}
-# Mol\* & Quarto
+## Parsing multiple structures 
 
-Mol\* can be very easily integrated in other third party services and in your
-own website. For instance, it has a [Quarto
-extension](https://github.com/jmbuhr/quarto-molstar), which prompted me to use
-it on this site.
+Python offers several robust libraries for parsing and visualizing protein
+structures. Biopython is widely utilized for parsing PDB files, while libraries
+such as NGL, Py3Dmol, or matplotlib (with creative geometry) are effective for
+visualization. Biopython is essential for parsing and working with protein
+structure data, irrespective of the chosen visualization library.
+
+-   [**Py3Dmol**](https://william-dawson.github.io/using-py3dmol.html)**:**
+    Suitable for basic visualizations and web embedding.
+
+-   [**NGL**](https://github.com/nglviewer/nglview)**:** Highly powerful and
+    feature-rich, offering interactive capabilities, commonly used in
+    bioinformatics. Requires Jupyter extensions.
+
+-   [**ProDy**](http://www.bahargroup.org/prody/index.html)**:** Protein
+    structure analysis and dynamics as well as insights that make protein
+    visualizations more informative. It's not a standalone visualization library
+    but a valuable companion to libraries like NGL, Py3Dmol, and Matplotlib.
+::: {.callout-info collapse="true"}
+### I encourage you to try one of the following Colab notebooks to see how to display and analyze structures with Python:
+- *py3DMol:* https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb
+- *py3DMol and MDAnalysis:* https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb
+- *py3DMol and NGLView:* https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb
+
 :::
+In R, there are also packages designed for working with protein structures. The
+**bio3d** package is fundamental in R for bioinformatics, providing functions
+for reading PDB files, analyzing protein structures, and generating basic
+visualizations. It can perform calculations such as distances, RMSDs, and other
+structural analyses. There is also a very useful Mol\* [Quarto
+extension](https://github.com/jmbuhr/quarto-molstar), which I used on this site.
+Mol\* can be very easily integrated in many third party services and in your own
+website.
 
 ::: {.callout-important collapse="true"}
 # A tribute to the pioneers
@@ -472,18 +528,5 @@ discontinued are:
     open-source application, but it is outdated nowadays.
 :::
 
-# [**PyMOL Practice**]{style="color:green"}
+# [**PyMOL Practice**](pymol.html){style="color:green"}
 
-Our PyMOL Practice has two parts.
-
-## [PART A: A 10-steps self-guided practice](https://www.evernote.com/shard/s62/sh/2e4a0157-55aa-2b63-fb31-071eb24c7d93/AoITZZrmczc9nHLyZb0DnquZptPEme4NBADOz-KWtIZgj1p88qXX7I27Hw)
-
-This is a [Evernote](https://evernote.com/intl/es) note that you can consult
-online and also copy into your Evenote account if you wish.
-
-## PART B: PyMOL Challenge
-
-Make a ready-to-publish picture of your favorite protein. As a suggestion, you
-can reproduce the top panels in the Figure 1B of @gao2020, but any structure
-involving more than one domain and/or with a substrate/cofactor molecule can be
-a good challenge.
