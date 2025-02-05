@@ -418,7 +418,7 @@ Figure&nbsp;7: The effect of resolution on the quality of the electron density. 
 </div>
 <p>    </p><div id="app-mol-star_state.molj" class="molstar-app"></div>
     <script type="text/javascript">
-    molstar.Viewer.create("app-mol-star_state.molj", {"viewportShowAnimation":true,"layoutIsExpanded":false,"layoutShowRemoteState":false,"layoutShowControls":false,"layoutShowLeftPanel":true,"pdbProvider":"rcsb","layoutShowSequence":false,"viewportShowSelectionMode":false,"emdbProvider":"rcsb","viewportShowExpand":true,"layoutShowLog":false}).then(viewer => {
+    molstar.Viewer.create("app-mol-star_state.molj", {"viewportShowAnimation":true,"layoutIsExpanded":false,"layoutShowControls":false,"layoutShowLog":false,"layoutShowLeftPanel":true,"emdbProvider":"rcsb","layoutShowRemoteState":false,"viewportShowExpand":true,"viewportShowSelectionMode":false,"layoutShowSequence":false,"pdbProvider":"rcsb"}).then(viewer => {
     viewer.loadSnapshotFromUrl(url="mol-star_state.molj", "molj");    });
     </script>
      Embedded reproduction of the <a href="#fig-reso" class="quarto-xref">Figure&nbsp;7</a> with <em>Mol*</em>, which allow you to explore the structures.<p></p>
@@ -514,14 +514,31 @@ Note
 <ul>
 <li><p><a href="https://william-dawson.github.io/using-py3dmol.html"><strong>Py3Dmol</strong></a><strong>:</strong> Suitable for basic visualizations and web embedding.</p></li>
 <li><p><a href="https://github.com/nglviewer/nglview"><strong>NGL</strong></a><strong>:</strong> Highly powerful and feature-rich, offering interactive capabilities, commonly used in bioinformatics. Requires Jupyter extensions.</p></li>
-<li><p><a href="http://www.bahargroup.org/prody/index.html"><strong>ProDy</strong></a><strong>:</strong> Protein structure analysis and dynamics as well as insights that make protein visualizations more informative. It’s not a standalone visualization library but a valuable companion to libraries like NGL, Py3Dmol, and Matplotlib. ::: {.callout-info collapse=“true”} ### I encourage you to try one of the following Colab notebooks to see how to display and analyze structures with Python:</p></li>
-<li><p><em>py3DMol:</em> https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb</p></li>
-<li><p><em>py3DMol and MDAnalysis:</em> https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb</p></li>
-<li><p><em>py3DMol and NGLView:</em> https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb</p></li>
+<li><p><a href="http://www.bahargroup.org/prody/index.html"><strong>ProDy</strong></a><strong>:</strong> Protein structure analysis and dynamics as well as insights that make protein visualizations more informative. It’s not a standalone visualization library but a valuable companion to libraries like NGL, Py3Dmol, and Matplotlib.</p></li>
 </ul>
-<p>::: In R, there are also packages designed for working with protein structures. The <strong>bio3d</strong> package is fundamental in R for bioinformatics, providing functions for reading PDB files, analyzing protein structures, and generating basic visualizations. It can perform calculations such as distances, RMSDs, and other structural analyses. There is also a very useful Mol* <a href="https://github.com/jmbuhr/quarto-molstar">Quarto extension</a>, which I used on this site. Mol* can be very easily integrated in many third party services and in your own website.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+I encourage you to try one of the following Colab notebooks to see how to display and analyze structures with Python:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>py3DMol:</em> <a href="https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb">https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb</a></li>
+<li><em>py3DMol and MDAnalysis:</em> <a href="https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb">https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb</a></li>
+<li><em>py3DMol and NGLView:</em> <a href="https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb">https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb</a></li>
+</ul>
+</div>
+</div>
+</div>
+<p>In R, there are also packages designed for working with protein structures. The <strong>bio3d</strong> package is fundamental in R for bioinformatics, providing functions for reading PDB files, analyzing protein structures, and generating basic visualizations. It can perform calculations such as distances, RMSDs, and other structural analyses. There is also a very useful Mol* <a href="https://github.com/jmbuhr/quarto-molstar">Quarto extension</a>, which I used on this site. Mol* can be very easily integrated in many third party services and in your own website.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -530,7 +547,7 @@ A tribute to the pioneers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Other applications that you may know, hear about or came into but are now discontinued are:</p>
 <ul>

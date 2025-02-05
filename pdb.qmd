@@ -495,11 +495,14 @@ structure data, irrespective of the chosen visualization library.
     structure analysis and dynamics as well as insights that make protein
     visualizations more informative. It's not a standalone visualization library
     but a valuable companion to libraries like NGL, Py3Dmol, and Matplotlib.
-::: {.callout-info collapse="true"}
-### I encourage you to try one of the following Colab notebooks to see how to display and analyze structures with Python:
-- *py3DMol:* https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb
-- *py3DMol and MDAnalysis:* https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb
-- *py3DMol and NGLView:* https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb
+    
+    
+::: {.callout-tip collapse="false"}
+## I encourage you to try one of the following Colab notebooks to see how to display and analyze structures with Python:
+
+- *py3DMol:* [https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb](https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb)
+- *py3DMol and MDAnalysis:* [https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb](https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb)
+- *py3DMol and NGLView:* [https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb](https://colab.research.google.com/github/pb3lab/ibm3202/blob/master/tutorials/lab02_molviz.ipynb)
 
 :::
 In R, there are also packages designed for working with protein structures. The

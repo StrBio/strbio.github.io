@@ -123,13 +123,9 @@ commonly with BioPython and R packages, which significantly increases the
 possibilities for scripting and batch data analysis.
 :::
 
-
-
 [![Main features of protein databases (updated in
 2020)](pics/bbdd_full.png){#fig-full
 .figure}](https://github.com/StrBio/strbio2022_23/raw/main/pics/bbdd_full.pdf)
-
-
 
 ## Sequence databases
 
@@ -357,7 +353,6 @@ some author suggested (or desired) that future databases contain not only
 protein sequence variants and protein complexes, but also diverse conformations
 for each structure, which would help to gain insights into their function and
 biological role [@beck2024].
-
 
 # [**Practice 1B: Protein Database**]{style="color:green"}
 
