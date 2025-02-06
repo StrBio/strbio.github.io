@@ -30,7 +30,7 @@ last decades, particularly after the revolution of high throughput sequencing
 methods.
 
 [![Number of entries in
-UniProt/TrEMBL.](https://www.ebi.ac.uk/inc/drupal/uniprot/statistics/relstat1.png "Number of entries in UniProt/TrEMBL"){#fig-seqs
+UniProt/TrEMBL.](images/relstat1.png "Number of entries in UniProt/TrEMBL (Feb 2025)"){#fig-seqs
 .figure}](https://www.ebi.ac.uk/uniprot/TrEMBLstats)
 
 However, experimental determination of 3D protein structures is often difficult,
@@ -39,19 +39,20 @@ interpretation and modeling new data on previously released structures. Thus,
 despite substantial efforts that started at the beginning of the 21st century to
 implement high-throughput structural biology methods [see for instance
 @manjasetty2008], the availability of protein structures is more than 1,000
-times less than the number of sequences (\>250M sequences for Uniprot and ∽205k
-structures in RCSB Protein Databank in September 2023). This difference is
-called the ***protein sequence-structure gap*** and it is constantly widening
-[@muhammed2019], especially if we consider the sequences from metagenomics
-databases not available in Uniprot.
+times less than the number of sequences. For instance, in February 2025, there
+are \>250 M sequences in Uniprot or \>700 M in MGnify proteins, while only ∽220k
+structures in RCSB Protein Databank. This difference is called the ***protein
+sequence-structure gap*** and it is constantly widening [@muhammed2019],
+especially if we consider the sequences from metagenomics databases not
+available in Uniprot.
 
 [![Number of macromolecular structures in RCSB PDB database (accessed 19th
 September
 2023).](pics/RCSB_stats.png "Number of macromolecular structures in RCSB PDB database."){#fig-structures
 .figure}](https://www.rcsb.org/stats/growth/growth-released-structures)
 
-Thus, an accurate prediction of the 3D structure of any given protein is needed
-to make up for the lack of experimental data.
+Thus, accurate and *reliable* prediction of the 3D structure of any given
+protein is needed to make up for the lack of experimental data.
 
 ## Are protein structures predictable at all?
 
@@ -69,16 +70,16 @@ structure, the myoglobin in 1958 [@kendrew1958]:
 > the kind of regularities which one instinctively anticipates, and it is more
 > complicated that has been anticipated by any theory of protein structure.*
 
-Not much later, in 1968, Cyrus Levinthal (1922--1990) published the so-called
+Not much later, in 1968, Cyrus Levinthal (1922-1990) published the so-called
 *Levinthal's paradox*, stating that proteins fold in nano/milliseconds, but even
 for small peptides it will take a huge time to test the astronomical number of
 possible conformations. Say a 100 aa small protein; it will have 99 peptidic
-bonds and 198 different phi and psi angles. Assuming only 3 alternative
+bonds and 198 different Φ and Ψ angles. Assuming only 3 alternative
 conformations for each bond, it will yield 3^198^ (= 2.95 x 10^95^) possible
 conformations. If we design a highly efficient algorithm that tests 1
 conformation per nanosecond:
 
-|  2.95 x 10^85^ secs = **9x10^67^ billions years**
+| $${2.95}  \mathbin{x}  10^{85}\ secs = 9\mathbin{x}10^{67}\ billions\ years$$
 
 Considering that the age of the universe is 13.8 billion years, predicting
 protein structures does not seem an easy task.
@@ -95,9 +96,9 @@ Notwithstanding some relevant exceptions, this has been largely confirmed.
 ![The Anfinsen Dogma: Amino acid sequence dictated the final structure. From
 @anfinsen1973 .](pics/anfinsen.jpg "Anfinsen"){#fig-anfinsen .figure}
 
-One can imagine that *in vivo* native structures of proteins look-alike the
-lowest free energy conformation, i.e., the global energy minimum. That is the
-basis of the funnel model of protein folding, which assumes that the number of
+One can imagine that *in vivo* native structures of proteins look-alike the most
+stable conformation, i.e., the global minimum of free energy. That is the basis
+of the funnel model of protein folding, which assumes that the number of
 possible conformations is reduced when a local energy minimum is achieved,
 constituting a path for the folding process.
 
@@ -106,15 +107,15 @@ funnel model. Denatured molecules at the top of the funnel might fold to the
 native state by a myriad of different routes, some of which involve transient
 intermediates (local energy minima) whereas others involve significant kinetic
 traps (misfolded states). From
-@radford2000.](pics/funnel_1.jpeg "The funnel of protein folding"){#fig-funnel
+.](pics/funnel_1.jpeg "The funnel of protein folding"){#fig-funnel
 .figure}](https://www.sciencedirect.com/science/article/pii/S0968000400017072?casa_token=BR_maX_GNYYAAAAA:IZrQqI9jIbiv-ZeA6aOMHQxsVcp-wgy0XPFO3DRcFiAi7TSrX-3cc7Jb6dhTHdXSQseEhF3l#BIB49)
 
 ::: callout-important
 ### Conclusion
 
-Prediction of protein structures is possible, as protein folding relies only on
-the protein sequence, but it will require virtually infinite time and
-computational resources ...or highly efficient ones, as we will see.
+You can predict protein structures because they only depend on their sequence.
+But to get accurate predictions, you either need a lot of time and powerful
+computers… or really efficient methods. We'll talk more about this.
 :::
 
 **Homology modeling** is one of the most convenient tricks to get around this
@@ -129,7 +130,7 @@ look in the literature, in particular to see if there is a companion paper to
 the corresponding PDB structure(s) that may be available or that you may be able
 to find and use as a template(s) for modeling.
 
-# Homology modeling: Conservation is the key
+# Comparative modeling: Conservation is the key
 
 ![Protein modeling in a nutshell is about going from the sequence to the
 structure. But, how do we do
@@ -140,27 +141,37 @@ from two different perspectives: *comparative modeling* and *ab initio*
 prediction. In the comparative modeling approach, one can predict the 3D
 structure of protein sequences only if their homologs are found in the database
 of proteins with known structures. Of course, identification of such homologs is
-the key here. Until recently, most of the development in protein modeling has
-been driven by the development of methods to identify distant sequence
-similarities that would reflect similar protein folds. On the other hand, *ab
-initio* modeling is only based on the physicochemical properties of the
-molecule.
+key here. Until recently, most of the development in protein modeling has been
+driven by the development of methods to identify distant sequence similarities
+that would reflect similar protein folds. On the other hand, *ab initio*
+modeling is only based on the physicochemical properties of the molecule.
+
+::: callout-note
+*Homology modeling* and *Comparative modeling* are commonly used
+interchangeably. However, comparative modeling can be regarded as a broader
+approach that leverages known structures, encompassing both homology modeling
+and fold recognition or threading.
+:::
 
 [![Two different approaches for structure
 prediction.](pics/predway.jpeg "Two different approaches for structure prediction."){#fig-modelingways
 .figure}](http://isw3.naist.jp/IS/Bio-Info-Unit/gogroup/study/study-en.html)
 
-The accuracy of homology modeling is limited by the availability of similar
-structures. *Ab initio* predictions are limited by mathematical models and
-computational resources and are often useful only for small peptides.
+Homology modeling generates structural models based upon the structure of
+(usually) one related homologous structure. Thus, the accuracy of homology
+modeling is limited by the availability of similar structures. *Ab initio*
+predictions are limited by mathematical models and computational resources and
+are often useful only for small peptides.
 
 To maintain structure and function, certain amino acids in the protein sequence
 are subject to greater selection pressure. They either evolve more slowly than
 expected or within certain constraints, such as chemical similarity (i.e.,
 conservative substitutions). Therefore, homology modeling approaches assume that
-a similar protein sequence involves similar 3D structure and function. Although
-the number of published sequences and structures is constantly increasing, the
-number of unique folds remained nearly constant since 2008 until very recently.
+a similar protein sequence involves similar 3D structure and function. Indeed,
+proteins in the nature do not seem to contain all the possible diversity
+[@orengo1994]. Thus, although the number of published sequences and structures
+is constantly increasing, the number of unique folds remained nearly constant
+since 2008 until very recently.
 
 ![Growth of the protein structure database since its inception in 1974. From
 [Bonvin lab
@@ -168,21 +179,29 @@ site](https://www.bonvinlab.org/education/molmod_online/modelling/).](pics/rcsb-
 .figure}
 
 This means that **the space of protein sequences is much larger than the space
-of structures**. This has been exploited by some structural databases such as
-Scop2 or CATH, which use hierarchical classifications of structures into very
-few categories of distinct structures.
+of structures**. Some [databases](ddbb.html#strDDBB), like Scop2 or CATH
+(@fig-cath) have leveraged this by employing hierarchical classifications of
+structures into a limited number of distinct categories. Between 2006 and 2024,
+the number of different domains in CATH increased from 86,000 to 600,000, while
+the number of architectures remained relatively stable at 40 and 43,
+respectively. Even after analyzing numerous new structures from the AlphaFold
+database, only 25 novel superfamilies (and no new architectures) were identified
+(see @fig-cath2).
 
-![[CATH](https://www.cathdb.info/) main categories exemplified the limited
-structures space, with 86k vs 500k domains in 2006 and 2022, respectively, but
-40 and 41 architectures in the same years.](pics/cath.png "CATH"){#fig-cath
-.figure width="632"}
+![[CATH](https://www.cathdb.info/) main categories exemplified in
+2006.](pics/cath.png "CATH"){#fig-cath .figure width="632"}
 
-In summary, protein structures are more conserved than sequences, which allows
-the construction of models by comparing proteins with different sequences.
-Biological sequences evolve by mutation and selection, and selection pressure
-varies for each residue position in a protein depending on its structural and
-functional importance. Sequence alignments attempt to tell us the evolutionary
-story of proteins.
+![CATH main categories in 2022 was expanded by Alphafold database with onlu 25
+novel superfamilies
+[@bordin2023].](images/42003_2023_4488_Fig9_HTML.webp "CATH"){#fig-cath2
+.figure}
+
+To summarize, protein structures tend to be more conserved than their sequences,
+enabling model construction through comparisons of proteins with differing
+sequences. Biological sequences evolve through mutation and selection, with
+varying selection pressure for each residue position in a protein based on its
+structural and functional significance. Protein comparison methods such as
+sequence alignments aim to convey the evolutionary history of proteins.
 
 # Homology modeling in four steps
 
@@ -191,12 +210,15 @@ Comparative Protein Modelling, and Visualisation online
 course](https://swissmodel.expasy.org/static/course/files/PartII_homology_modelling.pdf).](pics/homology_simple_workflow.png "Homology Modeling workflow"){#fig-modelingsteps
 .figure width="397"}
 
-A basic workflow of homology modeling requires three steps: (1) identification
-of the most appropriate template, (2) alignment of the query sequence and
-template, and (3) construction of the model. These steps can be approached with
-different methodological alternatives and may yield different results that need
-to be evaluated (step 4) to find the best solution for each step. For a more
-detailed overview of homology modeling, I recommend reading @haddad2020.
+A traditional protocol of homology modeling will construct a partial or full
+model from a proein sequence based in a single homologous template. Overall a
+sequence identity of \>30% between template and target is required to obtain
+reliable results. These methods require three steps: (1) identification of the
+most appropriate template, (2) alignment of the query sequence and template, and
+(3) construction of the model. These steps can be approached with different
+methodological alternatives and may yield different results that need to be
+evaluated (step 4) to find the best solution for each step. For a more detailed
+overview of homology modeling, I recommend reading @haddad2020.
 
 In this course, we will focus on end-to-end modeling using
 [SWISS-MODEL](https://swissmodel.expasy.org/) [@waterhouse2018], a fully
@@ -207,10 +229,10 @@ as discussed below, implementation of advances in template recognition and model
 building has increased modeling capability and accuracy, especially in the last
 15 years.
 
-SWISS- MODEL has several supported inputs. Typically, you enter a single
-sequence query for template search, but you can also bypass this step and
-directly enter the desired template or even a template and a custom alignment.
-We will start with the first alternative.
+SWISS-MODEL has several supported inputs. Typically, you enter a single sequence
+query for template search, but you can also bypass this step and directly enter
+the desired template or even a template and a custom alignment. We will start
+with the first alternative.
 
 #### [In-class Homology Modeling exercise: Quick Modeling with SWISS-MODEL.]{style="color:green"}
 
@@ -233,12 +255,13 @@ protein structures. Thus, we can search for templates by comparing the sequence
 of our protein with the sequence of all proteins in the PDB. However, the PDB
 was created as a repository to contain all the macromolecular structures, not to
 search templates for modeling. Similar to other end-to-end software, SWISS-MODEL
-has its own curated database, the **SMLT** (SWISS-MODEL template library). This
-is based on profiles alignments from the PDB, is updated weekly, and is also annotated and indexed to
-facilitating searching. As of September 13, 2023, SMLT contains 145,813 unique
-protein sequences that can map into 375,008 [biological
-units](https://proteopedia.org/wiki/index.php/Biological_Unit). Since 2023,
-SWISS-MODEL also searches in the AlphaFold DB.
+has its own curated database, the
+[**SMLT**](https://swissmodel.expasy.org/templates/) (SWISS-MODEL template
+library). This is based on profiles alignments from the PDB, is updated weekly,
+and is also annotated and indexed to facilitating searching. As of February 5,
+2025, SMLT contains 158,703 unique protein sequences that can map into 386,135
+[biological units](https://proteopedia.org/wiki/index.php/Biological_Unit).
+Since 2023, SWISS-MODEL also searches in the AlphaFold DB.
 
 Now, you first need your sequences. A protein sequence database like
 [Uniprot](https://www.uniprot.org/) or [NCBI
@@ -309,7 +332,9 @@ Search.](pics/seach.png "SWISS-MODEL modeling"){#fig-swissmodel
 .figure}](https://swissmodel.expasy.org/interactive)
 
 ::: callout-tip
-If you click on "Build Model", it will directly use the top-ranked template, so you'll miss some fun, but you can go back for that later on using the "Templates" tab.
+If you click on "Build Model", it will directly use the top-ranked template, so
+you'll miss some fun, but you can go back for that later on using the
+"Templates" tab.
 :::
 
 #### [Could you foresee which of our queries will give rise to a better model? Why?]{style="color:green"}
@@ -337,11 +362,12 @@ general spatial restraints [@janson2019]. Modeller is a command-line tool that
 allow full customization of the modeling, which requires more knowledge about
 the process but can be very useful for some types of proteins (see [@webb2017]).
 However, it has been implemented in some online servers
-([ModWeb](https://modbase.compbio.ucsf.edu/modweb/)) and user-friendly
-applications, including ChimeraX and Pymol (Pymod plugin, @janson2021). Modeller
-can be also called from the HHPred output (if you included PDB as a searchable
-database), which is very convenient to model remote homologs using several
-templates in a few minutes.
+([ModWeb](https://modbase.compbio.ucsf.edu/modweb/)), Python notebooks (see for
+example <https://github.com/pb3lab/ibm3202>) and user-friendly applications,
+including ChimeraX and Pymol (Pymod plugin, @janson2021). Modeller can be also
+called from the [HHPred](https://toolkit.tuebingen.mpg.de/tools/hhpred) output
+(if you included PDB as a searchable database), which is very convenient to
+model remote homologs using several templates in a few minutes.
 
 Fragment assembly will use the template core backbone atoms to build a core
 structure of the model, leaving non-conserved regions (mostly loops) for later.
@@ -501,4 +527,42 @@ model.
 [**What do you think you could use our models of NEIL2 and
 HAdV-2pol?**]{style="color:green"}
 
-# [Homology Modeling Practice](https://www.evernote.com/shard/s62/sh/a1767902-113e-8dc9-b483-3e4857aa8466/1pCJlsPEm9OAAt5oURr5_ily0bXpYSQpivXMsAZe7AV8A-GO2Wcv7mWFOw){style="color:green"}
+# [Review Quiz]{style="color:green"}
+
+::: callout-note
+Created with Microsoft Copilot
+:::
+
+```{r wd, echo = FALSE, results = 'asis'}
+opts_p <- c("Because of the limitations in high-throughput sequencing methods",answer = "Due to the rapid increase in the number of protein sequences compared to the slower rate of structure determination",
+    "Due to the decrease in the number of protein sequences being discovered",
+   "Because experimental determination of protein structures is becoming easier")
+
+cat("**Why is the protein sequence-structure gap constantly widening?**",longmcq(opts_p))
+
+opts_p <- c("It was highly symmetrical and regular", "It was simpler than anticipated",
+   answer = "It was more complex and lacked symmetry",
+   "It had a predictable arrangement")
+
+cat("**What was the unexpected finding about the myoglobin structure determined by John Kendrew and his co-workers in 1958?**",longmcq(opts_p))
+
+opts_p <- c("Proteins fold in milliseconds, but testing all possible conformations would take seconds", "Proteins fold in seconds, but testing all possible conformations would take nanoseconds",
+            "Proteins fold in minutes, but testing all possible conformations would take hours",
+   answer = "Proteins fold in nanoseconds, but testing all possible conformations would take billions of years")
+
+cat("**What does Levinthal’s paradox suggest about protein folding?**",longmcq(opts_p))
+
+opts_p <- c(answer = "A similar protein sequence involves similar 3D structure and function",
+            "A similar protein sequence involves different 3D structure and function",
+            "A different protein sequence involves similar 3D structure and function",
+   "A different protein sequence involves different 3D structure and function")
+
+cat("**What is the primary assumption of homology modeling?**",longmcq(opts_p))
+
+opts_p <- c(answer = "It evaluates the likelihood of the oligomeric state of the model",
+    answer =        "It indicates how the model is comparable to experimental structures of similar size",
+            "It predicts the expected quality of the resulting model",
+   "It assesses the sequence identity between the template and target")
+
+cat("**What is the significance of the QMEAN Z-score in model assessment?**",longmcq(opts_p))
+```

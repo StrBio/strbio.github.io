@@ -40,13 +40,17 @@ I suggest you review also the Structural Bioinformatics exercises from Pontifici
 
 
 ::: callout-warning
-## Under construction
+# Under construction
 
+## ❗ Check the modification date.
 
-Please note that this website is a draft that is constantly under revision during the semester (May 2025). Any feedback, help, or suggestions would be greatly appreciated.
+Please be aware that this website is a draft and will be revised throughout the semester (Feb-May 2025). The English writing style is been enhanced with the assistance of Microsoft Copilot (UAM license). 
+
+Feedback, assistance, and suggestions are welcome.
 
 ![](pics/8275a.jpg "Under construction...")
 :::
+
 ## Contact
 
 Please let me know if you find some mistake or a missing reference. Definitely, I'll appreciate any suggestion, request or correction. You can reach me by [email](mailto::modesto.redrejo@uam.es), [{{< iconify fa6-brands x-twitter >}}(f.k.a. Twitter)](https://twitter.com/mredrejo "Twitter") or [{{< iconify simple-icons bluesky >}}](https://bsky.app/profile/mredrejo.bsky.social).
