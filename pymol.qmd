@@ -31,7 +31,10 @@ There are two options to use [Pymol](https://www.pymol.org/) in your computer:
 
     -   STEP 1: Install from <https://www.pymol.org/#download> or by
         [Conda](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/02-working-with-environments/index.html):
-        `conda install -c schrodinger pymol-bundle`
+        
+        ```bash
+        conda install -c schrodinger pymol-bundle
+        ```
     -   STEP 2: Obtain a License here: <https://pymol.org/edu/>
 
 2.  Open Access version from GitHub:
@@ -42,15 +45,19 @@ There are two options to use [Pymol](https://www.pymol.org/) in your computer:
 
     -   UPDATE: for new MacOS you may need to install some dependencies:
 
-``` bash
-brew install tcl-tk
-```
+        ```bash
+        brew install tcl-tk
+        ```
 
 3.  Open Access version from `conda-forge` channel:
 
-``` bash
-conda install -c conda-forge pymol-open-source
-```
+
+
+      ```bash
+      conda install -c conda-forge pymol-open-source
+      ```
+
+
 
 # Part A: A 10-steps self-guided practice to learn Pymol
 
@@ -192,7 +199,7 @@ protein by secondary structure using Menu **C**
 Spectrum color scheme is also useful to follow the secondary structure
 succession.
 
-![](images/22fefa28-b8fc-4995-bca6-b22e8e48ef5c.png)
+![](images/c9ecf20c-f4b3-4967-880c-531d2ccf3d5e.png)
 
 Using upper menu (Settings and Display) we can also change several features of
 the image. Try yourself!
@@ -245,15 +252,15 @@ one option each time starting over from 6KI3 structure.*
 -   Option 1A: select in the sequence panel the sequence you want to remove and
     remove it
 
-``` python
-remove sele
-```
+    ``` python
+    remove sele
+    ```
 
 -   Option 1B: use command line
 
     -   Step 1: First you need to see the composition of your structure
 
-    ```         
+    ```bash         
     get_chains 6KI3
     select chain A
     select chain B
@@ -262,10 +269,10 @@ remove sele
 
     -   Step 2: select the chains you want to remove and remove them
 
-``` python
-select kk, chain A or chain C or chain D or chain E
-delete kk
-```
+    ``` python
+    select kk, chain A or chain C or chain D or chain E
+    delete kk
+    ```
 
 -   Option 2A: Select in the sequence panel the sequence or whole chains you
     want to keep: **A** \> "Copy to object" or "extract to object" will allow to
@@ -276,22 +283,22 @@ delete kk
 
     -   Step 1: Select and create:
 
-``` python
-select kk, chain B or chain F or chain G or chain H
-create monomer, kk
-```
+    ```python
+    select kk, chain B or chain F or chain G or chain H
+    create monomer, kk
+    ```
 
 Or directly create an object with your selected chains:
 
-``` python
-create monomer, chain B or chain F or chain G or chain H
-```
+  ``` python
+  create monomer, chain B or chain F or chain G or chain H
+  ```
 
 -   Step 2: Now you can remove the original object (if you wish)
 
-``` python
-remove 6KI3
-```
+    ``` python
+    remove 6KI3
+    ```
 
 ![](images/9cbdb7fb-ce22-44fd-a28e-c74c9966c862.png)
 
