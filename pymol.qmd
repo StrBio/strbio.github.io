@@ -246,8 +246,8 @@ You can remove objects (Option 1A or 1B) or copy a selection to a new object
 (Option 2A or 2B). You can test all with the instructions below, but I find more
 convenient to use command line alternatives (1B and 2B).
 
-*Note: The options below are alternative ways to get the same results. Try only
-one option each time starting over from 6KI3 structure.*
+*⚠️️ Note that the options 1 and 2 below are alternative ways to get the same results. Try only
+one option each time starting over from 6KI3 structure.⚠️❗️*
 
 -   Option 1A: select in the sequence panel the sequence you want to remove and
     remove it
