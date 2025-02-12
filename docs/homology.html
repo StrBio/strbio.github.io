@@ -292,7 +292,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 6, 2025</p>
+      <p class="date-modified">February 12, 2025</p>
     </div>
   </div>
     
@@ -309,10 +309,10 @@ window.Quarto = {
 <div id="fig-seqs" class="figure quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-seqs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://www.ebi.ac.uk/uniprot/TrEMBLstats"><img src="images/relstat1.png" title="Number of entries in UniProt/TrEMBL (Feb 2025)" class="figure img-fluid figure-img"></a>
+<a href="https://www.ebi.ac.uk/uniprot/TrEMBLstats"><img src="images/relstat1.png" title="Number of entries in UniProt/TrEMBL (Jan 2025)" class="figure img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seqs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Number of entries in UniProt/TrEMBL.
+Figure&nbsp;1: Number of entries in UniProt/TrEMBL (Jan 2025).
 </figcaption>
 </figure>
 </div>
@@ -323,7 +323,7 @@ Figure&nbsp;1: Number of entries in UniProt/TrEMBL.
 <a href="https://www.rcsb.org/stats/growth/growth-released-structures"><img src="pics/RCSB_stats.png" title="Number of macromolecular structures in RCSB PDB database." class="figure img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-structures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Number of macromolecular structures in RCSB PDB database (accessed 19th September 2023).
+Figure&nbsp;2: Number of macromolecular structures in RCSB PDB database (accessed 5th January 2025).
 </figcaption>
 </figure>
 </div>
@@ -461,7 +461,7 @@ Figure&nbsp;10: Workflow of template-based protein modeling. From Expasy <a href
 </figure>
 </div>
 <p>A traditional protocol of homology modeling will construct a partial or full model from a proein sequence based in a single homologous template. Overall a sequence identity of &gt;30% between template and target is required to obtain reliable results. These methods require three steps: (1) identification of the most appropriate template, (2) alignment of the query sequence and template, and (3) construction of the model. These steps can be approached with different methodological alternatives and may yield different results that need to be evaluated (step 4) to find the best solution for each step. For a more detailed overview of homology modeling, I recommend reading <span class="citation" data-cites="haddad2020">Haddad, Adam, and Heger (<a href="#ref-haddad2020" role="doc-biblioref">2020</a>)</span>.</p>
-<p>In this course, we will focus on end-to-end modeling using <a href="https://swissmodel.expasy.org/">SWISS-MODEL</a> <span class="citation" data-cites="waterhouse2018">(<a href="#ref-waterhouse2018" role="doc-biblioref">Waterhouse et al. 2018</a>)</span>, a fully automated modeling server that allows you to construct models without having to have a strong bioinformatics background or programming skills. Early versions of SWISS-MODEL only allowed modeling of sequences with homologs in databases, but as discussed below, implementation of advances in template recognition and model building has increased modeling capability and accuracy, especially in the last 15 years.</p>
+<p>In this course, we will focus on end-to-end modeling using <a href="https://swissmodel.expasy.org/">SWISS-MODEL</a> <span class="citation" data-cites="waterhouse2018">(<a href="#ref-waterhouse2018" role="doc-biblioref">A. Waterhouse et al. 2018</a>)</span>, a fully automated modeling server that allows you to construct models without having to have a strong bioinformatics background or programming skills. Early versions of SWISS-MODEL only allowed modeling of sequences with homologs in databases, but as discussed below, implementation of advances in template recognition and model building has increased modeling capability and accuracy, especially in the last 15 years.</p>
 <p>SWISS-MODEL has several supported inputs. Typically, you enter a single sequence query for template search, but you can also bypass this step and directly enter the desired template or even a template and a custom alignment. We will start with the first alternative.</p>
 <section id="in-class-homology-modeling-exercise-quick-modeling-with-swiss-model." class="level4">
 <h4 class="anchored" data-anchor-id="in-class-homology-modeling-exercise-quick-modeling-with-swiss-model."><span style="color:green">In-class Homology Modeling exercise: Quick Modeling with SWISS-MODEL.</span></h4>
@@ -605,7 +605,8 @@ Figure&nbsp;18: HAdV-2 DNA polymerase model obtained with SWISS-MODEL (July 2022
 </figcaption>
 </figure>
 </div>
-<p>QMEANDisCo can be used to analyze models obtained with other methods in order to make them comparable (note that you can use QMEANDisCo for models obtained with any method, you just need a <code>.pdb</code> file). There are other independent model assessing tools commonly used to assess protein models, like <a href="https://bioinformatics.lt/wtsam/voromqa">VoroMQA</a> <span class="citation" data-cites="olechnovi2017">(<a href="#ref-olechnovi2017" role="doc-biblioref">Olechnovič and Venclovas 2017</a>)</span> or <a href="https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD8_form.html">MoldFold</a> <span class="citation" data-cites="mcguffin2021">(<a href="#ref-mcguffin2021" role="doc-biblioref">McGuffin et al. 2021</a>)</span>. VoroMQA is very quick method that combines the idea of statistical potentials (i.e.&nbsp;a knowledge-based score function) with the use of interatomic contact areas to provide a score in the range of [0,1]. When applied to PDB database, most of the high-quality experimentally-based structures have a VoroMQA score &gt;0.4. Thus, if the score is greater than 0.4, then the model is likely good and models with score &lt;0.3 are likely bad ones. Models with score 0.3-0.4 are uncertain and should not be classified with VoroMQA. On the other hand, ModFold is a meta-tool that provides you a very detailed report (and parseable files) with local and global scores, but it can take hours/days to obtain the result, so tend to use it only with selected models.</p>
+<p>Swissmodel Assessment <span class="citation" data-cites="waterhouse2024">(<a href="#ref-waterhouse2024" role="doc-biblioref">A. M. Waterhouse et al. 2024</a>)</span> (<a href="https://swissmodel.expasy.org/assess" class="uri">https://swissmodel.expasy.org/assess</a>) can be also used as an external tool analyze models obtained with other methods in order to make them comparable, you just need <code>.pdb</code> files of your model and, optionally, the reference template protein.</p>
+<p>There are other independent model assessing tools commonly used to assess protein models, like <a href="https://bioinformatics.lt/wtsam/voromqa">VoroMQA</a> <span class="citation" data-cites="olechnovi2017">(<a href="#ref-olechnovi2017" role="doc-biblioref">Olechnovič and Venclovas 2017</a>)</span> or <a href="https://www.reading.ac.uk/bioinf/ModFOLD/">MoldFold</a> <span class="citation" data-cites="mcguffin2021">(<a href="#ref-mcguffin2021" role="doc-biblioref">McGuffin et al. 2021</a>)</span>. VoroMQA is very quick method that combines the idea of statistical potentials (i.e.&nbsp;a knowledge-based score function) with the use of interatomic contact areas to provide a score in the range of [0,1]. When applied to PDB database, most of the high-quality experimentally-based structures have a VoroMQA score &gt;0.4. Thus, if the score is greater than 0.4, then the model is likely good and models with score &lt;0.3 are likely bad ones. Models with score 0.3-0.4 are uncertain and should not be classified with VoroMQA. On the other hand, ModFold is a meta-tool that provides you a very detailed report (and parseable files) with local and global scores, but it can take hours/days to obtain the result, so we tend to use it only with selected models.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -632,7 +633,7 @@ AlphaFold DB models
 <a href="https://www.science.org/doi/10.1126/science.1065659"><img src="pics/sali.jpeg" title="Accuracy and application of protein structure models." class="figure img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-baker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;19: Accuracy and application of protein structure models (in 2001). From .
+Figure&nbsp;19: Accuracy and application of protein structure models (in 2001). From <span class="citation" data-cites="baker2001">Baker and Sali (<a href="#ref-baker2001" role="doc-biblioref">2001</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -659,24 +660,24 @@ Note
 </div>
 </div>
 <strong>Why is the protein sequence-structure gap constantly widening?</strong>
-<div id="radio_QHGZFCXGNJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QHGZFCXGNJ" value=""> <span>Because of the limitations in high-throughput sequencing methods</span></label><label><input type="radio" autocomplete="off" name="radio_QHGZFCXGNJ" value="answer"> <span>Due to the rapid increase in the number of protein sequences compared to the slower rate of structure determination</span></label><label><input type="radio" autocomplete="off" name="radio_QHGZFCXGNJ" value=""> <span>Due to the decrease in the number of protein sequences being discovered</span></label><label><input type="radio" autocomplete="off" name="radio_QHGZFCXGNJ" value=""> <span>Because experimental determination of protein structures is becoming easier</span></label>
+<div id="radio_OMOSXYTZZV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OMOSXYTZZV" value=""> <span>Because of the limitations in high-throughput sequencing methods</span></label><label><input type="radio" autocomplete="off" name="radio_OMOSXYTZZV" value="answer"> <span>Due to the rapid increase in the number of protein sequences compared to the slower rate of structure determination</span></label><label><input type="radio" autocomplete="off" name="radio_OMOSXYTZZV" value=""> <span>Due to the decrease in the number of protein sequences being discovered</span></label><label><input type="radio" autocomplete="off" name="radio_OMOSXYTZZV" value=""> <span>Because experimental determination of protein structures is becoming easier</span></label>
 </div>
 <strong>What was the unexpected finding about the myoglobin structure determined by John Kendrew and his co-workers in 1958?</strong>
-<div id="radio_IPLMQZRXOP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IPLMQZRXOP" value=""> <span>It was highly symmetrical and regular</span></label><label><input type="radio" autocomplete="off" name="radio_IPLMQZRXOP" value=""> <span>It was simpler than anticipated</span></label><label><input type="radio" autocomplete="off" name="radio_IPLMQZRXOP" value="answer"> <span>It was more complex and lacked symmetry</span></label><label><input type="radio" autocomplete="off" name="radio_IPLMQZRXOP" value=""> <span>It had a predictable arrangement</span></label>
+<div id="radio_XJYBPLSWQW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XJYBPLSWQW" value=""> <span>It was highly symmetrical and regular</span></label><label><input type="radio" autocomplete="off" name="radio_XJYBPLSWQW" value=""> <span>It was simpler than anticipated</span></label><label><input type="radio" autocomplete="off" name="radio_XJYBPLSWQW" value="answer"> <span>It was more complex and lacked symmetry</span></label><label><input type="radio" autocomplete="off" name="radio_XJYBPLSWQW" value=""> <span>It had a predictable arrangement</span></label>
 </div>
 <strong>What does Levinthal’s paradox suggest about protein folding?</strong>
-<div id="radio_MJIZUHKVXD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MJIZUHKVXD" value=""> <span>Proteins fold in milliseconds, but testing all possible conformations would take seconds</span></label><label><input type="radio" autocomplete="off" name="radio_MJIZUHKVXD" value=""> <span>Proteins fold in seconds, but testing all possible conformations would take nanoseconds</span></label><label><input type="radio" autocomplete="off" name="radio_MJIZUHKVXD" value=""> <span>Proteins fold in minutes, but testing all possible conformations would take hours</span></label><label><input type="radio" autocomplete="off" name="radio_MJIZUHKVXD" value="answer"> <span>Proteins fold in nanoseconds, but testing all possible conformations would take billions of years</span></label>
+<div id="radio_TJLVXZYJHE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TJLVXZYJHE" value=""> <span>Proteins fold in milliseconds, but testing all possible conformations would take seconds</span></label><label><input type="radio" autocomplete="off" name="radio_TJLVXZYJHE" value=""> <span>Proteins fold in seconds, but testing all possible conformations would take nanoseconds</span></label><label><input type="radio" autocomplete="off" name="radio_TJLVXZYJHE" value=""> <span>Proteins fold in minutes, but testing all possible conformations would take hours</span></label><label><input type="radio" autocomplete="off" name="radio_TJLVXZYJHE" value="answer"> <span>Proteins fold in nanoseconds, but testing all possible conformations would take billions of years</span></label>
 </div>
 <strong>What is the primary assumption of homology modeling?</strong>
-<div id="radio_ILGPFEVIME" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ILGPFEVIME" value="answer"> <span>A similar protein sequence involves similar 3D structure and function</span></label><label><input type="radio" autocomplete="off" name="radio_ILGPFEVIME" value=""> <span>A similar protein sequence involves different 3D structure and function</span></label><label><input type="radio" autocomplete="off" name="radio_ILGPFEVIME" value=""> <span>A different protein sequence involves similar 3D structure and function</span></label><label><input type="radio" autocomplete="off" name="radio_ILGPFEVIME" value=""> <span>A different protein sequence involves different 3D structure and function</span></label>
+<div id="radio_DPIJDAQKVD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DPIJDAQKVD" value="answer"> <span>A similar protein sequence involves similar 3D structure and function</span></label><label><input type="radio" autocomplete="off" name="radio_DPIJDAQKVD" value=""> <span>A similar protein sequence involves different 3D structure and function</span></label><label><input type="radio" autocomplete="off" name="radio_DPIJDAQKVD" value=""> <span>A different protein sequence involves similar 3D structure and function</span></label><label><input type="radio" autocomplete="off" name="radio_DPIJDAQKVD" value=""> <span>A different protein sequence involves different 3D structure and function</span></label>
 </div>
 <strong>What is the significance of the QMEAN Z-score in model assessment?</strong>
-<div id="radio_VSCVFMJUHB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VSCVFMJUHB" value="answer"> <span>It evaluates the likelihood of the oligomeric state of the model</span></label><label><input type="radio" autocomplete="off" name="radio_VSCVFMJUHB" value="answer"> <span>It indicates how the model is comparable to experimental structures of similar size</span></label><label><input type="radio" autocomplete="off" name="radio_VSCVFMJUHB" value=""> <span>It predicts the expected quality of the resulting model</span></label><label><input type="radio" autocomplete="off" name="radio_VSCVFMJUHB" value=""> <span>It assesses the sequence identity between the template and target</span></label>
+<div id="radio_LVHBYTLZOZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LVHBYTLZOZ" value="answer"> <span>It evaluates the likelihood of the oligomeric state of the model</span></label><label><input type="radio" autocomplete="off" name="radio_LVHBYTLZOZ" value="answer"> <span>It indicates how the model is comparable to experimental structures of similar size</span></label><label><input type="radio" autocomplete="off" name="radio_LVHBYTLZOZ" value=""> <span>It predicts the expected quality of the resulting model</span></label><label><input type="radio" autocomplete="off" name="radio_LVHBYTLZOZ" value=""> <span>It assesses the sequence identity between the template and target</span></label>
 </div>
 
 
@@ -689,6 +690,9 @@ Adiyaman, Recep, and Liam James McGuffin. 2019. <span>“Methods for the Refinem
 </div>
 <div id="ref-anfinsen1973" class="csl-entry" role="listitem">
 Anfinsen, C. B. 1973. <span>“Principles that govern the folding of protein chains.”</span> <em>Science (New York, N.Y.)</em> 181 (4096): 223–30. <a href="https://doi.org/10.1126/science.181.4096.223">https://doi.org/10.1126/science.181.4096.223</a>.
+</div>
+<div id="ref-baker2001" class="csl-entry" role="listitem">
+Baker, David, and Andrej Sali. 2001. <span>“Protein Structure Prediction and Structural Genomics.”</span> <em>Science</em> 294 (5540): 93–96. <a href="https://doi.org/10.1126/science.1065659">https://doi.org/10.1126/science.1065659</a>.
 </div>
 <div id="ref-bordin2023" class="csl-entry" role="listitem">
 Bordin, Nicola, Ian Sillitoe, Vamsi Nallapareddy, Clemens Rauer, Su Datt Lam, Vaishali P. Waman, Neeladri Sen, et al. 2023. <span>“AlphaFold2 reveals commonalities and novelties in protein structure space for 21 model organisms.”</span> <em>Communications Biology</em> 6 (1): 160. <a href="https://doi.org/10.1038/s42003-023-04488-9">https://doi.org/10.1038/s42003-023-04488-9</a>.
@@ -731,6 +735,9 @@ Studer, Gabriel, Christine Rempfer, Andrew M. Waterhouse, Rafal Gumienny, Juerge
 </div>
 <div id="ref-studer2021" class="csl-entry" role="listitem">
 Studer, Gabriel, Gerardo Tauriello, Stefan Bienert, Marco Biasini, Niklaus Johner, and Torsten Schwede. 2021. <span>“ProMod3-A versatile homology modelling toolbox.”</span> <em>PLoS computational biology</em> 17 (1): e1008667. <a href="https://doi.org/10.1371/journal.pcbi.1008667">https://doi.org/10.1371/journal.pcbi.1008667</a>.
+</div>
+<div id="ref-waterhouse2024" class="csl-entry" role="listitem">
+Waterhouse, Andrew M., Gabriel Studer, Xavier Robin, Stefan Bienert, Gerardo Tauriello, and Torsten Schwede. 2024. <span>“The structure assessment web server: for proteins, complexes and more.”</span> <em>Nucleic Acids Research</em> 52 (W1): W318–23. <a href="https://doi.org/10.1093/nar/gkae270">https://doi.org/10.1093/nar/gkae270</a>.
 </div>
 <div id="ref-waterhouse2018" class="csl-entry" role="listitem">
 Waterhouse, Andrew, Martino Bertoni, Stefan Bienert, Gabriel Studer, Gerardo Tauriello, Rafal Gumienny, Florian T Heer, et al. 2018. <span>“SWISS-MODEL: Homology Modelling of Protein Structures and Complexes.”</span> <em>Nucleic Acids Research</em> 46 (W1): W296–303. <a href="https://doi.org/10.1093/nar/gky427">https://doi.org/10.1093/nar/gky427</a>.

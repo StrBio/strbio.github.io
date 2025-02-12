@@ -29,8 +29,8 @@ The number of protein sequences in databases growth exponentially during the
 last decades, particularly after the revolution of high throughput sequencing
 methods.
 
-[![Number of entries in
-UniProt/TrEMBL.](images/relstat1.png "Number of entries in UniProt/TrEMBL (Feb 2025)"){#fig-seqs
+[![Number of entries in UniProt/TrEMBL (Jan
+2025).](images/relstat1.png "Number of entries in UniProt/TrEMBL (Jan 2025)"){#fig-seqs
 .figure}](https://www.ebi.ac.uk/uniprot/TrEMBLstats)
 
 However, experimental determination of 3D protein structures is often difficult,
@@ -46,9 +46,9 @@ sequence-structure gap*** and it is constantly widening [@muhammed2019],
 especially if we consider the sequences from metagenomics databases not
 available in Uniprot.
 
-[![Number of macromolecular structures in RCSB PDB database (accessed 19th
-September
-2023).](pics/RCSB_stats.png "Number of macromolecular structures in RCSB PDB database."){#fig-structures
+[![Number of macromolecular structures in RCSB PDB database (accessed 5th
+January
+2025).](pics/RCSB_stats.png "Number of macromolecular structures in RCSB PDB database."){#fig-structures
 .figure}](https://www.rcsb.org/stats/growth/growth-released-structures)
 
 Thus, accurate and *reliable* prediction of the 3D structure of any given
@@ -449,12 +449,14 @@ the model are more likely to accurately folded (i.e. they are more reliable).
 2022).](pics/hadv-pol.png "HAdV-2 DNA polymerase"){#fig-pol
 .figure}](https://swissmodel.expasy.org/interactive/GZ8GmU/models/)
 
-QMEANDisCo can be used to analyze models obtained with other methods in order to
-make them comparable (note that you can use QMEANDisCo for models obtained with
-any method, you just need a `.pdb` file). There are other independent model
-assessing tools commonly used to assess protein models, like
-[VoroMQA](https://bioinformatics.lt/wtsam/voromqa) [@olechnovi2017] or
-[MoldFold](https://www.reading.ac.uk/bioinf/ModFOLD/ModFOLD8_form.html)
+Swissmodel Assessment [@waterhouse2024] (<https://swissmodel.expasy.org/assess>)
+can be also used as an external tool analyze models obtained with other methods
+in order to make them comparable, you just need `.pdb` files of your model and,
+optionally, the reference template protein.
+
+There are other independent model assessing tools commonly used to assess
+protein models, like [VoroMQA](https://bioinformatics.lt/wtsam/voromqa)
+[@olechnovi2017] or [MoldFold](https://www.reading.ac.uk/bioinf/ModFOLD/)
 [@mcguffin2021]. VoroMQA is very quick method that combines the idea of
 statistical potentials (i.e. a knowledge-based score function) with the use of
 interatomic contact areas to provide a score in the range of \[0,1\]. When
@@ -464,7 +466,7 @@ then the model is likely good and models with score \<0.3 are likely bad ones.
 Models with score 0.3-0.4 are uncertain and should not be classified with
 VoroMQA. On the other hand, ModFold is a meta-tool that provides you a very
 detailed report (and parseable files) with local and global scores, but it can
-take hours/days to obtain the result, so tend to use it only with selected
+take hours/days to obtain the result, so we tend to use it only with selected
 models.
 
 ::: callout-tip
@@ -494,7 +496,7 @@ or using molecular visualization apps, including [Mol\*](https://molstar.org/),
 ## Corollary: What can I do with my model and what I cannot? {#corollary}
 
 [![Accuracy and application of protein structure models (in 2001). From
-.](pics/sali.jpeg "Accuracy and application of protein structure models."){#fig-baker
+@baker2001.](pics/sali.jpeg "Accuracy and application of protein structure models."){#fig-baker
 .figure}](https://www.science.org/doi/10.1126/science.1065659)
 
 A big power entails a big responsibility. The use of models entails a precaution
