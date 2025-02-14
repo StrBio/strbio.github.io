@@ -23,6 +23,7 @@ website:
           - advanced.qmd
           - ai.qmd
           - links.qmd
+          - casp.qmd
     tools:
 
       - icon: envelope-paper

@@ -1,5 +1,6 @@
 ---
-title: "UAM CASP Practice"
+title: "UAM CASP competition"
+
 date: "August 21, 2023"
 date-modified: "`r Sys.Date()`"
 format: 
@@ -41,7 +42,7 @@ For each sequence, you must utilize three or more different protocols for model 
     consider the presence of transmembrane (TM) or disordered motifs and other
     1D features that might limit accurate modeling of the full-length protein.
     Resources, including links for modeling servers and Colab notebooks, can be
-    found here: <https://strbio.github.io/links.html>
+    found [here](links.html).
 
 -   At least one protocol must be based on deep-learning methods (e.g.,
     Alphafold, RoseTTAFold, C-I-Tasser, ESM Fold, OmegaFold, OpenFold, or

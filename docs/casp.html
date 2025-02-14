@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>UAM CASP Practice – Structural Bioinformatics at UAM</title>
+<title>UAM CASP competition – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./links.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="UAM CASP Practice – Structural Bioinformatics at UAM">
+<meta name="twitter:title" content="UAM CASP competition – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -87,9 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Structural Bioinformatics at 	UAM
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./casp.html">UAM CASP competition</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -192,6 +191,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Modeling Resources</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./casp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">UAM CASP competition</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -218,9 +223,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./casp.html">UAM CASP competition</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UAM CASP Practice</h1>
+<h1 class="title" style="color:green">UAM CASP competition</h1>
 </div>
 
 
@@ -238,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 13, 2025</p>
+      <p class="date-modified">February 14, 2025</p>
     </div>
   </div>
     
@@ -257,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="2"><span class="header-section-number">2</span> Procedure</h1>
 <ul>
 <li><p>Before starting, try to obtain background information on your protein that could impact the results, such as oligomerization, ligands (e.g., ions, ATP, NAD+), protein partners, etc.</p></li>
-<li><p>Given that this is a CASP-like exercise, high-quality models should <em>ideally</em> cover the full-length of the target sequences. However, it is beneficial to consider the presence of transmembrane (TM) or disordered motifs and other 1D features that might limit accurate modeling of the full-length protein. Resources, including links for modeling servers and Colab notebooks, can be found here: <a href="https://strbio.github.io/links.html" class="uri">https://strbio.github.io/links.html</a></p></li>
+<li><p>Given that this is a CASP-like exercise, high-quality models should <em>ideally</em> cover the full-length of the target sequences. However, it is beneficial to consider the presence of transmembrane (TM) or disordered motifs and other 1D features that might limit accurate modeling of the full-length protein. Resources, including links for modeling servers and Colab notebooks, can be found <a href="links.html">here</a>.</p></li>
 <li><p>At least one protocol must be based on deep-learning methods (e.g., Alphafold, RoseTTAFold, C-I-Tasser, ESM Fold, OmegaFold, OpenFold, or UniFold). Homology modeling or threading methods can also be tested.</p></li>
 <li><p>Compare different protein designs (ligands, oligomers) and algorithm options (recycle steps, seeds).</p></li>
 <li><p>Carefully consider model assessment and the relevance of various scores such as pLDDT, pTM, or PAE. Independent assessment methods (e.g., QMeanDisco, MoldFold, VoroMQA) can also be utilized. Select the best models for each sequence.</p></li>
@@ -922,6 +927,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./links.html" class="pagination-link" aria-label="Modeling Resources">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Modeling Resources</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
