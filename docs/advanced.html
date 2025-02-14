@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Structural Bioinformatics at UAM - Advanced homology modeling</title>
+<title>Advanced homology modeling – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -87,10 +95,9 @@ div.csl-indent {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Structural Bioinformatics at UAM - Advanced homology modeling">
+<meta name="twitter:title" content="Advanced homology modeling – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="pics/fr.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked">
@@ -99,13 +106,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./advanced.html">Advanced homology modeling</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./advanced.html">Advanced homology modeling</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -114,7 +121,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Structural Bioinformatics at UAM</a> 
@@ -134,14 +141,14 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">StrBio 2023-24</span></a>
+ <span class="menu-text">StrBio UAM</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Background</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -168,9 +175,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -210,7 +217,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -220,6 +227,7 @@ div.csl-indent {
   <li><a href="#from-homology-modeling-to-threading" id="toc-from-homology-modeling-to-threading" class="nav-link active" data-scroll-target="#from-homology-modeling-to-threading"><span class="header-section-number">1</span> From homology modeling to threading</a>
   <ul class="collapse">
   <li><a href="#sec-threading" id="toc-sec-threading" class="nav-link" data-scroll-target="#sec-threading">Threading or Fold-recognition methods</a></li>
+  <li><a href="#scores" id="toc-scores" class="nav-link" data-scroll-target="#scores">Scoring functions in threading and deep-learning protein modeling</a></li>
   </ul></li>
   <li><a href="#maps" id="toc-maps" class="nav-link" data-scroll-target="#maps"><span class="header-section-number">2</span> From contact maps to pairwise high-res feature maps</a>
   <ul class="collapse">
@@ -231,14 +239,14 @@ div.csl-indent {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./advanced.html">Advanced homology modeling</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Advanced homology modeling</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
     <div>
@@ -251,14 +259,16 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 29, 2023</p>
+      <p class="date-modified">February 14, 2025</p>
     </div>
   </div>
     
   </div>
   
 
+
 </header>
+
 
 <section id="from-homology-modeling-to-threading" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> From homology modeling to threading</h1>
@@ -267,25 +277,37 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="sec-threading">Threading or Fold-recognition methods</h2>
 <p>As mentioned earlier, the introduction of HMM-based profiles during the first decade of this century led to a great improvement in template detection and protein modeling in the twilight zone, i.e., proteins with only distant homologs (&lt;25-30% identity) in databases. In order to exploit the power of HMM searches, those methods naturally evolved into iterative <u>threading</u> methods, based on multitemplate model construction, implemented in <a href="https://zhanggroup.org/I-TASSER/">I-TASSER</a> <span class="citation" data-cites="roy2010">(<a href="#ref-roy2010" role="doc-biblioref">Roy, Kucukural, and Zhang 2010</a>)</span>, <a href="http://www.sbg.bio.ic.ac.uk/phyre2/">Phyre2</a> <span class="citation" data-cites="kelley2015">(<a href="#ref-kelley2015" role="doc-biblioref">L. A. Kelley et al. 2015</a>)</span>, and <a href="https://new.rosettacommons.org/demos/latest/tutorials/rosetta_cm/rosetta_cm_tutorial">RosettaCM</a> <span class="citation" data-cites="song2013">(<a href="#ref-song2013" role="doc-biblioref">Song et al. 2013</a>)</span>, among others. These methods are usually referred to as <strong>Threading</strong> or <strong>Fold-recognition</strong> methods. Note that the classification of modeling methods is often blurry. The current version of SwissModel and the use of HHPred+Modeller already rely on HMM profiles for template identification and alignment; being thus strictly also fold-recognition methods.</p>
 <p>Both terms can be often used interchangeably, although some authors see <strong>Fold-Recognition</strong> as any technique that uses structural information in addition to sequence information to identify remote homologies, while <strong>Threading</strong> would refer to a more complex process of modeling including remote homologies and also the modeling of pairwise amino acid interactions in the structure. Therefore, HHPRED is a fold-recognition method and its use along with Modeller, could be indeed considered threading.</p>
-<div id="fig-frost" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/fr.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: The idea behind fold-recognition is that instead of comparing sequences, we intend to compare structures. In the Frozen approximation (left), one residue is aligned with the template structure and then we evaluate the probability of the nearby residues in the query sequence to be in the same position than the equivalent in the template. On the other hand, Defrost methods use profiles to generate improved alignments that allow better starting points to the energy calculations during the iterative modeling steps. From <span class="citation" data-cites="kelley2009a">Lawrence A. Kelley (<a href="#ref-kelley2009a" role="doc-biblioref">2009</a>)</span>.</figcaption>
+<div id="fig-frost" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-frost-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/fr.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frost-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The idea behind fold-recognition is that instead of comparing sequences, we intend to compare structures. In the Frozen approximation (left), one residue is aligned with the template structure and then we evaluate the probability of the nearby residues in the query sequence to be in the same position than the equivalent in the template. On the other hand, Defrost methods use profiles to generate improved alignments that allow better starting points to the energy calculations during the iterative modeling steps. From <span class="citation" data-cites="kelley2009a">Lawrence A. Kelley (<a href="#ref-kelley2009a" role="doc-biblioref">2009</a>)</span>.
+</figcaption>
 </figure>
 </div>
 <p>The Iterative Threading ASSembly Refinement (<a href="http://zhanglab.ccmb.med.umich.edu/I-TASSER">I-TASSER</a>) from <a href="https://zhanggroup.org/">Yang Zhang lab</a> is one of the most widely used threading methods and servers. This method was was ranked as the No 1 server for protein structure prediction in the community-wide <a href="https://zhanggroup.org/casp7/21.html">CASP7</a>, <a href="https://predictioncenter.org/casp8/groups_analysis.cgi?target_type=0&amp;gr_type=server">CASP8</a>, <a href="https://predictioncenter.org/casp9/CD/data/html/groups.2.html">CASP9</a>, <a href="http://predictioncenter.org/casp10/groups_analysis.cgi?type=server">CASP10</a>, <a href="http://www.predictioncenter.org/casp11/zscores_final.cgi?gr_type=server_only">CASP11</a>, <a href="http://www.predictioncenter.org/casp12/zscores_final.cgi?&amp;gr_type=server_only">CASP12</a>, <a href="http://www.predictioncenter.org/casp13/zscores_final.cgi?model_type=best&amp;gr_type=server_only">CASP13</a>, and <a href="http://www.predictioncenter.org/casp14/zscores_final.cgi?gr_type=server_only">CASP14</a> experiments. I-TASSER first generates three-dimensional (3D) atomic models from multiple threading alignments and iterative structural assembly simulations that are iteratively selected and improved. The quality of the template alignments (and therefore the difficulty of modeling the targets) is judged based on the statistical significance of the best threading alignment, i.e., the <em>Z</em>-score, which is defined as the energy score in standard deviation units relative to the statistical mean of all alignments.</p>
-<div id="fig-tasser" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/paste-29011FF5.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Flowchart of I-TASSER protein structure modeling. From <span class="citation" data-cites="rigden2017a">Rigden (<a href="#ref-rigden2017a" role="doc-biblioref">2017</a>)</span>.</figcaption>
+<div id="fig-tasser" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tasser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/paste-29011FF5.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tasser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Flowchart of I-TASSER protein structure modeling. From <span class="citation" data-cites="rigden2017a">Rigden (<a href="#ref-rigden2017a" role="doc-biblioref">2017</a>)</span>.
+</figcaption>
 </figure>
 </div>
 <p>First, I-TASSER uses Psi-BLAST against curated databases to select sequence homologs and generate a sequence profile. That profile is used to predict the secondary structure and generate multiple fragmented models using several programs. The top template hits from each threading program are then selected for the following steps. In the second stage, continuous fragments in threading alignments are excised from the template structures and are used to assemble structural conformations of the sections that aligned well, with the unaligned regions (mainly loops/tails) built by <em>ab initio</em> modeling. The fragment assembly is performed using a modified replica-exchange Monte Carlo random simulation technique, which implements several replica simulations in parallel using different conditions that are periodically exchanged. Those simulations consider multiple parameters, including model statistics (stereochemical outliers, H-bond, hydrophobicity…), spatial restraints and amino acid pairwise contact predictions (<a href="#maps">see below</a>). In each step, output models are clustered to select the representative ones for the next stage. A final refinement step includes rotamers modeling and filtering out steric clashes.</p>
 <p>One interesting thing about I-TASSER is that it is integrated within a server with many other applications, including some of the tools that I-TASSER uses and other advanced methods based on I-TASSER, like I-TASSER-MTD for large, multidomain proteins or C-I-TASSER that implements a deep learning step, similar to Alphafold2 (see <a href="ai.html">next section</a>).</p>
-<div id="fig-rosettacm" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/rosettaCM.jpg" title="RosettaCM Protocol" class="figure img-fluid figure-img" width="664"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: RosettaCM Protocol. (A) Flowchart of the RosettaCM protocol. (B–D) RosettaCM conformational sampling. From <span class="citation" data-cites="song2013">Song et al. (<a href="#ref-song2013" role="doc-biblioref">2013</a>)</span>.</figcaption>
+<div id="fig-rosettacm" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rosettacm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/rosettaCM.jpg" title="RosettaCM Protocol" class="figure img-fluid figure-img" width="664">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rosettacm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: RosettaCM Protocol. (A) Flowchart of the RosettaCM protocol. (B–D) RosettaCM conformational sampling. From <span class="citation" data-cites="song2013">Song et al. (<a href="#ref-song2013" role="doc-biblioref">2013</a>)</span>.
+</figcaption>
 </figure>
 </div>
 <p><strong>RosettaCM</strong> is an advanced homology modeling or threading algorithm by the <a href="https://www.bakerlab.org/">Baker lab</a>, implemented in <a href="https://www.rosettacommons.org/software">Rosetta</a> software and the <a href="https://robetta.bakerlab.org/">Robetta</a> webserver. RossetaCM provides accurate models by breaking up the sequence into fragments that are aligned to a set of selected templates, generating accurate models by a threading processes that uses different fragments from each of the templates. Additionally it uses minor <em>ab initio</em> folding to fill the residues that could not be assigned during the threading. Then, the model is closed by iterative optimization steps that include Monte Carlo sampling. Finally, an <em>all-atom</em> refinement towards a minimum of free energy <span class="citation" data-cites="song2013">(<a href="#ref-song2013" role="doc-biblioref">Song et al. 2013</a>)</span>.</p>
@@ -303,38 +325,60 @@ Puzzling nomenclature: comparative, homology or <em>ab initio</em> modeling?
 </div>
 </div>
 </section>
+<section id="scores" class="level2">
+<h2 class="anchored" data-anchor-id="scores">Scoring functions in threading and deep-learning protein modeling</h2>
+<p>In protein modeling, various scoring functions are used to evaluate the similarity of protein structures. As you know, the Root-Mean-Square Deviation (<strong>RMSD</strong>) measures three-dimensional similarity by calculating the RMSD of the Cα atomic coordinates after structural alignment. However, it is sensitive to outliers and may overlook good models. <strong>TM-Score</strong> is a normalized alternative to RMSD, ranging from 0 to 1, which considers the length of the protein and is less influenced by outliers.</p>
+<p>In CASP, the score of the models is based on the Global Distance Test (<strong>GDT</strong>), often expressed as a percentage between 0 and 100, which measures the number of residues within a set distance cutoff. Specifically, the <strong>GDT-TS</strong> calculates the average GDT for 1, 2, 4, and 8 Å cutoffs. Similar to RMSD, the GDT score is length-dependent, as its average score for random structure pairs follows a power-law dependence on protein size. To address this, the <a href="https://proteopedia.org/wiki/index.php/Calculating_GDT_TS"><strong>GDT-TS Z-score</strong></a>, used in RosettaCM, indicates data quality and dispersion based on mean and standard deviation values. This use of the Z-score or standard scores is common in mathematics, reflecting how many standard deviations a raw score is from the mean.</p>
+<p>Finally, the <a href="https://www.ebi.ac.uk/training/online/courses/alphafold/inputs-and-outputs/evaluating-alphafolds-predicted-structures-using-confidence-scores/plddt-understanding-local-confidence/"><strong>plDDT</strong></a>, or per-residue estimate <strong>lDDT</strong> <span class="citation" data-cites="mariani2013">(<a href="#ref-mariani2013" role="doc-biblioref">Mariani et al. 2013</a>)</span> used in AlphaFold and related methods, provides a per-residue normalized score of Cα-atomic superposition-free distance, with values ranging from 0 to 100. This scoring can refer to either a single structure or an ensemble, offering detailed insights into protein modeling accuracy. Additionally, if a protein region is naturally highly flexible or intrinsically disordered, in which case it does not have any well-defined structure, will also have a lower lDDT <span class="citation" data-cites="wilson2022">(<a href="#ref-wilson2022" role="doc-biblioref">Wilson, Choy, and Karttunen 2022</a>)</span>.</p>
+</section>
 </section>
 <section id="maps" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> From contact maps to pairwise high-res feature maps</h1>
-<p>A <strong>protein contact map</strong> represents the contacts between all possible amino acid residue pairs of a given protein sequence in the three-dimensional structure. It is represented as a binary (0,1) matrix with n rows and columns, being n the number of residues of the sequence. Thus, for two residues, <em>i</em> and <em>j</em>, the <em>ij</em> element of the matrix is 1 if the two residues are in contact in the structure. In practical terms, the contact is defined as when the residues are closer than a specified threshold. In the examples on <a href="#fig-contact">Figure 8</a>, the threshold is 9 Å. Note that the pattern in the map clearly show differences between motifs and somehow reflex secondary structure stretches.</p>
-<div id="fig-contact" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/contact.png" title="Contact-based map" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Contact-based map of representative proteins. The map represents a matrix of amino acid positions in the protein sequences (on both, the X and Y axis); with contacts indicated as blue dots. When a number of consecutive residues in the sequence interact the dots form diagonal stretches. Maps obtained at <a href="http://cmweb.enzim.hu/" class="uri">http://cmweb.enzim.hu/</a></figcaption>
+<p>A protein contact map illustrates the interactions between all possible pairs of amino acid residues in a protein’s three-dimensional structure. This is displayed as a binary matrix with n rows and columns, where n represents the number of residues in the sequence. In this matrix, the element at position <em>ij</em> is marked as 1 if residues <em>i</em> and <em>j</em> are in contact within the structure. Contact is typically defined as residues being closer than a certain distance threshold, which is 9 Å in the examples shown in <a href="#fig-contact" class="quarto-xref">Figure&nbsp;4</a>. The patterns in these maps highlight the differences between motifs and reflect the stretches of secondary structure.</p>
+<div id="fig-contact" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-contact-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/contact.png" title="Contact-based map" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contact-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Contact-based map of representative proteins. The map represents a matrix of amino acid positions in the protein sequences (on both, the X and Y axis); with contacts indicated as blue dots. When a number of consecutive residues in the sequence interact the dots form diagonal stretches. Maps obtained at <a href="http://cmweb.enzim.hu/" class="uri">http://cmweb.enzim.hu/</a>
+</figcaption>
 </figure>
 </div>
-<p>An accurate information of protein’s residue–residue contacts is sufficient to elucidate the fold of a protein <span class="citation" data-cites="olmea1997">(<a href="#ref-olmea1997" role="doc-biblioref">Olmea and Valencia 1997</a>)</span>; however implementation of these maps in protein modeling is not trivial, as predicting that map is not always easy. The introduction of <strong>direct-coupling analysis (DCA)</strong>, i.e., extract the residue coevolution from MSAs (<a href="#fig-coevol">Figure 9</a>) improved contact maps and allowed their implementation for protein folding in several methods, like PSICOV <span class="citation" data-cites="jones2012">(<a href="#ref-jones2012" role="doc-biblioref">Jones et al. 2012</a>)</span> or Gremlin <span class="citation" data-cites="kamisetty2013">(<a href="#ref-kamisetty2013" role="doc-biblioref">Kamisetty, Ovchinnikov, and Baker 2013</a>)</span>, among others. However, it should be noted for proteins without many sequence homologs, the predicted contacts were of low quality and insufficient for accurate contact-assisted protein modeling.</p>
-<div id="fig-coevol" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/contact_evol.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Schematic of how co-evolution methods extract information about protein structure from a multiple sequence alignment (MSA). From <span class="citation" data-cites="bittrich2019">Bittrich, Schroeder, and Labudde (<a href="#ref-bittrich2019" role="doc-biblioref">2019</a>)</span></figcaption>
+<p>Accurate information on residue-residue contacts is sufficient to determine a protein’s fold <span class="citation" data-cites="olmea1997">(<a href="#ref-olmea1997" role="doc-biblioref">Olmea and Valencia 1997</a>)</span>. However, using these maps in protein modeling is challenging, as predicting these contacts is not straightforward. The advent of direct-coupling analysis (<strong>DCA</strong>), which extracts residue coevolution from multiple sequence alignments (MSAs) as shown in <a href="#fig-coevol" class="quarto-xref">Figure&nbsp;5</a>, has improved contact map predictions. This has facilitated their use in protein folding with methods such as PSICOV <span class="citation" data-cites="jones2012">(<a href="#ref-jones2012" role="doc-biblioref">Jones et al. 2012</a>)</span> and Gremlin <span class="citation" data-cites="kamisetty2013">(<a href="#ref-kamisetty2013" role="doc-biblioref">Kamisetty, Ovchinnikov, and Baker 2013</a>)</span>. Nevertheless, for proteins with few sequence homologs, the predicted contacts are often low in quality, making accurate contact-assisted protein modeling difficult.</p>
+<div id="fig-coevol" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coevol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/contact_evol.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coevol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Schematic of how co-evolution methods extract information about protein structure from a multiple sequence alignment (MSA). From <span class="citation" data-cites="bittrich2019">Bittrich, Schroeder, and Labudde (<a href="#ref-bittrich2019" role="doc-biblioref">2019</a>)</span>
+</figcaption>
 </figure>
 </div>
 <section id="sec-NN" class="level3 section">
 <h3 class="section anchored" data-anchor-id="sec-NN">Implementation of several layers of information processed by neural network and deep learning methods</h3>
-<p>Deep learning is a sub-field of machine learning which is based on artificial neural networks (NN). Neural networks were introduced actually in the late 40’s and 50’s, but they reappeared in the 2000’s thanks to the increase in computational capacities and, more recently, the use of <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">GPUs</a>. Briefly, a NN uses multiple interconnected layers to transform multiple inputs (MSAs, high-resolution contact-based maps…) into compound features that can be used to predict a complex output, like a 3D protein structure. As their name indicates, NNs attempt to simulate the behavior of the human brain that processes large amounts of data and can be trained to “learn” from that data. Deep learning is based on the use of multiple layer-NN to optimize and refine for accuracy.</p>
-<div id="fig-families" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/contact2.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Illustration of column pair and precision sub-matrix grouping for advanced prediction of contact maps. In the example, Columns 5 and 14 in the first family are aligned to columns 5 and 11 in the second family, respectively, so column pair (5,14) in the first family and the pair (5,11) in the second family are assigned to the same group. Accordingly, the two precision sub-matrices will be assigned to the same group. From <span class="citation" data-cites="ma2015">Ma et al. (<a href="#ref-ma2015" role="doc-biblioref">2015</a>)</span>.</figcaption>
+<p>Deep learning is a sub-field of machine learning based on artificial neural networks (NNs). Neural networks were initially introduced in the late 1940s and 1950s but gained prominence again in the 2000s with the rise of computational capacities and the use of <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">GPUs</a>. Essentially, an NN uses multiple interconnected layers to transform various inputs, such as MSAs and high-resolution contact maps, into complex features that can then predict intricate outputs like a 3D protein structure. NNs aim to simulate the behavior of the human brain, processing large amounts of data and learning from it. Deep learning utilizes multiple-layer NNs to optimize and refine accuracy.</p>
+<div id="fig-families" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/contact2.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Illustration of column pair and precision sub-matrix grouping for advanced prediction of contact maps. In the example, Columns 5 and 14 in the first family are aligned to columns 5 and 11 in the second family, respectively, so column pair (5,14) in the first family and the pair (5,11) in the second family are assigned to the same group. Accordingly, the two precision sub-matrices will be assigned to the same group. From <span class="citation" data-cites="ma2015">Ma et al. (<a href="#ref-ma2015" role="doc-biblioref">2015</a>)</span>.
+</figcaption>
 </figure>
 </div>
-<p>The next level of complexity in contact maps is their application to distantly related proteins by comparing sets of DCA from different protein families, a method sometimes referred as joint evolutionary coupling analysis (<a href="#fig-families">Figure 10</a>). This kind of analysis entails processing a huge amount of information, which increases the computational resources requirements. Thus, the use of trained neural networks and state-of-the-art deep-learning methods boosted the capacities of protein modeling.</p>
-<p>In this context, the introduction of supervised machine learning methods that predict contacts, outperforms DCA methods by the use of multilayer neural networks <span class="citation" data-cites="jones2015 ma2015 wang2017a yang2020">(<a href="#ref-jones2015" role="doc-biblioref">Jones et al. 2015</a>; <a href="#ref-ma2015" role="doc-biblioref">Ma et al. 2015</a>; <a href="#ref-wang2017a" role="doc-biblioref">Wang et al. 2017</a>; <a href="#ref-yang2020" role="doc-biblioref">Yang et al. 2020</a>)</span>. These methods implemented the use of the so-called high <strong>resolution contact maps</strong> (<a href="#fig-highres">Figure 11</a>), which contains enriched information with not only contacts but also distances, and angles, represented in a heatmap-like probability scale.</p>
-<div id="fig-highres" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/high_res_maps.png" title="High-resolution contact maps" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Example of high-resolution contact maps of 6MSP. From <span class="citation" data-cites="yang2020">Yang et al. (<a href="#ref-yang2020" role="doc-biblioref">2020</a>)</span></figcaption>
+<p>The next complexity level in contact maps involves applying them to distantly related proteins by comparing sets of DCA from different protein families, sometimes referred to as joint evolutionary coupling analysis (<a href="#fig-families" class="quarto-xref">Figure&nbsp;6</a>). This method requires processing massive amounts of information, which increases computational demands. Hence, the use of trained neural networks and advanced deep-learning methods has significantly enhanced protein modeling capabilities.</p>
+<p>In this context, the introduction of supervised machine learning methods that predict contacts has outperformed DCA methods by employing multilayer neural networks <span class="citation" data-cites="jones2015 ma2015 wang2017a yang2020">(<a href="#ref-jones2015" role="doc-biblioref">Jones et al. 2015</a>; <a href="#ref-ma2015" role="doc-biblioref">Ma et al. 2015</a>; <a href="#ref-wang2017a" role="doc-biblioref">Wang et al. 2017</a>; <a href="#ref-yang2020" role="doc-biblioref">Yang et al. 2020</a>)</span>. These methods incorporate high-resolution contact maps (<a href="#fig-highres" class="quarto-xref">Figure&nbsp;7</a>), containing enriched information that includes not only contacts but also distances and angles, represented in a heatmap-like probability scale.</p>
+<div id="fig-highres" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-highres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/high_res_maps.png" title="High-resolution contact maps" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-highres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Example of high-resolution contact maps of 6MSP. From <span class="citation" data-cites="yang2020">Yang et al. (<a href="#ref-yang2020" role="doc-biblioref">2020</a>)</span>
+</figcaption>
 </figure>
 </div>
 
@@ -343,7 +387,7 @@ Puzzling nomenclature: comparative, homology or <em>ab initio</em> modeling?
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bittrich2019" class="csl-entry" role="listitem">
 Bittrich, Sebastian, Michael Schroeder, and Dirk Labudde. 2019. <span>“StructureDistiller: Structural relevance scoring identifies the most informative entries of a contact map.”</span> <em>Scientific Reports</em> 9 (1): 18517. <a href="https://doi.org/10.1038/s41598-019-55047-4">https://doi.org/10.1038/s41598-019-55047-4</a>.
 </div>
@@ -365,6 +409,9 @@ Kelley, Lawrence A. 2009. <span>“Fold Recognition.”</span> In, edited by Dan
 <div id="ref-ma2015" class="csl-entry" role="listitem">
 Ma, Jianzhu, Sheng Wang, Zhiyong Wang, and Jinbo Xu. 2015. <span>“Protein contact prediction by integrating joint evolutionary coupling analysis and supervised learning.”</span> <em>Bioinformatics (Oxford, England)</em> 31 (21): 3506–13. <a href="https://doi.org/10.1093/bioinformatics/btv472">https://doi.org/10.1093/bioinformatics/btv472</a>.
 </div>
+<div id="ref-mariani2013" class="csl-entry" role="listitem">
+Mariani, Valerio, Marco Biasini, Alessandro Barbato, and Torsten Schwede. 2013. <span>“lDDT: A Local Superposition-Free Score for Comparing Protein Structures and Models Using Distance Difference Tests.”</span> <em>Bioinformatics</em> 29 (21): 2722–28. <a href="https://doi.org/10.1093/bioinformatics/btt473">https://doi.org/10.1093/bioinformatics/btt473</a>.
+</div>
 <div id="ref-olmea1997" class="csl-entry" role="listitem">
 Olmea, O., and A. Valencia. 1997. <span>“Improving contact predictions by the combination of correlated mutations and other sources of sequence information.”</span> <em>Folding &amp; Design</em> 2 (3): S25–32. <a href="https://doi.org/10.1016/s1359-0278(97)00060-6">https://doi.org/10.1016/s1359-0278(97)00060-6</a>.
 </div>
@@ -379,6 +426,9 @@ Song, Yifan, Frank DiMaio, Ray Yu-Ruei Wang, David Kim, Chris Miles, TJ Brunette
 </div>
 <div id="ref-wang2017a" class="csl-entry" role="listitem">
 Wang, Sheng, Siqi Sun, Zhen Li, Renyu Zhang, and Jinbo Xu. 2017. <span>“Accurate De Novo Prediction of Protein Contact Map by Ultra-Deep Learning Model.”</span> <em>PLoS computational biology</em> 13 (1): e1005324. <a href="https://doi.org/10.1371/journal.pcbi.1005324">https://doi.org/10.1371/journal.pcbi.1005324</a>.
+</div>
+<div id="ref-wilson2022" class="csl-entry" role="listitem">
+Wilson, Carter J., Wing-Yiu Choy, and Mikko Karttunen. 2022. <span>“AlphaFold2: A Role for Disordered Protein/Region Prediction?”</span> <em>International Journal of Molecular Sciences</em> 23 (9): 4591. <a href="https://doi.org/10.3390/ijms23094591">https://doi.org/10.3390/ijms23094591</a>.
 </div>
 <div id="ref-yang2020" class="csl-entry" role="listitem">
 Yang, Jianyi, Ivan Anishchenko, Hahnbeom Park, Zhenling Peng, Sergey Ovchinnikov, and David Baker. 2020. <span>“Improved Protein Structure Prediction Using Predicted Interresidue Orientations.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (3): 1496–1503. <a href="https://doi.org/10.1073/pnas.1914677117">https://doi.org/10.1073/pnas.1914677117</a>.
@@ -625,18 +675,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -668,11 +707,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -682,8 +767,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -695,7 +789,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -739,6 +956,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -764,6 +982,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -821,32 +1065,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./1d.html" class="pagination-link">
+      <a href="./1d.html" class="pagination-link" aria-label="1D Features">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1D Features</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ai.html" class="pagination-link">
+      <a href="./ai.html" class="pagination-link" aria-label="Protein modeling in the AlphaFold era">
         <span class="nav-page-text">Protein modeling in the AlphaFold era</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -854,7 +1082,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-left">
+<p>Modesto Redrejo Rodríguez, 2025</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -867,7 +1097,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+    <a class="nav-link" href="https://twitter.com/mredrejo">
+<p><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/mredrejo.bsky.social">
+<p><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></p>
+</a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
@@ -879,6 +1116,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

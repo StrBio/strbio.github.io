@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Structural Bioinformatics at UAM - Protein modeling in the AlphaFold era</title>
+<title>Protein modeling in the AlphaFold era – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -87,10 +95,9 @@ div.csl-indent {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Structural Bioinformatics at UAM - Protein modeling in the AlphaFold era">
+<meta name="twitter:title" content="Protein modeling in the AlphaFold era – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="pics/casp13.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked">
@@ -99,13 +106,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./ai.html">Protein modeling in the AlphaFold era</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./ai.html">Protein modeling in the AlphaFold era</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -114,7 +121,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Structural Bioinformatics at UAM</a> 
@@ -134,14 +141,14 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">StrBio 2023-24</span></a>
+ <span class="menu-text">StrBio UAM</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Background</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -168,9 +175,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -210,7 +217,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -234,14 +241,14 @@ div.csl-indent {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./homology.html">Modeling</a></li><li class="breadcrumb-item"><a href="./ai.html">Protein modeling in the AlphaFold era</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Protein modeling in the AlphaFold era</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
     <div>
@@ -261,22 +268,32 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="the-history-of-protein-structure-modeling-is-told-by-a-competition-casp" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> The history of protein structure modeling is told by a competition (CASP)</h1>
 <p>Every two years since 1994, groups in the field of structural bioinformatics have conducted a worldwide experiment in which they predict a set of unknown protein structures in a controlled, blind test-like competition and compare their results with the experimentally obtained structures. That is the <strong>CASP</strong> or <a href="https://predictioncenter.org/"><em>Critical assessment of Protein Structure Prediction</em></a>.</p>
-<div id="fig-CASP13" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/casp13.png" title="CASP13 results" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Comparative Z-score of CASP13 participants. The score is based in the GDT_TS (Global distance test).</figcaption>
+<div id="fig-CASP13" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-CASP13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/casp13.png" title="CASP13 results" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CASP13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Comparative Z-score of CASP13 participants. The score is based in the GDT_TS (Global distance test).
+</figcaption>
 </figure>
 </div>
 <p>The best research groups in the field test their new methods and protocols in the CASP. However, at CASP13 (2018), an AI company called <a href="https://en.wikipedia.org/wiki/DeepMind">Deepmind</a> (Google Subsidiary) entered the scene. Their method, named Alphafold <span class="citation" data-cites="senior2020">(<a href="#ref-senior2020" role="doc-biblioref">Senior et al. 2020</a>)</span> clearly won CASP13. Alphafold (v.1) implemented improvements in some recently used approaches and created an entirely new pipeline. Instead of creating contact maps from the alignment and then folding the structure, they used an MRF unit (Markov Random Field) to extract the main features of the sequence and MSA in advance and process all this information into a multilayer NN (called ResNet) that also predicted distance probabilities instead of contacts, resulting in high accuracy. Then, Alphafold uses all the possibly obtained information to create the structure and then improve it by energy minimization (steepest descent method) and substitution of portions with a selected DB of protein fragments.</p>
-<div id="fig-alphafold1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/alphafold1.png" title="Alphafold1" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Workflow of the first Alphafold method presented in CASP13. MSA stands for multiple sequence alignment; PSSM indicates Position-specific-scoring matrix and MRF stands for Markov Random Field (or Potts model). From the Sergei Ovchinnikov and Martin Steinegger presentation of Alphafold2 to the Boston Protein Design Group (slides and video in the <a href="#links">link below</a>).</figcaption>
+<div id="fig-alphafold1" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-alphafold1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/alphafold1.png" title="Alphafold1" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alphafold1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Workflow of the first Alphafold method presented in CASP13. MSA stands for multiple sequence alignment; PSSM indicates Position-specific-scoring matrix and MRF stands for Markov Random Field (or Potts model). From the Sergei Ovchinnikov and Martin Steinegger presentation of Alphafold2 to the Boston Protein Design Group (slides and video in the <a href="#links">link below</a>).
+</figcaption>
 </figure>
 </div>
 <p>After Alphafold, similar methods were also developed and made available to the general public, like the <em>trRosetta</em> <span class="citation" data-cites="yang2020">(<a href="#ref-yang2020" role="doc-biblioref">Yang et al. 2020</a>)</span>, from the <a href="https://www.bakerlab.org/">Baker lab</a>, available in <a href="https://www.rosettacommons.org/software">Rosetta</a> open source software and in the <a href="https://robetta.bakerlab.org/">Robetta</a> server. This led to some controversy (mostly on Twitter) about the open access to the CASP software and later on DeepMind publishes all the code on GitHub.</p>
@@ -284,16 +301,24 @@ div.csl-indent {
 <section id="casp14-or-when-protein-structure-prediction-come-to-age-for-non-structural-biologists" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> CASP14 or when protein structure prediction come to age for (non structural) biologists</h1>
 <p>There was a lot of hype in CASP14 and the guys from DeepMind did not disappoint anyone. Alphafold2 left all competitors far behind, both in relative terms (score against the other groups) and in absolute terms (lowest alpha-carbon RMSD). As highlighted earlier, the accuracy of many of the predicted structures was <em>within</em> the margin of error of the experimental determination methods <span class="citation" data-cites="mirdita2022">(see for instance <a href="#ref-mirdita2022" role="doc-biblioref">Mirdita et al. 2022</a>)</span>.</p>
-<div id="fig-casp14" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><a href="https://predictioncenter.org/casp14/zscores_final.cgi?formula=gdt_ts"><img src="pics/casp14.png" title="CASP14 scores" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Comparative CASP14 scores</figcaption>
+<div id="fig-casp14" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-casp14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://predictioncenter.org/casp14/zscores_final.cgi?formula=gdt_ts"><img src="pics/casp14.png" title="CASP14 scores" class="figure img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-casp14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Comparative CASP14 scores
+</figcaption>
 </figure>
 </div>
-<div id="fig-alphafold2bench" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><a href="https://www.nature.com/articles/s41586-021-03819-2/figures/1"><img src="pics/jumper2021.png" title="Alphafold2" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Performance of Alphafold2 the CASP14 dataset relative to the top-15 entries. Data are median and the 95% confidence interval of the median, for alpha-carbom RMSD. Panels b-c-d show example comparison between model and experimental structures.</figcaption>
+<div id="fig-alphafold2bench" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-alphafold2bench-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://www.nature.com/articles/s41586-021-03819-2/figures/1"><img src="pics/jumper2021.png" title="Alphafold2" class="figure img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alphafold2bench-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Performance of Alphafold2 the CASP14 dataset relative to the top-15 entries. Data are median and the 95% confidence interval of the median, for alpha-carbom RMSD. Panels b-c-d show example comparison between model and experimental structures.
+</figcaption>
 </figure>
 </div>
 <p>Deepming took some time (eight months, which is an eternity nowadays) to publish the method (<span class="citation" data-cites="jumper2021">Jumper et al. (<a href="#ref-jumper2021" role="doc-biblioref">2021</a>)</span>) and to release the code on <a href="https://github.com/deepmind/alphafold">Github</a>, but other new methods, such as RoseTTAfold (<span class="citation" data-cites="baek2021">Baek et al. (<a href="#ref-baek2021" role="doc-biblioref">2021</a>)</span>) and C-I-Tasser (<span class="citation" data-cites="zheng2021">Zheng et al. (<a href="#ref-zheng2021" role="doc-biblioref">2021</a>)</span>) were able to obtain similar results and were available on public servers, which may have pushed Deepmind to make it all available to the scientific community<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Not surprisingly, a group of independent scientists (<a href="https://twitter.com/sokrypton">Sergey Ovchinnikov</a>, <a href="https://twitter.com/milot_mirdita">Milot Mirdita</a>, and <a href="https://twitter.com/thesteinegger">Martin Steinegger</a>), decided to implement Alphafold2 in a <a href="https://github.com/sokrypton/ColabFold">Colab notebook</a>, called <strong>ColabFold</strong> <span class="citation" data-cites="mirdita2022">Mirdita et al. (<a href="#ref-mirdita2022" role="doc-biblioref">2022</a>)</span>, which freely available online using <em>Google Colab</em> notebooks platform. Other free implementations of Alphafold have been and are available, but ColabFold has been the most widely discussed and well known. They implemented some tricks to speed up the modeling, most notably the use of <a href="https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI/present#slide=id.ge58c80b745_0_15">MMSeqs2</a> (developed by Martin Steinegger’s group) to search for homologous structures on Uniref30, which made Colabfold a fast method that made all the previous advanced methods almost useless. This was the real breakthrough in the field of protein structure prediction, making Alphafold accessible and, also very importantly, facilitated the further development of the method, implementing very quickly new features, like the prediction of protein complexes, which was actually first mentioned on <a href="https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI/present#slide=id.ge58c80b745_0_15">Twitter</a> and then led to several new dedicated methods, including AlphaFold-multimer <span class="citation" data-cites="evans2022">(<a href="#ref-evans2022" role="doc-biblioref">Evans et al. 2022</a>)</span> from Deepmind or AlphaPullDown <span class="citation" data-cites="yu2023">(<a href="#ref-yu2023" role="doc-biblioref">Yu et al. 2023</a>)</span>.</p>
@@ -303,10 +328,14 @@ div.csl-indent {
 <section id="why-is-alphafold-so-freaking-accurate" class="level2">
 <h2 class="anchored" data-anchor-id="why-is-alphafold-so-freaking-accurate">Why is Alphafold so freaking accurate?</h2>
 <p>The philosophy behind Alphafold v.2 (from now on, just Alphafold) and related methods is to treat the protein folding problem as a machine learning problem, similar to image processing. In all of these problems, the input to the Deep Learning model is a volume (3D tensor). In the case of computer vision, 2D images expand as volumes because of the RGB or HSV channels. Similarly, in the case of distance prediction, predicted 1D and 2D features are transformed and packed into a 3D volume with many channels of inter-residue information <span class="citation" data-cites="pakhrin2021">(<a href="#ref-pakhrin2021" role="doc-biblioref">Pakhrin et al. 2021</a>)</span>.</p>
-<div id="fig-deep" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/machine_fold.png" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: From the perspective of Deep Learning method development, the problem of protein distogram or real-valued distance prediction (bottom row) is similar to the ‘depth prediction problem’ in computer vision. From <span class="citation" data-cites="pakhrin2021">Pakhrin et al. (<a href="#ref-pakhrin2021" role="doc-biblioref">2021</a>)</span>.</figcaption>
+<div id="fig-deep" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-deep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/machine_fold.png" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-deep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: From the perspective of Deep Learning method development, the problem of protein distogram or real-valued distance prediction (bottom row) is similar to the ‘depth prediction problem’ in computer vision. From <span class="citation" data-cites="pakhrin2021">Pakhrin et al. (<a href="#ref-pakhrin2021" role="doc-biblioref">2021</a>)</span>.
+</figcaption>
 </figure>
 </div>
 <p>Alphafold can be explained as a pipeline with three interconected tasks (see picture below). First, in contrast to Alphafold v.1, the input to Alphafold is a “raw” MSA, i.e., the deep learning network extracts the co-evolutionary information directly from the MSA. It queries several databases of protein sequences and constructs an MSA that is used to select templates. This can be a limiting step, affecting the speed of modeling (see below), but it can be also related to model accuracy, as has been recently shown in CASP15 <span class="citation" data-cites="lee peng2023">(<a href="#ref-lee" role="doc-biblioref">Lee et al., n.d.</a>; <a href="#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>.</p>
@@ -315,10 +344,14 @@ div.csl-indent {
 <p><em>This is easier to understand as an example. Suppose that you look at the multiple sequence alignment and notice a correlation between a pair of amino acids. Let’s call them A and B. You hypothesize that A and B are close, and translate this assumption into your model of the structure. Subsequently, you examine said model and observe that, since A and B are close, there is a good chance that C and D should be close. This leads to another hypothesis, based on the structure, which can be confirmed by searching for correlations between C and D in the MSA. By repeating this several times, you can build a pretty good understanding of the structure.</em></p>
 </blockquote>
 <p>The third part of the pipeline is the structure building module, which uses the information from the previous steps to construct a 3D model structure protein of the query sequence. This network will give you a single model, without any energy optimization step. Model building is based in a new concept of 3D structures generation, named <strong>IPA</strong> (Invariant Point Attention) and the use of a curated list of parametrised list of torsion angles to generate the side chains. Earlier attempts to develop and end-to-end method were unsuccessful because the structure representation was not optimal. Even methods implemented after AlphaFold, like RoseTTAFold, use less efficient methods and often predict very quickly and accurately the backbone coordinates but require external programs to generate an all-atoms model</p>
-<div id="fig-af2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/alphafols2.png" title="Alphafold2" class="figure img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Oxford Proteins Informatics Group Blog, modified from <span class="citation" data-cites="jumper2021">Jumper et al. (<a href="#ref-jumper2021" role="doc-biblioref">2021</a>)</span></figcaption>
+<div id="fig-af2" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-af2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/alphafols2.png" title="Alphafold2" class="figure img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-af2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Oxford Proteins Informatics Group Blog, modified from <span class="citation" data-cites="jumper2021">Jumper et al. (<a href="#ref-jumper2021" role="doc-biblioref">2021</a>)</span>
+</figcaption>
 </figure>
 </div>
 <p>Like for most of the previous methods Alphafold would give your better results with proteins with related structures known and with a lot of homologs in Uniref databases. However, comparing to nothing, it will likely give you (limited) useful results for the so-called “dark genome”. I work with phages and bacterial mobile elements, and sequencing that is often frustrating as more than 50% of the proteins have no homologous in the database. So you have a bunch of proteins of unknown function… However, as we do know that structure is more conserved than sequence, we may use the structure to find out the function of our dark proteins. There are a few resources for this, I’d suggest you to try <a href="https://search.foldseek.com/search">FoldSeek</a> <span class="citation" data-cites="kempen">(<a href="#ref-kempen" role="doc-biblioref">Kempen et al., n.d.</a>)</span> and <a href="http://ekhidna2.biocenter.helsinki.fi/dali/">Dali</a> <span class="citation" data-cites="holm2022">(<a href="#ref-holm2022" role="doc-biblioref">Holm 2022</a>)</span> servers. You can upload the PDB file of your model and search for related structures in RCSB PDB database and also in Alphafold database.</p>
@@ -338,10 +371,14 @@ Tip
 <p>As mentioned above, Colabfold aims to make the process faster by using MMSeqs in the first block. Additionally, the number of recycling steps can also be adapted. Moreover, different Colabfold notebooks have been developed (and evolved) to allow some customization and other feature, like batch processing of multiple proteins avoiding recompilation and identification of protein-protein interactions <span class="citation" data-cites="mirdita2022">(<a href="#ref-mirdita2022" role="doc-biblioref">Mirdita et al. 2022</a>)</span>.</p>
 <p>Alphafold models can be evaluated by the mean <strong>pLDDT</strong>, a per-residue confidence metric. It is stored in the B-factor fields of the mmCIF and PDB files available for download (although unlike a B-factor, higher pLDDT is better). The model confidence can vary greatly along a chain so it is important to consult the confidence when interpreting structural features. Very often, the lower confidence fragments are not product of a poor prediction but an indicator of protein disorder <span class="citation" data-cites="wilson2022">(<a href="#ref-wilson2022" role="doc-biblioref">Wilson, Choy, and Karttunen 2022</a>)</span>.</p>
 <p>Alphafold also partnered with EMBL-EBI and Uniprot and generated a huge curated database of proteins from model organisms <span class="citation" data-cites="varadi2022">(<a href="#ref-varadi2022" role="doc-biblioref">Varadi et al. 2022</a>)</span>, the <a href="https://alphafold.ebi.ac.uk/">Alphafold database</a>. This is an amazing resource that may be also very helpful for you. Just consider that this database increased from 48% to 76% the fraction of human proteome with structural data, and also it also means great increases in the case of other model organisms, like, including microorganisms and plants <span class="citation" data-cites="portapardo2022">(<a href="#ref-portapardo2022" role="doc-biblioref">Porta-Pardo et al. 2022</a>)</span>.</p>
-<div id="fig-afDDBB" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/journal.png" title="Changes in protein structural coverage in model organisms." class="figure img-fluid figure-img" width="433"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Changes in protein structural coverage in model organisms (From <span class="citation" data-cites="portapardo2022">Porta-Pardo et al. (<a href="#ref-portapardo2022" role="doc-biblioref">2022</a>)</span>).</figcaption>
+<div id="fig-afDDBB" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-afDDBB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/journal.png" title="Changes in protein structural coverage in model organisms." class="figure img-fluid figure-img" width="433">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-afDDBB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Changes in protein structural coverage in model organisms (From <span class="citation" data-cites="portapardo2022">Porta-Pardo et al. (<a href="#ref-portapardo2022" role="doc-biblioref">2022</a>)</span>).
+</figcaption>
 </figure>
 </div>
 </section>
@@ -349,26 +386,38 @@ Tip
 <h2 class="anchored" data-anchor-id="wanna-try-alphafold"><span style="color:green">Wanna try Alphafold?</span></h2>
 <p><em>Section under construction!</em></p>
 <p>As mentioned above, the grand breakthrough of Alphafold would not have been the same without the Colabfold, a free open tool that made the state-of-the-art of AI-fueled protein prediction available to everyone.</p>
-<div id="fig-colabfold" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><a href="https://github.com/sokrypton/ColabFold"><img src="pics/qrcode.png" title="ColabFold" class="img-fluid figure-img" width="441"></a></p>
-<figcaption class="figure-caption">Figure&nbsp;8: ColabFold GitHub repository</figcaption>
+<div id="fig-colabfold" class="quarto-float quarto-figure quarto-figure-left anchored" width="441" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-colabfold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://github.com/sokrypton/ColabFold"><img src="pics/qrcode.png" title="ColabFold" class="img-fluid quarto-figure quarto-figure-left figure-img" width="441"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-colabfold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: ColabFold GitHub repository
+</figcaption>
 </figure>
 </div>
 <p>The <a href="https://github.com/sokrypton/ColabFold">Colabfold</a> repository on GitHub contains links to several Python notebooks developed on <a href="https://colab.research.google.com/">Google Colab</a>, a platform to develop and share Python scripts on a Jupyter Notebook format. Notebooks are very important also for reproducibility in computer sciences, as they allow you to have the background and details and the actual code in a single document and also execute it. You can share those notebooks very easily and also update quickly as they are stored in your Google Drive.</p>
 <p>Colabfold allow you to run notebooks of Alphafold, RoseTTAfold, and ESMFold for specific applications, allowing even to run a bunch of proteins in batch. You can see a more detailed description in <span class="citation" data-cites="mirdita2022">Mirdita et al. (<a href="#ref-mirdita2022" role="doc-biblioref">2022</a>)</span>. We are using the <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb">Alphafold2_mmseqs2</a> notebook, that allow you most of the common features. You need to allow Colab to use your Google account.</p>
-<div id="fig-colabfold2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/colab1.jpg" title="Input sequence" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Introducing your sequence in Colabfold</figcaption>
+<div id="fig-colabfold2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-colabfold2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/colab1.jpg" title="Input sequence" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-colabfold2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Introducing your sequence in Colabfold
+</figcaption>
 </figure>
 </div>
 <p>Then paste your sequence and chose a name. For more accurate models you can click “use_amber” option. It will run a short <a href="https://en.wikipedia.org/wiki/Molecular_dynamics"><em>Molecular Dynamics</em></a> protocol that ultimately optimize the modeling, but it will also take some more time, so better try at home.</p>
 <p>As you can see, an this is a recent feature, you can also add your own template, which combines the classical “homology modeling” based upon a single template with the advanced AlphaFold model construction method. That will safe time, but of course without any guarantee. If you have a template of a related protein, like an alternative splicing or a disease mutant, I’d advise you to try with and without the template. You may surprise.</p>
-<div id="fig-colabfold3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pics/colab_execute.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: Executing Colabfold</figcaption>
+<div id="fig-colabfold3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-colabfold3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/colab_execute.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-colabfold3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Executing Colabfold
+</figcaption>
 </figure>
 </div>
 <p>At this point, you may execute the whole pipeline or may some more customization. MSA stage can be also optimized to reduce execution time, by reducing database or even by providing your own MSA. Very often you may want to fold a protein with different parameters, particularly in the <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/AlphaFold2_advanced.ipynb#scrollTo=rowN0bVYLe9n">Advanced Colabfold</a>, which may very convenient to reuse an MSA from a previous run (although they recently updated servers for MMSeqs and made it really faster). If your proteins are in the same operon or by any other reason you think that they should have co-evolved, you prefer a “paired” alignment. But you can always do both.</p>
@@ -380,13 +429,105 @@ Tip
 <p>As mentioned earlier, RoseTTAFold was released at the same time as AlphaFold’s paper and code, although it is clearly inspired by AlphaFold’s capabilities in CASP14. It is based on a three-track network, and recent implementations have allowed prediction of protein interactions with nucleic acids. Other methods such as AlphaFold and RoseTTAFold were released later, as were <a href="https://openfold.io/">OpenFold</a> and <a href="https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb">UniFold</a>, which are based on the PyTorch Transformers AI framework. More recently, RoseTTAFold2, which extends the three-track architecture over the whole network and incorporate other new advances and AlphaFold tricks, like the FAPE (frame aligned point error) or recycling steps during the training, giving rise to an end-to-end model equivalent in accuracy to AF2 for monomers and AF2-multimer for complexes, with better computational scaling on proteins and complexes larger than 1000 residues <span class="citation" data-cites="baek">Baek et al. (<a href="#ref-baek" role="doc-biblioref">n.d.</a>)</span>.</p>
 <p>The use of MSA has been cited as a limitation for AlphaFold and related methods. However, the predictions are significantly worse without MSA or with MSAs without depth. One way to improve predictions is to use a protein natural language model (PLN), i.e., a model trained to predict sequence from sequence and not dependent on good MSAs. <a href="https://github.com/HeliXonProtein/OmegaFold">Omegafold</a> and <a href="https://esmatlas.com/resources?action=fold">ESMfold</a> (also in Colabfold, <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/omegafold.ipynb">here</a> and <a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/ESMFold.ipynb">here</a>, respectively) are two new implementations that require only a single sequence. They are quite fast and perform better than AlphaFold when using a single sequence. However, since PLN is trained on existing sequences, these methods still perform significantly worse on orphan sequences. That is, the language models seem to just remember the training MSAs <span class="citation" data-cites="elofsson2023">Elofsson (<a href="#ref-elofsson2023" role="doc-biblioref">2023</a>)</span>.</p>
 <p>The appearance of ESMfold and the companion <a href="https://esmatlas.com/">Metagenomic Atlas</a> <span class="citation" data-cites="lin2023">Lin et al. (<a href="#ref-lin2023" role="doc-biblioref">2023</a>)</span> was seen as a new step that could trigger a new revolution in the field, since it was developed by scientists at META <span class="citation" data-cites="callaway2022">Callaway (<a href="#ref-callaway2022" role="doc-biblioref">2022</a>)</span>. So it was now a sort of Google versus Facebook battle for the most powerful AI methods for protein modeling. Last summer, however, we learned that META had decided to discontinue the ESM project.</p>
-<p></p><div id="tweet-98591"></div><script>tweet={"url":"https:\/\/twitter.com\/KevinKaichuang\/status\/1689071501998260224","author_name":"Kevin K. Yang 楊凱筌","author_url":"https:\/\/twitter.com\/KevinKaichuang","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESad news as meta lays off their protein machine learning team. For a while, it was a valuable combination of scientific curiosity, openness, and industrial-scale engineering. \u003Ca href=\"https:\/\/t.co\/y9LY6XCBGh\"\u003Ehttps:\/\/t.co\/y9LY6XCBGh\u003C\/a\u003E\u003C\/p\u003E&mdash; Kevin K. Yang 楊凱筌 (@KevinKaichuang) \u003Ca href=\"https:\/\/twitter.com\/KevinKaichuang\/status\/1689071501998260224?ref_src=twsrc%5Etfw\"\u003EAugust 9, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-98591").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-17672"></div><script>tweet={"url":"https:\/\/twitter.com\/KevinKaichuang\/status\/1689071501998260224","author_name":"Kevin K. Yang 楊凱筌","author_url":"https:\/\/twitter.com\/KevinKaichuang","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESad news as meta lays off their protein machine learning team. For a while, it was a valuable combination of scientific curiosity, openness, and industrial-scale engineering. \u003Ca href=\"https:\/\/t.co\/y9LY6XCBGh\"\u003Ehttps:\/\/t.co\/y9LY6XCBGh\u003C\/a\u003E\u003C\/p\u003E&mdash; Kevin K. Yang 楊凱筌 (@KevinKaichuang) \u003Ca href=\"https:\/\/twitter.com\/KevinKaichuang\/status\/1689071501998260224?ref_src=twsrc%5Etfw\"\u003EAugust 9, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-17672").innerHTML = tweet["html"];</script><p></p>
 <p>AlphaFold was again the protagonist of CASP15, which took place in 2020, but it did not overwhelm the rest like in 2018.</p>
-<p></p><div id="tweet-26808"></div><script>tweet={"url":"https:\/\/twitter.com\/sokrypton\/status\/1601596893355642882","author_name":"Sergey Ovchinnikov \uD83C\uDDFA\uD83C\uDDE6","author_url":"https:\/\/twitter.com\/sokrypton","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESome exciting results from CASP15! (1\/6) \u003Ca href=\"https:\/\/t.co\/qx8QSJPU4J\"\u003Ehttps:\/\/t.co\/qx8QSJPU4J\u003C\/a\u003E\u003C\/p\u003E&mdash; Sergey Ovchinnikov \uD83C\uDDFA\uD83C\uDDE6 (@sokrypton) \u003Ca href=\"https:\/\/twitter.com\/sokrypton\/status\/1601596893355642882?ref_src=twsrc%5Etfw\"\u003EDecember 10, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-26808").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-77669"></div><script>tweet=<!DOCTYPE html>
+<html lang="en" class="dog">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X / ?</title>
+    <meta name="version" content="1">
+    <link href="https://abs.twimg.com/favicons/twitter.3.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://abs.twimg.com/errors/fullscreen_errors-047ca1475a6efac7c9c89a9ff92b7a20.css">
+  </head>
+  <body dir="auto">
+    <div class="top">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1519 200">
+        <defs/>
+        <path d="M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a38 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
+        <path d="M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l10-6 6 3 9-1 4-1a6 6 0 001 1l1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a37 37 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="content">
+        <a href="https://twitter.com" title="X logo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="x-logo"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
+        </a>
+        <h1 id="header">Nothing to see here</h1>
+        <p id="description">Looks like this page doesn’t exist. Here’s a picture of a poodle sitting in a chair for your trouble.</p>
+
+          <a id="button_search" href="/" class="button">Looking for this?</a>
+
+      </div>
+      <img id="image" src="https://abs.twimg.com/errors/ErrorState_NotFound.png" alt="A primped poodle with a bow in its hair sitting in a chair like a human.">
+      <div class="footer">
+        <ul>
+          <li><a href="https://twitter.com/" id="footer_home">Home</a></li>
+          <li><a href="https://status.twitterstat.us/" id="footer_status">Status</a></li>
+          <li><a href="https://twitter.com/tos" id="footer_tos">Terms of Service</a></li>
+          <li><a href="https://twitter.com/privacy" id="footer_privacy">Privacy Policy</a></li>
+          <li><a href="https://support.twitter.com/articles/20170514" id="footer_cookie">Cookie Policy</a></li>
+          <li><a href="https://legal.twitter.com/imprint" id="footer_imprint">Imprint</a></li>
+          <li><a href="https://business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html" id="footer_ads">Ads info</a></li>
+          <li dir="ltr">&copy; X Corp. <span id="copyright-year">&emsp;&emsp;&emsp;&emsp;</span></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://abs.twimg.com/errors/404-8651f633fd193e0b546010676a4fac06.js"></script>
+
+;document.getElementById("tweet-77669").innerHTML = tweet["html"];<p></p>
 <p>AlphaFold was used in some form in more than half of the protocols, and while the standard AlphaFold method performed better than many other methods, several groups achieved significant improvements for monomeric proteins and protein assemblies. In short (see <span class="citation" data-cites="elofsson2023">Elofsson (<a href="#ref-elofsson2023" role="doc-biblioref">2023</a>)</span>), we learned at CASP15 that there are two main ways to improve AlphaFold: (1) more efficient use of templates, increasing the size of the database or sampling through more efficient MSAs, or (2) hacking AlphaFold to use dropouts to generate thousands of models for each target, which increases computational time but also increases the chances of better models. Other small improvements have been proposed, such as refinement steps <span class="citation" data-cites="adiyaman2023">(<a href="#ref-adiyaman2023" role="doc-biblioref">Adiyaman et al. 2023</a>)</span> or using improved template search or new scoring capabilities based on Voronoi surfaces or Deep Learning.</p>
-<section id="short-summary-in-one-iconify-fa6-brands-x-twitter-wire" class="level3">
-<h3 class="anchored" data-anchor-id="short-summary-in-one-iconify-fa6-brands-x-twitter-wire">2021-2023 - Short summary in one <iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon> wire</h3>
-<p></p><div id="tweet-35044"></div><script>tweet={"url":"https:\/\/twitter.com\/simocristea\/status\/1626304239931912192","author_name":"Simona Cristea","author_url":"https:\/\/twitter.com\/simocristea","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThe incredible field of protein structure prediction has come a long way since AlphaFold&#39;s breakthrough in 2021.\u003Cbr\u003E\u003Cbr\u003ENow in 2023, \u003Ca href=\"https:\/\/twitter.com\/naturemethods?ref_src=twsrc%5Etfw\"\u003E@naturemethods\u003C\/a\u003E has written an editorial highlighting how the field has evolved.\u003Cbr\u003E\u003Cbr\u003EHere&#39;s a compilation of these \u003Ca href=\"https:\/\/twitter.com\/hashtag\/DeepLearning?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#DeepLearning\u003C\/a\u003E protein resources\uD83D\uDC47 \u003Ca href=\"https:\/\/t.co\/szWhgFc3z2\"\u003Epic.twitter.com\/szWhgFc3z2\u003C\/a\u003E\u003C\/p\u003E&mdash; Simona Cristea (@simocristea) \u003Ca href=\"https:\/\/twitter.com\/simocristea\/status\/1626304239931912192?ref_src=twsrc%5Etfw\"\u003EFebruary 16, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-35044").innerHTML = tweet["html"];</script><p></p>
+<section id="short-summary-in-one-wire" class="level3">
+<h3 class="anchored" data-anchor-id="short-summary-in-one-wire">2021-2023 - Short summary in one <iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon> wire</h3>
+<p></p><div id="tweet-66825"></div><script>tweet=<!DOCTYPE html>
+<html lang="en" class="dog">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X / ?</title>
+    <meta name="version" content="1">
+    <link href="https://abs.twimg.com/favicons/twitter.3.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://abs.twimg.com/errors/fullscreen_errors-047ca1475a6efac7c9c89a9ff92b7a20.css">
+  </head>
+  <body dir="auto">
+    <div class="top">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1519 200">
+        <defs/>
+        <path d="M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a38 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
+        <path d="M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l10-6 6 3 9-1 4-1a6 6 0 001 1l1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a37 37 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="content">
+        <a href="https://twitter.com" title="X logo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="x-logo"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
+        </a>
+        <h1 id="header">Nothing to see here</h1>
+        <p id="description">Looks like this page doesn’t exist. Here’s a picture of a poodle sitting in a chair for your trouble.</p>
+
+          <a id="button_search" href="/" class="button">Looking for this?</a>
+
+      </div>
+      <img id="image" src="https://abs.twimg.com/errors/ErrorState_NotFound.png" alt="A primped poodle with a bow in its hair sitting in a chair like a human.">
+      <div class="footer">
+        <ul>
+          <li><a href="https://twitter.com/" id="footer_home">Home</a></li>
+          <li><a href="https://status.twitterstat.us/" id="footer_status">Status</a></li>
+          <li><a href="https://twitter.com/tos" id="footer_tos">Terms of Service</a></li>
+          <li><a href="https://twitter.com/privacy" id="footer_privacy">Privacy Policy</a></li>
+          <li><a href="https://support.twitter.com/articles/20170514" id="footer_cookie">Cookie Policy</a></li>
+          <li><a href="https://legal.twitter.com/imprint" id="footer_imprint">Imprint</a></li>
+          <li><a href="https://business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html" id="footer_ads">Ads info</a></li>
+          <li dir="ltr">&copy; X Corp. <span id="copyright-year">&emsp;&emsp;&emsp;&emsp;</span></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://abs.twimg.com/errors/404-8651f633fd193e0b546010676a4fac06.js"></script>
+
+;document.getElementById("tweet-66825").innerHTML = tweet["html"];<p></p>
 </section>
 </section>
 <section id="corollary-did-deepmind-fold-levinthals-paradox" class="level2">
@@ -448,7 +589,7 @@ Tip
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-adiyaman2023" class="csl-entry" role="listitem">
 Adiyaman, Recep, Nicholas S Edmunds, Ahmet G Genc, Shuaa M A Alharbi, and Liam J McGuffin. 2023. <span>“Improvement of Protein Tertiary and Quaternary Structure Predictions Using the ReFOLD Refinement Method and the AlphaFold2 Recycling Process.”</span> <em>Bioinformatics Advances</em> 3 (1): vbad078. <a href="https://doi.org/10.1093/bioadv/vbad078">https://doi.org/10.1093/bioadv/vbad078</a>.
 </div>
@@ -774,18 +915,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -817,11 +947,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -831,8 +1007,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -844,7 +1029,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -888,6 +1196,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -913,6 +1222,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -970,32 +1305,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./advanced.html" class="pagination-link">
+      <a href="./advanced.html" class="pagination-link" aria-label="Advanced homology modeling">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Advanced homology modeling</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./links.html" class="pagination-link">
+      <a href="./links.html" class="pagination-link" aria-label="Modeling Resources">
         <span class="nav-page-text">Modeling Resources</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1003,7 +1322,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Modesto Redrejo Rodríguez, 2023</div>   
+    <div class="nav-footer-left">
+<p>Modesto Redrejo Rodríguez, 2025</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -1016,7 +1337,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://twitter.com/mredrejo"><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></a>
+    <a class="nav-link" href="https://twitter.com/mredrejo">
+<p><iconify-icon inline="" icon="fa6-brands:x-twitter"></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/mredrejo.bsky.social">
+<p><iconify-icon inline="" icon="simple-icons:bluesky"></iconify-icon></p>
+</a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link active" href="https://github.com/StrBio/strbio.github.io" aria-current="page">
@@ -1028,6 +1356,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

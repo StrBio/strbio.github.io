@@ -496,7 +496,7 @@ or using molecular visualization apps, including [Mol\*](https://molstar.org/),
 ## Corollary: What can I do with my model and what I cannot? {#corollary}
 
 [![Accuracy and application of protein structure models (in 2001). From
-@baker2001.](pics/sali.jpeg "Accuracy and application of protein structure models."){#fig-baker
+.](pics/sali.jpeg "Accuracy and application of protein structure models."){#fig-baker
 .figure}](https://www.science.org/doi/10.1126/science.1065659)
 
 A big power entails a big responsibility. The use of models entails a precaution
@@ -507,7 +507,7 @@ quality.
 The accuracy of a comparative model is related to the percentage sequence
 identity on which it is based. High-accuracy comparative models can have about
 1-2 Å root mean square (RMS) error for the main-chain atoms, which is comparable
-to the accuracy of a nuclear magnetic resonance (NMR) structure or an x-ray
+to the accuracy of a nuclear magnetic resonance (NMR) structure or an X-ray
 structure. These models can be used for functional studies and the prediction of
 protein partners, including drugs or other proteins working in the same process.
 Also, for some detailed studies, it would be convenient to refine your model by

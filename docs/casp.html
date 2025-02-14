@@ -209,7 +209,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sequences-to-model" id="toc-sequences-to-model" class="nav-link" data-scroll-target="#sequences-to-model"><span class="header-section-number">3</span> Sequences to model</a>
   <ul class="collapse">
   <li><a href="#sequence-1-human-orai1-ca2-channel" id="toc-sequence-1-human-orai1-ca2-channel" class="nav-link" data-scroll-target="#sequence-1-human-orai1-ca2-channel"><span class="header-section-number">3.1</span> Sequence 1: Human Orai1 Ca<sup>+2</sup> channel</a></li>
-  <li><a href="#sequence-2-select-at-least-one-out-of-the-following-candidates." id="toc-sequence-2-select-at-least-one-out-of-the-following-candidates." class="nav-link" data-scroll-target="#sequence-2-select-at-least-one-out-of-the-following-candidates."><span class="header-section-number">3.2</span> Sequence 2: select (at least) one out of the following candidates.</a></li>
+  <li><a href="#sequence-2-select-at-least-one-out-of-the-following-candidates." id="toc-sequence-2-select-at-least-one-out-of-the-following-candidates." class="nav-link" data-scroll-target="#sequence-2-select-at-least-one-out-of-the-following-candidates."><span class="header-section-number">3.2</span> Sequence 2: Select (at least) one out of the following candidates.</a></li>
+  <li><a href="#sequence-3-your-favourite-protein" id="toc-sequence-3-your-favourite-protein" class="nav-link" data-scroll-target="#sequence-3-your-favourite-protein"><span class="header-section-number">3.3</span> Sequence 3: Your favourite protein</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -237,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 12, 2025</p>
+      <p class="date-modified">February 13, 2025</p>
     </div>
   </div>
     
@@ -250,17 +251,18 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="goal" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Goal</h1>
-<p>This is a <a href="https://en.wikipedia.org/wiki/CASP">CASP</a>-like exercise. The objective of this contest is to achieve the best possible predicted structure for at least two sequences using state-of-the-art protein modeling methodologies. You must utilize three or more protocols for model generation and select the most optimal model.</p>
+<p>This is a <a href="https://en.wikipedia.org/wiki/CASP">CASP</a>-like exercise. The objective of this contest is to achieve the best possible predicted structure for at least <strong>three</strong> sequences using state-of-the-art protein modeling methodologies. For each sequence, you must utilize three or more different protocols for model generation and select the most optimal model.</p>
 </section>
 <section id="procedure" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Procedure</h1>
 <ul>
-<li><p>Before starting, research background information on your protein that could impact the results, such as oligomerization, ligands (e.g., ions, ATP, NAD+), protein partners, etc.</p></li>
-<li><p>At least one protocol must be based on deep-learning methods (e.g., Alphafold, RoseTTAFold, C-I-Tasser, ESM Fold, OmegaFold, OpenFold, or UniFold). Homology modeling or threading methods can also be tested. Compare different protein designs (ligands, oligomers) and algorithm options (recycle steps, seeds).</p></li>
+<li><p>Before starting, try to obtain background information on your protein that could impact the results, such as oligomerization, ligands (e.g., ions, ATP, NAD+), protein partners, etc.</p></li>
+<li><p>Given that this is a CASP-like exercise, high-quality models should <em>ideally</em> cover the full-length of the target sequences. However, it is beneficial to consider the presence of transmembrane (TM) or disordered motifs and other 1D features that might limit accurate modeling of the full-length protein. Resources, including links for modeling servers and Colab notebooks, can be found here: <a href="https://strbio.github.io/links.html" class="uri">https://strbio.github.io/links.html</a></p></li>
+<li><p>At least one protocol must be based on deep-learning methods (e.g., Alphafold, RoseTTAFold, C-I-Tasser, ESM Fold, OmegaFold, OpenFold, or UniFold). Homology modeling or threading methods can also be tested.</p></li>
+<li><p>Compare different protein designs (ligands, oligomers) and algorithm options (recycle steps, seeds).</p></li>
 <li><p>Carefully consider model assessment and the relevance of various scores such as pLDDT, pTM, or PAE. Independent assessment methods (e.g., QMeanDisco, MoldFold, VoroMQA) can also be utilized. Select the best models for each sequence.</p></li>
-<li><p>Provide a brief explanation of the methodology used, including the rationale behind the selection of protocols and the final model. Generate comparative figures throughout the process using PyMOL (ChimeraX or even Mol* would be also OK), and include figures of the final models. You may attach or link a zip file containing PDB files, PyMOL sessions, or modeling report files.</p></li>
-<li><p>Additionally, explore whether the model can provide insights into the evolution and/or function of the protein using tools like Dali or Foldseek. If you find a reference structure with the same sequence (experimental or computational), it must not be used as a template. However, it may be used to assess your models.</p></li>
-<li><p>Given that this is a CASP-like exercise, high-quality models should ideally cover the full length of the target sequences. However, it is beneficial to consider the presence of transmembrane (TM) or disordered motifs and other 1D features that might limit accurate modeling of the full-length protein. Resources, including links for modeling servers and Colab notebooks, can be found here: <a href="https://strbio.github.io/links.html" class="uri">https://strbio.github.io/links.html</a></p></li>
+<li><p>Provide a <em>brief</em> explanation of the methodology used, including the rationale behind the selection of protocols and the final model. Generate comparative figures throughout the process using PyMOL (ChimeraX or even Mol* would be also OK), and include figures of the final models. You may attach or link a zip file containing PDB files, PyMOL sessions, or modeling report files.</p></li>
+<li><p>Additionally, if protein function is unclear, explore whether the model can provide insights into the evolution and/or function of the protein using tools like Dali or Foldseek. If you find a reference structure with the same sequence (experimental or computational), it must not be used as a template. However, it may be used to assess your models.</p></li>
 <li><p>Remember, the main goal is not creating the model itself, but rather extracting valuable information from it, whether that be structural, functional, evolutionary, or biomedical insights.</p></li>
 </ul>
 </section>
@@ -271,12 +273,16 @@ ul.task-list li input[type="checkbox"] {
 <p>The sequence for this protein can be found with the Uniprot ID Q96D31. This sequence is mandatory, as it will also be used during the Docking practice.</p>
 </section>
 <section id="sequence-2-select-at-least-one-out-of-the-following-candidates." class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sequence-2-select-at-least-one-out-of-the-following-candidates."><span class="header-section-number">3.2</span> Sequence 2: select (at least) one out of the following candidates.</h2>
+<h2 data-number="3.2" class="anchored" data-anchor-id="sequence-2-select-at-least-one-out-of-the-following-candidates."><span class="header-section-number">3.2</span> Sequence 2: Select (at least) one out of the following candidates.</h2>
 <blockquote class="blockquote">
 <p>&gt;MBE6593352.1 MRSTYRDRSLRQRFVFLPYQMKNIDTNINIKEKAMKKALLALLTLGTIITLLLCGCSSEGKEPAATEGQTQKPTEQGANTGSYVVSTMSELRALEPRESSALVVLKGYHSANDGGGGTFYYDAASELEPDGALVIKCESTGGRFVRDREENYVNVKWFGAKGDGKTDDTAALQAAISSLGTGGGTVSLPGGNYAISAPLTIGDGDSGEKVSSTHGVKLIGMGGGFSHNVAAATTIKATAEIDNMLVLRGRISDCEIGGIYFNANNKAKTCLSLNSFSGCYFHNVKAMGFTDIGIKAIAGTAPTGNYNIYNRFESVNVTCLSDKTTGILFDGHYGDHNDTWLTVLSDCRFDTAQSENSVAAHFKFVDSISFYRCHFNTYKESSTGAVFDALDNHNFPCGMAFHDCSMTSHDVWEDSTHTIRKQYFYGFGTYDNEQIPTHPKLIGMTDMGDFFNIDAIDLLLSGNKGEDGTEEDNGEFTLPAKSGRVDTDNSTGASEHHNLKNGDKLAVLVNAKNKLVGGSFYLSSYDNSIGTIKFDVYKWDTDYATTVAGEILASDTALNFKDNSQFEAKFDGLSSGYYLIVISGTAPDDDFGVAVWTRGKSMTSVTFKNGNRIEAGLRGQFITE</p>
 <p>&gt;cluster19 MSITNRITGPLYDERIKNILMGADHEYKRLANTSTSLLELLPPHYDLSSMFSYEQKGIVFRIKLIKPEIKISRHQLLFSTHFLEPEFLHAYKEHLSKALHKTIKLCVKKYSQKIKIKHAILDYLSSSPRNSSCYDLHKIVLQTGYYEEVRRIKKRIQDDRLLDKLTLDGPLTNISRYMREDHTKIIDHIESCTCKIVEKSRKNPYIFNSSIISGRKTNITGVLFFLSELISNLHINPTEINNISTAIILSIVYSVLQYLQSGRETEKDKDKDKDKASPALDFIPTIIAPHVFYLAKREKSSQYKYIEKEYLLGQLLTFLMYKTAYYAMHKTNVSHKLFYNDINNELPIDELKDNKLLSRNFIQSTDNLAVDVIEAGIKEISTLINQRKVLFFSFLPL</p>
 <p>&gt;cluster_2488 MDWEDLLHSLRDLLAQRGSTESEKHVLDLLKERTTDNELYSRGQTLDDWQLDQAKIVACDILRDHPDLLDIIRNLELKSLCDRHKAAHLPAHKTRNREQLLQSVNVLVSSGKLVAAEELLEEELAENEDPELLDLLGRVYILQNRPKQAAALMQQAFLAKRQQSAFLDLSPEVDVVSERDDETITATDLEYITADASVFVGLDPFPCLRDEVYETVILPVPLSVTEDTRVISANERETLSLARACKPVDVASTAQGPKTLVSHAPHFKVVPSHSTQVSVTVDDVLCEAIPQLPQTPKEAIIDYQWPSGSESYYSDSHIQELVGGIDFCDPHEFALDFEGYQVNQPDSYEPEDDFFDNDEILVEQDDLYFGVADELDIHDDQNDDEFAAYAFDPDDVYDSQGSFDSDTELFDERLSREDRALQKAVELISRAGWSLSMLPLVQQIFVMNGWGATRLALEREIDKGMSPDELILAAHVKALWAENDYYWIAYDRNGSSNLSQYVMSWPTALMLIRAFESLPQIEEIEQFIESLFEYWYDRSSLRRAFRSFNRFLWFRICNLPGCLPASLPFNFCSPHELPVEEYSDLGISDLLVIEQTTKLRAYGVFQTKHPQEPSCYASDKPIPVDAYSMATQTSKEIPIDV</p>
 </blockquote>
+</section>
+<section id="sequence-3-your-favourite-protein" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sequence-3-your-favourite-protein"><span class="header-section-number">3.3</span> Sequence 3: Your favourite protein</h2>
+<p>You may select any protein sequence that does not have a structure available in PDB or AlphafoldDB. If the structure of your protein is already available, you can choose a related paralog or ortholog. It can also be a mutant or rare variant of a known protein structure.</p>
 
 
 </section>
