@@ -397,7 +397,8 @@ recommended alternative for most courses related to protein structure.
 In this course we are going to try a more recent proposal, twitted by Sergey
 Ovchinnikov:
 
-{{< tweet sokrypton 1535857255647690753 >}}
+
+{{< share-post https://twitter.com/sokrypton/status/1535857255647690753 >}}
 
 [![Basic protein amino acids stats for protein design with ColabFold
 Single](pics/cheatsheet.png "Protein hallucination"){#fig-single .figure

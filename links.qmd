@@ -175,12 +175,16 @@ Links checked on 13/feb/2025, let me know if you find any broken link.
 -   **AlphaFold Server** [@abramson2024]: <https://alphafoldserver.com/>
 
     -   Requires registration to build up to 20 models per day, including
-        proteins involving more than one chain.
+        proteins involving more than one chain, nucleic acids or some small
+        molecules from a (small) list.
 
 -   **Chai-1 Server** [@discovery]: <https://lab.chaidiscovery.com/>
 
-    -   Requires registration to build up to 20 models per day, including
-        proteins involving more than one chain.
+    -   Requires registration to build up to 25 models per day, including
+        proteins involving more than one chain, nucleic acids some small
+        molecules in
+        [SMILES](https://en.wikipedia.org/wiki/Simplified_Molecular_Input_Line_Entry_System)
+        format.
 
 -   **OpenFold** [@ahdritz] Colab:
     <https://colab.research.google.com/github/aqlaboratory/openfold/blob/main/notebooks/OpenFold.ipynb>
@@ -196,11 +200,16 @@ Links checked on 13/feb/2025, let me know if you find any broken link.
     -   Multiple methods, including I-TASSER [@roy2010], C-I-TASSER [@zheng2021]
         or I-TASSER-MTD, among others.
 
--   **PymolFold**: A handy Pymol script that calls the ESM-Fold API
+-   PymolFold: A handy Pymol script that calls the ESM-Fold API
 
     -   <https://github.com/JinyuanSun/PymolFold>
 
-    -   Web version: <http://103.79.77.89:8501/>
+-   **PyMOLFold** [@ford] (yes, duplicated name 🤷🏻‍♂️) is a another Pymol extension
+    that allow modeling protein complexes using ESM3, Chai-1 and Boltz-1
+    installed in different Conda environments. It can work with CPU or GPU, but
+    seems slow if you have only CPU.
+
+    -   <https://github.com/colbyford/PyMOLfold>
 
 -   **Alphafold2import**: <https://github.com/APAJanssen/Alphafold2import>
 
@@ -209,8 +218,9 @@ Links checked on 13/feb/2025, let me know if you find any broken link.
 -   **Pymol-color-alphafold**:
     <https://github.com/cbalbin-bio/pymol-color-alphafold>
 
-    -   This is a pymol extension to color structures by the AlphaFold pLDDT
-        color-code.
+    -   This is a Pymol extension to color structures by the AlphaFold pLDDT
+        color-code. Use it only with AF or similar models that contain the pLDDT
+        in the B-factor column of the PDB file.
 
 -   **Pymol plugins repo**:
     <https://wiki.pymol.org/index.php/Category:Pymol-script-repo>

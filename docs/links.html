@@ -260,7 +260,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 13, 2025</p>
+      <p class="date-modified">February 20, 2025</p>
     </div>
   </div>
     
@@ -418,11 +418,11 @@ Note
 <li><p>DeepMind’s AlphaFold colab: <a href="https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb" class="uri">https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb</a></p></li>
 <li><p><strong>AlphaFold Server</strong> <span class="citation" data-cites="abramson2024">(<a href="#ref-abramson2024" role="doc-biblioref">Abramson et al. 2024</a>)</span>: <a href="https://alphafoldserver.com/" class="uri">https://alphafoldserver.com/</a></p>
 <ul>
-<li>Requires registration to build up to 20 models per day, including proteins involving more than one chain.</li>
+<li>Requires registration to build up to 20 models per day, including proteins involving more than one chain, nucleic acids or some small molecules from a (small) list.</li>
 </ul></li>
 <li><p><strong>Chai-1 Server</strong> <span class="citation" data-cites="discovery">(<a href="#ref-discovery" role="doc-biblioref">Discovery et al., n.d.</a>)</span>: <a href="https://lab.chaidiscovery.com/" class="uri">https://lab.chaidiscovery.com/</a></p>
 <ul>
-<li>Requires registration to build up to 20 models per day, including proteins involving more than one chain.</li>
+<li>Requires registration to build up to 25 models per day, including proteins involving more than one chain, nucleic acids some small molecules in <a href="https://en.wikipedia.org/wiki/Simplified_Molecular_Input_Line_Entry_System">SMILES</a> format.</li>
 </ul></li>
 <li><p><strong>OpenFold</strong> <span class="citation" data-cites="ahdritz">(<a href="#ref-ahdritz" role="doc-biblioref">Ahdritz et al., n.d.</a>)</span> Colab: <a href="https://colab.research.google.com/github/aqlaboratory/openfold/blob/main/notebooks/OpenFold.ipynb" class="uri">https://colab.research.google.com/github/aqlaboratory/openfold/blob/main/notebooks/OpenFold.ipynb</a></p></li>
 <li><p><strong>Uni-fold</strong> <span class="citation" data-cites="li">(<a href="#ref-li" role="doc-biblioref">Ziyao Li et al., n.d.</a>)</span> Colab: <a href="https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb" class="uri">https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb</a></p></li>
@@ -431,10 +431,13 @@ Note
 <ul>
 <li>Multiple methods, including I-TASSER <span class="citation" data-cites="roy2010">(<a href="#ref-roy2010" role="doc-biblioref">Roy, Kucukural, and Zhang 2010</a>)</span>, C-I-TASSER <span class="citation" data-cites="zheng2021">(<a href="#ref-zheng2021" role="doc-biblioref">Zheng et al. 2021</a>)</span> or I-TASSER-MTD, among others.</li>
 </ul></li>
-<li><p><strong>PymolFold</strong>: A handy Pymol script that calls the ESM-Fold API</p>
+<li><p>PymolFold: A handy Pymol script that calls the ESM-Fold API</p>
 <ul>
-<li><p><a href="https://github.com/JinyuanSun/PymolFold" class="uri">https://github.com/JinyuanSun/PymolFold</a></p></li>
-<li><p>Web version: <a href="http://103.79.77.89:8501/" class="uri">http://103.79.77.89:8501/</a></p></li>
+<li><a href="https://github.com/JinyuanSun/PymolFold" class="uri">https://github.com/JinyuanSun/PymolFold</a></li>
+</ul></li>
+<li><p><strong>PyMOLFold</strong> <span class="citation" data-cites="ford">(<a href="#ref-ford" role="doc-biblioref">Ford et al., n.d.</a>)</span> (yes, duplicated name) is a another Pymol extension that allow modeling protein complexes using ESM3, Chai-1 and Boltz-1 installed in different Conda environments. It can work with CPU or GPU, but seems slow if you have only CPU.</p>
+<ul>
+<li><a href="https://github.com/colbyford/PyMOLfold" class="uri">https://github.com/colbyford/PyMOLfold</a></li>
 </ul></li>
 <li><p><strong>Alphafold2import</strong>: <a href="https://github.com/APAJanssen/Alphafold2import" class="uri">https://github.com/APAJanssen/Alphafold2import</a></p>
 <ul>
@@ -442,7 +445,7 @@ Note
 </ul></li>
 <li><p><strong>Pymol-color-alphafold</strong>: <a href="https://github.com/cbalbin-bio/pymol-color-alphafold" class="uri">https://github.com/cbalbin-bio/pymol-color-alphafold</a></p>
 <ul>
-<li>This is a pymol extension to color structures by the AlphaFold pLDDT color-code.</li>
+<li>This is a Pymol extension to color structures by the AlphaFold pLDDT color-code. Use it only with AF or similar models that contain the pLDDT in the B-factor column of the PDB file.</li>
 </ul></li>
 <li><p><strong>Pymol plugins repo</strong>: <a href="https://wiki.pymol.org/index.php/Category:Pymol-script-repo" class="uri">https://wiki.pymol.org/index.php/Category:Pymol-script-repo</a></p></li>
 </ul>
@@ -546,6 +549,9 @@ Buchan, Daniel W A, and David T Jones. 2019. <span>“The PSIPRED Protein Analys
 </div>
 <div id="ref-discovery" class="csl-entry" role="listitem">
 Discovery, Chai, Jacques Boitreaud, Jack Dent, Matthew McPartlon, Joshua Meier, Vinicius Reis, Alex Rogozhnikov, and Kevin Wu. n.d. <span>“Chai-1: Decoding the Molecular Interactions of Life.”</span> <a href="https://doi.org/10.1101/2024.10.10.615955">https://doi.org/10.1101/2024.10.10.615955</a>.
+</div>
+<div id="ref-ford" class="csl-entry" role="listitem">
+Ford, Colby T., Samee Ullah, Dinler Amaral Antunes, and Tarsis Gesteira Ferreira. n.d. <span>“PyMOLfold: Interactive Protein and Ligand Structure Prediction in PyMOL.”</span> <a href="https://doi.org/10.48550/arXiv.2502.00508">https://doi.org/10.48550/arXiv.2502.00508</a>.
 </div>
 <div id="ref-guo2022" class="csl-entry" role="listitem">
 Guo, Sai-Sai, Jun Liu, Xiao-Gen Zhou, and Gui-Jun Zhang. 2022. <span>“DeepUMQA: ultrafast shape recognition-based protein model quality assessment using deep learning.”</span> <em>Bioinformatics (Oxford, England)</em> 38 (7): 1895–1903. <a href="https://doi.org/10.1093/bioinformatics/btac056">https://doi.org/10.1093/bioinformatics/btac056</a>.

@@ -139,15 +139,29 @@ related to model accuracy, as has been recently shown in CASP15 [@lee.;
 @peng2023].
 
 In the second part of the diagram, AlphaFold takes the multiple sequence
-alignment and the templates, and processes them in a *transformer*. This process
-has been referred by some authors as inter-residue interaction map-threading
-[@bhattacharya2021]. The objective of this part is to extract layers of
-information to generate residue interaction maps. A better model of the MSA will
-improve the network's characterization of the geometry, which simultaneously
-will help refine the model of the MSA. Importantly, in the AF2 Evoformer, this
-process is iterative and the information goes back and forth throughout the
-network. At every recycling step, the complexity of the map increases and thus,
-the model improves (the original model uses 3 cycles). As explained in the great
+alignment and the templates, and processes them in a *transformer* that they
+named *Evoformer*. This process has been referred by some authors as
+inter-residue interaction map-threading [@bhattacharya2021]. The objective of
+this part is to extract layers of information to generate residue interaction
+maps. The Evoformer refines both its understanding of the MSA and the predicted
+3D structure in an iterative process. Improved predictions of amino acid
+interactions help refine the MSA representation, and vice-versa.
+
+The AF2 transformer architecture allows the model to process all amino acids in
+a protein sequence simultaneously, rather than one at a time, through a
+technique known as the attention mechanism. This is a significant advantage
+because it enables the model to capture long-range relationships between amino
+acids. Essentially, the attention mechanism helps a neural network to
+concentrate on the most relevant parts of its input when making predictions. For
+proteins, this means the network can learn which amino acids are likely to
+interact with each other, even if they are far apart in the sequence. It's akin
+to reading a lengthy document; you don't focus equally on every word but rather
+on the key phrases that are crucial for understanding the overall meaning.
+
+Importantly, in the AF2 Evoformer, this process is iterative and the information
+goes back and forth throughout the network. At each recycling step, the model
+refines its predictions of amino acid relationships, leading to a more accurate
+structure (the original model uses 3 cycles). As explained in the great
 [post](https://www.blopig.com/blog/2021/07/alphafold-2-is-here-whats-behind-the-structure-prediction-miracle/)
 from Carlos Outerial at the OPIG site:
 
@@ -163,15 +177,17 @@ from Carlos Outerial at the OPIG site:
 
 The third part of the pipeline is the structure building module, which uses the
 information from the previous steps to construct a 3D model structure protein of
-the query sequence. This network will give you a single model, without any
-energy optimization step. Model building is based in a new concept of 3D
-structures generation, named **IPA** (Invariant Point Attention) and the use of
-a curated list of parametrised list of torsion angles to generate the side
-chains. Earlier attempts to develop and end-to-end method were unsuccessful
-because the structure representation was not optimal. Even methods implemented
-after AlphaFold, like RoseTTAFold, use less efficient methods and often predict
-very quickly and accurately the backbone coordinates but require external
-programs to generate an all-atoms model
+the query sequence. This network will give you a single model, without heavy
+energy optimization steps (only a relax protocol). Model building is based in a
+new concept of 3D structures generation, named **IPA** (Invariant Point
+Attention) and the use of a curated list of parametrized list of torsion angles
+to generate the side chains. IPA allows the network to maintain rotational and
+translational invariance, which is crucial for accurate 3D structure prediction.
+Earlier attempts to develop and end-to-end method were unsuccessful because the
+structure representation was not optimal. Even methods implemented after
+AlphaFold, like RoseTTAFold, use less efficient methods and often predict very
+quickly and accurately the backbone coordinates but require external programs to
+generate an all-atoms model.
 
 ![Oxford Proteins Informatics Group Blog, modified from
 @jumper2021](pics/alphafols2.png "Alphafold2"){#fig-af2 .figure}
@@ -209,7 +225,12 @@ files available for download (although unlike a B-factor, higher pLDDT is
 better). The model confidence can vary greatly along a chain so it is important
 to consult the confidence when interpreting structural features. Very often, the
 lower confidence fragments are not product of a poor prediction but an indicator
-of protein disorder [@wilson2022].
+of protein disorder [@wilson2022]. Additionally, AF2 calculates the predicted
+template modeling, or TM-scores (**pTM**) based on a pairwise error prediction,
+and is used to calculate the predicted aligned error (**PAE**) that estimates
+the error of the position of each amino acid. Interestingly, the PAE can be used
+as a predictor for protein dynamics, as PAE correlates with distance variations
+from the MD simulations [@guo2022a].
 
 Alphafold also partnered with EMBL-EBI and Uniprot and generated a huge curated
 database of proteins from model organisms [@varadi2022], the [Alphafold
@@ -271,12 +292,11 @@ without the template. You may surprise.
 At this point, you may execute the whole pipeline or may some more
 customization. MSA stage can be also optimized to reduce execution time, by
 reducing database or even by providing your own MSA. Very often you may want to
-fold a protein with different parameters, particularly in the [Advanced
-Colabfold](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/AlphaFold2_advanced.ipynb#scrollTo=rowN0bVYLe9n),
-which may very convenient to reuse an MSA from a previous run (although they
-recently updated servers for MMSeqs and made it really faster). If your proteins
-are in the same operon or by any other reason you think that they should have
-co-evolved, you prefer a "paired" alignment. But you can always do both.
+fold a protein with different parameters, which may very convenient to reuse an
+MSA from a previous run (although they recently updated servers for MMSeqs and
+made it really faster). If your proteins are in the same operon or by any other
+reason you think that they should have co-evolved, you prefer a "paired"
+alignment. But you can always do both.
 
 Advanced settings are specially needed for protein-protein complexes. Also the
 number of recycling steps will improve your model, particularly for targets with
@@ -286,7 +306,7 @@ info and plots) in your GDrive or download it.
 [**What do you think is the ideal protein for AlphaFold? Do you think homology
 modeling is dead?**]{style="color:green"}
 
-## Now what? The Post-AlphaFold era
+## Now what? The Post-AlphaFold era (2022-2023)
 
 As mentioned earlier, RoseTTAFold was released at the same time as AlphaFold's
 paper and code, although it is clearly inspired by AlphaFold's capabilities in
@@ -301,37 +321,34 @@ and incorporate other new advances and AlphaFold tricks, like the FAPE (frame
 aligned point error) or recycling steps during the training, giving rise to an
 end-to-end model equivalent in accuracy to AF2 for monomers and AF2-multimer for
 complexes, with better computational scaling on proteins and complexes larger
-than 1000 residues @baek.
+than 1000 residues [@baek].
 
 The use of MSA has been cited as a limitation for AlphaFold and related methods.
 However, the predictions are significantly worse without MSA or with MSAs
 without depth. One way to improve predictions is to use a protein natural
-language model (PLN), i.e., a model trained to predict sequence from sequence
+language model (**PLMs**), i.e., a model trained to predict sequence from sequence
 and not dependent on good MSAs.
 [Omegafold](https://github.com/HeliXonProtein/OmegaFold) and
 [ESMfold](https://esmatlas.com/resources?action=fold) (also in Colabfold,
-[here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/omegafold.ipynb)
-and
-[here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/ESMFold.ipynb),
-respectively) are two new implementations that require only a single sequence.
-They are quite fast and perform better than AlphaFold when using a single
-sequence. However, since PLN is trained on existing sequences, these methods
-still perform significantly worse on orphan sequences. That is, the language
-models seem to just remember the training MSAs @elofsson2023.
+[here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/omegafold.ipynb) and [here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/ESMFold.ipynb), respectively) are two new implementations that require only a single sequence. While AlphaFold2 uses deep learning with multiple sequence alignments (MSAs) to infer protein structures, PLMs learn the "language" of protein sequences directly, representing amino acid sequences. Each amino acid (e.g., alanine, glycine) is represented as a "token," a numerical representation that the model can process. By training on extensive datasets of protein sequences, PLMs learn the patterns and relationships between amino acids, enabling them to predict 3D structures from single sequences. Essentially, PLMs treat amino acid sequences as "sentences," where each amino acid is a "word". This method offers advantages in speed and applicability, particularly for proteins without sufficient sequence homology. However, they may have lower overall accuracy compared to AlphaFold2 when MSAs are available.
+PLMs perform efficiently when using a single sequence, often surpassing AlphaFold in this scenario. Nevertheless, although they can outperform AF2, since PLMs are trained on existing sequences, these methods still show reduced performance on orphan sequences. That is, the language models seem to replicate the training MSAs [@elofsson2023].
 
 The appearance of ESMfold and the companion [Metagenomic
-Atlas](https://esmatlas.com/) @lin2023 was seen as a new step that could trigger
+Atlas](https://esmatlas.com/) [@lin2023] was seen as a new step that could trigger
 a new revolution in the field, since it was developed by scientists at META
-@callaway2022. So it was now a sort of Google versus Facebook battle for the
+[@callaway2022]. So it was now a sort of Google versus Facebook battle for the
 most powerful AI methods for protein modeling. Last summer, however, we learned
 that META had decided to discontinue the ESM project.
 
-{{< tweet KevinKaichuang 1689071501998260224 >}}
+
+{{< share-post https://twitter.com/KevinKaichuang/status/1689071501998260224 >}}
 
 AlphaFold was again the protagonist of CASP15, which took place in 2020, but it
 did not overwhelm the rest like in 2018.
 
-{{< tweet sokrypton 1601596893355642882 >}}
+
+{{< share-post https://twitter.com/sokrypton/status/1601596893355642882 >}}
+
 
 AlphaFold was used in some form in more than half of the protocols, and while
 the standard AlphaFold method performed better than many other methods, several
@@ -347,9 +364,9 @@ capabilities based on Voronoi surfaces or Deep Learning.
 
 ### 2021-2023 - Short summary in one {{< iconify fa6-brands x-twitter >}} wire
 
-{{< tweet simocristea 1626304239931912192 >}}
+{{< share-post https://twitter.com/simocristea/status/1626304239931912192 >}}
 
-## Corollary: Did Deepmind "fold" Levinthal's paradox?
+## Corollary 1: Did Deepmind "fold" Levinthal's paradox?
 
 The development of Alphafold and the [Alphafold structures
 Database](https://alphafold.ebi.ac.uk/) in collaboration with
@@ -382,12 +399,176 @@ as they do not really solve the problem but generate a deep learning pipeline
 that is able to bypass the problem [@pederson2021]. In agreement with that, it
 has been shown that machine learning methods actually do not reproduce the
 expected folding pathways while improving the structures during the recycling
-steps @outeiral.
+steps [@outeiral].
 
 In conclusion, I believe that the Levinthal paradox is not (yet) fully solved,
 although it seems to be close [@aljanabi2022]. Practically, it is solved for
 most of the protein space, but if your protein does not have a homolog in the
 databases, you will still have some open questions.
+
+# Protein hallucination and diffusion models
+
+Biochemists and Chemists have dreamed of designing proteins with customizable
+properties for decades. First successful protein designs were published in the
+late 1990s and several breakthrough by Baker's lab pushed forward the idea. More
+recently, artificial intelligence is starting a revolution in this field, and it
+will radically change it forever (reviewed in @notin2024).
+
+Soon after AF2 and RoseTTAFold publication, they were used to “hallucinate” new
+proteins. In December 2021, Baker and his colleagues reported expressing 129 of
+these hallucinated proteins in bacteria, and found that about one-fifth of them
+folded into something resembling their predicted shape. Then, in 2023, they
+introduced
+[RFdiffussion](https://www.bakerlab.org/2023/03/30/rf-diffusion-now-free-and-open-source/),
+a new paradigm in protein design, based in AI diffusion models. Imagine starting
+with a cloud of randomly positioned atoms (pure noise). The diffusion model
+gradually refines this noise, step-by-step, into a coherent 3D structure. This
+process is guided by learned patterns of how atoms and molecules interact,
+allowing the model to "denoise" the initial random arrangement into a realistic
+biomolecular complex. The model learns to reverse a "diffusion process," where
+noise is progressively added to known biomolecular structures. By learning to
+undo this process, the model can generate new structures from scratch.
+
+More recently several groups have combined diffusion models with NLPs to develop
+improved methods to design new proteins. Protein sequences can be described as a
+concatenation of letters from a chemically defined alphabet, the natural amino
+acids, and like human languages, these letters arrange to form secondary
+structural elements (“words”), which assemble to form domains (“sentences”) that
+undertake a function (“meaning”). One of the most attractive similarities is
+that protein sequences, like natural languages, are information-complete: they
+store structure and function entirely in their amino acid order with extreme
+efficiency. With the extraordinary advances in the NLP field in understanding
+and generating language with near-human capabilities, we hypothesized that these
+methods open a new door to approach protein-related problems from sequence
+alone, such as protein design.
+
+You can try some of these state-of-the-art method using Colab notebooks from
+[ColabDesing](https://github.com/sokrypton/ColabDesign) project, again by Sergey
+Ovchinnikov and colleages (check out his talks
+[here](https://www.youtube.com/watch?v=2HmXwlKWMVs) and
+[here](https://www.youtube.com/watch?v=smjYJSudwr0)).
+
+
+{{< share-post https://twitter.com/sokrypton/status/1514227001183416320 >}}
+
+# Alphafold3 expanded the scope
+
+Proteins are composed of amino acids, but they also include other components. [Holoproteins](https://en.wikipedia.org/wiki/Holoprotein) often contain multiple protein chains, ions, and cofactors. Additionally, proteins' functions typically involve interactions with various ligands, including DNA or RNA molecules. One limitation of AlphaFold 2 is its ability to predict *only* the structure of amino acid chains. It generally predicts the orientation of amino acids to some binding pockets accurately, particularly for ions or other common small ligands. Furthermore, it has been demonstrated from the beginning that AF2 can predict protein-protein interactions effectively, which was enhanced with the Alphafold-Multimer version [@evans2022] and further optimized in methods allowing full interactome predictions [@yu2023; @molodenskiy; @rouger]. However, many applications of protein structures in biology, biotechnology, and biomedicine require the interaction of protein chains with other molecules, such as organic ligands, drugs, or DNA/RNA molecules, presenting new challenges in the field of protein prediction.
+
+AlphaFold3 can now predict the structures and interactions of a much wider range
+of biomolecules, including protein-protein complexes, protein-DNA interactions,
+protein-RNA interactions, and small molecule-protein interactions. This leap in
+capability is powered by two key innovations: diffusion models and tokenization.
+DeepMind proposed that AlphaFold3 has the potential to revolutionize drug
+discovery, materials science, and our understanding of fundamental biological
+processes. By accurately modeling the intricate interactions of biomolecules, it
+can accelerate the development of new therapies, materials, and technologies.
+For instance, AlphaFold3 could help predict how a person’s specific protein
+structures and mutations will respond to different drugs, leading to highly
+effective, personalized treatments. This could revolutionize healthcare, making
+treatments more precise and reducing the trial-and-error approach currently
+used. On a global scale, AF3’s predictions could aid in rapidly developing
+vaccines and treatments for emerging diseases, helping to prevent pandemics and
+improve global health security. Its impact on neglected diseases could be
+significant, bringing new hope to millions in underdeveloped regions. This could
+lead to a more equitable distribution of healthcare advancements, improving
+quality of life worldwide.
+
+Imagine AlphaFold as the stage of learning to draw a single shape, and
+AlphaFold2 as mastering the perfection of that shape. AlphaFold3, on the other
+hand, is like learning to draw that shape and understanding how it fits together
+with various other shapes to create an intricate and complex picture.
+
+## Is AF3 that different?
+
+Unlike AlphaFold2's direct prediction approach, AlphaFold3 uses a diffusion
+model, a technique borrowed from image generation. The diffusion process allows
+the model to consider the overall context of the system, leading to more
+accurate predictions of complex interactions.
+
+AlphaFold3 [@abramson2024] treats biomolecules as "tokens," similar to how words are represented in natural language processing. This allows the model to apply the same powerful language modeling techniques used in large language models (LLMs). Instead of amino acid sequences, the model works with a broader vocabulary of tokens
+representing atoms, residues, nucleotides, and small molecules. Each type of
+atom, residue, or molecule is assigned a unique token. The model learns the
+statistical relationships between these tokens, capturing the rules of
+biomolecular interactions. This enables AlphaFold3 to "understand" the language
+of biomolecules, predicting how they will interact and assemble. Tokenization
+provides a unified representation for diverse biomolecules, enabling the model
+to handle complex systems. This, in combination with transformers, allows the
+model to understand the context of biomolecular interactions, capturing
+long-range dependencies and intricate relationships. 
+
+::: callout-warning
+It is important to note that while AlphaFold3 incorporates the concept of tokenization from language models, it utilizes it within a unique framework for a broader purpose. Tokenization in AlphaFold3 is used to represent all components of a complex, enabling the diffusion model to process these components simultaneously. Unlike protein language models, which primarily focus on learning statistical patterns from large training sets of protein sequences, AlphaFold3 relies on the diffusion model facilitated by tokenization.
+
+**Therefore, it is more accurate to describe AlphaFold3 as a hybrid model that integrates principles of language modeling rather than being purely based on protein language models.**
+
+:::
+
+AF3 can be tested in a Deepmind's [server](https://alphafoldserver.com/) that
+allows protein:protein, protein:DNA/RNA interactions, as well as interactions
+with a small subset of molecules.
+
+## Did AF3 move forward the field like AF2?
+
+Short answer: Yes.
+
+There are two main reasons. First, once they published the paper, the community
+moved to analyze the AF3 workflow and innovations and many labs attempted to
+reproduce or even improve it. Additionally, like in the case of AF2, Deepmind
+did not initially release the full code. In this case, they even published the
+Nature paper without the code. That generated a huge controversy in the social
+media (again):
+
+{{< share-post https://twitter.com/simocristea/status/1788515833884389806 >}}
+{{< share-post https://twitter.com/simocristea/status/1788515833884389806 >}}
+
+
+
+There was also some discussion with comments and editorials in Nature and other
+journals [@alphafol2024; @callaway2024] and a public letter with more than 100
+signatures [@wankowicz2024]. Ultimately, after the Nobel prize concession, they
+decided to publish an addendum to the paper and release the code on github
+[@abramson2024a].
+
+Currently, besides the AF3 released code, there are several AF3-based or AF3
+alternatives with similar performance that can be tested by any user. Some
+examples:
+
+1.  [Protenix](https://github.com/bytedance/Protenix) is a fully opensource AF3
+    implementation based on PyTorch that allow handling any molecule [@team]
+
+2.  Chai-1 [@discovery] is similar to AF3 and it can be used as a Python package
+    for non-commercial use and via a [web
+    interface](https://lab.chaidiscovery.com/) where it can be used for free
+    including for commercial drug discovery purposes. It uses
+    [smiles](https://en.wikipedia.org/wiki/Simplified_Molecular_Input_Line_Entry_System)
+    encoding for representation of any ligand molecule
+
+3.  [Boltz-1](https://github.com/jwohlwend/boltz) [@wohlwend] is also a very
+    recent method that achieves AF3-level accuracy in predicting the 3D
+    structures of biomolecular complexes and it can be tested in Colabfold.
+
+Finally, I recently came into
+[PyMOLFold](https://github.com/colbyford/PyMOLfold) [@ford], a novel Pymol
+plugin that facilitate the use of these methods. It provides instructions for
+installation (on different Conda environments) and they work on your computer. I
+tested it using only CPUs and it worked, though quite slowly as compared with
+the use of online servers or Colabs.
+
+
+{{< share-post https://twitter.com/c01_by/status/1867227053197574556 >}}
+
+## Corollary 2: A Nobel prize to the field
+
+Between 2021 and 2024, I used to conclude my lectures on protein modeling by proposing a wager to my students, predicting that the creators of AF2 and RoseTTAFold would win a Nobel Prize. Indeed, the [Nobel Prize in Chemistry for
+2024](https://www.nobelprize.org/prizes/chemistry/2024/press-release/) was
+awarded to **David Baker** (1/2) for "computational protein design" and to
+**Demis Hassabis** (1/4) along with **John Jumper** (1/4) for "protein structure
+prediction".
+
+As stated by David Baker [@baker2025], this Nobel Prize serves as recognition
+for the field and an encouragement for future advancements, highlighting the
+significant impact that protein design can have on the world.
 
 # [Review Quizz]{style="color:green"} {#quizz}
 
@@ -449,6 +630,32 @@ opts_p7 <- c("The PAE is used to color the model and it is stored in the PDB fil
 cat("**To assess the quality of AlphaFold models, it provides the pLDDT score and the PAE. What can you say about those scores? **",longmcq(opts_p7))
 
 
+opts_p8 <- c("Introduction of diffusion models",
+             answer = "Significantly improved accuracy due to attention mechanisms and iterative refinement",
+             "Reliance on purely ab initio folding",
+             "Ability to predict protein-ligand interactions")
+
+cat("**Which of the following best describes the key advancement of AlphaFold2 compared to the original AlphaFold? **",longmcq(opts_p8))
+
+
+opts_p9 <- c(answer= "Building a 3D protein structure that is rotationally and translationally invariant",
+             "Generating multiple sequence alignments",
+             "Capturing long-range interactions in the protein sequence",
+             "Performing energy minimization")
+
+cat("**The \"Invariant Point Attention\" (IPA) mechanism in AlphaFold2 is essential for **",longmcq(opts_p9))
+
+
+
+opts_p9 <- c("As a 3D coordinate map",
+             "As a set of torsion angles",
+             answer= "As a sequence of amino acid tokens, similar to words in a sentence",
+             "As a graph of interacting residues")
+
+cat("**How do protein natural language-based models (like ESMFold) represent proteins? **",longmcq(opts_p9))
+
+
+
 ```
 
 # Useful links {#links}
@@ -474,3 +681,5 @@ cat("**To assess the quality of AlphaFold models, it provides the pLDDT score an
 -   A post that explain how AlphaFold and related methods can be used to create
     new structures:
     <https://theconversation.com/when-researchers-dont-have-the-proteins-they-need-they-can-get-ai-to-hallucinate-new-structures-173209>
+    
+-   A detailed explanation about Alphafold 3: <https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/>  
