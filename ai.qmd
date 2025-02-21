@@ -421,8 +421,7 @@ folded into something resembling their predicted shape. Then, in 2023, they
 introduced
 [RFdiffussion](https://www.bakerlab.org/2023/03/30/rf-diffusion-now-free-and-open-source/),
 a new paradigm in protein design, based in AI diffusion models. Imagine starting
-with a cloud of randomly positioned atoms (pure noise). The diffusion model
-gradually refines this noise, step-by-step, into a coherent 3D structure. This
+with a cloud of randomly positioned atoms (pure noise). During training, diffusion models apply usually-random noise to a distribution of data until it resembles pure static, for example. The model then learns to reverse this process, generating final data points representative of the original data distribution. This
 process is guided by learned patterns of how atoms and molecules interact,
 allowing the model to "denoise" the initial random arrangement into a realistic
 biomolecular complex. The model learns to reverse a "diffusion process," where
@@ -503,6 +502,8 @@ It is important to note that while AlphaFold3 incorporates the concept of tokeni
 **Therefore, it is more accurate to describe AlphaFold3 as a hybrid model that integrates principles of language modeling rather than being purely based on protein language models.**
 
 :::
+
+Unlike its predecessor, AF3 is a generative model. This means it can give different outputs for the same input and that it can hallucinate, a phenomenon evident with intrinsically disordered regions (IDRs) of proteins.
 
 AF3 can be tested in a Deepmind's [server](https://alphafoldserver.com/) that
 allows protein:protein, protein:DNA/RNA interactions, as well as interactions
@@ -682,4 +683,12 @@ cat("**How do protein natural language-based models (like ESMFold) represent pro
     new structures:
     <https://theconversation.com/when-researchers-dont-have-the-proteins-they-need-they-can-get-ai-to-hallucinate-new-structures-173209>
     
--   A detailed explanation about Alphafold 3: <https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/>  
+-   Selected interesting posts about Alphafold3 modeling process and its potential:
+
+    - <https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/>  
+    
+    - <https://carlos.outeiral.net/alphafold-3/>
+    
+    - **<https://research.dimensioncap.com/p/an-opinionated-alphafold3-field-guide>**
+    - <https://www.labiotech.eu/in-depth/alpha-fold-3-drug-discovery/>
+    
