@@ -76,7 +76,7 @@ In the [Protein Data Bank](https://www.rcsb.org/) (PDB), you’ll find structure
 ### 1. Look for those structures and compare them.
 
 -   First, try to inspect them visually and find similarities and differences.
--   Then, to quantify the similarity, you can then use the `Structure Pairwise Alignment` tool from the ANALYZE menu above and test different alignment algorithms (for more information on the algorithms check:
+-   Then, to quantify the similarity, you can then use the [Structure Pairwise Alignment](https://www.rcsb.org/alignment) tool from the ANALYZE menu above and test different alignment algorithms (for more information on the algorithms check:
     <https://www.rcsb.org/docs/tools/pairwise-structure-alignment>) .
 
 ### 2. Now go to the full version of [Mol\* Viewer](https://molstar.org/viewer/) to analyze those proteins in more detail.
@@ -95,7 +95,7 @@ In the [Protein Data Bank](https://www.rcsb.org/) (PDB), you’ll find structure
 | easily identify them by a label on the            |                          |
 | bottom-right corner.                              |                          |
 |                                                   |                          |
-| Tips:                                             |                          |
+| 💡 **Tips:**                                      |                          |
 |                                                   |                          |
 | -   Zoom in/out usually works with your mouse     |                          |
 |     scroll                                        |                          |
@@ -109,7 +109,7 @@ In the [Protein Data Bank](https://www.rcsb.org/) (PDB), you’ll find structure
 |     mean perpendicular to the screen plane) and   |                          |
 |     show a “section plane” within the structure.  |                          |
 +---------------------------------------------------+--------------------------+
-| Trick:                                            | ![](images/image.17.png) |
+| 🪄 **Trick:      **                               | ![](images/image.17.png) |
 |                                                   |                          |
 | Click on the drug molecule and then use the right |                          |
 | menu to change anything in the representation of  |                          |
@@ -141,7 +141,7 @@ In the [Protein Data Bank](https://www.rcsb.org/) (PDB), you’ll find structure
 +---------------------------------------------------+--------------------------+
 | 3\. Select one chain from each structure.         | ![](images/image.13.png) |
 |                                                   |                          |
-| Tip:                                              |                          |
+| 💡 **Tip:  **                                     |                          |
 |                                                   |                          |
 | Optionally, you can remove all the unwanted       |                          |
 | chains but one using the `-` option (indicated    |                          |
@@ -156,7 +156,7 @@ In the [Protein Data Bank](https://www.rcsb.org/) (PDB), you’ll find structure
 
 ### 4. Compare the residues in binding pocket.
 
-::: callout-tip
+::: callout-important
 Focus especially on residues 274 and 276 in each structure.
 :::
 
