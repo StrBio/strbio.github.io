@@ -10,6 +10,8 @@ author:
 format: 
   html:
     page-layout: full
+quarto_ext:
+  - jmbuhr/quarto-molstar
 toc: true
 toc-location: right
 toc-depth: 3
@@ -29,9 +31,21 @@ editor:
 
 ```
 
-The goal of this exercise[^1] is to learn how to work with protein structures in
-3D by using PDB files, comparing and analyzing them, and understanding the
-differences between different structures.
+The aim of this exercise[^1] is to explore and compare 3D protein structures using
+PDB files. You’ll learn how to:
+
+-   Retrieve and visualize protein structures.
+
+-   Perform structural alignments.
+
+-   Analyze binding pockets.
+
+-   Build a homology model from a new sequence.
+
+💡 **Note:** Please post any questions in the Moodle Q&A forum so everyone
+benefits from the discussion.
+
+
 
 [^1]: This exercise is inspired in the "Homology Modeling" exercise in the
     Course *Bioinformatics & Molecular Biology* by Department of Molecular
@@ -43,32 +57,33 @@ differences between different structures.
     height="28"} Distributed with
     [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-**Follow the given steps and then answer the questions in Moodle.**
 
-Questions are very welcome, but please use the *Moodle Q&A* forum so that your
-classmates can see the discussions.
 
 # Background
 
-As you know, viral diseases such as COVID-19, seasonal flu or the common cold
-cannot be treated with antibiotics. Fortunately, there are some drugs that
-target essential viral proteins and can be used instead. One example is
-oseltamivir (also known as Tamiflu), an inhibitor of the influenza virus
-neuraminidase, whose substrate is sialic acid. In [Protein Data
-Bank](https://www.rcsb.org/) (PDB) there are several structures of
-neuraminidases from different influenza strains and with/without complexed
-substrate or inhibitors. Two of them are **2HU4** and **3CL0**.
+Viral diseases like COVID-19 and influenza can't be treated with antibiotics. However, drugs such as oseltamivir (Tamiflu) inhibit viral proteins like influenza virus neuraminidase (NA), which targets sialic acid.
+
+In the [Protein Data Bank](https://www.rcsb.org/) (PDB), you’ll find structures of neuraminidases from various influenza strains. For this exercise, we’ll focus on two NA variants:
+
+## [2HU4](https://www.rcsb.org/structure/2HU4) (oseltamivir-sensitive)
+{{< mol-rcsb 2HU4 layoutShowControls=true layoutShowLeftPanel=false >}}
+## [3CL0](https://www.rcsb.org/structure/3CL0) (oseltamivir-resistant)
+{{< mol-rcsb 3CL0 layoutShowControls=true layoutShowLeftPanel=false >}}
+
 
 # Procedure
 
-### 1. Look for those structures on PDB-RCSB database and compare them.
+### 1. Look for those structures and compare them.
 
--   You can use the tool `Structure Pairwise Alignment` from the ANALYZE menu on
-    the top and test different alignment algorithms (for more info about the
-    algorithms see
+-   First, try to inspect them visually and find similarities and differences.
+-   Then, to quantify the similarity, you can then use the `Structure Pairwise Alignment` tool from the ANALYZE menu above and test different alignment algorithms (for more information on the algorithms check:
     <https://www.rcsb.org/docs/tools/pairwise-structure-alignment>) .
 
-### 2. Then go to [Mol\* Viewer](https://molstar.org/viewer/) to analyze them in more detail.
+### 2. Now go to the full version of [Mol\* Viewer](https://molstar.org/viewer/) to analyze those proteins in more detail.
+
+
+
+
 
 +---------------------------------------------------+--------------------------+
 | You can download the structures directly from PDB | ![](images/image.18.png) |

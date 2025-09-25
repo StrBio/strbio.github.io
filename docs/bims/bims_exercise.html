@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,10 +31,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="bims_exercise_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="bims_exercise_files/libs/quarto-html/anchor.min.js"></script>
 <link href="bims_exercise_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="bims_exercise_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="bims_exercise_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="bims_exercise_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="bims_exercise_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="bims_exercise_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="bims_exercise_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="bims_exercise_files/libs/quarto-contrib/molstar-v3.13.0/molstar.js"></script>
+<link href="bims_exercise_files/libs/quarto-contrib/molstar-v3.13.0/molstar.css" rel="stylesheet">
+<link href="bims_exercise_files/libs/quarto-contrib/molstar-v3.13.0/app-container.css" rel="stylesheet">
 
 
 </head>
@@ -48,11 +51,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">1</span> Goal</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">2</span> Background</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">2</span> Background</a>
+  <ul class="collapse">
+  <li><a href="#hu4-oseltamivir-sensitive" id="toc-hu4-oseltamivir-sensitive" class="nav-link" data-scroll-target="#hu4-oseltamivir-sensitive">2HU4 (oseltamivir-sensitive)</a></li>
+  <li><a href="#cl0-oseltamivir-resistant" id="toc-cl0-oseltamivir-resistant" class="nav-link" data-scroll-target="#cl0-oseltamivir-resistant">3CL0 (oseltamivir-resistant)</a></li>
+  </ul></li>
   <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure"><span class="header-section-number">3</span> Procedure</a>
   <ul class="collapse">
-  <li><a href="#look-for-those-structures-on-pdb-rcsb-database-and-compare-them." id="toc-look-for-those-structures-on-pdb-rcsb-database-and-compare-them." class="nav-link" data-scroll-target="#look-for-those-structures-on-pdb-rcsb-database-and-compare-them.">1. Look for those structures on PDB-RCSB database and compare them.</a></li>
-  <li><a href="#then-go-to-mol-viewer-to-analyze-them-in-more-detail." id="toc-then-go-to-mol-viewer-to-analyze-them-in-more-detail." class="nav-link" data-scroll-target="#then-go-to-mol-viewer-to-analyze-them-in-more-detail.">2. Then go to Mol* Viewer to analyze them in more detail.</a></li>
+  <li><a href="#look-for-those-structures-and-compare-them." id="toc-look-for-those-structures-and-compare-them." class="nav-link" data-scroll-target="#look-for-those-structures-and-compare-them.">1. Look for those structures and compare them.</a></li>
+  <li><a href="#now-go-to-the-full-version-of-mol-viewer-to-analyze-those-proteins-in-more-detail." id="toc-now-go-to-the-full-version-of-mol-viewer-to-analyze-those-proteins-in-more-detail." class="nav-link" data-scroll-target="#now-go-to-the-full-version-of-mol-viewer-to-analyze-those-proteins-in-more-detail.">2. Now go to the full version of Mol* Viewer to analyze those proteins in more detail.</a></li>
   <li><a href="#now-we-want-to-compare-them-and-check-the-details." id="toc-now-we-want-to-compare-them-and-check-the-details." class="nav-link" data-scroll-target="#now-we-want-to-compare-them-and-check-the-details.">3. Now we want to compare them and check the details.</a></li>
   <li><a href="#compare-the-residues-in-binding-pocket." id="toc-compare-the-residues-in-binding-pocket." class="nav-link" data-scroll-target="#compare-the-residues-in-binding-pocket.">4. Compare the residues in binding pocket.</a></li>
   <li><a href="#we-just-found-a-new-virus-with-the-following-neuraminidase-sequence" id="toc-we-just-found-a-new-virus-with-the-following-neuraminidase-sequence" class="nav-link" data-scroll-target="#we-just-found-a-new-virus-with-the-following-neuraminidase-sequence">5. We just found a new virus with the following neuraminidase sequence:</a></li>
@@ -96,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 2, 2024</p>
+      <p class="date-modified">September 25, 2025</p>
     </div>
   </div>
     
@@ -109,24 +116,49 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="goal" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Goal</h1>
-<p>The goal of this exercise<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is to learn how to work with protein structures in 3D by using PDB files, comparing and analyzing them, and understanding the differences between different structures.</p>
-<p><strong>Follow the given steps and then answer the questions in Moodle.</strong></p>
-<p>Questions are very welcome, but please use the <em>Moodle Q&amp;A</em> forum so that your classmates can see the discussions.</p>
+<p>The aim of this exercise<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is to explore and compare 3D protein structures using PDB files. You’ll learn how to:</p>
+<ul>
+<li><p>Retrieve and visualize protein structures.</p></li>
+<li><p>Perform structural alignments.</p></li>
+<li><p>Analyze binding pockets.</p></li>
+<li><p>Build a homology model from a new sequence.</p></li>
+</ul>
+<p>💡 <strong>Note:</strong> Please post any questions in the Moodle Q&amp;A forum so everyone benefits from the discussion.</p>
 </section>
 <section id="background" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Background</h1>
-<p>As you know, viral diseases such as COVID-19, seasonal flu or the common cold cannot be treated with antibiotics. Fortunately, there are some drugs that target essential viral proteins and can be used instead. One example is oseltamivir (also known as Tamiflu), an inhibitor of the influenza virus neuraminidase, whose substrate is sialic acid. In <a href="https://www.rcsb.org/">Protein Data Bank</a> (PDB) there are several structures of neuraminidases from different influenza strains and with/without complexed substrate or inhibitors. Two of them are <strong>2HU4</strong> and <strong>3CL0</strong>.</p>
+<p>Viral diseases like COVID-19 and influenza can’t be treated with antibiotics. However, drugs such as oseltamivir (Tamiflu) inhibit viral proteins like influenza virus neuraminidase (NA), which targets sialic acid.</p>
+<p>In the <a href="https://www.rcsb.org/">Protein Data Bank</a> (PDB), you’ll find structures of neuraminidases from various influenza strains. For this exercise, we’ll focus on two NA variants:</p>
+<section id="hu4-oseltamivir-sensitive" class="level2">
+<h2 class="anchored" data-anchor-id="hu4-oseltamivir-sensitive"><a href="https://www.rcsb.org/structure/2HU4">2HU4</a> (oseltamivir-sensitive)</h2>
+    <div id="app-2HU4" class="molstar-app"></div>
+    <script type="text/javascript">
+    molstar.Viewer.create("app-2HU4", {"emdbProvider":"rcsb","layoutIsExpanded":false,"layoutShowControls":true,"layoutShowLeftPanel":false,"layoutShowLog":false,"layoutShowRemoteState":false,"layoutShowSequence":false,"pdbProvider":"rcsb","viewportShowAnimation":true,"viewportShowExpand":true,"viewportShowSelectionMode":false}).then(viewer => {
+    viewer.loadPdb("2HU4");    });
+    </script>
+    
+</section>
+<section id="cl0-oseltamivir-resistant" class="level2">
+<h2 class="anchored" data-anchor-id="cl0-oseltamivir-resistant"><a href="https://www.rcsb.org/structure/3CL0">3CL0</a> (oseltamivir-resistant)</h2>
+    <div id="app-3CL0" class="molstar-app"></div>
+    <script type="text/javascript">
+    molstar.Viewer.create("app-3CL0", {"emdbProvider":"rcsb","layoutIsExpanded":false,"layoutShowControls":true,"layoutShowLeftPanel":false,"layoutShowLog":false,"layoutShowRemoteState":false,"layoutShowSequence":false,"pdbProvider":"rcsb","viewportShowAnimation":true,"viewportShowExpand":true,"viewportShowSelectionMode":false}).then(viewer => {
+    viewer.loadPdb("3CL0");    });
+    </script>
+    
+</section>
 </section>
 <section id="procedure" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Procedure</h1>
-<section id="look-for-those-structures-on-pdb-rcsb-database-and-compare-them." class="level3">
-<h3 class="anchored" data-anchor-id="look-for-those-structures-on-pdb-rcsb-database-and-compare-them.">1. Look for those structures on PDB-RCSB database and compare them.</h3>
+<section id="look-for-those-structures-and-compare-them." class="level3">
+<h3 class="anchored" data-anchor-id="look-for-those-structures-and-compare-them.">1. Look for those structures and compare them.</h3>
 <ul>
-<li>You can use the tool <code>Structure Pairwise Alignment</code> from the ANALYZE menu on the top and test different alignment algorithms (for more info about the algorithms see <a href="https://www.rcsb.org/docs/tools/pairwise-structure-alignment" class="uri">https://www.rcsb.org/docs/tools/pairwise-structure-alignment</a>) .</li>
+<li>First, try to inspect them visually and find similarities and differences.</li>
+<li>Then, to quantify the similarity, you can then use the <code>Structure Pairwise Alignment</code> tool from the ANALYZE menu above and test different alignment algorithms (for more information on the algorithms check: <a href="https://www.rcsb.org/docs/tools/pairwise-structure-alignment" class="uri">https://www.rcsb.org/docs/tools/pairwise-structure-alignment</a>) .</li>
 </ul>
 </section>
-<section id="then-go-to-mol-viewer-to-analyze-them-in-more-detail." class="level3">
-<h3 class="anchored" data-anchor-id="then-go-to-mol-viewer-to-analyze-them-in-more-detail.">2. Then go to <a href="https://molstar.org/viewer/">Mol* Viewer</a> to analyze them in more detail.</h3>
+<section id="now-go-to-the-full-version-of-mol-viewer-to-analyze-those-proteins-in-more-detail." class="level3">
+<h3 class="anchored" data-anchor-id="now-go-to-the-full-version-of-mol-viewer-to-analyze-those-proteins-in-more-detail.">2. Now go to the full version of <a href="https://molstar.org/viewer/">Mol* Viewer</a> to analyze those proteins in more detail.</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 65%">
@@ -343,8 +375,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -462,7 +492,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
