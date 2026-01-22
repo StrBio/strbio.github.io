@@ -16,6 +16,7 @@ website:
           - intro.qmd
           - ddbb.qmd
           - pdb.qmd
+          - structures.qmd
       - section: "Modeling"
         contents:
           - homology.qmd
@@ -31,7 +32,7 @@ website:
       - icon: github
         href: https://github.com/StrBio/strbio.github.io
   page-footer:
-    left: "Modesto Redrejo Rodríguez, 2025"
+    left: "Modesto Redrejo Rodríguez, 2026"
     right:
     - icon: badge-cc-fill
       href: https://creativecommons.org/licenses/by-nc/2.0/

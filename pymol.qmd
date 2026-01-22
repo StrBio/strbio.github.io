@@ -152,7 +152,7 @@ show \[representation\], \[selection-name\]
 ```
 
 The `selection-name`is an optional argument and can be very complex or specific,
-involving one or more portions of one or more objects.    
+involving one or more portions of one or more objects.
 
 ::: callout-tip
 ❗️You can see a detail explanation of the Pymol selection syntax in the Pymol
@@ -184,6 +184,8 @@ visualization of your molecule(s), you only have two alternatives.
     -   You can also save temporal scenes within your session, like frozen
         screenshoots while keep working, using the command `scene`:
         <https://pymolwiki.org/index.php/Scene>
+        
+    -   The commands `get_view` and `set_view` are very useful to reproduce a particular view of a protein, particularly when making a movie. See <https://pymolwiki.org/Set_view>    
 :::
 
 ## 2. Choose representation and color schemes.
@@ -329,6 +331,12 @@ delete 6KHY #remove the original structure for clarity
 fetch 3AAM
 fetch 2NQH
 ```
+::: {.callout-tip collapse="false"}
+## Biological units
+If your protein is a multimer, you can download a biological assembly or biological unit, use the assembly setting or use type=pdb1 (monomer), type=pdb2 (dimer) and so on.
+Once you have learned to create and remove objects, try to  `fetch 6KI3, type=pdb1` to display only a monomer of `6KI3`
+
+:::
 
 Now you should have four structures: `6KI3` (or monomer), `6KHY_monomer`,
 `3AAM`, and `2NQH`

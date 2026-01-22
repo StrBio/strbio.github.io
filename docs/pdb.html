@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Protein Structures – Structural Bioinformatics at UAM</title>
+<title>Protein Structures Analysis – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,17 +51,17 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./homology.html" rel="next">
+<link href="./structures.html" rel="next">
 <link href="./ddbb.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6e5bad59d9c561bd033d0b48217d8615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script src="site_libs/quarto-contrib/molstar-v3.13.0/molstar.js"></script>
 <link href="site_libs/quarto-contrib/molstar-v3.13.0/molstar.css" rel="stylesheet">
@@ -98,9 +98,10 @@ div.csl-indent {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Protein Structures – Structural Bioinformatics at UAM">
+<meta name="twitter:title" content="Protein Structures Analysis – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="pics/magritte.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked">
@@ -112,7 +113,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,13 +166,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ddbb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Protein Databases</span></a>
+ <span class="menu-text">Protein structure classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pdb.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Protein Structures</span></a>
+ <span class="menu-text">Protein Structures Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex.1: Parsing Protein Structures</span></a>
   </div>
 </li>
       </ul>
@@ -218,7 +225,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./casp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UAM CASP competition</span></a>
+ <span class="menu-text">Ex.2: UAM CASP competition</span></a>
   </div>
 </li>
       </ul>
@@ -251,7 +258,7 @@ div.csl-indent {
   <li><a href="#biological-macromolecules-display-applications" id="toc-biological-macromolecules-display-applications" class="nav-link" data-scroll-target="#biological-macromolecules-display-applications"><span class="header-section-number">4.2</span> Biological macromolecules display applications</a></li>
   <li><a href="#parsing-multiple-structures" id="toc-parsing-multiple-structures" class="nav-link" data-scroll-target="#parsing-multiple-structures"><span class="header-section-number">4.3</span> Parsing multiple structures</a></li>
   </ul></li>
-  <li><a href="#pymol-practice" id="toc-pymol-practice" class="nav-link" data-scroll-target="#pymol-practice"><span class="header-section-number">5</span> <strong>PyMOL Practice</strong></a></li>
+  <li><a href="#pymol-tutorial" id="toc-pymol-tutorial" class="nav-link" data-scroll-target="#pymol-tutorial"><span class="header-section-number">5</span> <strong>PyMOL tutorial</strong></a></li>
   <li><a href="#bibliograpy" id="toc-bibliograpy" class="nav-link" data-scroll-target="#bibliograpy"><span class="header-section-number">6</span> Bibliograpy</a></li>
   </ul>
 </nav>
@@ -259,9 +266,9 @@ div.csl-indent {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./pdb.html">Protein Structures Analysis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Protein Structures</h1>
+<h1 class="title">Protein Structures Analysis</h1>
 </div>
 
 
@@ -279,7 +286,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 5, 2025</p>
+      <p class="date-modified">January 22, 2026</p>
     </div>
   </div>
     
@@ -425,7 +432,7 @@ Figure&nbsp;7: The effect of resolution on the quality of the electron density. 
 </div>
 <p>    </p><div id="app-mol-star_state.molj" class="molstar-app"></div>
     <script type="text/javascript">
-    molstar.Viewer.create("app-mol-star_state.molj", {"layoutShowRemoteState":false,"layoutIsExpanded":false,"layoutShowControls":false,"layoutShowSequence":false,"emdbProvider":"rcsb","pdbProvider":"rcsb","viewportShowAnimation":true,"layoutShowLeftPanel":true,"viewportShowExpand":true,"layoutShowLog":false,"viewportShowSelectionMode":false}).then(viewer => {
+    molstar.Viewer.create("app-mol-star_state.molj", {"emdbProvider":"rcsb","layoutIsExpanded":false,"layoutShowControls":false,"layoutShowLeftPanel":true,"layoutShowLog":false,"layoutShowRemoteState":false,"layoutShowSequence":false,"pdbProvider":"rcsb","viewportShowAnimation":true,"viewportShowExpand":true,"viewportShowSelectionMode":false}).then(viewer => {
     viewer.loadSnapshotFromUrl(url="mol-star_state.molj", "molj");    });
     </script>
      Embedded reproduction of the <a href="#fig-reso" class="quarto-xref">Figure&nbsp;7</a> with <em>Mol*</em>, which allow you to explore the structures.<p></p>
@@ -489,7 +496,24 @@ Figure&nbsp;8: Coordinates in the PDB file (6KI3)
 <p><a href="https://en.wikipedia.org/wiki/PyMOL">PyMOL</a> is a very powerful molecular visualization system written originally by <a href="https://en.wikipedia.org/wiki/Warren_Lyford_DeLano">Warren DeLano</a>. It was released in 2000 and soon became very popular. It’s currently commercialized under License by <a href="https://pymol.org/">Schrödinger</a> but a free license for teaching can be requested. Also, open source code is available on <a href="https://github.com/schrodinger/pymol-open-source">GitHub</a> that can be installed on Linux or MAC. More info on <a href="https://en.wikipedia.org/wiki/PyMOL">Wikipedia</a>. You can also check this quick <a href="https://www.uml.edu/docs/PyMOL%20Quick%20Reference%20Guide_tcm18-230352.pdf">Reference guide</a></p>
 <p>PyMOL allows working with different structures representation, but also with raw experimental data in different <a href="https://pymol.org/dokuwiki/doku.php?id=format">formats</a>.</p>
 <p>PyMOL is written in Python and can be used with interactive menus and also with command line. There are a lot of resources that can help you with PyMOL, like a <a href="https://pymol.org/dokuwiki/">Documentation Reference Wiki</a> or a community-supported <a href="https://pymolwiki.org/index.php/Main_Page">PyMOLWiki</a>. Moreover, it allows the implementation of new functionalities as plugins <span class="citation" data-cites="rosignoli2022">(<a href="#ref-rosignoli2022" role="doc-biblioref">Rosignoli and Paiardini 2022</a>)</span>, like <a href="http://schubert.bio.uniroma1.it/pymod/index.html">PyMod</a> or <a href="http://schubert.bio.uniroma1.it/dockingpie/index.html">DockingPie</a>, among others. <a href="https://pymolwiki.org/index.php/PyMod">PyMod</a> <span class="citation" data-cites="janson2021">(<a href="#ref-janson2021" role="doc-biblioref">Janson and Paiardini 2021</a>)</span> is designed to act as simple and intuitive interface between PyMOL and several bioinformatics tools (i.e., PSI-BLAST, Clustal Omega, HMMER, MUSCLE, CAMPO, PSIPRED, and MODELLER). Starting from the amino acid sequence of the target protein, PyMod is designed to carry out the main steps of the homology modeling process (that is, template searching, target-template sequence alignment and model building) in order to build a 3D atomic model of a target protein (or protein complex). The integration with PyMOL facilitates a detailed analysis of the modeling process.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pymol scripting
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>You can write <a href="https://pymolwiki.org/index.php/Pml">Pymol scripts</a> just by listing commands in a file, one command per line, appearing as they would be entered at the PyMOL command prompt. The standard extension for a PyMOL script is .pml.</p>
+<p>Moreover, you can write more complex Python-based scripts, as detailed in the <a href="https://pymolwiki.org/index.php/Simple_Scripting">wiki</a></p>
 <p>Finally, as any Python-based program, it can be used within Jupyter notebooks (see <a href="https://www.computer.org/csdl/magazine/cs/2021/02/09354947/1rgCkrAJCko" class="uri">https://www.computer.org/csdl/magazine/cs/2021/02/09354947/1rgCkrAJCko</a>).</p>
+</div>
+</div>
+</div>
 </section>
 <section id="ucsf-chimerax" class="level3">
 <h3 class="anchored" data-anchor-id="ucsf-chimerax">UCSF ChimeraX</h3>
@@ -517,14 +541,14 @@ Note
 </section>
 <section id="parsing-multiple-structures" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="parsing-multiple-structures"><span class="header-section-number">4.3</span> Parsing multiple structures</h2>
-<p>Python offers several robust libraries for parsing and visualizing protein structures. Biopython is widely utilized for parsing PDB files, while libraries such as NGL, Py3Dmol, or matplotlib (with creative geometry) are effective for visualization. Biopython is essential for parsing and working with protein structure data, irrespective of the chosen visualization library.</p>
+<p>As PDB files are text files, you can easily write your own scripts to parse structures and process their data. Moreover, Python and R offer several robust libraries for parsing and visualizing protein structures. Biopython is widely utilized for parsing PDB files, while libraries such as NGL, Py3Dmol, or matplotlib (with creative geometry) are effective for visualization. Biopython is essential for parsing and working with protein structure data, irrespective of the chosen visualization library.</p>
 <ul>
 <li><p><a href="https://william-dawson.github.io/using-py3dmol.html"><strong>Py3Dmol</strong></a><strong>:</strong> Suitable for basic visualizations and web embedding.</p></li>
 <li><p><a href="https://github.com/nglviewer/nglview"><strong>NGL</strong></a><strong>:</strong> Highly powerful and feature-rich, offering interactive capabilities, commonly used in bioinformatics. Requires Jupyter extensions.</p></li>
 <li><p><a href="http://www.bahargroup.org/prody/index.html"><strong>ProDy</strong></a><strong>:</strong> Protein structure analysis and dynamics as well as insights that make protein visualizations more informative. It’s not a standalone visualization library but a valuable companion to libraries like NGL, Py3Dmol, and Matplotlib.</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -533,7 +557,7 @@ I encourage you to try one of the following Colab notebooks to see how to displa
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
 <li><em>py3DMol:</em> <a href="https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb">https://colab.research.google.com/github/CCBatIIT/modelingworkshop/blob/main/labs/1-1/py3DMol.ipynb</a></li>
@@ -543,9 +567,9 @@ I encourage you to try one of the following Colab notebooks to see how to displa
 </div>
 </div>
 </div>
-<p>In R, there are also packages designed for working with protein structures. The <strong>bio3d</strong> package is fundamental in R for bioinformatics, providing functions for reading PDB files, analyzing protein structures, and generating basic visualizations. It can perform calculations such as distances, RMSDs, and other structural analyses. There is also a very useful Mol* <a href="https://github.com/jmbuhr/quarto-molstar">Quarto extension</a>, which I used on this site. Mol* can be very easily integrated in many third party services and in your own website.</p>
+<p>In R, there are also packages designed for working with protein structures. The <a href="http://thegrantlab.org/bio3d/"><strong>bio3d</strong></a> package is fundamental in R for bioinformatics, providing functions for reading PDB files, analyzing protein structures, and generating basic visualizations. It can perform calculations such as distances, RMSDs, and other structural analyses. There is also a very useful Mol* <a href="https://github.com/jmbuhr/quarto-molstar">Quarto extension</a>, which I used on this site. Mol* can be very easily integrated in many third party services and in your own website.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -554,7 +578,7 @@ A tribute to the pioneers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Other applications that you may know, hear about or came into but are now discontinued are:</p>
 <ul>
@@ -566,8 +590,8 @@ A tribute to the pioneers
 </div>
 </section>
 </section>
-<section id="pymol-practice" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> <a href="pymol.html" style="color:green"><strong>PyMOL Practice</strong></a></h1>
+<section id="pymol-tutorial" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> <a href="pymol.html" style="color:green"><strong>PyMOL tutorial</strong></a></h1>
 </section>
 <section id="bibliograpy" class="level1" data-number="6">
 
@@ -899,8 +923,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1018,7 +1040,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1246,13 +1267,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./ddbb.html" class="pagination-link" aria-label="Protein Databases">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Protein Databases</span>
+      <a href="./ddbb.html" class="pagination-link" aria-label="Protein structure classification">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Protein structure classification</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./homology.html" class="pagination-link" aria-label="Homology Modeling">
-        <span class="nav-page-text">Homology Modeling</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./structures.html" class="pagination-link" aria-label="Ex.1: Parsing Protein Structures">
+        <span class="nav-page-text">Ex.1: Parsing Protein Structures</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1260,7 +1281,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Modesto Redrejo Rodríguez, 2025</p>
+<p>Modesto Redrejo Rodríguez, 2026</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

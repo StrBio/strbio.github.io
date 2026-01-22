@@ -175,25 +175,12 @@ flexible or intrinsically disordered, in which case it does not have any
 well-defined structure, will also have a lower lDDT [@wilson2022].
 
 # From contact maps to pairwise high-res feature maps {#maps}
+As introduced earlier, a [contact map](intro.html#map) represent the pairwise distances between all amino acid residues in a three‑dimensional protein structure using a binary two‑dimensional matrix.
 
-A protein contact map illustrates the interactions between all possible pairs of
-amino acid residues in a protein's three-dimensional structure. This is
-displayed as a binary matrix with n rows and columns, where n represents the
-number of residues in the sequence. In this matrix, the element at position *ij*
-is marked as 1 if residues *i* and *j* are in contact within the structure.
-Contact is typically defined as residues being closer than a certain distance
-threshold, which is 9 Å in the examples shown in @fig-contact. The patterns in
-these maps highlight the differences between motifs and reflect the stretches of
-secondary structure.
+More than thirty years ago, it was already suggested that reliable residue–residue contact information could, on its own, determine a protein’s fold [@olmea1997]. However, incorporating contact maps into protein modeling proved difficult, as accurately predicting these contacts remained a major challenge.
+The emergence of direct‑coupling analysis (DCA), which infers residue coevolution from multiple sequence alignments (MSAs) as illustrated in @fig-coevol, greatly improved the quality of contact predictions. This advance enabled their use in protein folding approaches such as PSICOV [@jones2012] and Gremlin [@kamisetty2013].
+Even so, when proteins lack sufficient sequence homologs, the resulting contact predictions are often of limited reliability, making precise contact‑guided protein modeling still problematic.
 
-![Contact-based map of representative proteins. The map represents a matrix of
-amino acid positions in the protein sequences (on both, the X and Y axis); with
-contacts indicated as blue dots. When a number of consecutive residues in the
-sequence interact the dots form diagonal stretches. Maps obtained at
-<http://cmweb.enzim.hu/>](pics/contact.png "Contact-based map"){#fig-contact
-.figure}
-
-Accurate information on residue-residue contacts is sufficient to determine a protein's fold [@olmea1997]. However, using these maps in protein modeling is challenging, as predicting these contacts is not straightforward. The advent of direct-coupling analysis (**DCA**), which extracts residue coevolution from multiple sequence alignments (MSAs) as shown in @fig-coevol, has improved contact map predictions. This has facilitated their use in protein folding with methods such as PSICOV [@jones2012] and Gremlin [@kamisetty2013]. Nevertheless, for proteins with few sequence homologs, the predicted contacts are often low in quality, making accurate contact-assisted protein modeling difficult.
 
 ![Schematic of how co-evolution methods extract information about protein
 structure from a multiple sequence alignment (MSA). From

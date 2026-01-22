@@ -1,0 +1,19 @@
+fetch 2ack
+fetch 1mla
+fetch 1fye 
+remove solvent
+bg_color white
+color tv_orange, ss h
+color paleyellow, ss s
+color grey, ss l+
+set cartoon_transparency, 0.7
+sele motif, 2ack and resi 191-211 or 2ack and resi 108-117 
+sele motif2, 1mla and resi 87-101 or 1mla and resi 5-9
+sele motif3, 1fye and resi 114-126 or 1fye and resi 81-86
+set cartoon_transparency, 0, motif
+set cartoon_transparency, 0, motif2
+set cartoon_transparency, 0, motif3
+hide everything, 2ack and resi 999
+
+
+set ray_opaque_background, on

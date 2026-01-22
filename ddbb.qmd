@@ -1,5 +1,5 @@
 ---
-title: "Protein Databases"
+title: "Protein structure classification"
 date: "August 21, 2023"
 date-modified: "`r Sys.Date()`"
 format: 
@@ -65,7 +65,13 @@ must be considered for accurate analysis.
 residues for each pair of structures is
 indicated.](pics/rmsd.png "RMSD_example"){#fig-rmsd .figure width="500"}
 
-# Major protein databases
+Computing the RMSD for large proteins or performing pairwise calculations on
+extensive datasets is often computationally prohibitive. To address this
+efficiency bottleneck, we turn to Artificial Intelligence (AI). AI significantly
+accelerates protein comparison, mirroring its transformative impact on the
+broader field of structural bioinformatics
+
+# Classification of Proteins
 
 Classification of protein sequences helps us understand the diversity of
 different proteins by examining their sequences, known as the *protein sequence
@@ -76,6 +82,13 @@ structural relationships. Some classifications consider the structural
 neighborhood (structural continuum), while others use the concept of protein
 evolution as the main factor of diversification, resulting in a discrete rather
 than continuous *protein structure space* [@andreeva2012].
+
+Almost seven decades after the first three-dimensional structure of a protein,
+myoglobin, was solved @kendrew1958, the number of protein structures in the
+databases range from nearly 250,000 experimentally obtained structures in the
+[RCSB PDB](#pbd) to hundreds of millions of predited structures in
+[Alphafold](https://alphafold.ebi.ac.uk/) and [ESM](https://esmatlas.com/)
+databases (see [below](#pers)).
 
 This section does not intend to provide an exhaustive review of all protein
 databases. Many of the databases discussed are likely already familiar to the
@@ -244,7 +257,7 @@ information.**
 
 ## Structure databases {#strDDBB}
 
-### RCSB-PDB
+### RCSB-PDB {#pdb}
 
 The Protein Data Bank (PDB, [www.rcsb.org](www.rcsb.org)) database is the major
 macromolecule structural primary database [@burley2021]. It contains mostly
@@ -291,14 +304,16 @@ structure coordinates in diverse file formats.
 The Structural Classification of Proteins (SCOP,
 [http://scop.mrc-lmb.cam.ac.uk](http://scop.mrc-lmb.cam.ac.uk/)) database is a
 *classification of protein domains* organized according to their evolutionary
-and structural relationships in hierarchical categories. The main unit is the
-*family* that groups related proteins with clear evidence for their evolutionary
-origin while the *superfamily* brings together more distantly related protein
-domains. Further, superfamilies are grouped into distinct *folds* on the basis
-of the global structural features shared by the majority of their members.
-Domain definitions are provided for the two main levels of the SCOP
-classification, family and superfamily, and the domain boundaries for each of
-these can coincide or differ [@andreeva2020].
+and structural relationships in hierarchical categories. Like in the Linnaean
+taxonomy, discret units (domains) are grouped hierarchially on the basis of
+their common structural and evolutionary relationships. The major unit is the
+*family* that groups related protein domains with clear evidence for their
+evolutionary origin while the *superfamily* brings together more distantly
+related protein domains. Further, superfamilies are grouped into distinct
+*folds* on the basis of the global structural features shared by the majority of
+their members. Domain definitions are provided for the two main levels of the
+SCOP classification, family and superfamily, and the domain boundaries for each
+of these can coincide or differ [@andreeva2020].
 
 For each group, a representative is selected based on its sequence (UniProtKB)
 and structure (PDB) and used for SCOP classification. Thus, the SCOP domain
@@ -319,10 +334,12 @@ The domains are classified into the following hierarchical levels that compose
 the CATH name: Class (**C**), Architecture (**A**), Topology (**T**), and
 Homologous superfamilies (**H**).
 
-CATH uses a combination of several structure-based (SSAP, CATHEDRAL) and
-sequence-based (Needleman-Wunsch-based sequence alignments, Jackhmmer, Profile
-Comparer, and HHsearch) algorithms to assess the similarity of domains to each
-other and to identify protein homologues [@sillitoe2021].
+In contrast to SCOP, CATH is based in semi-automatic methods, rather than manual
+curated approach for classification. CATH uses a combination of several
+structure-based (SSAP, CATHEDRAL) and sequence-based (Needleman-Wunsch-based
+sequence alignments, Jackhmmer, Profile Comparer, and HHsearch) algorithms to
+assess the similarity of domains to each other and to identify protein
+homologues [@sillitoe2021].
 
 CATH has a sister resource, Gene3D, that adds in additional protein domain
 sequences with no known structure, which brings the current total number of
@@ -333,7 +350,7 @@ full release with more tools, named CATH+ is released every 12 months. CATH-plus
 contains functional families (CATH-FunFams), structural clusters, and other
 tools [@sillitoe2021].
 
-## Current and future strategies in protein databases
+## Current and future strategies in protein databases {#pers}
 
 There is a significant trend towards the cross-referencing and integration of
 diverse data within *metadatabases*. An exemplary case is the [Human Protein
@@ -341,12 +358,14 @@ Atlas](https://www.proteinatlas.org/) which provides information about proteins
 classified by cell type or tissue, along with details on splicing variants,
 mutants, and more. Additionally, it is important to acknowledge the new
 structural databases, such as Deepmind's [Alphafold
-Database](https://alphafold.ebi.ac.uk/) and the [ESM Metagenomic
+Database](https://alphafold.ebi.ac.uk/) [@bertoni2026] and the [ESM Metagenomic
 Atlas](https://esmatlas.com/), which house millions of protein structures
 predicted using deep-learning methods. There are also specialized databases,
-like BFDV, that contain viral protein structures obtained through Alphafold and
-can be searched using [Foldseek](https://search.foldseek.com/), a method
-designed to identify structural similarities.
+like [BFDV](https://bfvd.foldseek.com/) [@kim2025], that contain viral protein
+structures obtained through Alphafold and can be searched using
+[Foldseek](https://search.foldseek.com/) [@kempen], a AI-based method designed
+to identify structural similarities (see section [Protein Modeling in the
+AlphaFold era](ai.html#sec-AF2)).
 
 Given the recent boost in the capacity for accurately obtain protein models,
 some author suggested (or desired) that future databases contain not only
@@ -354,11 +373,10 @@ protein sequence variants and protein complexes, but also diverse conformations
 for each structure, which would help to gain insights into their function and
 biological role [@beck2024].
 
-# [**Practice 1B: Protein Database**]{style="color:green"}
+# [**In class exercise: Protein Database**]{style="color:green"}
 
 The goal of this exercise is to get familiar with protein structures and their
-domain organization. First just try to explore the structures and identify
-similarities and differences by naked eye.
+domain organization.
 
 :::: columns
 ::: {.column width="15%"}
@@ -378,15 +396,15 @@ similarities and differences by naked eye.
 :::
 ::::
 
-### 1. Use structural databases (CATH, Scop2 or PDB) to classify the proteins.
+### 1. Explore the structures and identify similarities and differences by naked eye.
+
+### 2. Use structural databases (CATH, Scop2 or PDB) to classify the proteins.
 
 First, describe the structure in your own words. Then, using generic terms
 applicable to any hierarchical classification system, classify this small
 dataset of structures.
 
-### 2. Answer the following questions
-
-No need of long answers, \~100 words each question would be fine.
+### 3. Answer the following questions
 
 #### **a. Can you suggest the structural and evolutionary relationship between them?**
 

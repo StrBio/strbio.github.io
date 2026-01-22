@@ -1,5 +1,5 @@
 ---
-title: "UAM CASP competition"
+title: "Ex.2: UAM CASP competition"
 
 date: "February 12, 2025"
 date-modified: "`r Sys.Date()`"
@@ -29,51 +29,66 @@ library(webexercises)
 This is a [CASP](https://en.wikipedia.org/wiki/CASP)-like exercise. The
 objective of this contest is to achieve the best possible predicted structure
 for at least **three** sequences using state-of-the-art protein modeling
-methodologies. 
-For each sequence, you must utilize three or more different protocols for model generation and select the most optimal model.
+methodologies. For each sequence, you must utilize three or more different
+protocols for model generation and select the most optimal model.
 
 # Procedure
 
--   Before starting, try to obtain background information on your protein that could impact the results, such as oligomerization, ligands (e.g., ions, ATP,
+-   Before starting, try to obtain background information on your protein that
+    could impact the results, such as oligomerization, ligands (e.g., ions, ATP,
     NAD+), protein partners, etc.
-    
--   Given that this is a CASP-like exercise, high-quality models should *ideally*
-    cover the full-length of the target sequences. However, it is beneficial to
-    consider the presence of transmembrane (TM) or disordered motifs and other
-    1D features that might limit accurate modeling of the full-length protein.
-    Resources, including links for modeling servers and Colab notebooks, can be
-    found [here](links.html).
+
+-   Given that this is a CASP-like exercise, high-quality models should
+    *ideally* cover the full-length of the target sequences. However, it is
+    beneficial to consider the presence of transmembrane (TM) or disordered
+    motifs and other 1D features that might limit accurate modeling of the
+    full-length protein. Resources, including links for modeling servers and
+    Colab notebooks, can be found [here](links.html).
 
 -   At least one protocol must be based on deep-learning methods (e.g.,
     Alphafold, RoseTTAFold, C-I-Tasser, ESM Fold, OmegaFold, OpenFold, or
-    UniFold). Homology modeling or threading methods can also be tested. 
-    
--   Compare different protein designs (ligands, oligomers) and algorithm options
-    (recycle steps, seeds).
+    UniFold). Homology modeling or threading methods can also be tested.
 
--   Carefully consider model assessment and the relevance of various scores such
-    as pLDDT, pTM, or PAE. Independent assessment methods (e.g., QMeanDisco,
-    MoldFold, VoroMQA) can also be utilized. Select the best models for each
-    sequence.
+-   Compare **different protein designs** (ligands, oligomers) and algorithm
+    options (recycle steps, seeds).
 
--   Provide a *brief* explanation of the methodology used, including the rationale
-    behind the selection of protocols and the final model. Generate comparative
-    figures throughout the process using PyMOL (ChimeraX or even Mol\* would be
-    also OK), and include figures of the final models. You may attach or link a
-    zip file containing PDB files, PyMOL sessions, or modeling report files.
+-   Carefully consider **model assessment** and the relevance of various scores
+    such as pLDDT, pTM, or PAE. Independent assessment methods (e.g.,
+    QMeanDisco, MoldFold, VoroMQA) can also be utilized. You should also use
+    some pair-wise comparison between your models (RMSD, FoldMason,...).
 
--   Additionally, if protein function is unclear, explore whether the model can provide insights into the evolution and/or function of the protein using tools like Dali or Foldseek. If you find a reference structure with the same sequence (experimental or computational), it must not be used as a template. However, it may be used to assess your models.
+-   Select the best models for each sequence.
 
--   Remember, the main goal is not creating the model itself, but rather extracting valuable information from it, whether that be structural, functional, evolutionary, or biomedical insights.
+-   Provide a *brief* explanation of the methodology used, including the
+    rationale behind the selection of protocols and the final model. Generate
+    comparative figures throughout the process using PyMOL (ChimeraX or even
+    Mol\* would be also OK), and include figures of the final models. You may
+    attach or link a zip file containing PDB files, PyMOL sessions, or modeling
+    report files.
 
+-   Additionally, if the protein function is unclear, explore whether the model
+    can provide **insights into the evolution or function of the protein** using
+    tools such as Dali or Foldseek. If you find a reference structure with the
+    same sequence (experimental or computational), it must not be used as a
+    template; however, it may be used to assess your models.
+
+-   Consider the benefits of **scripting** to automate tasks.
+
+-   Remember, the main goal is not to create the model itself, but to understand
+    structures and extract valuable information from them, whether structural,
+    functional, evolutionary, or biomedical insights.
 
 # Sequences to model
 
 ## Sequence 1: Human Orai1 Ca^+2^ channel
 
-The sequence for this protein can be found with the Uniprot ID Q96D31.
-This sequence is mandatory, as it will also be used during the Docking practice.
+The sequence for this protein can be found with the Uniprot ID Q96D31. This
+sequence is mandatory, as it will also be used during the Docking practice.
 
+
+::: callout-tip
+Consider alternative quaternary structures in order to obtain the best holoprotein channel.
+:::
 
 ## Sequence 2: Select (at least) one out of the following candidates.
 
@@ -88,4 +103,7 @@ This sequence is mandatory, as it will also be used during the Docking practice.
 
 ## Sequence 3: Your favourite protein
 
-You may select any protein sequence that does not have a structure available in PDB or AlphafoldDB. If the structure of your protein is already available, you can choose a related paralog or ortholog. It can also be a mutant or rare variant of a known protein structure.
+You may select any protein sequence that does not have a structure available in
+PDB or AlphafoldDB. If the structure of your protein is already available, you
+can choose a related paralog or ortholog. It can also be a mutant or rare
+variant of a known protein structure.

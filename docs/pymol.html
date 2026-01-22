@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6e5bad59d9c561bd033d0b48217d8615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -109,7 +109,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="include/webex.css">
 <meta name="twitter:title" content="Pymol Practice – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/22fefa28-b8fc-4995-bca6-b22e8e48ef5c.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked">
@@ -176,13 +177,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ddbb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Protein Databases</span></a>
+ <span class="menu-text">Protein structure classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pdb.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Protein Structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parsing Protein Structures</span></a>
   </div>
 </li>
       </ul>
@@ -267,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title" style="color:green">Pymol Practice</h1>
+<h1 class="title">Pymol Practice</h1>
 </div>
 
 
@@ -285,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 7, 2025</p>
+      <p class="date-modified">January 22, 2026</p>
     </div>
   </div>
     
@@ -373,7 +380,7 @@ Note
 <p>Like in the example above, you can hide/show any representation for an object or selection using the following sintax:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>hide \[representation\], \[selection<span class="op">-</span>name\]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>show \[representation\], \[selection<span class="op">-</span>name\]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>selection-name</code>is an optional argument and can be very complex or specific, involving one or more portions of one or more objects.&nbsp; &nbsp;&nbsp;</p>
+<p>The <code>selection-name</code>is an optional argument and can be very complex or specific, involving one or more portions of one or more objects.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -407,6 +414,8 @@ Tip
 <li><p>A PyMOL sessions retains the state of your PyMOL instance. You can save the session to disk and reload it later. You can setup a complicated scene, with transitions and more, and simply save it as a PyMOL Session (.pse) file. Use&nbsp;<strong>File</strong>=&gt;<strong>Save Session</strong>&nbsp;or&nbsp;<strong>Save Session As…</strong>. or the command <code>save</code> <a href="https://pymolwiki.org/index.php/Save" class="uri">https://pymolwiki.org/index.php/Save</a></p></li>
 <li><p>Loading sessions is just as easy:&nbsp;<strong>File</strong>=&gt;<strong>Load</strong>&nbsp;and choose your session file with all your molecules with the same visualization.</p></li>
 <li><p>You can also save temporal scenes within your session, like frozen screenshoots while keep working, using the command <code>scene</code>: <a href="https://pymolwiki.org/index.php/Scene" class="uri">https://pymolwiki.org/index.php/Scene</a></p></li>
+<li><p>The commands <code>get_view</code> and <code>set_view</code> are very useful to reproduce a particular view of a protein, particularly when making a movie. See <a href="https://pymolwiki.org/Set_view" class="uri">https://pymolwiki.org/Set_view</a><br>
+</p></li>
 </ul></li>
 </ul>
 </div>
@@ -495,6 +504,22 @@ Tip
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>delete <span class="dv">6</span><span class="er">KHY</span> <span class="co">#remove the original structure for clarity</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">3</span><span class="er">AAM</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">2</span><span class="er">NQH</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Biological units
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>If your protein is a multimer, you can download a biological assembly or biological unit, use the assembly setting or use type=pdb1 (monomer), type=pdb2 (dimer) and so on. Once you have learned to create and remove objects, try to <code>fetch 6KI3, type=pdb1</code> to display only a monomer of <code>6KI3</code></p>
+</div>
+</div>
+</div>
 <p>Now you should have four structures: <code>6KI3</code> (or monomer), <code>6KHY_monomer</code>, <code>3AAM</code>, and <code>2NQH</code></p>
 <p>Pymol has several alternatives for structural alignments. The three more common are the commands <a href="https://pymolwiki.org/index.php/Super"><em>super</em></a>, <a href="https://pymolwiki.org/index.php/Align"><em>align</em></a>and <a href="https://pymolwiki.org/index.php/Cealign"><em>cealign</em></a><em>,</em> depending on the level of similarity. <code>super</code> is very fast and competent when proteins sequences are very similar, whereas <code>align</code> is a very quick alternative and useful for most purposes with a clear sequence similarity. On the other hand, <code>cealing</code> is based in the CE algorithm and although somewhat slower it provides better structural alignment for proteins without clear similarity.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>align <span class="dv">6</span><span class="er">KHY_monomer</span>, <span class="dv">6</span><span class="er">KI3</span></span>
@@ -932,8 +957,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1051,7 +1074,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1281,7 +1303,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Modesto Redrejo Rodríguez, 2025</p>
+<p>Modesto Redrejo Rodríguez, 2026</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

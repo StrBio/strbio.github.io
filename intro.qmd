@@ -137,6 +137,8 @@ influence the secondary and, particularly, the tertiary structures of proteins.
 The various combinations of side-chain torsions defined by χ angles are referred
 to as *rotamers*.
 
+{{< share-post https://twitter.com/oznova_/status/1998115632005673253 >}}
+
 Within these constraints, the two primary local conformations that avoid steric
 hindrance and maximize backbone-backbone hydrogen bonding are the α-helix and
 the β-sheet secondary structures. [Linus
@@ -264,7 +266,7 @@ shown for three different biological processes: ubiquitylation,
 transglutamination and sortase-mediated pilus assembly in Gram-positive
 bacteria. Proteins linked by isopeptide bonds are coloured blue and purple and
 the isopeptide bond-forming enzymes are coloured green. Reproduced from
-@kang2011.](images/iso.jpg){#fig-iso
+.](images/iso.jpg){#fig-iso
 .figure}](https://www.sciencedirect.com/science/article/pii/S0968000410001842)
 
 In contrast to these enzyme-dependent processes, cross-linking isopeptide bonds
@@ -322,16 +324,102 @@ allowed regions, respectively
 .](pics/Ramachandran_Gly_Pro_data_and_contours_T8000_small.jpg){#fig-rama2
 .figure}](https://proteopedia.org/wiki/index.php/Ramachandran_Plot)
 
+## Contact maps {#map .section}
+
+A protein contact map illustrates the interactions between all possible pairs of
+amino acid residues in a protein's three-dimensional structure. This is
+displayed as a binary matrix with n rows and columns, where n represents the
+number of residues in the sequence. In this matrix, the element at position *ij*
+is marked as 1 if residues *i* and *j* are in contact within the structure.
+Contact is typically defined as residues being closer than a certain distance
+threshold, which is 9 Å in the examples shown in @fig-contact. The patterns in
+these maps highlight the differences between motifs and reflect the stretches of
+secondary structure.
+
+![Contact-based map of representative proteins. The map represents a matrix of
+amino acid positions in the protein sequences (on both, the X and Y axis); with
+contacts indicated as blue dots. When a number of consecutive residues in the
+sequence interact the dots form diagonal stretches. Maps obtained at
+<http://cmweb.enzim.hu/>](pics/contact.png "Contact-based map"){#fig-contact
+.figure}
+
 ## Protein folds, domains and motifs
 
 The global three dimensional tertiary structure of a protein is commonly
-referred as its **fold**. Within the overall protein fold, we can recognize
-distinct **domains** and **motifs.** Domains are compact sections of the protein
-that represent structurally and (usually) functionally independent regions. That
-means that a domain maintain its main features, even if separated from the
-overall protein. On the other hand, motifs are small substructures that are not
-necessarily independent and consist of only a few secondary structure stretches.
-Indeed, motifs can be also referred as *super-secondary* structure.
+referred as its **fold**. However, assignment of fold is not trivial since there
+is no single definition of a fold. The term *fold* defines three major aspects
+of protein structure, the secondary structure elements of which it is composed,
+their spatial arrangement and their connectivity. Thus, the term *common fold*
+is used to describe the consensus subset of structural elements shared by a
+group of proteins @andreeva2012.
+
+Within the overall protein fold, we can recognize distinct **domains** and
+**motifs.**
+
+**Domains** are compact sections of the protein that represent structurally and
+(usually) functionally independent regions. Generally, the concept of protein
+domain can be established from different criteria:
+
+1.  **Structural domain:** A compact region of structure that is
+    semi-independent of the rest of the protein. This region usually contains
+    and hydrophobic core and can consist of one or more segments of the
+    polypeptide chain, the entire polypeptide chain or several polypeptide
+    chains.
+
+2.  **Evolutionary domain:** A region of protein that occurs in nature either in
+    isolation or in more than one context of multidomain proteins.
+
+3.  **Functional domain:** A region of protein structure that is associated with
+    a particular function.
+
+Remarkably, it should be noted that not all these criteria can be simultaneously
+satisfied. Many conserved structural domains, for instance, may not be
+associated with a known function and are classified as
+[DUF](https://en.wikipedia.org/wiki/Domain_of_unknown_function) (domain of
+unknown function). Likewise, some functional domains can contain more than one
+structural domains @fig-dppa
+
+![The bacterial D-aminopeptidase DppA monomer has one functional domain and one
+evolutionary domain, but two distinct structural domains, N-terminal (blue) and
+C-terminal (red).](pics/1HI9.png){#fig-dppa width="467"}
+
+For protein structure analysis and structure comparison purposes, in this course
+we will mainly refer to the structural definition of protein domains.
+
+On the other hand, **motifs** are small regions within a protein, which can be
+defined as sequence or structure. The conservation of amino acids in one small
+stretch can be strict, as in the case of catalytic residues, or may be defined
+within a certain group of residues, e.g., hydrophobic, polar, small, charged,
+etc. Structural motif can be regarded as a few secondary structural elements
+with a specific geometric arrangement. Indeed, motifs can be also referred as
+[*super-secondary*
+structure.](https://en.wikipedia.org/wiki/Supersecondary_structure)
+
+Similar sequence and structural motifs can be found in structurally distinct
+proteins. This can be of great interest, as they are frequently linked to a
+function. For example, the *nucleophile elbow and oxianion hole* is an
+structural motif that encompasses a discontinuous β/βα motif and constitute the
+catalytic site in diverse enzymes with esterase activity. See the structures
+bellow and compare them to find this motif, highligthed in @fig-motif.
+
+::: panel-tabset
+## Acetylcholinestrase (`2ACK`)
+
+{{< mol-rcsb 2ACK viewportShowAnimation=false >}}
+
+## Malonyl-CoA:acyl carrier protein transacetylase (`1MLA`)
+
+{{< mol-rcsb 1MLA viewportShowAnimation=false >}}
+
+## Aspartyl dipeptidase (`1FYE`)
+
+{{< mol-rcsb 1FYE viewportShowAnimation=false >}}
+:::
+
+![The structures of different proteins containing the "nucleophile elbow and
+oxyanion hole" structural motif (A) acetylcholinesterase (pdb `2ack`), (B)
+malonyl-CoA:acyl carrier protein transacylase (pdb `1mla`), (C) aspartyl
+dipeptidase (pdb `1fye`).](pics/motif.png){#fig-motif .figure width="786"}
 
 The diversity of protein folds, domains and motifs, and combination of those,
 can be used for classification of protein structures hierarchically, as in many
@@ -348,10 +436,9 @@ proteins are based almost entirely on an α-helical structure, and *all
 Levitt. Modified from @structur using 1I2T, 1K76, 1H75 and 1EM7
 structures.](pics/clasif.png){#fig-chlothia .figure}
 
-## [**Quick exercise**]{style="color:green"}
+## [**Quick exercises**]{style="color:green"}
 
-Explore the structure below and try to understand its structure. Then answer the
-question.
+### 1. Explore the structure below and try to understand its structure. Then answer the question.
 
 {{< mol-rcsb 3MWD viewportShowAnimation=false >}}
 
@@ -377,16 +464,9 @@ is created. The most commonly referred approaches to this sort of classification
 are those used by SCOP and CATH databases, as we will see in the [Structural
 Databases](ddbb.html#strDDBB) section.
 
-## [**Practice 1A: Playing with secondary structures**]{style="color:green"}
+### 2. Playing with secondary structures
 
 ![](pics/handson.png "Hands-on")
-
-::: callout-important
-# Groups
-
-Remember to work on groups as assigned. Groups should be the same for all the
-course exercises.
-:::
 
 There are a few online alternatives to model any peptide sequence and quickly
 see the effect of amino acid composition in the secondary structure. One of the
@@ -396,7 +476,6 @@ recommended alternative for most courses related to protein structure.
 
 In this course we are going to try a more recent proposal, twitted by Sergey
 Ovchinnikov:
-
 
 {{< share-post https://twitter.com/sokrypton/status/1535857255647690753 >}}
 

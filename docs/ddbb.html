@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Protein Databases – Structural Bioinformatics at UAM</title>
+<title>Protein structure classification – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,10 +58,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6e5bad59d9c561bd033d0b48217d8615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -124,9 +124,10 @@ window.Quarto = {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Protein Databases – Structural Bioinformatics at UAM">
+<meta name="twitter:title" content="Protein structure classification – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="pics/rmsd.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked">
@@ -138,7 +139,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein Databases</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein structure classification</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -191,13 +192,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ddbb.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Protein Databases</span></a>
+ <span class="menu-text">Protein structure classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pdb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Protein Structures</span></a>
+ <span class="menu-text">Protein Structures Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex.1: Parsing Protein Structures</span></a>
   </div>
 </li>
       </ul>
@@ -244,7 +251,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./casp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UAM CASP competition</span></a>
+ <span class="menu-text">Ex.2: UAM CASP competition</span></a>
   </div>
 </li>
       </ul>
@@ -260,22 +267,22 @@ window.Quarto = {
    
   <ul class="collapse">
   <li><a href="#sec-alignment" id="toc-sec-alignment" class="nav-link active" data-scroll-target="#sec-alignment"><span class="header-section-number">1</span> Structure comparison and alignment</a></li>
-  <li><a href="#major-protein-databases" id="toc-major-protein-databases" class="nav-link" data-scroll-target="#major-protein-databases"><span class="header-section-number">2</span> Major protein databases</a>
+  <li><a href="#classification-of-proteins" id="toc-classification-of-proteins" class="nav-link" data-scroll-target="#classification-of-proteins"><span class="header-section-number">2</span> Classification of Proteins</a>
   <ul class="collapse">
   <li><a href="#sequence-databases" id="toc-sequence-databases" class="nav-link" data-scroll-target="#sequence-databases">Sequence databases</a></li>
   <li><a href="#strDDBB" id="toc-strDDBB" class="nav-link" data-scroll-target="#strDDBB">Structure databases</a></li>
-  <li><a href="#current-and-future-strategies-in-protein-databases" id="toc-current-and-future-strategies-in-protein-databases" class="nav-link" data-scroll-target="#current-and-future-strategies-in-protein-databases">Current and future strategies in protein databases</a></li>
+  <li><a href="#pers" id="toc-pers" class="nav-link" data-scroll-target="#pers">Current and future strategies in protein databases</a></li>
   </ul></li>
-  <li><a href="#practice-1b-protein-database" id="toc-practice-1b-protein-database" class="nav-link" data-scroll-target="#practice-1b-protein-database"><span class="header-section-number">3</span> <span style="color:green"><strong>Practice 1B: Protein Database</strong></span></a></li>
+  <li><a href="#in-class-exercise-protein-database" id="toc-in-class-exercise-protein-database" class="nav-link" data-scroll-target="#in-class-exercise-protein-database"><span class="header-section-number">3</span> <span style="color:green"><strong>In class exercise: Protein Database</strong></span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein Databases</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Background</a></li><li class="breadcrumb-item"><a href="./ddbb.html">Protein structure classification</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Protein Databases</h1>
+<h1 class="title">Protein structure classification</h1>
 </div>
 
 
@@ -293,7 +300,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 6, 2025</p>
+      <p class="date-modified">January 22, 2026</p>
     </div>
   </div>
     
@@ -322,10 +329,12 @@ Figure&nbsp;1: Structural alignment of three different AP endoncleases obtained 
 </figcaption>
 </figure>
 </div>
+<p>Computing the RMSD for large proteins or performing pairwise calculations on extensive datasets is often computationally prohibitive. To address this efficiency bottleneck, we turn to Artificial Intelligence (AI). AI significantly accelerates protein comparison, mirroring its transformative impact on the broader field of structural bioinformatics</p>
 </section>
-<section id="major-protein-databases" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Major protein databases</h1>
+<section id="classification-of-proteins" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Classification of Proteins</h1>
 <p>Classification of protein sequences helps us understand the diversity of different proteins by examining their sequences, known as the <em>protein sequence space</em> (the mathematical concept of <a href="https://en.wikipedia.org/wiki/Space_(mathematics)">space</a>). On the other hand, classifying protein structures involves grouping proteins based on their structural relationships. Some classifications consider the structural neighborhood (structural continuum), while others use the concept of protein evolution as the main factor of diversification, resulting in a discrete rather than continuous <em>protein structure space</em> <span class="citation" data-cites="andreeva2012">(<a href="#ref-andreeva2012" role="doc-biblioref">Andreeva 2012</a>)</span>.</p>
+<p>Almost seven decades after the first three-dimensional structure of a protein, myoglobin, was solved <span class="citation" data-cites="kendrew1958">Kendrew et al. (<a href="#ref-kendrew1958" role="doc-biblioref">1958</a>)</span>, the number of protein structures in the databases range from nearly 250,000 experimentally obtained structures in the <a href="#pbd">RCSB PDB</a> to hundreds of millions of predited structures in <a href="https://alphafold.ebi.ac.uk/">Alphafold</a> and <a href="https://esmatlas.com/">ESM</a> databases (see <a href="#pers">below</a>).</p>
 <p>This section does not intend to provide an exhaustive review of all protein databases. Many of the databases discussed are likely already familiar to the reader. Consequently, we will not cover in detail the <a href="https://www.ncbi.nlm.nih.gov/protein/">NCBI Protein Database</a>, which is widely used for various purposes and is likely mentioned in other courses. The NCBI Protein Database primarily serves as a main repository of sequences, with minimal emphasis on the analysis of protein diversity and classification. This section will highlight the main differences and applications of Pfam, Uniprot, Prosite, PDB, SCOP, and CATH. For more detailed information, please refer to the references cited below.</p>
 <div id="fig-ddbb" class="figure quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -400,8 +409,8 @@ Note
 </section>
 <section id="strDDBB" class="level2">
 <h2 class="anchored" data-anchor-id="strDDBB">Structure databases</h2>
-<section id="rcsb-pdb" class="level3">
-<h3 class="anchored" data-anchor-id="rcsb-pdb">RCSB-PDB</h3>
+<section id="pdb" class="level3">
+<h3 class="anchored" data-anchor-id="pdb">RCSB-PDB</h3>
 <p>The Protein Data Bank (PDB, <a href="www.rcsb.org">www.rcsb.org</a>) database is the major macromolecule structural primary database <span class="citation" data-cites="burley2021">(<a href="#ref-burley2021" role="doc-biblioref">Burley et al. 2020</a>)</span>. It contains mostly protein structures, but also spans nucleic acids and nucleoprotein complexes. PDB turned 50 in 2021 and you can see a detailed overview of its <a href="https://www.rcsb.org/pages/about-us/history">history in the RCSB-PDB site.</a></p>
 <p>Briefly, the PDB was established in 1971 at Brookhaven National Laboratory with only 7 structures. Then, the <strong>Research Collaboratory for Structural Bioinformatics</strong> (RCSB), formed by Rutgers, UCSD/SDSC, and CARB/NIST, became responsible for the management of the PDB in 1998 in response to an RFP and a lengthy review process.&nbsp;In 2003, the Worldwide Protein Data Bank (<a href="http://wwpdb.org/">wwPDB</a>) was formed to maintain a single PDB archive of macromolecular structural data that is freely and publicly available to the global community. It consists of organizations that act as deposition, data processing and distribution centers for PDB data.</p>
 <p>PDB structures are largely obtained by X-ray crystallography, but it accepts derived from EM and RMN data since 1989 and 1991, respectively. Indeed, the BMRB (<a href="https://bmrb.io/">Biological Magnetic Resonance Bank</a>) has partnered with the PDB since 2006 and the EMBD (<a href="https://www.ebi.ac.uk/emdb/">Electron Microscopy Data Bank</a>) since 2021. Furthermore, <a href="https://www.rcsb.org/news/6304ee57707ecd4f63b3d3db">starting September 2022</a>, the PDB also contains computed models from the <a href="https://alphafold.ebi.ac.uk/">Alphafold database</a> (which we will discuss later in this course) and <a href="https://www.modelarchive.org/">RoseTTAFold-ModelArchive</a>. <strong>Thus, the PDB database is the major hub that centralizes biological structures nowadays.</strong></p>
@@ -410,26 +419,26 @@ Note
 </section>
 <section id="scop" class="level3">
 <h3 class="anchored" data-anchor-id="scop">SCOP</h3>
-<p>The Structural Classification of Proteins (SCOP, <a href="http://scop.mrc-lmb.cam.ac.uk/">http://scop.mrc-lmb.cam.ac.uk</a>) database is a <em>classification of protein domains</em> organized according to their evolutionary and structural relationships in hierarchical categories. The main unit is the <em>family</em> that groups related proteins with clear evidence for their evolutionary origin while the <em>superfamily</em> brings together more distantly related protein domains. Further, superfamilies are grouped into distinct <em>folds</em> on the basis of the global structural features shared by the majority of their members. Domain definitions are provided for the two main levels of the SCOP classification, family and superfamily, and the domain boundaries for each of these can coincide or differ <span class="citation" data-cites="andreeva2020">(<a href="#ref-andreeva2020" role="doc-biblioref">Andreeva et al. 2020</a>)</span>.</p>
+<p>The Structural Classification of Proteins (SCOP, <a href="http://scop.mrc-lmb.cam.ac.uk/">http://scop.mrc-lmb.cam.ac.uk</a>) database is a <em>classification of protein domains</em> organized according to their evolutionary and structural relationships in hierarchical categories. Like in the Linnaean taxonomy, discret units (domains) are grouped hierarchially on the basis of their common structural and evolutionary relationships. The major unit is the <em>family</em> that groups related protein domains with clear evidence for their evolutionary origin while the <em>superfamily</em> brings together more distantly related protein domains. Further, superfamilies are grouped into distinct <em>folds</em> on the basis of the global structural features shared by the majority of their members. Domain definitions are provided for the two main levels of the SCOP classification, family and superfamily, and the domain boundaries for each of these can coincide or differ <span class="citation" data-cites="andreeva2020">(<a href="#ref-andreeva2020" role="doc-biblioref">Andreeva et al. 2020</a>)</span>.</p>
 <p>For each group, a representative is selected based on its sequence (UniProtKB) and structure (PDB) and used for SCOP classification. Thus, the SCOP domain boundaries are assigned to both, the PDB and UniProtKB entry.</p>
 </section>
 <section id="cath" class="level3">
 <h3 class="anchored" data-anchor-id="cath">CATH</h3>
 <p>CATH (<a href="www.cathdb.info">www.cathdb.info</a>) is a free, publicly available resource that identifies protein domains within proteins from the Protein Data Bank and classifies them into evolutionary-related groups according to sequence, structure, and function information. It assumes that related proteins which fold alike often exhibit similar functions (this only could be demonstrated if we find intermediates). CATH uses a hierarchical classification scheme where the units compared and classified are structural domains. Domains, defined here as globular structural domains capable of semi-independent folding, are extracted from experimentally determined protein structures available in the PDB database. The domains are classified into the following hierarchical levels that compose the CATH name: Class (<strong>C</strong>), Architecture (<strong>A</strong>), Topology (<strong>T</strong>), and Homologous superfamilies (<strong>H</strong>).</p>
-<p>CATH uses a combination of several structure-based (SSAP, CATHEDRAL) and sequence-based (Needleman-Wunsch-based sequence alignments, Jackhmmer, Profile Comparer, and HHsearch) algorithms to assess the similarity of domains to each other and to identify protein homologues <span class="citation" data-cites="sillitoe2021">(<a href="#ref-sillitoe2021" role="doc-biblioref">Sillitoe et al. 2021</a>)</span>.</p>
+<p>In contrast to SCOP, CATH is based in semi-automatic methods, rather than manual curated approach for classification. CATH uses a combination of several structure-based (SSAP, CATHEDRAL) and sequence-based (Needleman-Wunsch-based sequence alignments, Jackhmmer, Profile Comparer, and HHsearch) algorithms to assess the similarity of domains to each other and to identify protein homologues <span class="citation" data-cites="sillitoe2021">(<a href="#ref-sillitoe2021" role="doc-biblioref">Sillitoe et al. 2021</a>)</span>.</p>
 <p>CATH has a sister resource, Gene3D, that adds in additional protein domain sequences with no known structure, which brings the current total number of domains in CATH-Gene3D up to 95 million.</p>
 <p>CATH database is updated quite regularly through daily snapshots (CATH-B), but a full release with more tools, named CATH+ is released every 12 months. CATH-plus contains functional families (CATH-FunFams), structural clusters, and other tools <span class="citation" data-cites="sillitoe2021">(<a href="#ref-sillitoe2021" role="doc-biblioref">Sillitoe et al. 2021</a>)</span>.</p>
 </section>
 </section>
-<section id="current-and-future-strategies-in-protein-databases" class="level2">
-<h2 class="anchored" data-anchor-id="current-and-future-strategies-in-protein-databases">Current and future strategies in protein databases</h2>
+<section id="pers" class="level2">
+<h2 class="anchored" data-anchor-id="pers">Current and future strategies in protein databases</h2>
 <p>There is a significant trend towards the cross-referencing and integration of diverse data within <em>metadatabases</em>. An exemplary case is the <a href="https://www.proteinatlas.org/">Human Protein Atlas</a> which provides information about proteins classified by cell type or tissue, along with details on splicing variants, mutants, and more. Additionally, it is important to acknowledge the new structural databases, such as Deepmind’s <a href="https://alphafold.ebi.ac.uk/">Alphafold Database</a> and the <a href="https://esmatlas.com/">ESM Metagenomic Atlas</a>, which house millions of protein structures predicted using deep-learning methods. There are also specialized databases, like BFDV, that contain viral protein structures obtained through Alphafold and can be searched using <a href="https://search.foldseek.com/">Foldseek</a>, a method designed to identify structural similarities.</p>
 <p>Given the recent boost in the capacity for accurately obtain protein models, some author suggested (or desired) that future databases contain not only protein sequence variants and protein complexes, but also diverse conformations for each structure, which would help to gain insights into their function and biological role <span class="citation" data-cites="beck2024">(<a href="#ref-beck2024" role="doc-biblioref">Beck et al. 2024</a>)</span>.</p>
 </section>
 </section>
-<section id="practice-1b-protein-database" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>Practice 1B: Protein Database</strong></span></h1>
-<p>The goal of this exercise is to get familiar with protein structures and their domain organization. First just try to explore the structures and identify similarities and differences by naked eye.</p>
+<section id="in-class-exercise-protein-database" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>In class exercise: Protein Database</strong></span></h1>
+<p>The goal of this exercise is to get familiar with protein structures and their domain organization.</p>
 <div class="columns">
 <div class="column" style="width:15%;">
 <table class="caption-top table">
@@ -476,13 +485,15 @@ Note
 </table>
 </div>
 </div>
+<section id="explore-the-structures-and-identify-similarities-and-differences-by-naked-eye." class="level3">
+<h3 class="anchored" data-anchor-id="explore-the-structures-and-identify-similarities-and-differences-by-naked-eye.">1. Explore the structures and identify similarities and differences by naked eye.</h3>
+</section>
 <section id="use-structural-databases-cath-scop2-or-pdb-to-classify-the-proteins." class="level3">
-<h3 class="anchored" data-anchor-id="use-structural-databases-cath-scop2-or-pdb-to-classify-the-proteins.">1. Use structural databases (CATH, Scop2 or PDB) to classify the proteins.</h3>
+<h3 class="anchored" data-anchor-id="use-structural-databases-cath-scop2-or-pdb-to-classify-the-proteins.">2. Use structural databases (CATH, Scop2 or PDB) to classify the proteins.</h3>
 <p>First, describe the structure in your own words. Then, using generic terms applicable to any hierarchical classification system, classify this small dataset of structures.</p>
 </section>
 <section id="answer-the-following-questions" class="level3">
-<h3 class="anchored" data-anchor-id="answer-the-following-questions">2. Answer the following questions</h3>
-<p>No need of long answers, ~100 words each question would be fine.</p>
+<h3 class="anchored" data-anchor-id="answer-the-following-questions">3. Answer the following questions</h3>
 <section id="a.-can-you-suggest-the-structural-and-evolutionary-relationship-between-them" class="level4">
 <h4 class="anchored" data-anchor-id="a.-can-you-suggest-the-structural-and-evolutionary-relationship-between-them"><strong>a. Can you suggest the structural and evolutionary relationship between them?</strong></h4>
 </section>
@@ -516,6 +527,9 @@ Blum, Matthias, Hsin-Yu Chang, Sara Chuguransky, Tiago Grego, Swaathi Kandasaamy
 </div>
 <div id="ref-burley2021" class="csl-entry" role="listitem">
 Burley, Stephen K, Charmi Bhikadiya, Chunxiao Bi, Sebastian Bittrich, Li Chen, Gregg V Crichlow, Cole H Christie, et al. 2020. <span>“<span class="nocase">RCSB Protein Data Bank: powerful new tools for exploring 3D structures of biological macromolecules for basic and applied research and education in fundamental biology, biomedicine, biotechnology, bioengineering and energy sciences</span>.”</span> <em>Nucleic Acids Research</em> 49 (D1): D437–51. <a href="https://doi.org/10.1093/nar/gkaa1038">https://doi.org/10.1093/nar/gkaa1038</a>.
+</div>
+<div id="ref-kendrew1958" class="csl-entry" role="listitem">
+Kendrew, J. C., G. Bodo, H. M. Dintzis, R. G. Parrish, H. Wyckoff, and D. C. Phillips. 1958. <span>“A three-dimensional model of the myoglobin molecule obtained by x-ray analysis.”</span> <em>Nature</em> 181 (4610): 662–66. <a href="https://doi.org/10.1038/181662a0">https://doi.org/10.1038/181662a0</a>.
 </div>
 <div id="ref-mistry2020" class="csl-entry" role="listitem">
 Mistry, Jaina, Sara Chuguransky, Lowri Williams, Matloob Qureshi, Gustavo&nbsp;A Salazar, Erik L L Sonnhammer, Silvio C E Tosatto, et al. 2020. <span>“Pfam: The Protein Families Database in 2021.”</span> <em>Nucleic Acids Research</em> 49 (D1): D412–19. <a href="https://doi.org/10.1093/nar/gkaa913">https://doi.org/10.1093/nar/gkaa913</a>.
@@ -818,8 +832,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -937,7 +949,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1170,8 +1181,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pdb.html" class="pagination-link" aria-label="Protein Structures">
-        <span class="nav-page-text">Protein Structures</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./pdb.html" class="pagination-link" aria-label="Protein Structures Analysis">
+        <span class="nav-page-text">Protein Structures Analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1179,7 +1190,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Modesto Redrejo Rodríguez, 2025</p>
+<p>Modesto Redrejo Rodríguez, 2026</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

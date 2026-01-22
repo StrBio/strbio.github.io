@@ -1,5 +1,5 @@
 ---
-title: "Protein Structures"
+title: "Protein Structures Analysis"
 date: "August 21, 2023"
 date-modified: "`r Sys.Date()`"
 format: 
@@ -430,8 +430,17 @@ model building) in order to build a 3D atomic model of a target protein (or
 protein complex). The integration with PyMOL facilitates a detailed analysis of
 the modeling process.
 
+::: {.callout-tip collapse="false"}
+## Pymol scripting
+
+You can write [Pymol scripts](https://pymolwiki.org/index.php/Pml) just by listing commands in a file, one command per line, appearing as they would be entered at the PyMOL command prompt. The standard extension for a PyMOL script is .pml.
+
+Moreover, you can write more complex Python-based scripts, as detailed in the [wiki](https://pymolwiki.org/index.php/Simple_Scripting)
+
 Finally, as any Python-based program, it can be used within Jupyter notebooks
 (see <https://www.computer.org/csdl/magazine/cs/2021/02/09354947/1rgCkrAJCko>).
+
+:::
 
 ### UCSF ChimeraX
 
@@ -478,7 +487,7 @@ Colab, Jupyter, Quarto or any other Python notebook (see code examples
 
 ## Parsing multiple structures 
 
-Python offers several robust libraries for parsing and visualizing protein
+As PDB files are text files, you can easily write your own scripts to parse structures and process their data. Moreover, Python and R offer several robust libraries for parsing and visualizing protein
 structures. Biopython is widely utilized for parsing PDB files, while libraries
 such as NGL, Py3Dmol, or matplotlib (with creative geometry) are effective for
 visualization. Biopython is essential for parsing and working with protein
@@ -506,7 +515,7 @@ structure data, irrespective of the chosen visualization library.
 
 :::
 In R, there are also packages designed for working with protein structures. The
-**bio3d** package is fundamental in R for bioinformatics, providing functions
+[**bio3d**](http://thegrantlab.org/bio3d/) package is fundamental in R for bioinformatics, providing functions
 for reading PDB files, analyzing protein structures, and generating basic
 visualizations. It can perform calculations such as distances, RMSDs, and other
 structural analyses. There is also a very useful Mol\* [Quarto
@@ -531,6 +540,6 @@ discontinued are:
     open-source application, but it is outdated nowadays.
 :::
 
-# [**PyMOL Practice**](pymol.html){style="color:green"}
+# [**PyMOL tutorial**](pymol.html){style="color:green"}
 
 # Bibliograpy
