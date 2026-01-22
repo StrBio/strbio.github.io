@@ -23,7 +23,7 @@ format:
 # About
 
 ::: {style="float: right; position: relative; top: 0px; padding: 9px;"}
-![](pics/QR_master.png "Master's Degree in Bioinformatics & Computational Biology"){fig-align="right"}
+![](pics/QR_master.png "Master's Degree in Bioinformatics & Computational Biology"){fig-align="right" width="350"}
 :::
 
 This is a [Quarto](https://quarto.org/) site containing the materials for the *Structural Bioinformatics* course in the [Master's Degree in Bioinformatics & Computational Biology \@UAM](https://www.uam.es/medicina/masterbioinfo). All these materials are open access and shared under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/2.0/ "CC BY-NC license"). These materials were originally elaborated for the 2022 course edition and is subsequently revised each year. The current Course syllabus for year 2025-2026 can be found [here](2025_33082_es.pdf) (in Spanish). Detailed academic information about the course contents, dates and assessment only can be found at the UAM [Moodle](https://posgrado.uam.es/) site.
