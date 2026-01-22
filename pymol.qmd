@@ -1,5 +1,5 @@
 ---
-title: "Pymol Practice"
+title: "Pymol Tutorial"
 date: "August 21, 2023"
 date-modified: "`r Sys.Date()`"
 format: 
@@ -544,7 +544,7 @@ See more details in the following links:
 
 --------------------------------------------------------------------------------
 
-# PART B: Paper-style protein figure challenge
+# PART B: Paper-style protein figure challenge (optional)
 
 **Make a ready-to-publish picture of your favorite protein.**
 

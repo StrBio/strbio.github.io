@@ -53,11 +53,11 @@ bank.
 
 ## Tasks
 
-::: callout-note
-Choose your favorite flavor! You are free to complete this exercise using `Python` or `R`.
+::: callout-important
+Choose your favorite flavor! You are free to complete this exercise using `Python` or `R`, but **do not use structural biology-specific packages**, you must write your own functions.
 :::
 
-### 1.  Without using structural biology-specific packages, write a function that parses the files and prepares a table or report with key information from the structure, including protein name, source organism, determination method, authors, release date, resolution, and the number of peptide chains and other molecules.
+### 1.  Write a function that parses the files and prepares a table or report with key information from the structure, including protein name, source organism, determination method, authors, release date, resolution, and the number of peptide chains and other molecules.
 
 ::: callout-tip
 You may find some amino acids that are not canonical. If so, you can either

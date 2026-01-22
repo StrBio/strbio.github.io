@@ -1029,7 +1029,7 @@
     "href": "structures.html",
     "title": "Ex.1: Parsing Protein Structures",
     "section": "",
-    "text": "Get familiar with PDB format and quick alternatives to parse this files.\nUnderstand the meaning of protein contact maps and their correlation with protein structure.\n\n\n\n\nYou must parse the following structures from the protein data bank.\n\n1RBP1QRE1DGF\n\n\n    \n    \n    \n\n\n    \n    \n    \n\n\n    \n    \n    \n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nChoose your favorite flavor! You are free to complete this exercise using Python or R.\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou may find some amino acids that are not canonical. If so, you can either change to the canonical one or use X in the fasta sequence.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Euclidean distance explanation",
+    "text": "Get familiar with PDB format and quick alternatives to parse this files.\nUnderstand the meaning of protein contact maps and their correlation with protein structure.\n\n\n\n\nYou must parse the following structures from the protein data bank.\n\n1RBP1QRE1DGF\n\n\n    \n    \n    \n\n\n    \n    \n    \n\n\n    \n    \n    \n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nChoose your favorite flavor! You are free to complete this exercise using Python or R, but do not use structural biology-specific packages, you must write your own functions.\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou may find some amino acids that are not canonical. If so, you can either change to the canonical one or use X in the fasta sequence.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Euclidean distance explanation",
     "crumbs": [
       "Background",
       "Ex.1: Parsing Protein Structures"
@@ -1062,7 +1062,7 @@
     "href": "structures.html#tasks",
     "title": "Ex.1: Parsing Protein Structures",
     "section": "",
-    "text": "Note\n\n\n\nChoose your favorite flavor! You are free to complete this exercise using Python or R.\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou may find some amino acids that are not canonical. If so, you can either change to the canonical one or use X in the fasta sequence.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Euclidean distance explanation",
+    "text": "Important\n\n\n\nChoose your favorite flavor! You are free to complete this exercise using Python or R, but do not use structural biology-specific packages, you must write your own functions.\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou may find some amino acids that are not canonical. If so, you can either change to the canonical one or use X in the fasta sequence.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Euclidean distance explanation",
     "crumbs": [
       "Background",
       "Ex.1: Parsing Protein Structures"

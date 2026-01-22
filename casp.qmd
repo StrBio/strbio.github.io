@@ -60,9 +60,8 @@ protocols for model generation and select the most optimal model.
 -   Select the best models for each sequence.
 
 -   Provide a *brief* explanation of the methodology used, including the
-    rationale behind the selection of protocols and the final model. Generate
-    comparative figures throughout the process using PyMOL (ChimeraX or even
-    Mol\* would be also OK), and include figures of the final models. You may
+    rationale for selecting protocols and the final model. Generate **high-quality, publication-style comparative figures** throughout the process using PyMOL (ChimeraX or even
+    Mol\* could be also OK), and include figures of the final models. You may
     attach or link a zip file containing PDB files, PyMOL sessions, or modeling
     report files.
 
