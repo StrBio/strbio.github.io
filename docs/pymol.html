@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-08-21">
 
-<title>Pymol Practice – Structural Bioinformatics at UAM</title>
+<title>PyMOL Tutorial – Structural Bioinformatics at UAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
-<meta name="twitter:title" content="Pymol Practice – Structural Bioinformatics at UAM">
+<meta name="twitter:title" content="PyMOL Tutorial – Structural Bioinformatics at UAM">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="images/22fefa28-b8fc-4995-bca6-b22e8e48ef5c.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,21 +251,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#note-about-installing-pymol" id="toc-note-about-installing-pymol" class="nav-link active" data-scroll-target="#note-about-installing-pymol"><span class="header-section-number">1</span> Note about installing Pymol</a></li>
-  <li><a href="#part-a-a-10-steps-self-guided-practice-to-learn-pymol" id="toc-part-a-a-10-steps-self-guided-practice-to-learn-pymol" class="nav-link" data-scroll-target="#part-a-a-10-steps-self-guided-practice-to-learn-pymol"><span class="header-section-number">2</span> Part A: A 10-steps self-guided practice to learn Pymol</a>
+  <li><a href="#note-about-installing-pymol" id="toc-note-about-installing-pymol" class="nav-link active" data-scroll-target="#note-about-installing-pymol"><span class="header-section-number">1</span> Note about installing PyMOL</a></li>
+  <li><a href="#part-a-a-10-steps-self-guided-practice-to-learn-pymol" id="toc-part-a-a-10-steps-self-guided-practice-to-learn-pymol" class="nav-link" data-scroll-target="#part-a-a-10-steps-self-guided-practice-to-learn-pymol"><span class="header-section-number">2</span> Part A: A 10-steps self-guided practice to learn PyMOL</a>
   <ul class="collapse">
-  <li><a href="#get-a-structure." id="toc-get-a-structure." class="nav-link" data-scroll-target="#get-a-structure."><span class="header-section-number">2.1</span> 1. Get a structure.</a></li>
-  <li><a href="#choose-representation-and-color-schemes." id="toc-choose-representation-and-color-schemes." class="nav-link" data-scroll-target="#choose-representation-and-color-schemes."><span class="header-section-number">2.2</span> 2. Choose representation and color schemes.</a></li>
-  <li><a href="#create-new-object-andor-get-rid-of-what-you-dont-want" id="toc-create-new-object-andor-get-rid-of-what-you-dont-want" class="nav-link" data-scroll-target="#create-new-object-andor-get-rid-of-what-you-dont-want"><span class="header-section-number">2.3</span> 3. Create new object and/or get rid of what you don’t want</a></li>
-  <li><a href="#compare-structures" id="toc-compare-structures" class="nav-link" data-scroll-target="#compare-structures"><span class="header-section-number">2.4</span> 4. Compare structures</a></li>
-  <li><a href="#find-what-you-are-looking-for" id="toc-find-what-you-are-looking-for" class="nav-link" data-scroll-target="#find-what-you-are-looking-for"><span class="header-section-number">2.5</span> 5. Find what you are looking for</a></li>
-  <li><a href="#highlight-what-you-want" id="toc-highlight-what-you-want" class="nav-link" data-scroll-target="#highlight-what-you-want"><span class="header-section-number">2.6</span> 6. Highlight what you want</a></li>
-  <li><a href="#show-labels" id="toc-show-labels" class="nav-link" data-scroll-target="#show-labels"><span class="header-section-number">2.7</span> 7. Show labels</a></li>
-  <li><a href="#measure-distances" id="toc-measure-distances" class="nav-link" data-scroll-target="#measure-distances"><span class="header-section-number">2.8</span> 8. Measure distances</a></li>
-  <li><a href="#how-to-make-a-high-res-picture-ray-it" id="toc-how-to-make-a-high-res-picture-ray-it" class="nav-link" data-scroll-target="#how-to-make-a-high-res-picture-ray-it"><span class="header-section-number">2.9</span> 9. How to make a high-res picture: RAY IT!</a></li>
-  <li><a href="#bonus-track-more-info-and-useful-resources-about-pymol." id="toc-bonus-track-more-info-and-useful-resources-about-pymol." class="nav-link" data-scroll-target="#bonus-track-more-info-and-useful-resources-about-pymol."><span class="header-section-number">2.10</span> 10. BONUS TRACK: More info and useful resources about Pymol.</a></li>
+  <li><a href="#get-a-structure." id="toc-get-a-structure." class="nav-link" data-scroll-target="#get-a-structure.">1. Get a structure.</a></li>
+  <li><a href="#choose-representation-and-color-schemes." id="toc-choose-representation-and-color-schemes." class="nav-link" data-scroll-target="#choose-representation-and-color-schemes.">2. Choose representation and color schemes.</a></li>
+  <li><a href="#create-new-object-andor-get-rid-of-what-you-dont-want" id="toc-create-new-object-andor-get-rid-of-what-you-dont-want" class="nav-link" data-scroll-target="#create-new-object-andor-get-rid-of-what-you-dont-want">3. Create new object and/or get rid of what you don’t want</a></li>
+  <li><a href="#compare-structures" id="toc-compare-structures" class="nav-link" data-scroll-target="#compare-structures">4. Compare structures</a></li>
+  <li><a href="#find-what-you-are-looking-for" id="toc-find-what-you-are-looking-for" class="nav-link" data-scroll-target="#find-what-you-are-looking-for">5. Find what you are looking for</a></li>
+  <li><a href="#highlight-what-you-want" id="toc-highlight-what-you-want" class="nav-link" data-scroll-target="#highlight-what-you-want">6. Highlight what you want</a></li>
+  <li><a href="#show-labels" id="toc-show-labels" class="nav-link" data-scroll-target="#show-labels">7. Show labels</a></li>
+  <li><a href="#measure-distances" id="toc-measure-distances" class="nav-link" data-scroll-target="#measure-distances">8. Measure distances</a></li>
+  <li><a href="#how-to-save-a-high-res-picture-ray-it" id="toc-how-to-save-a-high-res-picture-ray-it" class="nav-link" data-scroll-target="#how-to-save-a-high-res-picture-ray-it">9. How to save a high-res picture: RAY IT!</a></li>
+  <li><a href="#bonus-track-more-info-and-useful-resources-about-pymol." id="toc-bonus-track-more-info-and-useful-resources-about-pymol." class="nav-link" data-scroll-target="#bonus-track-more-info-and-useful-resources-about-pymol.">10. BONUS TRACK: More info and useful resources about PyMOL.</a></li>
   </ul></li>
-  <li><a href="#part-b-paper-style-protein-figure-challenge" id="toc-part-b-paper-style-protein-figure-challenge" class="nav-link" data-scroll-target="#part-b-paper-style-protein-figure-challenge"><span class="header-section-number">3</span> PART B: Paper-style protein figure challenge</a></li>
+  <li><a href="#part-b-paper-style-protein-figure-challenge-optional" id="toc-part-b-paper-style-protein-figure-challenge-optional" class="nav-link" data-scroll-target="#part-b-paper-style-protein-figure-challenge-optional"><span class="header-section-number">3</span> PART B: Paper-style protein figure challenge (optional)</a></li>
   </ul>
 </nav>
     </div>
@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pymol Practice</h1>
+<h1 class="title">PyMOL Tutorial</h1>
 </div>
 
 
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 22, 2026</p>
+      <p class="date-modified">January 28, 2026</p>
     </div>
   </div>
     
@@ -304,8 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="note-about-installing-pymol" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Note about installing Pymol</h1>
-<p>There are two options to use <a href="https://www.pymol.org/">Pymol</a> in your computer:</p>
+<h1 data-number="1"><span class="header-section-number">1</span> Note about installing PyMOL</h1>
+<p>On Windows, Linux, or macOS, there are a number of options to use <a href="https://www.pymol.org/">PyMol</a> on your computer without a paid license:</p>
 <ol type="1">
 <li><p>Edu license:</p>
 <ul>
@@ -313,29 +313,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> schrodinger pymol-bundle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>STEP 2: Obtain a License here: <a href="https://pymol.org/edu/" class="uri">https://pymol.org/edu/</a></p></li>
 </ul></li>
-<li><p>Open Access version from GitHub:</p>
+<li><p>Open Access version from GitHub (<a href="https://github.com/schrodinger/pymol-open-source" class="uri">https://github.com/schrodinger/pymol-open-source</a>), also available from diverse repositories:</p>
 <ul>
-<li><p>On Linux: https://pymolwiki.org/index.php/Linux_Install</p></li>
-<li><p>On MacOs: https://pymolwiki.org/index.php/MAC_Install</p></li>
-<li><p>UPDATE: for new MacOS you may need to install some dependencies:</p>
+<li><p>On Linux: <a href="https://pymolwiki.org/index.php/Linux_Install" class="uri">https://pymolwiki.org/index.php/Linux_Install</a></p></li>
+<li><p>On macOS: <a href="https://pymolwiki.org/index.php/MAC_Install" class="uri">https://pymolwiki.org/index.php/MAC_Install</a></p></li>
+<li><p>NOTE: for new macOS you may need to install some dependencies:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install tcl-tk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
-<li><p>Open Access version from <code>conda-forge</code> channel:</p>
+<li><p>Open Access version from <a href="https://anaconda.org/channels/conda-forge/packages/pymol-open-source/overview"><code>Conda</code></a>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge pymol-open-source</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Open Access version from <a href="https://pypi.org/project/pymol-open-source/"><code>PIP</code></a>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pymol-open-source</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
 <section id="part-a-a-10-steps-self-guided-practice-to-learn-pymol" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Part A: A 10-steps self-guided practice to learn Pymol</h1>
+<h1 data-number="2"><span class="header-section-number">2</span> Part A: A 10-steps self-guided practice to learn PyMOL</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Not a copy &amp; paste exercise
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>This exercise is designed as a self‑guided tutorial to help you learn how to work with protein structures in PyMOL and create publication‑quality figures. The main goal is to strengthen your ability to work independently with structures. In many sections, you’ll find several different ways to achieve the same or similar results. Please avoid copying and pasting without thinking and <strong>take the time to understand each step and learn from it</strong>.</p>
+</div>
+</div>
+</div>
 <p>The first thing to do is to open PyMOL. You can do that by simply double-clicking on the icon or typing <code>pymol</code> in a Terminal window. From here and on, we will just use PyMOL by typing in the command line on the small window on top where it says ‘<code>PyMOL&gt;</code>’. Feel free to explore the graphical interface on your own.</p>
-<p>The next thing we are going to do is navigate to the directory (folder) where we want our files to be located. By default (in Linux and MacOS), Pymol opens in your <em>home</em> directory. Inside PyMOL, we can use Linux commands to navigate to that directory. If you type <code>ls</code>, you will see the files and folders that exist in the home directory and if you type the <code>cd</code> command and providing a path you can chance your working directory.</p>
-<section id="get-a-structure." class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="get-a-structure."><span class="header-section-number">2.1</span> 1. Get a structure.</h2>
-<p>As an example, we are going to work with the PDB structure <a href="https://www.rcsb.org/structure/6ki3">6KI3</a>. There are two ways to get a structure ready to work on Pymol, you can open a file in your local machine or you can <em>fetch</em> it from the PDB.</p>
+<p>The next thing we are going to do is navigate to the directory (folder) where we want our files to be located. By default (in Linux and macOS), PyMOL opens in your <em>home</em> directory. Inside PyMOL, we can use Linux commands to navigate to that directory. If you type <code>ls</code>, you will see the files and folders that exist in the home directory and if you type the <code>cd</code> command and providing a path you can chance your working directory.</p>
+<section id="get-a-structure." class="level2">
+<h2 class="anchored" data-anchor-id="get-a-structure.">1. Get a structure.</h2>
+<p>As an example, we are going to work with the PDB structure <a href="https://www.rcsb.org/structure/6ki3">6KI3</a>. There are two ways to get a structure ready to work on PyMOL, you can open a file in your local machine or you can <em>fetch</em> it from the PDB.</p>
 <ul>
 <li><p>If you have already the PDB go to <em>File</em> menu &gt; <em>Open PDB</em></p></li>
 <li><p>You can also fetch the directly from the PDB database, either by menu <em>File</em> &gt; <em>Get PDB</em> and typing our PDB ID or by Command line:</p></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">6</span><span class="er">KI3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">6</span><span class="er">KI3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -367,9 +385,9 @@ Note
 </ul></li>
 <li><p>On command-line you can also hide custom solvent:</p></li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>hide everything, solvent</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>show wire, solvent <span class="co">#to bring it back</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>show nb_spheres, solvent <span class="co">#alternative display</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>hide everything, solvent</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>show wire, solvent <span class="co">#to bring it back</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>show nb_spheres, solvent <span class="co">#alternative display</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="a">
 <li>Use the <em>Show</em> menu</li>
 </ol>
@@ -378,8 +396,8 @@ Note
 </ul>
 <p>As you can imagine, there are many different ways of visualizing the molecules and features you can show on the screen that you can explore on your own. In pymol we have <em>lines, ribbon, surface, everything, mesh, volume, cartoon, spheres, labels</em> and <em>sticks.</em></p>
 <p>Like in the example above, you can hide/show any representation for an object or selection using the following sintax:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>hide \[representation\], \[selection<span class="op">-</span>name\]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>show \[representation\], \[selection<span class="op">-</span>name\]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>hide \[representation\], \[selection<span class="op">-</span>name\]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>show \[representation\], \[selection<span class="op">-</span>name\]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>selection-name</code>is an optional argument and can be very complex or specific, involving one or more portions of one or more objects.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -391,11 +409,11 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>❗️You can see a detail explanation of the Pymol selection syntax in the Pymol wiki <a href="https://pymolwiki.org/index.php/Selection_Algebra">here</a>.</p>
+<p>❗️You can see a detail explanation of the PyMOL selection syntax in the PyMOL wiki <a href="https://pymolwiki.org/index.php/Selection_Algebra">here</a>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -404,7 +422,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Starting in version 1.5, PyMOL contains an <code>undo</code> command (also <code>Ctrl+Z</code> or <code>Cmd+Z</code>). However, it only affect object edition (changes in the structure), no changes in visualization or diplaying features. If you made a mess in the visualization of your molecule(s), you only have two alternatives.</p>
 <ul>
@@ -423,69 +441,69 @@ Tip
 </div>
 </section>
 </section>
-<section id="choose-representation-and-color-schemes." class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="choose-representation-and-color-schemes."><span class="header-section-number">2.2</span> 2. Choose representation and color schemes.</h2>
+<section id="choose-representation-and-color-schemes." class="level2">
+<h2 class="anchored" data-anchor-id="choose-representation-and-color-schemes.">2. Choose representation and color schemes.</h2>
 <p>Different types of representation can be selected for each object or selection with the button <strong>S</strong> on the right panel. There are also wide range of flavors for each representation. For example, for cartoons: <a href="https://pymolwiki.org/index.php/Cartoon" class="uri">https://pymolwiki.org/index.php/Cartoon</a>. For instance, we can color the protein by secondary structure using Menu <strong>C</strong></p>
 <p><img src="images/032047f9-afed-4fca-b02c-50532e7744ae.png" class="img-fluid"></p>
 <p>Spectrum color scheme is also useful to follow the secondary structure succession.</p>
 <p><img src="images/c9ecf20c-f4b3-4967-880c-531d2ccf3d5e.png" class="img-fluid"></p>
 <p>Using upper menu (Settings and Display) we can also change several features of the image. Try yourself!</p>
 <p>It’s faster if you just type:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>color tv_orange, ss h</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>color paleyellow, ss s</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>color grey, ss l<span class="op">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> sphere_color, tv_red</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>bg_color white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>color tv_orange, ss h</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>color paleyellow, ss s</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>color grey, ss l<span class="op">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> sphere_color, tv_red</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>bg_color white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note: <code>l+</code> will color loops and other unassigned residues, including DNA</p>
 <p>🔝🔝Check other coloring alternatives: <a href="https://pymolwiki.org/index.php/Advanced_Coloring" class="uri">https://pymolwiki.org/index.php/Advanced_Coloring</a></p>
 <p>For DNA: <a href="https://pymolwiki.org/index.php/Examples_of_nucleic_acid_cartoons" class="uri">https://pymolwiki.org/index.php/Examples_of_nucleic_acid_cartoons</a></p>
 <p><img src="images/34b3b42a-638a-4f6f-81b8-7d7eff304be3.png" class="img-fluid"></p>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_ring_mode, <span class="dv">3</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_nucleic_acid_mode, <span class="dv">4</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>cartoon oval</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>cartoon automatic, <span class="dv">6</span><span class="er">KI3</span> <span class="kw">and</span> chain A <span class="kw">or</span> chain B</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_ring_width, <span class="fl">0.2</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_ring_color, deepsalmon</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_nucleic_acid_color, deepsalmon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_ring_mode, <span class="dv">3</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_nucleic_acid_mode, <span class="dv">4</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>cartoon oval</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>cartoon automatic, <span class="dv">6</span><span class="er">KI3</span> <span class="kw">and</span> chain A <span class="kw">or</span> chain B</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_ring_width, <span class="fl">0.2</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_ring_color, deepsalmon</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> cartoon_nucleic_acid_color, deepsalmon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="create-new-object-andor-get-rid-of-what-you-dont-want" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="create-new-object-andor-get-rid-of-what-you-dont-want"><span class="header-section-number">2.3</span> 3. Create new object and/or get rid of what you don’t want</h2>
+<section id="create-new-object-andor-get-rid-of-what-you-dont-want" class="level2">
+<h2 class="anchored" data-anchor-id="create-new-object-andor-get-rid-of-what-you-dont-want">3. Create new object and/or get rid of what you don’t want</h2>
 <p>If we want to work only with some objects or chains in the PDB file, you can do it in several ways. There are several options but you need to <strong>show the sequence</strong> (Menu Display or button <strong>S</strong> on the <u>botton-right corner</u>).</p>
 <p>You can remove objects (Option 1A or 1B) or copy a selection to a new object (Option 2A or 2B). You can test all with the instructions below, but I find more convenient to use command line alternatives (1B and 2B).</p>
 <p><em>⚠️️ Note that the options 1 and 2 below are alternative ways to get the same results. Try only one option each time starting over from 6KI3 structure.⚠️❗️</em></p>
 <ul>
 <li><p>Option 1A: select in the sequence panel the sequence you want to remove and remove it</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>remove sele</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>remove sele</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Option 1B: use command line</p>
 <ul>
 <li>Step 1: First you need to see the composition of your structure</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">get_chains</span> 6KI3</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">select</span> chain <span class="ex">A</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">select</span> chain <span class="ex">B</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#to see who is who</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">get_chains</span> 6KI3</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">select</span> chain <span class="ex">A</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">select</span> chain <span class="ex">B</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#to see who is who</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Step 2: select the chains you want to remove and remove them</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>select kk, chain A <span class="kw">or</span> chain C <span class="kw">or</span> chain D <span class="kw">or</span> chain E</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>delete kk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>select kk, chain A <span class="kw">or</span> chain C <span class="kw">or</span> chain D <span class="kw">or</span> chain E</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>delete kk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Option 2A: Select in the sequence panel the sequence or whole chains you want to keep: <strong>A</strong> &gt; “Copy to object” or “extract to object” will allow to work independently with that portion without removing the rest. Just click on the object to disable.</p></li>
 <li><p>Option 2B: use command line</p>
 <ul>
 <li>Step 1: Select and create:</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>select kk, chain B <span class="kw">or</span> chain F <span class="kw">or</span> chain G <span class="kw">or</span> chain H</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>create monomer, kk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>select kk, chain B <span class="kw">or</span> chain F <span class="kw">or</span> chain G <span class="kw">or</span> chain H</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>create monomer, kk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 <p>Or directly create an object with your selected chains:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>create monomer, chain B <span class="kw">or</span> chain F <span class="kw">or</span> chain G <span class="kw">or</span> chain H</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>create monomer, chain B <span class="kw">or</span> chain F <span class="kw">or</span> chain G <span class="kw">or</span> chain H</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>Step 2: Now you can remove the original object (if you wish)</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>remove <span class="dv">6</span><span class="er">KI3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>remove <span class="dv">6</span><span class="er">KI3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 <p><img src="images/9cbdb7fb-ce22-44fd-a28e-c74c9966c862.png" class="img-fluid"></p>
-<p><strong>Some interesting points about selection on Pymol:</strong></p>
+<p><strong>Some interesting points about selection on PyMOL:</strong></p>
 <ul>
 <li><p>Unnamed selection are temporarily named “sele” and replaced after every <code>select</code> command execution.</p></li>
 <li><p>Selections can be renamed in the <strong>A</strong> (action menu on the left) or by command line : <a href="https://pymolwiki.org/index.php/Set_name" class="uri">https://pymolwiki.org/index.php/Set_name</a></p></li>
@@ -495,17 +513,17 @@ Tip
 <h3 class="anchored" data-anchor-id="create-your-own-representation-of-the-monomer-ternary-complex-protein-metal-cofactor-dna"><span style="color:green">Create your own representation of the monomer ternary complex (protein + metal cofactor + DNA)</span></h3>
 </section>
 </section>
-<section id="compare-structures" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="compare-structures"><span class="header-section-number">2.4</span> 4. Compare structures</h2>
+<section id="compare-structures" class="level2">
+<h2 class="anchored" data-anchor-id="compare-structures">4. Compare structures</h2>
 <p>Download some related structures, like 6KHY, 3AAM and 2NQH.</p>
 <p>Note that 6KHY also contains several chains. For comparison we don’t need the DNA, so we will use only the protein chain A.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">6</span><span class="er">KHY</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>create <span class="dv">6</span><span class="er">KHY_monomer</span>, <span class="dv">6</span><span class="er">KHY</span> <span class="kw">and</span> chain A <span class="co">#it also has several chains</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>delete <span class="dv">6</span><span class="er">KHY</span> <span class="co">#remove the original structure for clarity</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">3</span><span class="er">AAM</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">2</span><span class="er">NQH</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">6</span><span class="er">KHY</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>create <span class="dv">6</span><span class="er">KHY_monomer</span>, <span class="dv">6</span><span class="er">KHY</span> <span class="kw">and</span> chain A <span class="co">#it also has several chains</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>delete <span class="dv">6</span><span class="er">KHY</span> <span class="co">#remove the original structure for clarity</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">3</span><span class="er">AAM</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>fetch <span class="dv">2</span><span class="er">NQH</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -514,18 +532,18 @@ Biological units
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>If your protein is a multimer, you can download a biological assembly or biological unit, use the assembly setting or use type=pdb1 (monomer), type=pdb2 (dimer) and so on. Once you have learned to create and remove objects, try to <code>fetch 6KI3, type=pdb1</code> to display only a monomer of <code>6KI3</code></p>
+<p>If your protein is a multimer, you can download a biological assembly or biological unit, use the assembly setting or use type=pdb1 (monomer), type=pdb2 (dimer) and so on. Once you have learned to create and remove objects, try <code>fetch 6KI3, type=pdb1</code> to fetch and display only a monomer of <code>6KI3</code></p>
 </div>
 </div>
 </div>
 <p>Now you should have four structures: <code>6KI3</code> (or monomer), <code>6KHY_monomer</code>, <code>3AAM</code>, and <code>2NQH</code></p>
-<p>Pymol has several alternatives for structural alignments. The three more common are the commands <a href="https://pymolwiki.org/index.php/Super"><em>super</em></a>, <a href="https://pymolwiki.org/index.php/Align"><em>align</em></a>and <a href="https://pymolwiki.org/index.php/Cealign"><em>cealign</em></a><em>,</em> depending on the level of similarity. <code>super</code> is very fast and competent when proteins sequences are very similar, whereas <code>align</code> is a very quick alternative and useful for most purposes with a clear sequence similarity. On the other hand, <code>cealing</code> is based in the CE algorithm and although somewhat slower it provides better structural alignment for proteins without clear similarity.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>align <span class="dv">6</span><span class="er">KHY_monomer</span>, <span class="dv">6</span><span class="er">KI3</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>align <span class="dv">3</span><span class="er">AAM</span>, <span class="dv">6</span><span class="er">KI3</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>align <span class="dv">2</span><span class="er">NQH</span>, <span class="dv">6</span><span class="er">KI3</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>zoom <span class="bu">all</span> <span class="co">#to center the view of all the proteins in the new position</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>PyMOL has several alternatives for structural alignments. The three more common are the commands <a href="https://pymolwiki.org/index.php/Super"><em>super</em></a>, <a href="https://pymolwiki.org/index.php/Align"><em>align</em></a>and <a href="https://pymolwiki.org/index.php/Cealign"><em>cealign</em></a><em>,</em> depending on the level of similarity. <code>super</code> is very fast and competent when proteins sequences are very similar, whereas <code>align</code> is a very quick alternative and useful for most purposes with a clear sequence similarity. On the other hand, <code>cealing</code> is based in the CE algorithm and although somewhat slower it provides better structural alignment for proteins without clear similarity.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>align <span class="dv">6</span><span class="er">KHY_monomer</span>, <span class="dv">6</span><span class="er">KI3</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>align <span class="dv">3</span><span class="er">AAM</span>, <span class="dv">6</span><span class="er">KI3</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>align <span class="dv">2</span><span class="er">NQH</span>, <span class="dv">6</span><span class="er">KI3</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>zoom <span class="bu">all</span> <span class="co">#to center the view of all the proteins in the new position</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/23df908f-5375-4f8c-8846-0ab70e8e868f.png" class="img-fluid"></p>
 <section id="can-you-range-the-three-new-structures-by-their-similarity-with-6ki3" class="level3">
 <h3 class="anchored" data-anchor-id="can-you-range-the-three-new-structures-by-their-similarity-with-6ki3"><span style="color:green">Can you range the three new structures by their similarity with 6KI3?</span></h3>
@@ -544,73 +562,62 @@ Multiple superposition
 </div>
 </section>
 </section>
-<section id="find-what-you-are-looking-for" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="find-what-you-are-looking-for"><span class="header-section-number">2.5</span> 5. Find what you are looking for</h2>
+<section id="find-what-you-are-looking-for" class="level2">
+<h2 class="anchored" data-anchor-id="find-what-you-are-looking-for">5. Find what you are looking for</h2>
 <p>Now we can play with different representations for specific residues, like catalytic ones: D231, H182, H115, E142, H218, H78, E271, H233.</p>
 <p>You can select them directly picking from the sequence. If you want to keep this selection for the future you can name it in the <strong>A</strong> menu. Using show and color menu, you can also change how those residues are displayed.</p>
 <p>Quick alternative (note the different use of and-or and the parenthesis <a href="https://pymolwiki.org/index.php/Selection_Algebra" class="uri">https://pymolwiki.org/index.php/Selection_Algebra</a>):</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>select catalytic_res, monomer <span class="kw">and</span> (resi <span class="dv">231</span> <span class="kw">or</span> resi <span class="dv">182</span> <span class="kw">or</span> resi <span class="dv">115</span> <span class="kw">or</span> resi <span class="dv">142</span> <span class="kw">or</span> resi <span class="dv">218</span> <span class="kw">or</span> resi <span class="dv">78</span> <span class="kw">or</span> resi <span class="dv">179</span> <span class="kw">or</span> resi <span class="dv">271</span> <span class="kw">or</span> resi <span class="dv">233</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>show sticks, catalytic_res</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>zoom catalytic_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>select catalytic_res, monomer <span class="kw">and</span> (resi <span class="dv">231</span> <span class="kw">or</span> resi <span class="dv">182</span> <span class="kw">or</span> resi <span class="dv">115</span> <span class="kw">or</span> resi <span class="dv">142</span> <span class="kw">or</span> resi <span class="dv">218</span> <span class="kw">or</span> resi <span class="dv">78</span> <span class="kw">or</span> resi <span class="dv">179</span> <span class="kw">or</span> resi <span class="dv">271</span> <span class="kw">or</span> resi <span class="dv">233</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>show sticks, catalytic_res</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>zoom catalytic_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/d061307c-c633-4629-b834-0b2162b4d48d.png" class="img-fluid"></p>
 <p>There are also some interesting tricks for disclosing ligand binding or catalytic sites:</p>
 <p><img src="images/e4647891-db6f-4c76-906c-4571ecb0ce55.png" class="img-fluid"></p>
-<p>More info about selection of multiple objects in Pymol here: <a href="https://pymolwiki.org/index.php/Selection_Algebra" class="uri">https://pymolwiki.org/index.php/Selection_Algebra</a></p>
+<p>More info about selection of multiple objects in PyMOL here: <a href="https://pymolwiki.org/index.php/Selection_Algebra" class="uri">https://pymolwiki.org/index.php/Selection_Algebra</a></p>
 </section>
-<section id="highlight-what-you-want" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="highlight-what-you-want"><span class="header-section-number">2.6</span> 6. Highlight what you want</h2>
+<section id="highlight-what-you-want" class="level2">
+<h2 class="anchored" data-anchor-id="highlight-what-you-want">6. Highlight what you want</h2>
 <p>You can also hide the cartoon partly or totally and color by elements</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>hide cartoon, monomer <span class="kw">and</span> chain A</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>show sticks, chain D <span class="kw">and</span> resi <span class="dv">10</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>show sticks, catalytic_res</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>set_bond stick_radius, <span class="fl">0.25</span>, catalytic_res</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>color red, chain D <span class="kw">and</span> resi <span class="dv">10</span> <span class="kw">and</span> elem o</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>hide cartoon, monomer <span class="kw">and</span> chain A</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>show sticks, chain D <span class="kw">and</span> resi <span class="dv">10</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>show sticks, catalytic_res</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>set_bond stick_radius, <span class="fl">0.25</span>, catalytic_res</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>color red, chain D <span class="kw">and</span> resi <span class="dv">10</span> <span class="kw">and</span> elem o</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/1865e4a1-569b-4e2d-bee4-df83efc1b56d.png" class="img-fluid"></p>
 </section>
-<section id="show-labels" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="show-labels"><span class="header-section-number">2.7</span> 7. Show labels</h2>
+<section id="show-labels" class="level2">
+<h2 class="anchored" data-anchor-id="show-labels">7. Show labels</h2>
 <ul>
 <li><p>Use the <strong>L</strong> menu to show the labels of your object/selection</p></li>
 <li><p>You can also use the command <code>label</code> to show labels</p></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>label [selection], [expression]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>label [selection], [expression]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Labels can be <a href="https://pymolwiki.org/index.php/Label">formatted</a> in different ways, for example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_outline_color, black</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_font_id, <span class="dv">10</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_size, <span class="op">-</span><span class="fl">2.5</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_position,(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">100</span>), resi <span class="dv">87</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_outline_color, black</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_font_id, <span class="dv">10</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_size, <span class="op">-</span><span class="fl">2.5</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> label_position,(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">100</span>), resi <span class="dv">87</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can also move the labels with “Edit mode”: <a href="http://polo.engr.colostate.edu/drillbits/lessons/59/#:~:text=To%20get%20labels%20exactly%20where,click%20to%20move%20the%20label." class="uri">http://polo.engr.colostate.edu/drillbits/lessons/59/#:~:text=To%20get%20labels%20exactly%20where,click%20to%20move%20the%20label.</a></p>
 <p><em>Be careful not to pick on the molecule (UNDO still partial!)</em></p>
 <section id="make-a-picture-of-the-catalytic-center-with-your-custom-representation-including-labels" class="level3">
 <h3 class="anchored" data-anchor-id="make-a-picture-of-the-catalytic-center-with-your-custom-representation-including-labels"><span style="color:green">Make a picture of the catalytic center with your custom representation, including labels</span></h3>
 </section>
 </section>
-<section id="measure-distances" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="measure-distances"><span class="header-section-number">2.8</span> 8. Measure distances</h2>
+<section id="measure-distances" class="level2">
+<h2 class="anchored" data-anchor-id="measure-distances">8. Measure distances</h2>
 <p>Menu Wizard&gt;Measurements</p>
 <p><img src="images/1a271b33-2fac-4e7f-a894-80d9c3621943.png" class="img-fluid"></p>
 <p>Click “Done” on the right when you are done.</p>
 </section>
-<section id="how-to-make-a-high-res-picture-ray-it" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="how-to-make-a-high-res-picture-ray-it"><span class="header-section-number">2.9</span> 9. How to make a high-res picture: RAY IT!</h2>
-<p><img src="images/f51cf939-2d21-4220-a0dd-33a038f4f7af.png" class="img-fluid"></p>
-<p>Also by command line:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_opaque_background, on</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ray</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>png picture.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>png <span class="op">/</span>modesto<span class="op">/</span>strbio<span class="op">/</span>picture.png, width<span class="op">=</span><span class="dv">2000</span>, height<span class="op">=</span><span class="dv">1200</span>, dpi<span class="op">=</span><span class="dv">600</span>, ray<span class="op">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="images/aac2ed4f-82b4-4db5-903d-6f1a3948fddd.png" class="img-fluid"></p>
-<p>Note that objects in a deeper position look lighter. This is the “fog” effect. See: <a href="https://pymolwiki.org/index.php/Fog" class="uri">https://pymolwiki.org/index.php/Fog</a> and <a href="https://pymolwiki.org/index.php/Depth_cue" class="uri">https://pymolwiki.org/index.php/Depth_cue</a></p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="how-to-save-a-high-res-picture-ray-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-save-a-high-res-picture-ray-it">9. How to save a high-res picture: RAY IT!</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Ray only for high-resolution images
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -620,25 +627,49 @@ Note
 <p><a href="https://pymolwiki.org/index.php/Png" class="uri">https://pymolwiki.org/index.php/Png</a></p>
 </div>
 </div>
+<p><img src="images/f51cf939-2d21-4220-a0dd-33a038f4f7af.png" class="img-fluid" width="600"></p>
+<p>Also by command line:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_opaque_background, on</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ray</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>png picture.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>png <span class="op">/</span>modesto<span class="op">/</span>strbio<span class="op">/</span>picture.png, width<span class="op">=</span><span class="dv">2000</span>, height<span class="op">=</span><span class="dv">1200</span>, dpi<span class="op">=</span><span class="dv">600</span>, ray<span class="op">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/aac2ed4f-82b4-4db5-903d-6f1a3948fddd.png" class="img-fluid"></p>
+<p>Note that objects in a deeper position look lighter. This is the “fog” effect. See: <a href="https://pymolwiki.org/index.php/Fog" class="uri">https://pymolwiki.org/index.php/Fog</a> and <a href="https://pymolwiki.org/index.php/Depth_cue" class="uri">https://pymolwiki.org/index.php/Depth_cue</a></p>
 </section>
-<section id="bonus-track-more-info-and-useful-resources-about-pymol." class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="bonus-track-more-info-and-useful-resources-about-pymol."><span class="header-section-number">2.10</span> 10. BONUS TRACK: More info and useful resources about Pymol.</h2>
+<section id="bonus-track-more-info-and-useful-resources-about-pymol." class="level2">
+<h2 class="anchored" data-anchor-id="bonus-track-more-info-and-useful-resources-about-pymol.">10. BONUS TRACK: More info and useful resources about PyMOL.</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please let me know if any of the links below are broken or if you would like to add new links to other tricks.</p>
+</div>
+</div>
 <ul>
-<li><p>More Pymol exercises:</p>
+<li><p>More PyMOL exercises:</p>
 <ul>
-<li><p><a href="http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_Pymol.pdf" class="uri">http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_Pymol.pdf</a></p></li>
+<li><p><a href="http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_PyMOL.pdf" class="uri">http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_PyMOL.pdf</a></p></li>
 <li><p><a href="http://www.carlssonlab.org/pdfs/PYMOL.pdf" class="uri">http://www.carlssonlab.org/pdfs/PYMOL.pdf</a></p></li>
 <li><p><a href="https://rpubs.com/stodolli/121998" class="uri">https://rpubs.com/stodolli/121998</a></p></li>
 </ul></li>
 <li><p>Quick Reference Guide for Intermediate PyMOL Users: <a href="https://www.uml.edu/docs/PyMOL%20Quick%20Reference%20Guide_tcm18-230352.pdf" class="uri">https://www.uml.edu/docs/PyMOL%20Quick%20Reference%20Guide_tcm18-230352.pdf</a></p></li>
-<li><p>Short Pymol book: <a href="https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf" class="uri">https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf</a></p></li>
-<li><p>Practical Pymol for Beginners: <a href="https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners" class="uri">https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners</a></p></li>
+<li><p>Short PyMOL book: <a href="https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf" class="uri">https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf</a></p></li>
+<li><p>Practical PyMOL for Beginners: <a href="https://pymolwiki.org/index.php/Practical_PyMOL_for_Beginners" class="uri">https://pymolwiki.org/index.php/Practical_PyMOL_for_Beginners</a></p></li>
 <li><p><strong>PyMOL-based protein structure workbook</strong></p>
 <ul>
 <li>Exploring Protein Structure: Principles and Practice:&nbsp; <a href="https://link.springer.com/book/10.1007/978-3-319-76858-8" class="uri">https://link.springer.com/book/10.1007/978-3-319-76858-8</a></li>
 </ul></li>
 <li><p>Another interesting tutorial: <a href="http://www.protein.osaka-u.ac.jp/rcsfp/supracryst/suzuki/jpxtal/Katsutani/en/index.php" class="uri">http://www.protein.osaka-u.ac.jp/rcsfp/supracryst/suzuki/jpxtal/Katsutani/en/index.php</a></p></li>
-<li><p><strong>Pymol for Begginers YouTube series in “Swanson Does Science” channel:</strong> <a href="https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew" class="uri">https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew</a></p>
+<li><p><strong>PyMOL for Begginers YouTube series in “Swanson Does Science” channel:</strong> <a href="https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew" class="uri">https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew</a></p>
 <ul>
 <li><p>1: Orientation - <a href="https://www.youtube.com/watch?v=wiKyOF-pGw4" class="uri">https://www.youtube.com/watch?v=wiKyOF-pGw4</a></p></li>
 <li><p>2: Labels - <a href="https://www.youtube.com/watch?v=nFY3EjBNPBQ" class="uri">https://www.youtube.com/watch?v=nFY3EjBNPBQ</a></p>
@@ -654,16 +685,16 @@ Note
 </ul></li>
 <li><p>6: Mutagenesis - <a href="https://www.youtube.com/watch?v=M-VCBz83nfs" class="uri">https://www.youtube.com/watch?v=M-VCBz83nfs</a></p></li>
 </ul></li>
-<li><p><strong>Active sites with Pymol:</strong> <a href="https://www.youtube.com/watch?v=mBlMI82JRfI" class="uri">https://www.youtube.com/watch?v=mBlMI82JRfI</a></p></li>
-<li><p><strong>Create movies with Pymol</strong>: <a href="https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable" class="uri">https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable</a>.</p></li>
+<li><p><strong>Active sites with PyMOL:</strong> <a href="https://www.youtube.com/watch?v=mBlMI82JRfI" class="uri">https://www.youtube.com/watch?v=mBlMI82JRfI</a></p></li>
+<li><p><strong>Create movies with PyMOL</strong>: <a href="https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable" class="uri">https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable</a>.</p></li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="part-b-paper-style-protein-figure-challenge" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> PART B: Paper-style protein figure challenge</h1>
+<section id="part-b-paper-style-protein-figure-challenge-optional" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> PART B: Paper-style protein figure challenge (optional)</h1>
 <p><strong>Make a ready-to-publish picture of your favorite protein.</strong></p>
-<p>As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al. (<a href="https://www.science.org/doi/10.1126/science.abb7498">2020</a>) or Figure 4b from Cilleros-Rodríguez et al.&nbsp;(<a href="https://elifesciences.org/articles/78383">2022</a>), but any structure involving more than one domain and/or with a substrate/cofactor molecule can be a good challenge. You may use Pymol or any other application, including Py3Dmol in a Jupyter Notebook.</p>
+<p>As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al. (<a href="https://www.science.org/doi/10.1126/science.abb7498">2020</a>) or Figure 4b from Cilleros-Rodríguez et al.&nbsp;(<a href="https://elifesciences.org/articles/78383">2022</a>), but any structure involving more than one domain and/or with a substrate/cofactor molecule can be a good challenge. You may use PyMOL or any other application, including Py3Dmol in a Jupyter Notebook.</p>
 
 
 </section>

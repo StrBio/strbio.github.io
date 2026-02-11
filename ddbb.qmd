@@ -34,11 +34,11 @@ in protein modeling, as it helps identify, evaluate, and choose intermediate
 models
 
 It is essential to clarify the distinction between alignment and superposition,
-as these terms are frequently conflated in the literature. A \*structural
-alignment\* aims to identify similarities and differences between two
-structures, whereas structure superposition displays the structures based on
-specific criteria, typically derived from a prior structural alignment.
-Consequently, superposition seeks to minimize the distance between structures by
+as these terms are frequently conflated in the literature. A structural
+alignment aims to identify similarities and differences between two structures,
+whereas structure superposition displays the structures based on specific
+criteria, typically derived from a prior structural alignment. Consequently,
+superposition algorithms seek to minimize the distance between structures by
 identifying a transformation that achieves either the lowest root-mean-square
 deviation
 ([**RMSD**](https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions))
@@ -61,15 +61,48 @@ suggest good similarity. Both the RMSD value and the number of aligned residues
 must be considered for accurate analysis.
 
 ![Structural alignment of three different AP endoncleases obtained with the
-`cealign` algorithm implemented in Pymol. The RMSD and the number of aligned
+`cealign` algorithm implemented in PyMol. The RMSD and the number of aligned
 residues for each pair of structures is
 indicated.](pics/rmsd.png "RMSD_example"){#fig-rmsd .figure width="500"}
 
-Computing the RMSD for large proteins or performing pairwise calculations on
-extensive datasets is often computationally prohibitive. To address this
-efficiency bottleneck, we turn to Artificial Intelligence (AI). AI significantly
-accelerates protein comparison, mirroring its transformative impact on the
-broader field of structural bioinformatics
+When comparing two protein structures, the RMSD value you obtain can vary
+depending on the alignment or superposition algorithm used. Different methods
+look at structural similarity in different ways, so they do not always produce
+identical results. Among the many available tools, three of the most commonly
+used are **CEalign**, **TM‑align**, and **DALI**.
+
+-   **CEalign** [@shindyalov1998] builds a structural alignment by focusing on
+    **short matching fragments**, called *Aligned Fragment Pairs (AFPs)*. These
+    AFPs capture local geometric similarity between Cα atoms. Starting from
+    these local matches, the algorithm **extends and refines** the alignment
+    using a combination of combinatorial techniques and dynamic programming.
+    CEalign is implemented in **PyMOL** and other molecular visualization
+    programs, making it widely accessible to researchers
+
+-   **TM-align** [@zheng2019] uses dynamic programming to find the alignment
+    that maximizes the TM‑score, a weighted version of RMSD designed to reduce
+    the impact of local structural differences. The method begins with heuristic
+    initial alignments (for example, based on secondary structure or fragment
+    matching) and then iteratively improves the alignment until it converges on
+    the best global match under the TM‑score. Because of its weighting strategy,
+    TM‑align is particularly good and fast at comparing overall protein folds.
+
+-   **DALI** [@holm2022] takes a very different approach. Instead of beginning
+    with a superposition, it compares proteins by analyzing their Cα distance
+    matrices, which represent all pairwise distances within each structure.
+    Based on these matrices, DALI computes a score (Z), and only afterwards
+    generates a superposition and RMSD. This makes DALI a highly sensitive
+    method for detecting remote structural similarities, although it is also
+    computationally intensive. To address this, the [DALI
+    server](http://ekhidna2.biocenter.helsinki.fi/dali/) provides pre‑calculated
+    distance matrices for proteins in major databases, enabling efficient
+    structure‑based searches.
+
+Because traditional algorithms can be slow for large databases, newer tools such
+as **FoldSeek** [@vankempen2023a] use AI and protein language models to
+dramatically speed up structural searches, reflecting the growing role of
+machine learning in structural bioinformatics, as we will discuss in the
+[section](ai.html) devoted to Alphafold and other AI-based methods.
 
 # Classification of Proteins
 
@@ -363,9 +396,9 @@ Atlas](https://esmatlas.com/), which house millions of protein structures
 predicted using deep-learning methods. There are also specialized databases,
 like [BFDV](https://bfvd.foldseek.com/) [@kim2025], that contain viral protein
 structures obtained through Alphafold and can be searched using
-[Foldseek](https://search.foldseek.com/) [@kempen], a AI-based method designed
-to identify structural similarities (see section [Protein Modeling in the
-AlphaFold era](ai.html#sec-AF2)).
+[Foldseek](https://search.foldseek.com/) [@vankempen2023a], a AI-based method
+designed to identify structural similarities (see section [Protein Modeling in
+the AlphaFold era](ai.html#sec-AF2)).
 
 Given the recent boost in the capacity for accurately obtain protein models,
 some author suggested (or desired) that future databases contain not only
@@ -373,7 +406,7 @@ protein sequence variants and protein complexes, but also diverse conformations
 for each structure, which would help to gain insights into their function and
 biological role [@beck2024].
 
-# [**In class exercise: Protein Database**]{style="color:green"}
+# [**In class exercise: Protein Databases**]{style="color:green"}
 
 The goal of this exercise is to get familiar with protein structures and their
 domain organization.

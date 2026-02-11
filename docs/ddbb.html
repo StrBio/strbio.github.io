@@ -273,7 +273,7 @@ window.Quarto = {
   <li><a href="#strDDBB" id="toc-strDDBB" class="nav-link" data-scroll-target="#strDDBB">Structure databases</a></li>
   <li><a href="#pers" id="toc-pers" class="nav-link" data-scroll-target="#pers">Current and future strategies in protein databases</a></li>
   </ul></li>
-  <li><a href="#in-class-exercise-protein-database" id="toc-in-class-exercise-protein-database" class="nav-link" data-scroll-target="#in-class-exercise-protein-database"><span class="header-section-number">3</span> <span style="color:green"><strong>In class exercise: Protein Database</strong></span></a></li>
+  <li><a href="#in-class-exercise-protein-databases" id="toc-in-class-exercise-protein-databases" class="nav-link" data-scroll-target="#in-class-exercise-protein-databases"><span class="header-section-number">3</span> <span style="color:green"><strong>In class exercise: Protein Databases</strong></span></a></li>
   </ul>
 </nav>
     </div>
@@ -300,7 +300,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 22, 2026</p>
+      <p class="date-modified">February 11, 2026</p>
     </div>
   </div>
     
@@ -314,7 +314,7 @@ window.Quarto = {
 <section id="sec-alignment" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Structure comparison and alignment</h1>
 <p>To understand the diversity and function of proteins, it is important to compare their sequences and structures. This helps to find common patterns and understand their diversity and evolutionary history. By measuring and analyzing these similarities, scientists can classify proteins and determine their relationships in terms of function and evolution. This process is also crucial in protein modeling, as it helps identify, evaluate, and choose intermediate models</p>
-<p>It is essential to clarify the distinction between alignment and superposition, as these terms are frequently conflated in the literature. A *structural alignment* aims to identify similarities and differences between two structures, whereas structure superposition displays the structures based on specific criteria, typically derived from a prior structural alignment. Consequently, superposition seeks to minimize the distance between structures by identifying a transformation that achieves either the lowest root-mean-square deviation (<a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions"><strong>RMSD</strong></a>) or the maximum equivalences within an RMSD cutoff.</p>
+<p>It is essential to clarify the distinction between alignment and superposition, as these terms are frequently conflated in the literature. A structural alignment aims to identify similarities and differences between two structures, whereas structure superposition displays the structures based on specific criteria, typically derived from a prior structural alignment. Consequently, superposition algorithms seek to minimize the distance between structures by identifying a transformation that achieves either the lowest root-mean-square deviation (<a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions"><strong>RMSD</strong></a>) or the maximum equivalences within an RMSD cutoff.</p>
 <p><span id="eq-RMSD"><span class="math display">\[
 RMSD(v,w)=\sqrt{\frac{1}{n} \sum_{i=0}^n{||v_{i}-w_{i}||}^2}
 \tag{1}\]</span></span></p>
@@ -325,11 +325,17 @@ RMSD(v,w)=\sqrt{\frac{1}{n} \sum_{i=0}^n{||v_{i}-w_{i}||}^2}
 <img src="pics/rmsd.png" title="RMSD_example" class="figure img-fluid figure-img" width="500">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rmsd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Structural alignment of three different AP endoncleases obtained with the <code>cealign</code> algorithm implemented in Pymol. The RMSD and the number of aligned residues for each pair of structures is indicated.
+Figure&nbsp;1: Structural alignment of three different AP endoncleases obtained with the <code>cealign</code> algorithm implemented in PyMol. The RMSD and the number of aligned residues for each pair of structures is indicated.
 </figcaption>
 </figure>
 </div>
-<p>Computing the RMSD for large proteins or performing pairwise calculations on extensive datasets is often computationally prohibitive. To address this efficiency bottleneck, we turn to Artificial Intelligence (AI). AI significantly accelerates protein comparison, mirroring its transformative impact on the broader field of structural bioinformatics</p>
+<p>When comparing two protein structures, the RMSD value you obtain can vary depending on the alignment or superposition algorithm used. Different methods look at structural similarity in different ways, so they do not always produce identical results. Among the many available tools, three of the most commonly used are <strong>CEalign</strong>, <strong>TM‑align</strong>, and <strong>DALI</strong>.</p>
+<ul>
+<li><p><strong>CEalign</strong> <span class="citation" data-cites="shindyalov1998">(<a href="#ref-shindyalov1998" role="doc-biblioref">Shindyalov and Bourne 1998</a>)</span> builds a structural alignment by focusing on <strong>short matching fragments</strong>, called <em>Aligned Fragment Pairs (AFPs)</em>. These AFPs capture local geometric similarity between Cα atoms. Starting from these local matches, the algorithm <strong>extends and refines</strong> the alignment using a combination of combinatorial techniques and dynamic programming. CEalign is implemented in <strong>PyMOL</strong> and other molecular visualization programs, making it widely accessible to researchers</p></li>
+<li><p><strong>TM-align</strong> <span class="citation" data-cites="zheng2019">(<a href="#ref-zheng2019" role="doc-biblioref">Zheng et al. 2019</a>)</span> uses dynamic programming to find the alignment that maximizes the TM‑score, a weighted version of RMSD designed to reduce the impact of local structural differences. The method begins with heuristic initial alignments (for example, based on secondary structure or fragment matching) and then iteratively improves the alignment until it converges on the best global match under the TM‑score. Because of its weighting strategy, TM‑align is particularly good and fast at comparing overall protein folds.</p></li>
+<li><p><strong>DALI</strong> <span class="citation" data-cites="holm2022">(<a href="#ref-holm2022" role="doc-biblioref">Holm 2022</a>)</span> takes a very different approach. Instead of beginning with a superposition, it compares proteins by analyzing their Cα distance matrices, which represent all pairwise distances within each structure. Based on these matrices, DALI computes a score (Z), and only afterwards generates a superposition and RMSD. This makes DALI a highly sensitive method for detecting remote structural similarities, although it is also computationally intensive. To address this, the <a href="http://ekhidna2.biocenter.helsinki.fi/dali/">DALI server</a> provides pre‑calculated distance matrices for proteins in major databases, enabling efficient structure‑based searches.</p></li>
+</ul>
+<p>Because traditional algorithms can be slow for large databases, newer tools such as <strong>FoldSeek</strong> <span class="citation" data-cites="vankempen2023a">(<a href="#ref-vankempen2023a" role="doc-biblioref">Kempen et al. 2023</a>)</span> use AI and protein language models to dramatically speed up structural searches, reflecting the growing role of machine learning in structural bioinformatics, as we will discuss in the <a href="ai.html">section</a> devoted to Alphafold and other AI-based methods.</p>
 </section>
 <section id="classification-of-proteins" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Classification of Proteins</h1>
@@ -432,12 +438,12 @@ Note
 </section>
 <section id="pers" class="level2">
 <h2 class="anchored" data-anchor-id="pers">Current and future strategies in protein databases</h2>
-<p>There is a significant trend towards the cross-referencing and integration of diverse data within <em>metadatabases</em>. An exemplary case is the <a href="https://www.proteinatlas.org/">Human Protein Atlas</a> which provides information about proteins classified by cell type or tissue, along with details on splicing variants, mutants, and more. Additionally, it is important to acknowledge the new structural databases, such as Deepmind’s <a href="https://alphafold.ebi.ac.uk/">Alphafold Database</a> <span class="citation" data-cites="bertoni2026">(<a href="#ref-bertoni2026" role="doc-biblioref">Bertoni et al. 2026</a>)</span> and the <a href="https://esmatlas.com/">ESM Metagenomic Atlas</a>, which house millions of protein structures predicted using deep-learning methods. There are also specialized databases, like <a href="https://bfvd.foldseek.com/">BFDV</a> <span class="citation" data-cites="kim2025">(<a href="#ref-kim2025" role="doc-biblioref">Kim et al. 2025</a>)</span>, that contain viral protein structures obtained through Alphafold and can be searched using <a href="https://search.foldseek.com/">Foldseek</a> <span class="citation" data-cites="kempen">(<a href="#ref-kempen" role="doc-biblioref">Kempen et al., n.d.</a>)</span>, a AI-based method designed to identify structural similarities (see section <a href="ai.html#sec-AF2">Protein Modeling in the AlphaFold era</a>).</p>
+<p>There is a significant trend towards the cross-referencing and integration of diverse data within <em>metadatabases</em>. An exemplary case is the <a href="https://www.proteinatlas.org/">Human Protein Atlas</a> which provides information about proteins classified by cell type or tissue, along with details on splicing variants, mutants, and more. Additionally, it is important to acknowledge the new structural databases, such as Deepmind’s <a href="https://alphafold.ebi.ac.uk/">Alphafold Database</a> <span class="citation" data-cites="bertoni2026">(<a href="#ref-bertoni2026" role="doc-biblioref">Bertoni et al. 2026</a>)</span> and the <a href="https://esmatlas.com/">ESM Metagenomic Atlas</a>, which house millions of protein structures predicted using deep-learning methods. There are also specialized databases, like <a href="https://bfvd.foldseek.com/">BFDV</a> <span class="citation" data-cites="kim2025">(<a href="#ref-kim2025" role="doc-biblioref">Kim et al. 2025</a>)</span>, that contain viral protein structures obtained through Alphafold and can be searched using <a href="https://search.foldseek.com/">Foldseek</a> <span class="citation" data-cites="vankempen2023a">(<a href="#ref-vankempen2023a" role="doc-biblioref">Kempen et al. 2023</a>)</span>, a AI-based method designed to identify structural similarities (see section <a href="ai.html#sec-AF2">Protein Modeling in the AlphaFold era</a>).</p>
 <p>Given the recent boost in the capacity for accurately obtain protein models, some author suggested (or desired) that future databases contain not only protein sequence variants and protein complexes, but also diverse conformations for each structure, which would help to gain insights into their function and biological role <span class="citation" data-cites="beck2024">(<a href="#ref-beck2024" role="doc-biblioref">Beck et al. 2024</a>)</span>.</p>
 </section>
 </section>
-<section id="in-class-exercise-protein-database" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>In class exercise: Protein Database</strong></span></h1>
+<section id="in-class-exercise-protein-databases" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <span style="color:green"><strong>In class exercise: Protein Databases</strong></span></h1>
 <p>The goal of this exercise is to get familiar with protein structures and their domain organization.</p>
 <div class="columns">
 <div class="column" style="width:15%;">
@@ -531,8 +537,11 @@ Blum, Matthias, Hsin-Yu Chang, Sara Chuguransky, Tiago Grego, Swaathi Kandasaamy
 <div id="ref-burley2021" class="csl-entry" role="listitem">
 Burley, Stephen K, Charmi Bhikadiya, Chunxiao Bi, Sebastian Bittrich, Li Chen, Gregg V Crichlow, Cole H Christie, et al. 2020. <span>“<span class="nocase">RCSB Protein Data Bank: powerful new tools for exploring 3D structures of biological macromolecules for basic and applied research and education in fundamental biology, biomedicine, biotechnology, bioengineering and energy sciences</span>.”</span> <em>Nucleic Acids Research</em> 49 (D1): D437–51. <a href="https://doi.org/10.1093/nar/gkaa1038">https://doi.org/10.1093/nar/gkaa1038</a>.
 </div>
-<div id="ref-kempen" class="csl-entry" role="listitem">
-Kempen, Michel van, Stephanie S. Kim, Charlotte Tumescheit, Milot Mirdita, Cameron L. M. Gilchrist, Johannes Söding, and Martin Steinegger. n.d. <span>“Foldseek: Fast and Accurate Protein Structure Search.”</span> <a href="https://doi.org/10.1101/2022.02.07.479398">https://doi.org/10.1101/2022.02.07.479398</a>.
+<div id="ref-holm2022" class="csl-entry" role="listitem">
+Holm, Liisa. 2022. <span>“Dali Server: Structural Unification of Protein Families.”</span> <em>Nucleic Acids Research</em> 50 (W1): W210–15. <a href="https://doi.org/10.1093/nar/gkac387">https://doi.org/10.1093/nar/gkac387</a>.
+</div>
+<div id="ref-vankempen2023a" class="csl-entry" role="listitem">
+Kempen, Michel van, Stephanie S. Kim, Charlotte Tumescheit, Milot Mirdita, Jeongjae Lee, Cameron L. M. Gilchrist, Johannes Söding, and Martin Steinegger. 2023. <span>“Fast and Accurate Protein Structure Search with Foldseek.”</span> <em>Nature Biotechnology</em>, May, 1–4. <a href="https://doi.org/10.1038/s41587-023-01773-0">https://doi.org/10.1038/s41587-023-01773-0</a>.
 </div>
 <div id="ref-kendrew1958" class="csl-entry" role="listitem">
 Kendrew, J. C., G. Bodo, H. M. Dintzis, R. G. Parrish, H. Wyckoff, and D. C. Phillips. 1958. <span>“A three-dimensional model of the myoglobin molecule obtained by x-ray analysis.”</span> <em>Nature</em> 181 (4610): 662–66. <a href="https://doi.org/10.1038/181662a0">https://doi.org/10.1038/181662a0</a>.
@@ -546,11 +555,17 @@ Mistry, Jaina, Sara Chuguransky, Lowri Williams, Matloob Qureshi, Gustavo&nbsp;A
 <div id="ref-paysan-lafosse2023" class="csl-entry" role="listitem">
 Paysan-Lafosse, Typhaine, Matthias Blum, Sara Chuguransky, Tiago Grego, Beatriz Lázaro Pinto, Gustavo&nbsp;A Salazar, Maxwell&nbsp;L Bileschi, et al. 2023. <span>“InterPro in 2022.”</span> <em>Nucleic Acids Research</em> 51 (D1): D418–27. <a href="https://doi.org/10.1093/nar/gkac993">https://doi.org/10.1093/nar/gkac993</a>.
 </div>
+<div id="ref-shindyalov1998" class="csl-entry" role="listitem">
+Shindyalov, I. N., and P. E. Bourne. 1998. <span>“Protein structure alignment by incremental combinatorial extension (CE) of the optimal path.”</span> <em>Protein Engineering</em> 11 (9): 739–47. <a href="https://doi.org/10.1093/protein/11.9.739">https://doi.org/10.1093/protein/11.9.739</a>.
+</div>
 <div id="ref-sillitoe2021" class="csl-entry" role="listitem">
 Sillitoe, Ian, Nicola Bordin, Natalie Dawson, Vaishali P. Waman, Paul Ashford, Harry M. Scholes, Camilla S. M. Pang, et al. 2021. <span>“CATH: increased structural coverage of functional space.”</span> <em>Nucleic Acids Research</em> 49 (D1): D266–73. <a href="https://doi.org/10.1093/nar/gkaa1079">https://doi.org/10.1093/nar/gkaa1079</a>.
 </div>
 <div id="ref-steinegger2018" class="csl-entry" role="listitem">
 Steinegger, Martin, and Johannes Söding. 2018. <span>“Clustering huge protein sequence sets in linear time.”</span> <em>Nature Communications</em> 9 (1): 2542. <a href="https://doi.org/10.1038/s41467-018-04964-5">https://doi.org/10.1038/s41467-018-04964-5</a>.
+</div>
+<div id="ref-zheng2019" class="csl-entry" role="listitem">
+Zheng, Wei, Qiqige Wuyun, Yang Li, S. M. Mortuza, Chengxin Zhang, Robin Pearce, Jishou Ruan, and Yang Zhang. 2019. <span>“Detecting Distant-Homology Protein Structures by Aligning Deep Neural-Network Based Contact Maps.”</span> <em>PLOS Computational Biology</em> 15 (10): e1007411. <a href="https://doi.org/10.1371/journal.pcbi.1007411">https://doi.org/10.1371/journal.pcbi.1007411</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script>

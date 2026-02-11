@@ -1,5 +1,5 @@
 ---
-title: "Pymol Tutorial"
+title: "PyMOL Tutorial"
 date: "August 21, 2023"
 date-modified: "`r Sys.Date()`"
 format: 
@@ -9,7 +9,7 @@ toc: true
 toc-location: right
 toc-depth: 2
 number-sections: true
-number-depth: 2
+number-depth: 1
 link-external-icon: true
 link-external-newwindow: true 
 bibliography: references.bib
@@ -23,43 +23,62 @@ editor:
 library(webexercises)
 ```
 
-# Note about installing Pymol
+# Note about installing PyMOL
 
-There are two options to use [Pymol](https://www.pymol.org/) in your computer:
+On Windows, Linux, or macOS, there are a number of options to use
+[PyMol](https://www.pymol.org/) on your computer without a paid license:
 
 1.  Edu license:
 
     -   STEP 1: Install from <https://www.pymol.org/#download> or by
         [Conda](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/02-working-with-environments/index.html):
-        
-        ```bash
+
+        ``` bash
         conda install -c schrodinger pymol-bundle
         ```
+
     -   STEP 2: Obtain a License here: <https://pymol.org/edu/>
 
-2.  Open Access version from GitHub:
+2.  Open Access version from GitHub
+    (<https://github.com/schrodinger/pymol-open-source>), also available from
+    diverse repositories:
 
-    -   On Linux: https://pymolwiki.org/index.php/Linux_Install
+    -   On Linux: <https://pymolwiki.org/index.php/Linux_Install>
 
-    -   On MacOs: https://pymolwiki.org/index.php/MAC_Install
+    -   On macOS: <https://pymolwiki.org/index.php/MAC_Install>
 
-    -   UPDATE: for new MacOS you may need to install some dependencies:
+    -   NOTE: for new macOS you may need to install some dependencies:
 
-        ```bash
+        ``` bash
         brew install tcl-tk
         ```
 
-3.  Open Access version from `conda-forge` channel:
+3.  Open Access version from
+    [`Conda`](https://anaconda.org/channels/conda-forge/packages/pymol-open-source/overview):
 
+    ``` bash
+    conda install -c conda-forge pymol-open-source
+    ```
 
+4.  Open Access version from
+    [`PIP`](https://pypi.org/project/pymol-open-source/):
 
-      ```bash
-      conda install -c conda-forge pymol-open-source
-      ```
+    ``` bash
+    pip install pymol-open-source
+    ```
 
+# Part A: A 10-steps self-guided practice to learn PyMOL
 
+::: {.callout-important collapse="false"}
+### Not a copy & paste exercise
 
-# Part A: A 10-steps self-guided practice to learn Pymol
+This exercise is designed as a self‑guided tutorial to help you learn how to
+work with protein structures in PyMOL and create publication‑quality figures.
+The main goal is to strengthen your ability to work independently with
+structures. In many sections, you’ll find several different ways to achieve the
+same or similar results. Please avoid copying and pasting without thinking and
+**take the time to understand each step and learn from it**.
+:::
 
 The first thing to do is to open PyMOL. You can do that by simply
 double-clicking on the icon or typing `pymol` in a Terminal window. From here
@@ -68,7 +87,7 @@ on top where it says ‘`PyMOL>`’. Feel free to explore the graphical interfac
 your own.
 
 The next thing we are going to do is navigate to the directory (folder) where we
-want our files to be located. By default (in Linux and MacOS), Pymol opens in
+want our files to be located. By default (in Linux and macOS), PyMOL opens in
 your *home* directory. Inside PyMOL, we can use Linux commands to navigate to
 that directory. If you type `ls`, you will see the files and folders that exist
 in the home directory and if you type the `cd` command and providing a path you
@@ -78,7 +97,7 @@ can chance your working directory.
 
 As an example, we are going to work with the PDB structure
 [6KI3](https://www.rcsb.org/structure/6ki3). There are two ways to get a
-structure ready to work on Pymol, you can open a file in your local machine or
+structure ready to work on PyMOL, you can open a file in your local machine or
 you can *fetch* it from the PDB.
 
 -   If you have already the PDB go to *File* menu \> *Open PDB*
@@ -155,7 +174,7 @@ The `selection-name`is an optional argument and can be very complex or specific,
 involving one or more portions of one or more objects.
 
 ::: callout-tip
-❗️You can see a detail explanation of the Pymol selection syntax in the Pymol
+❗️You can see a detail explanation of the PyMOL selection syntax in the PyMOL
 wiki [here](https://pymolwiki.org/index.php/Selection_Algebra).
 :::
 
@@ -184,8 +203,10 @@ visualization of your molecule(s), you only have two alternatives.
     -   You can also save temporal scenes within your session, like frozen
         screenshoots while keep working, using the command `scene`:
         <https://pymolwiki.org/index.php/Scene>
-        
-    -   The commands `get_view` and `set_view` are very useful to reproduce a particular view of a protein, particularly when making a movie. See <https://pymolwiki.org/Set_view>    
+
+    -   The commands `get_view` and `set_view` are very useful to reproduce a
+        particular view of a protein, particularly when making a movie. See
+        <https://pymolwiki.org/Set_view>\
 :::
 
 ## 2. Choose representation and color schemes.
@@ -248,8 +269,8 @@ You can remove objects (Option 1A or 1B) or copy a selection to a new object
 (Option 2A or 2B). You can test all with the instructions below, but I find more
 convenient to use command line alternatives (1B and 2B).
 
-*⚠️️ Note that the options 1 and 2 below are alternative ways to get the same results. Try only
-one option each time starting over from 6KI3 structure.⚠️❗️*
+*⚠️️ Note that the options 1 and 2 below are alternative ways to get the same
+results. Try only one option each time starting over from 6KI3 structure.⚠️❗️*
 
 -   Option 1A: select in the sequence panel the sequence you want to remove and
     remove it
@@ -262,7 +283,7 @@ one option each time starting over from 6KI3 structure.⚠️❗️*
 
     -   Step 1: First you need to see the composition of your structure
 
-    ```bash         
+    ``` bash
     get_chains 6KI3
     select chain A
     select chain B
@@ -285,16 +306,16 @@ one option each time starting over from 6KI3 structure.⚠️❗️*
 
     -   Step 1: Select and create:
 
-    ```python
+    ``` python
     select kk, chain B or chain F or chain G or chain H
     create monomer, kk
     ```
 
 Or directly create an object with your selected chains:
 
-  ``` python
-  create monomer, chain B or chain F or chain G or chain H
-  ```
+``` python
+create monomer, chain B or chain F or chain G or chain H
+```
 
 -   Step 2: Now you can remove the original object (if you wish)
 
@@ -304,7 +325,7 @@ Or directly create an object with your selected chains:
 
 ![](images/9cbdb7fb-ce22-44fd-a28e-c74c9966c862.png)
 
-**Some interesting points about selection on Pymol:**
+**Some interesting points about selection on PyMOL:**
 
 -   Unnamed selection are temporarily named "sele" and replaced after every
     `select` command execution.
@@ -331,17 +352,20 @@ delete 6KHY #remove the original structure for clarity
 fetch 3AAM
 fetch 2NQH
 ```
+
 ::: {.callout-tip collapse="false"}
 ## Biological units
-If your protein is a multimer, you can download a biological assembly or biological unit, use the assembly setting or use type=pdb1 (monomer), type=pdb2 (dimer) and so on.
-Once you have learned to create and remove objects, try to  `fetch 6KI3, type=pdb1` to display only a monomer of `6KI3`
 
+If your protein is a multimer, you can download a biological assembly or
+biological unit, use the assembly setting or use type=pdb1 (monomer), type=pdb2
+(dimer) and so on. Once you have learned to create and remove objects, try
+`fetch 6KI3, type=pdb1` to fetch and display only a monomer of `6KI3`
 :::
 
 Now you should have four structures: `6KI3` (or monomer), `6KHY_monomer`,
 `3AAM`, and `2NQH`
 
-Pymol has several alternatives for structural alignments. The three more common
+PyMOL has several alternatives for structural alignments. The three more common
 are the commands [*super*](https://pymolwiki.org/index.php/Super),
 [*align*](https://pymolwiki.org/index.php/Align)and
 [*cealign*](https://pymolwiki.org/index.php/Cealign)*,* depending on the level
@@ -362,15 +386,13 @@ zoom all #to center the view of all the proteins in the new position
 
 ### [Can you range the three new structures by their similarity with 6KI3?]{style="color:green"}
 
-
 ::: callout-tip
-# Multiple superposition 
-From version 1.7.2, there is also a command to align multiple
-structures with a reference molecule, using
+# Multiple superposition
+
+From version 1.7.2, there is also a command to align multiple structures with a
+reference molecule, using
 [extra_fit](https://pymolwiki.org/index.php/Extra_fit).
 :::
-
-
 
 ## 5. Find what you are looking for
 
@@ -397,7 +419,7 @@ catalytic sites:
 
 ![](images/e4647891-db6f-4c76-906c-4571ecb0ce55.png)
 
-More info about selection of multiple objects in Pymol here:
+More info about selection of multiple objects in PyMOL here:
 <https://pymolwiki.org/index.php/Selection_Algebra>
 
 ## 6. Highlight what you want
@@ -449,9 +471,22 @@ Menu Wizard\>Measurements
 
 Click "Done" on the right when you are done.
 
-## 9. How to make a high-res picture: RAY IT!
+## 9. How to save a high-res picture: RAY IT!
 
-![](images/f51cf939-2d21-4220-a0dd-33a038f4f7af.png)
+::: callout-warning
+## Ray only for high-resolution images
+
+If Ray takes too long, you can try `ray=0` or use `draw`:
+<https://pymolwiki.org/index.php/Draw>
+
+See more details in the following links:
+
+<https://pymolwiki.org/index.php/Ray>
+
+<https://pymolwiki.org/index.php/Png>
+:::
+
+![](images/f51cf939-2d21-4220-a0dd-33a038f4f7af.png){width="600"}
 
 Also by command line:
 
@@ -475,24 +510,16 @@ Note that objects in a deeper position look lighter. This is the "fog" effect.
 See: <https://pymolwiki.org/index.php/Fog> and
 <https://pymolwiki.org/index.php/Depth_cue>
 
+## 10. BONUS TRACK: More info and useful resources about PyMOL.
+
 ::: callout-tip
-## Note
-
-If Ray takes too long, you can try `ray=0` or use `draw`:
-<https://pymolwiki.org/index.php/Draw>
-
-See more details in the following links:
-
-<https://pymolwiki.org/index.php/Ray>
-
-<https://pymolwiki.org/index.php/Png>
+Please let me know if any of the links below are broken or if you would like to
+add new links to other tricks.
 :::
 
-## 10. BONUS TRACK: More info and useful resources about Pymol.
+-   More PyMOL exercises:
 
--   More Pymol exercises:
-
-    -   <http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_Pymol.pdf>
+    -   <http://ubio.bioinfo.cnio.es/people/jrodriguezr/curso_verano_2014/02-Practica_guiada_PyMOL.pdf>
 
     -   <http://www.carlssonlab.org/pdfs/PYMOL.pdf>
 
@@ -501,11 +528,11 @@ See more details in the following links:
 -   Quick Reference Guide for Intermediate PyMOL Users:
     <https://www.uml.edu/docs/PyMOL%20Quick%20Reference%20Guide_tcm18-230352.pdf>
 
--   Short Pymol book:
+-   Short PyMOL book:
     <https://dasher.wustl.edu/chem430/software/pymol/introduction.pdf>
 
--   Practical Pymol for Beginners:
-    <https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners>
+-   Practical PyMOL for Beginners:
+    <https://pymolwiki.org/index.php/Practical_PyMOL_for_Beginners>
 
 -   **PyMOL-based protein structure workbook**
 
@@ -515,7 +542,7 @@ See more details in the following links:
 -   Another interesting tutorial:
     <http://www.protein.osaka-u.ac.jp/rcsfp/supracryst/suzuki/jpxtal/Katsutani/en/index.php>
 
--   **Pymol for Begginers YouTube series in "Swanson Does Science" channel:**
+-   **PyMOL for Begginers YouTube series in "Swanson Does Science" channel:**
     <https://www.youtube.com/channel/UCz8iGpZDrxv8zu2eJp62uew>
 
     -   1: Orientation - <https://www.youtube.com/watch?v=wiKyOF-pGw4>
@@ -537,9 +564,9 @@ See more details in the following links:
 
     -   6: Mutagenesis - <https://www.youtube.com/watch?v=M-VCBz83nfs>
 
--   **Active sites with Pymol:** <https://www.youtube.com/watch?v=mBlMI82JRfI>
+-   **Active sites with PyMOL:** <https://www.youtube.com/watch?v=mBlMI82JRfI>
 
--   **Create movies with Pymol**:
+-   **Create movies with PyMOL**:
     <https://pymol.org/tutorials/moviemaking/#:~:text=Moviemaking%20concept,the%20key%20frames%2C%20if%20applicable>.
 
 --------------------------------------------------------------------------------
@@ -552,5 +579,5 @@ As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al.
 ([2020](https://www.science.org/doi/10.1126/science.abb7498)) or Figure 4b from
 Cilleros-Rodríguez et al. ([2022](https://elifesciences.org/articles/78383)),
 but any structure involving more than one domain and/or with a
-substrate/cofactor molecule can be a good challenge. You may use Pymol or any
+substrate/cofactor molecule can be a good challenge. You may use PyMOL or any
 other application, including Py3Dmol in a Jupyter Notebook.

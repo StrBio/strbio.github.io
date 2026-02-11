@@ -200,7 +200,7 @@ Jacques Dubochet, Joachim Frank, and Richard Henderson. .
 [website](https://www.creative-biostructure.com/comparison-of-crystallography-nmr-and-em_6.htm).](images/paste-E5E5AE75.png){#fig-cryoEM2
 .figure}
 
-::: {.callout-info collapse="true"}
+::: {.callout-tip}
 ### Tip
 
 Check the already classic article by @egelman2016 for more a detailed info. And
