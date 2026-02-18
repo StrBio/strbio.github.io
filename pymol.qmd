@@ -465,7 +465,16 @@ You can also move the labels with "Edit mode":
 
 ## 8. Measure distances
 
-Menu Wizard\>Measurements
+Menu **Wizard** \> **Measurements**
+
+Then, clicking two atoms to create a dashed line showing the distance in
+Ångströms.
+
+Alternatively, use the command line:
+
+``` python
+distance [selection1], [selection2]
+```
 
 ![](images/1a271b33-2fac-4e7f-a894-80d9c3621943.png)
 
@@ -579,5 +588,6 @@ As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al.
 ([2020](https://www.science.org/doi/10.1126/science.abb7498)) or Figure 4b from
 Cilleros-Rodríguez et al. ([2022](https://elifesciences.org/articles/78383)),
 but any structure involving more than one domain and/or with a
-substrate/cofactor molecule can be a good challenge. You may use PyMOL or any
-other application, including Py3Dmol in a Jupyter Notebook.
+substrate/cofactor molecule can be a good challenge. You may use PyMOL,
+ChimeraX, Mol\* or any other application, including Py3Dmol in a Jupyter
+Notebook.

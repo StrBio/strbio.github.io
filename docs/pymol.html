@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 28, 2026</p>
+      <p class="date-modified">February 13, 2026</p>
     </div>
   </div>
     
@@ -605,7 +605,10 @@ Multiple superposition
 </section>
 <section id="measure-distances" class="level2">
 <h2 class="anchored" data-anchor-id="measure-distances">8. Measure distances</h2>
-<p>Menu Wizard&gt;Measurements</p>
+<p>Menu <strong>Wizard</strong> &gt; <strong>Measurements</strong></p>
+<p>Then, clicking two atoms to create a dashed line showing the distance in Ångströms.</p>
+<p>Alternatively, use the command line:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>distance [selection1], [selection2]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/1a271b33-2fac-4e7f-a894-80d9c3621943.png" class="img-fluid"></p>
 <p>Click “Done” on the right when you are done.</p>
 </section>
@@ -629,13 +632,13 @@ Ray only for high-resolution images
 </div>
 <p><img src="images/f51cf939-2d21-4220-a0dd-33a038f4f7af.png" class="img-fluid" width="600"></p>
 <p>Also by command line:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_opaque_background, on</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ray</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>png picture.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_opaque_background, on</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ray</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>png picture.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>png <span class="op">/</span>modesto<span class="op">/</span>strbio<span class="op">/</span>picture.png, width<span class="op">=</span><span class="dv">2000</span>, height<span class="op">=</span><span class="dv">1200</span>, dpi<span class="op">=</span><span class="dv">600</span>, ray<span class="op">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> ray_trace_mode, <span class="dv">1</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>png <span class="op">/</span>modesto<span class="op">/</span>strbio<span class="op">/</span>picture.png, width<span class="op">=</span><span class="dv">2000</span>, height<span class="op">=</span><span class="dv">1200</span>, dpi<span class="op">=</span><span class="dv">600</span>, ray<span class="op">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/aac2ed4f-82b4-4db5-903d-6f1a3948fddd.png" class="img-fluid"></p>
 <p>Note that objects in a deeper position look lighter. This is the “fog” effect. See: <a href="https://pymolwiki.org/index.php/Fog" class="uri">https://pymolwiki.org/index.php/Fog</a> and <a href="https://pymolwiki.org/index.php/Depth_cue" class="uri">https://pymolwiki.org/index.php/Depth_cue</a></p>
 </section>
@@ -694,7 +697,7 @@ Tip
 <section id="part-b-paper-style-protein-figure-challenge-optional" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> PART B: Paper-style protein figure challenge (optional)</h1>
 <p><strong>Make a ready-to-publish picture of your favorite protein.</strong></p>
-<p>As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al. (<a href="https://www.science.org/doi/10.1126/science.abb7498">2020</a>) or Figure 4b from Cilleros-Rodríguez et al.&nbsp;(<a href="https://elifesciences.org/articles/78383">2022</a>), but any structure involving more than one domain and/or with a substrate/cofactor molecule can be a good challenge. You may use PyMOL or any other application, including Py3Dmol in a Jupyter Notebook.</p>
+<p>As a suggestion, you can reproduce the top panels in the Figure 1B of Gao et al. (<a href="https://www.science.org/doi/10.1126/science.abb7498">2020</a>) or Figure 4b from Cilleros-Rodríguez et al.&nbsp;(<a href="https://elifesciences.org/articles/78383">2022</a>), but any structure involving more than one domain and/or with a substrate/cofactor molecule can be a good challenge. You may use PyMOL, ChimeraX, Mol* or any other application, including Py3Dmol in a Jupyter Notebook.</p>
 
 
 </section>
