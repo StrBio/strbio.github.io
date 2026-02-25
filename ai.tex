@@ -1,0 +1,1850 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{scrbook}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{1}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Protein modeling in the AlphaFold era},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Protein modeling in the AlphaFold era}
+\author{}
+\date{2023-08-21}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\mainmatter
+\chapter{The history of protein structure modeling is told by a
+competition
+(CASP)}\label{the-history-of-protein-structure-modeling-is-told-by-a-competition-casp}
+
+Every two years since 1994, groups in the field of structural
+bioinformatics have conducted a worldwide experiment in which they
+predict a set of unknown protein structures in a controlled, blind
+test-like competition and compare their results with the experimentally
+obtained structures. That is the \textbf{CASP} or
+\href{https://predictioncenter.org/}{\emph{Critical assessment of
+Protein Structure Prediction}}.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pics/casp13.png}}
+
+}
+
+\caption{\label{fig-CASP13}Comparative Z-score of CASP13 participants.
+The score is based in the GDT\_TS (Global distance test).}
+
+\end{figure}%
+
+The best research groups in the field test their new methods and
+protocols in the CASP. However, at CASP13 (2018), an AI company called
+\href{https://en.wikipedia.org/wiki/DeepMind}{Deepmind} (Google
+Subsidiary) entered the scene. Their method, named Alphafold (Senior et
+al. 2020) clearly won CASP13. Alphafold (v.1) implemented improvements
+in some recently used approaches and created an entirely new pipeline.
+Instead of creating contact maps from the alignment and then folding the
+structure, they used an MRF unit (Markov Random Field) to extract the
+main features of the sequence and MSA in advance and process all this
+information into a multilayer NN (called ResNet) that also predicted
+distance probabilities instead of contacts, resulting in high accuracy.
+Then, Alphafold uses all the possibly obtained information to create the
+structure and then improve it by energy minimization (steepest descent
+method) and substitution of portions with a selected DB of protein
+fragments.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pics/alphafold1.png}}
+
+}
+
+\caption{\label{fig-alphafold1}Workflow of the first Alphafold method
+presented in CASP13. MSA stands for multiple sequence alignment; PSSM
+indicates Position-specific-scoring matrix and MRF stands for Markov
+Random Field (or Potts model). From the Sergei Ovchinnikov and Martin
+Steinegger presentation of Alphafold2 to the Boston Protein Design Group
+(slides and video in the \hyperref[links]{link below}).}
+
+\end{figure}%
+
+After Alphafold, similar methods were also developed and made available
+to the general public, like the \emph{trRosetta} (Yang et al. 2020),
+from the \href{https://www.bakerlab.org/}{Baker lab}, available in
+\href{https://www.rosettacommons.org/software}{Rosetta} open source
+software and in the \href{https://robetta.bakerlab.org/}{Robetta}
+server. This led to some controversy (mostly on Twitter) about the open
+access to the CASP software and later on DeepMind publishes all the code
+on GitHub.
+
+\chapter{CASP14 or when protein structure prediction come to age for
+(non structural)
+biologists}\label{casp14-or-when-protein-structure-prediction-come-to-age-for-non-structural-biologists}
+
+There was a lot of hype in CASP14 and the guys from DeepMind did not
+disappoint anyone. Alphafold2 left all competitors far behind, both in
+relative terms (score against the other groups) and in absolute terms
+(lowest alpha-carbon RMSD). As highlighted earlier, the accuracy of many
+of the predicted structures was \emph{within} the margin of error of the
+experimental determination methods (see for instance Mirdita et al.
+2022).
+
+\begin{figure}
+
+\centering{
+
+\href{https://predictioncenter.org/casp14/zscores_final.cgi?formula=gdt_ts}{\pandocbounded{\includegraphics[keepaspectratio]{pics/casp14.png}}}
+
+}
+
+\caption{\label{fig-casp14}Comparative CASP14 scores}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\href{https://www.nature.com/articles/s41586-021-03819-2/figures/1}{\pandocbounded{\includegraphics[keepaspectratio]{pics/jumper2021.png}}}
+
+}
+
+\caption{\label{fig-alphafold2bench}Performance of Alphafold2 the CASP14
+dataset relative to the top-15 entries. Data are median and the 95\%
+confidence interval of the median, for alpha-carbom RMSD. Panels b-c-d
+show example comparison between model and experimental structures.}
+
+\end{figure}%
+
+Deepming took some time (eight months, which is an eternity nowadays) to
+publish the method (Jumper et al. (2021)) and to release the code on
+\href{https://github.com/deepmind/alphafold}{Github}, but other new
+methods, such as RoseTTAfold (Baek et al. (2021)) and C-I-Tasser (Zheng
+et al. (2021)) were able to obtain similar results and were available on
+public servers, which may have pushed Deepmind to make it all available
+to the scientific community\footnote{See
+  https://www.wired.com/story/without-code-for-deepminds-protein-ai-this-lab-wrote-its-own/}.
+Not surprisingly, a group of independent scientists
+(\href{https://twitter.com/sokrypton}{Sergey Ovchinnikov},
+\href{https://twitter.com/milot_mirdita}{Milot Mirdita}, and
+\href{https://twitter.com/thesteinegger}{Martin Steinegger}), decided to
+implement Alphafold2 in a
+\href{https://github.com/sokrypton/ColabFold}{Colab notebook}, called
+\textbf{ColabFold} Mirdita et al. (2022), which freely available online
+using \emph{Google Colab} notebooks platform. Other free implementations
+of Alphafold have been and are available, but ColabFold has been the
+most widely discussed and well known. They implemented some tricks to
+speed up the modeling, most notably the use of
+\href{https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI/present\#slide=id.ge58c80b745_0_15}{MMSeqs2}
+(developed by Martin Steinegger's group) to search for homologous
+structures on Uniref30, which made Colabfold a fast method that made all
+the previous advanced methods almost useless. This was the real
+breakthrough in the field of protein structure prediction, making
+Alphafold accessible and, also very importantly, facilitated the further
+development of the method, implementing very quickly new features, like
+the prediction of protein complexes, which was actually first mentioned
+on
+\href{https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI/present\#slide=id.ge58c80b745_0_15}{Twitter}
+and then led to several new dedicated methods, including
+AlphaFold-multimer (Evans et al. 2022) from Deepmind or virtual PullDown
+approaches (Yu et al. 2023) (Shin et al. 2025).
+
+\chapter{Alphafold as the paradigm of a New Era}\label{sec-AF2}
+
+\section{Why is Alphafold so freaking
+accurate?}\label{why-is-alphafold-so-freaking-accurate}
+
+The emergence of the AlphaFold era is the result of decades of previous
+work that progressively incorporated neural networks (NNs) and deep
+learning into protein structure prediction. Because NNs can learn subtle
+patterns and correlations from very large datasets, they are
+exceptionally well suited to the challenge of inferring 3D protein
+structures from sequence information. Over the last 20--30 years,
+advances in protein structure prediction have closely followed
+developments in deep learning, gradually integrating convolutional
+neural networks (CNNs), recurrent neural networks (RNNs), and eventually
+Transformer models (Kumar et al. 2025).
+
+The Transformer architecture, originally designed for machine
+translation, achieved outstanding performance thanks to its
+encoder--decoder structure. The encoder converts the input sequence into
+internal vector representations, while the decoder generates the output.
+Its key innovation is the multi-head attention mechanism, which
+identifies complex relationships between tokens by assigning attention
+weights according to their relevance. This enables the model to capture
+long-range dependencies in sequences far more effectively than previous
+architectures. Transformers typically consist of six encoder layers and
+six decoder layers, each including multi-head attention and feed‑forward
+networks. These components are highly parallelizable, which makes
+Transformer-based models both efficient and powerful (Wang, Peng, and
+Yang 2022).
+
+The core idea behind AlphaFold v2 (referred to here simply as AlphaFold)
+and related methods is analogous to strategies used in image processing.
+In computer vision, a 2D image is represented as a 3D tensor because of
+the RGB or HSV color channels. Protein structure prediction uses a
+similar approach: 1D and 2D sequence-derived features are transformed
+into a 3D volume with multiple channels encoding inter-residue
+relationships. This rich, multi-channel tensor serves as the input to
+deep learning models that predict distances and structural constraints
+between residues (Pakhrin et al. 2021).
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pics/machine_fold.png}}
+
+}
+
+\caption{\label{fig-deep}From the perspective of Deep Learning method
+development, the problem of protein distogram or real-valued distance
+prediction (bottom row) is similar to the `depth prediction problem' in
+computer vision. From Pakhrin et al. (2021).}
+
+\end{figure}%
+
+Alphafold can be explained as a pipeline with three interconected tasks
+(see picture below). First, in contrast to Alphafold v.1, the input to
+Alphafold is a ``raw'' MSA, i.e., the deep learning network extracts the
+co-evolutionary information directly from the MSA. It queries several
+databases of protein sequences and constructs an MSA that is used to
+select templates. This can be a limiting step, affecting the speed of
+modeling (see below), but it can be also related to model accuracy, as
+has been recently shown in CASP15 (Lee et al., n.d.; Peng et al. 2023).
+
+In the second part of the diagram, AlphaFold takes the multiple sequence
+alignment and the templates, and processes them in a Transformer that
+they named \emph{Evoformer}. This process has been referred by some
+authors as inter-residue interaction map-threading (Bhattacharya et al.
+2021). The objective of this part is to extract layers of information to
+generate residue interaction maps. The Evoformer refines both its
+understanding of the MSA and the predicted 3D structure in an iterative
+process to refine the model. Improved predictions of amino acid
+interactions help refine the MSA representation, and vice-versa.
+
+The AF2 transformer architecture allows the model to process all amino
+acids in a protein sequence simultaneously, rather than one at a time,
+through a technique known as the attention mechanism. This is a
+significant advantage because it enables the model to capture long-range
+relationships between amino acids. Essentially, the attention mechanism
+helps a neural network to concentrate on the most relevant parts of its
+input when making predictions. For proteins, this means the network can
+learn which amino acids are likely to interact with each other, even if
+they are far apart in the sequence. It's akin to reading a lengthy
+document; you don't focus equally on every word but rather on the key
+phrases that are crucial for understanding the overall meaning.
+
+Importantly, in the AF2 Evoformer, this process is iterative and the
+information goes back and forth throughout the network. At each
+recycling step, the model refines its predictions of amino acid
+relationships, leading to a more accurate structure (the original model
+uses 3 cycles). As explained in the great
+\href{https://www.blopig.com/blog/2021/07/alphafold-2-is-here-whats-behind-the-structure-prediction-miracle/}{post}
+from Carlos Outerial at the OPIG site:
+
+\begin{quote}
+\emph{This is easier to understand as an example. Suppose that you look
+at the multiple sequence alignment and notice a correlation between a
+pair of amino acids. Let's call them A and B. You hypothesize that A and
+B are close, and translate this assumption into your model of the
+structure. Subsequently, you examine said model and observe that, since
+A and B are close, there is a good chance that C and D should be close.
+This leads to another hypothesis, based on the structure, which can be
+confirmed by searching for correlations between C and D in the MSA. By
+repeating this several times, you can build a pretty good understanding
+of the structure.}
+\end{quote}
+
+The third part of the pipeline is the structure building module, which
+uses the information from the previous steps to construct a 3D model
+structure protein of the query sequence. This network will give you a
+single model, without heavy energy optimization steps (only a relax
+protocol). Model building is based in a new concept of 3D structures
+generation, named \textbf{IPA} (Invariant Point Attention), a core
+neural network module that uses of a curated list of parametrized list
+of torsion angles to generate the side chains. IPA allows the network to
+maintain rotational and translational invariance, which is crucial for
+accurate 3D structure prediction. Earlier attempts to develop and
+end-to-end method were unsuccessful because the structure representation
+was not optimal. Even methods implemented after AlphaFold, like
+RoseTTAFold, use less efficient methods and often predict very quickly
+and accurately the backbone coordinates but require external programs to
+generate an all-atoms model.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pics/alphafols2.png}}
+
+}
+
+\caption{\label{fig-af2}Oxford Proteins Informatics Group Blog, modified
+from Jumper et al. (2021)}
+
+\end{figure}%
+
+Like for most of the previous methods Alphafold would give your better
+results with proteins with related structures known and with a lot of
+homologs in Uniref databases. However, comparing to nothing, it will
+likely give you (limited) useful results for the so-called ``dark
+genome''. I work with phages and bacterial mobile elements, and
+sequencing that is often frustrating as more than 50\% of the proteins
+have no homologous in the database. So you have a bunch of proteins of
+unknown function\ldots{} However, as we do know that structure is more
+conserved than sequence, we may use the structure to find out the
+function of our dark proteins. There are a few resources for this, I'd
+suggest you to try \href{https://search.foldseek.com/search}{FoldSeek}
+(M. van Kempen et al., n.d.) and
+\href{http://ekhidna2.biocenter.helsinki.fi/dali/}{Dali} (Holm 2022)
+servers. You can upload the PDB file of your model and search for
+related structures in RCSB PDB database and also in Alphafold database.
+
+\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, opacityback=0, coltitle=black, arc=.35mm, colback=white, leftrule=.75mm, titlerule=0mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, bottomrule=.15mm, toprule=.15mm, left=2mm, rightrule=.15mm]
+
+\emph{FoldSeek} needs only a few seconds/minutes and is therefore faster
+than \emph{Dali}. Therefore, it is better to use Dali for some selected
+searches that require a double check or a more reliable result, even if
+it may take a few days.
+
+\end{tcolorbox}
+
+As mentioned above, Colabfold aims to make the process faster by using
+MMSeqs in the first block. Additionally, the number of recycling steps
+can also be adapted. Moreover, different Colabfold notebooks have been
+developed (and evolved) to allow some customization and other feature,
+like batch processing of multiple proteins avoiding recompilation and
+identification of protein-protein interactions (Mirdita et al. 2022).
+
+Alphafold models can be evaluated by the mean \textbf{pLDDT}, a
+per-residue confidence metric. It is stored in the B-factor fields of
+the mmCIF and PDB files available for download (although unlike a
+B-factor, higher pLDDT is better). The model confidence can vary greatly
+along a chain so it is important to consult the confidence when
+interpreting structural features. Very often, the lower confidence
+fragments are not product of a poor prediction but an indicator of
+protein disorder (Wilson, Choy, and Karttunen 2022). Additionally, AF2
+calculates the predicted template modeling, or TM-scores (\textbf{pTM})
+based on a pairwise error prediction, and is used to calculate the
+predicted aligned error (\textbf{PAE}) that estimates the error of the
+position of each amino acid. Interestingly, the PAE can be used as a
+predictor for protein dynamics, as PAE correlates with distance
+variations from the MD simulations (Guo et al. 2022).
+
+Alphafold also partnered with EMBL-EBI and Uniprot and generated a huge
+curated database of proteins from model organisms (Varadi et al. 2022),
+the \href{https://alphafold.ebi.ac.uk/}{Alphafold database}. This is an
+amazing resource that may be also very helpful for you. Just consider
+that this database increased from 48\% to 76\% the fraction of human
+proteome with structural data, and also it also means great increases in
+the case of other model organisms, like, including microorganisms and
+plants (Porta-Pardo et al. 2022).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.51042in,height=\textheight,keepaspectratio]{pics/journal.png}
+
+}
+
+\caption{\label{fig-afDDBB}Changes in protein structural coverage in
+model organisms (From Porta-Pardo et al. (2022)).}
+
+\end{figure}%
+
+\section{\texorpdfstring{{Wanna try
+Alphafold?}}{Wanna try Alphafold?}}\label{wanna-try-alphafold}
+
+\emph{Section under construction!}
+
+As mentioned above, the grand breakthrough of Alphafold would not have
+been the same without the Colabfold, a free open tool that made the
+state-of-the-art of AI-fueled protein prediction available to everyone.
+
+\begin{figure}
+
+\href{https://github.com/sokrypton/ColabFold}{\includegraphics[width=4.59375in,height=\textheight,keepaspectratio]{pics/qrcode.png}}
+
+\caption{\label{fig-colabfold}ColabFold GitHub repository}
+
+\end{figure}%
+
+The \href{https://github.com/sokrypton/ColabFold}{Colabfold} repository
+on GitHub contains links to several Python notebooks developed on
+\href{https://colab.research.google.com/}{Google Colab}, a platform to
+develop and share Python scripts on a Jupyter Notebook format. Notebooks
+are very important also for reproducibility in computer sciences, as
+they allow you to have the background and details and the actual code in
+a single document and also execute it. You can share those notebooks
+very easily and also update quickly as they are stored in your Google
+Drive.
+
+Colabfold allow you to run notebooks of Alphafold, RoseTTAfold, and
+ESMFold for specific applications, allowing even to run a bunch of
+proteins in batch. You can see a more detailed description in Mirdita et
+al. (2022). We are using the
+\href{https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb}{Alphafold2\_mmseqs2}
+notebook, that allow you most of the common features. You need to allow
+Colab to use your Google account.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pics/colab1.jpg}}
+
+}
+
+\caption{\label{fig-colabfold2}Introducing your sequence in Colabfold}
+
+\end{figure}%
+
+Then paste your sequence and chose a name. For more accurate models you
+can click ``use\_amber'' option. It will run a short
+\href{https://en.wikipedia.org/wiki/Molecular_dynamics}{\emph{Molecular
+Dynamics}} protocol that ultimately optimize the modeling, but it will
+also take some more time, so better try at home.
+
+As you can see, an this is a recent feature, you can also add your own
+template, which combines the classical ``homology modeling'' based upon
+a single template with the advanced AlphaFold model construction method.
+That will safe time, but of course without any guarantee. If you have a
+template of a related protein, like an alternative splicing or a disease
+mutant, I'd advise you to try with and without the template. You may
+surprise.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pics/colab_execute.jpg}}
+
+}
+
+\caption{\label{fig-colabfold3}Executing Colabfold}
+
+\end{figure}%
+
+At this point, you may execute the whole pipeline or may some more
+customization. MSA stage can be also optimized to reduce execution time,
+by reducing database or even by providing your own MSA. Very often you
+may want to fold a protein with different parameters, which may very
+convenient to reuse an MSA from a previous run (although they recently
+updated servers for MMSeqs and made it really faster). If your proteins
+are in the same operon or by any other reason you think that they should
+have co-evolved, you prefer a ``paired'' alignment. But you can always
+do both.
+
+Advanced settings are specially needed for protein-protein complexes.
+Also the number of recycling steps will improve your model, particularly
+for targets with no MSA info from used databases. Then you can just get
+your model (and companion info and plots) in your GDrive or download it.
+
+{\textbf{What do you think is the ideal protein for AlphaFold? Do you
+think homology modeling is dead?}}
+
+\section{Now what? The Post-AlphaFold era
+(2022-2023)}\label{now-what-the-post-alphafold-era-2022-2023}
+
+As mentioned earlier, RoseTTAFold was released at the same time as
+AlphaFold's paper and code, although it is clearly inspired by
+AlphaFold's capabilities in CASP14. It is based on a three-track
+network, and recent implementations have allowed prediction of protein
+interactions with nucleic acids. Other methods such as AlphaFold and
+RoseTTAFold were released later, as were
+\href{https://openfold.io/}{OpenFold} and
+\href{https://colab.research.google.com/github/dptech-corp/Uni-Fold/blob/main/notebooks/unifold.ipynb}{UniFold},
+which are based on the PyTorch Transformers AI framework. More recently,
+RoseTTAFold2, which extends the three-track architecture over the whole
+network and incorporate other new advances and AlphaFold tricks, like
+the FAPE (frame aligned point error) or recycling steps during the
+training, giving rise to an end-to-end model equivalent in accuracy to
+AF2 for monomers and AF2-multimer for complexes, with better
+computational scaling on proteins and complexes larger than 1000
+residues (Baek et al., n.d.).
+
+The use of MSA has been cited as a limitation for AlphaFold and related
+methods. However, the predictions are significantly worse without MSA or
+with MSAs without depth. One way to improve predictions is to use a
+protein natural language model (\textbf{PLMs}), i.e., a model trained to
+predict sequence from sequence and not dependent on good MSAs.
+\href{https://github.com/HeliXonProtein/OmegaFold}{Omegafold} and
+\href{https://esmatlas.com/resources?action=fold}{ESMfold} (also in
+Colabfold,
+\href{https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/beta/omegafold.ipynb}{here}
+and
+\href{https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/ESMFold.ipynb}{here},
+respectively) are two new implementations that require only a single
+sequence. While AlphaFold2 uses deep learning with multiple sequence
+alignments (MSAs) to infer protein structures, PLMs learn the
+``language'' of protein sequences directly, representing amino acid
+sequences. Each amino acid (e.g., alanine, glycine) is represented as a
+``token,'' a numerical representation that the model can process. By
+training on extensive datasets of protein sequences, PLMs learn the
+patterns and relationships between amino acids, enabling them to predict
+3D structures from single sequences. Essentially, PLMs treat amino acid
+sequences as ``sentences,'' where each amino acid is a ``word''. This
+method offers advantages in speed and applicability, particularly for
+proteins without sufficient sequence homology. However, they may have
+lower overall accuracy compared to AlphaFold2 when MSAs are available.
+PLMs perform efficiently when using a single sequence, often surpassing
+AlphaFold in this scenario. Nevertheless, although they can outperform
+AF2, since PLMs are trained on existing sequences, these methods still
+show reduced performance on orphan sequences. That is, the language
+models seem to replicate the training MSAs (Elofsson 2023).
+
+The appearance of ESMfold and the companion
+\href{https://esmatlas.com/}{Metagenomic Atlas} (Lin et al. 2023) was
+seen as a new step that could trigger a new revolution in the field,
+since it was developed by scientists at META (Callaway 2022). So it was
+now a sort of Google versus Facebook battle for the most powerful AI
+methods for protein modeling. Last summer, however, we learned that META
+had decided to discontinue the ESM project.
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/KevinKaichuang/status/1689071501998260224}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+AlphaFold was again the protagonist of CASP15, which took place in 2020,
+but it did not overwhelm the rest like in 2018.
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/sokrypton/status/1601596893355642882}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+AlphaFold was used in some form in more than half of the protocols, and
+while the standard AlphaFold method performed better than many other
+methods, several groups achieved significant improvements for monomeric
+proteins and protein assemblies. In short (see Elofsson (2023)), we
+learned at CASP15 that there are two main ways to improve AlphaFold: (1)
+more efficient use of templates, increasing the size of the database or
+sampling through more efficient MSAs, or (2) hacking AlphaFold to use
+dropouts to generate thousands of models for each target, which
+increases computational time but also increases the chances of better
+models. Other small improvements have been proposed, such as refinement
+steps (Adiyaman et al. 2023) or using improved template search or new
+scoring capabilities based on Voronoi surfaces or Deep Learning.
+
+\subsection{\texorpdfstring{2021-2023 - Short summary in one
+wire}{2021-2023 - Short summary in one  wire}}\label{short-summary-in-one-wire}
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/simocristea/status/1626304239931912192}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+\section{Corollary 1: Did Deepmind ``fold'' Levinthal's
+paradox?}\label{corollary-1-did-deepmind-fold-levinthals-paradox}
+
+The development of Alphafold and the
+\href{https://alphafold.ebi.ac.uk/}{Alphafold structures Database} in
+collaboration with \href{https://www.ebi.ac.uk/about}{EMBL-EBI} was been
+the origin of a New Era. Moreover, in a further turn, the
+\href{https://esmatlas.com/}{Metagenomic Atlas} by Meta AI uncovers
+virtually the whole protein space. Thanks to these milestones the
+coverage of the protein structure space has been greatly increased
+(Porta-Pardo et al. 2022), which virtually close the sequence-structure
+gap. Since 2020, many scientific publications and journals worldwide
+published long articles about the meaning of this breakthrough in
+science and its applications in biotechnology and biomedicine\footnote{https://www.bbc.com/news/science-environment-57929095
+
+  https://www.forbes.com/sites/robtoews/2021/10/03/alphafold-is-the-most-important-achievement-in-ai-ever/
+
+  https://elpais.com/ciencia/2021-07-22/la-forma-de-los-ladrillos-basicos-de-la-vida-abre-una-nueva-era-en-la-ciencia.html}
+and DeepMind claimed to have
+\href{https://www.deepmind.com/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology}{Solved
+a 50-years Grand Challenge in biochemistry}.
+
+In other words, after AlphaFold, would it no longer be necessary to
+perform X-ray crystallography or nuclear magnetic resonance? First,
+AlphaFold models can be used in electron density maps and help solve
+complex cases. Thus, the new framework helps crystallographers focus
+their work on the most unresolved and difficult structures, such as
+coiled-coils or holoproteins, which cause modulations and challenges in
+the development of crystallographic methods.
+
+However, some scientists argued that Alphafold2 and RoseTTAfold actually
+\emph{cheat} as they do not really solve the problem but generate a deep
+learning pipeline that is able to bypass the problem (Pederson 2021). In
+agreement with that, it has been shown that machine learning methods
+actually do not reproduce the expected folding pathways while improving
+the structures during the recycling steps (Outeiral, Nissley, and Deane,
+n.d.).
+
+In conclusion, I believe that the Levinthal paradox is not (yet) fully
+solved, although it seems to be close (Al-Janabi 2022). Practically, it
+is solved for most of the protein space, but if your protein does not
+have a homolog in the databases, you will still have some open
+questions.
+
+\chapter{Protein hallucination and diffusion
+models}\label{protein-hallucination-and-diffusion-models}
+
+Biochemists and Chemists have dreamed of designing proteins with
+customizable properties for decades. First successful protein designs
+were published in the late 1990s and several breakthrough by Baker's lab
+pushed forward the idea. More recently, artificial intelligence is
+starting a revolution in this field, and it will radically change it
+forever (reviewed in Notin et al. (2024)).
+
+Soon after AF2 and RoseTTAFold publication, they were used to
+``hallucinate'' new proteins. In December 2021, Baker and his colleagues
+reported expressing 129 of these hallucinated proteins in bacteria, and
+found that about one-fifth of them folded into something resembling
+their predicted shape. Then, in 2023, they introduced
+\href{https://www.bakerlab.org/2023/03/30/rf-diffusion-now-free-and-open-source/}{RFdiffussion},
+a new paradigm in protein design, based in AI diffusion models. Imagine
+starting with a cloud of randomly positioned atoms (pure noise). During
+training, diffusion models apply usually-random noise to a distribution
+of data until it resembles pure static, for example. The model then
+learns to reverse this process, generating final data points
+representative of the original data distribution. This process is guided
+by learned patterns of how atoms and molecules interact, allowing the
+model to ``denoise'' the initial random arrangement into a realistic
+biomolecular complex. The model learns to reverse a ``diffusion
+process,'' where noise is progressively added to known biomolecular
+structures. By learning to undo this process, the model can generate new
+structures from scratch.
+
+More recently several groups have combined diffusion models with NLPs to
+develop improved methods to design new proteins. Protein sequences can
+be described as a concatenation of letters from a chemically defined
+alphabet, the natural amino acids, and like human languages, these
+letters arrange to form secondary structural elements (``words''), which
+assemble to form domains (``sentences'') that undertake a function
+(``meaning''). One of the most attractive similarities is that protein
+sequences, like natural languages, are information-complete: they store
+structure and function entirely in their amino acid order with extreme
+efficiency. With the extraordinary advances in the NLP field in
+understanding and generating language with near-human capabilities, we
+hypothesized that these methods open a new door to approach
+protein-related problems from sequence alone, such as protein design.
+
+You can try some of these state-of-the-art method using Colab notebooks
+from \href{https://github.com/sokrypton/ColabDesign}{ColabDesing}
+project, again by Sergey Ovchinnikov and colleages (check out his talks
+\href{https://www.youtube.com/watch?v=2HmXwlKWMVs}{here} and
+\href{https://www.youtube.com/watch?v=smjYJSudwr0}{here}).
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/sokrypton/status/1514227001183416320}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+\chapter{Protein structural
+phylogenetics}\label{protein-structural-phylogenetics}
+
+Phylogenetic inference can be performed using either DNA or protein
+sequences. DNA‑based phylogenetics is often preferable when comparing
+closely related genes or species. However, as evolutionary distances
+increase, nucleotide substitution matrices tend to saturate, making
+protein‑based analyses more informative. Even so, deep sequence‑based
+phylogenetics remains challenging. A major obstacle is substitution
+saturation, where individual sites in an alignment accumulate multiple
+substitutions along long branches. When this occurs, and especially when
+substitution models fail to fully capture the true evolutionary process,
+saturation can generate misleading signals and produce artifacts in
+phylogenetic trees. Structural phylogenetics offers a promising
+alternative to overcome these limitations. Protein structures evolve
+much more slowly than their underlying sequences, and if models of
+structural evolution can be inferred, they may help resolve phylogenetic
+relationships that lie beyond the reach of classical sequence‑based
+methods. The development of protein language alphabets that encode
+structural information now enables the integration of these ``structural
+characters'' within standard amino‑acid likelihood frameworks. Examples
+of such approaches include FoldTree (Moi et al. 2025) and 3DiPhy
+(Puente-Lelievre et al., n.d.), both of which use the set of 20 3Di
+structural characters originally introduced in FoldSeek (M. van Kempen
+et al. 2023). More recently, new 3Di‑based substitution matrices have
+further improved the performance of these structural phylogenetic
+methods (Garg and Hochberg 2025).
+
+\chapter{Alphafold3 expanded the
+scope}\label{alphafold3-expanded-the-scope}
+
+Proteins are composed of amino acids, but they also include other
+components.
+\href{https://en.wikipedia.org/wiki/Holoprotein}{Holoproteins} often
+contain multiple protein chains, ions, and cofactors. Additionally,
+proteins' functions typically involve interactions with various ligands,
+including DNA or RNA molecules. One limitation of AlphaFold 2 is its
+ability to predict \emph{only} the structure of amino acid chains. It
+generally predicts the orientation of amino acids to some binding
+pockets accurately, particularly for ions or other common small ligands.
+Furthermore, it has been demonstrated from the beginning that AF2 can
+predict protein-protein interactions effectively, which was enhanced
+with the Alphafold-Multimer version (Evans et al. 2022) and further
+optimized in methods allowing full interactome predictions (Yu et al.
+2023; Molodenskiy et al., n.d.; Rouger et al., n.d.). However, many
+applications of protein structures in biology, biotechnology, and
+biomedicine require the interaction of protein chains with other
+molecules, such as organic ligands, drugs, or DNA/RNA molecules,
+presenting new challenges in the field of protein prediction.
+
+AlphaFold3 can now predict the structures and interactions of a much
+wider range of biomolecules, including protein-protein complexes,
+protein-DNA interactions, protein-RNA interactions, and small
+molecule-protein interactions. This leap in capability is powered by two
+key innovations: diffusion models and tokenization. DeepMind proposed
+that AlphaFold3 has the potential to revolutionize drug discovery,
+materials science, and our understanding of fundamental biological
+processes. By accurately modeling the intricate interactions of
+biomolecules, it can accelerate the development of new therapies,
+materials, and technologies. For instance, AlphaFold3 could help predict
+how a person's specific protein structures and mutations will respond to
+different drugs, leading to highly effective, personalized treatments.
+This could revolutionize healthcare, making treatments more precise and
+reducing the trial-and-error approach currently used. On a global scale,
+AF3's predictions could aid in rapidly developing vaccines and
+treatments for emerging diseases, helping to prevent pandemics and
+improve global health security. Its impact on neglected diseases could
+be significant, bringing new hope to millions in underdeveloped regions.
+This could lead to a more equitable distribution of healthcare
+advancements, improving quality of life worldwide.
+
+Imagine AlphaFold as the stage of learning to draw a single shape, and
+AlphaFold2 as mastering the perfection of that shape. AlphaFold3, on the
+other hand, is like learning to draw that shape and understanding how it
+fits together with various other shapes to create an intricate and
+complex picture.
+
+\section{Is AF3 that different?}\label{is-af3-that-different}
+
+Unlike AlphaFold2's direct prediction approach, AlphaFold3 uses a
+diffusion model, a technique borrowed from image generation. The
+diffusion process allows the model to consider the overall context of
+the system, leading to more accurate predictions of complex
+interactions.
+
+AlphaFold3 (Abramson et al. 2024a) treats biomolecules as ``tokens,''
+similar to how words are represented in natural language processing.
+This allows the model to apply the same powerful language modeling
+techniques used in large language models (LLMs). Instead of amino acid
+sequences, the model works with a broader vocabulary of tokens
+representing atoms, residues, nucleotides, and small molecules. Each
+type of atom, residue, or molecule is assigned a unique token. The model
+learns the statistical relationships between these tokens, capturing the
+rules of biomolecular interactions. This enables AlphaFold3 to
+``understand'' the language of biomolecules, predicting how they will
+interact and assemble. Tokenization provides a unified representation
+for diverse biomolecules, enabling the model to handle complex systems.
+This, in combination with transformers, allows the model to understand
+the context of biomolecular interactions, capturing long-range
+dependencies and intricate relationships.
+
+\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, opacityback=0, coltitle=black, arc=.35mm, colback=white, leftrule=.75mm, titlerule=0mm, colframe=quarto-callout-warning-color-frame, opacitybacktitle=0.6, bottomtitle=1mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, bottomrule=.15mm, toprule=.15mm, left=2mm, rightrule=.15mm]
+
+It is important to note that while AlphaFold3 incorporates the concept
+of tokenization from language models, it utilizes it within a unique
+framework for a broader purpose. Tokenization in AlphaFold3 is used to
+represent all components of a complex, enabling the diffusion model to
+process these components simultaneously. Unlike protein language models,
+which primarily focus on learning statistical patterns from large
+training sets of protein sequences, AlphaFold3 relies on the diffusion
+model facilitated by tokenization.
+
+\textbf{Therefore, it is more accurate to describe AlphaFold3 as a
+\emph{hybrid} or \emph{evolved} model that integrates core principles of
+language modeling rather than integrating (at any step) protein language
+models.}
+
+\end{tcolorbox}
+
+Unlike its predecessor, AF3 is a generative model. This means it can
+give different outputs for the same input and that it can hallucinate, a
+phenomenon evident with intrinsically disordered regions (IDRs) of
+proteins.
+
+AF3 can be tested in a Deepmind's
+\href{https://alphafoldserver.com/}{server} that allows protein:protein,
+protein:DNA/RNA interactions, as well as interactions with a small
+subset of molecules.
+
+\section{Did AF3 move forward the field like
+AF2?}\label{did-af3-move-forward-the-field-like-af2}
+
+Short answer: Yes.
+
+There are two main reasons. First, once they published the paper, the
+community moved to analyze the AF3 workflow and innovations and many
+labs attempted to reproduce or even improve it. Additionally, like in
+the case of AF2, Deepmind did not initially release the full code. In
+this case, they even published the Nature paper without the code. That
+generated a huge controversy in the social media (again):
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/simocristea/status/1788515833884389806}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/simocristea/status/1788515833884389806}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+There was also some discussion with comments and editorials in Nature
+and other journals ({``AlphaFold3 {\textemdash} Why Did Nature Publish
+It Without Its Code?''} 2024; Callaway 2024) and a public letter with
+more than 100 signatures (Wankowicz et al. 2024). Ultimately, after the
+Nobel prize concession, they decided to publish an addendum to the paper
+and release the code on github (Abramson et al. 2024b).
+
+Currently, besides the AF3 released code, there are several AF3-based or
+AF3 alternatives with similar performance that can be tested by any
+user. Some examples:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \href{https://github.com/bytedance/Protenix}{Protenix} is a fully
+  opensource AF3 implementation based on PyTorch that allow handling any
+  molecule (Team et al., n.d.)
+\item
+  Chai-1 (Discovery et al., n.d.) is similar to AF3 and it can be used
+  as a Python package for non-commercial use and via a
+  \href{https://lab.chaidiscovery.com/}{web interface} where it can be
+  used for free including for commercial drug discovery purposes. It
+  uses
+  \href{https://en.wikipedia.org/wiki/Simplified_Molecular_Input_Line_Entry_System}{smiles}
+  encoding for representation of any ligand molecule
+\item
+  \href{https://github.com/jwohlwend/boltz}{Boltz-1} (Wohlwend et al.,
+  n.d.) is also a very recent method that achieves AF3-level accuracy in
+  predicting the 3D structures of biomolecular complexes and it can be
+  tested in Colabfold.
+\end{enumerate}
+
+Finally, I recently came into
+\href{https://github.com/colbyford/PyMOLfold}{PyMOLFold} (Ford et al.,
+n.d.), a novel Pymol plugin that facilitate the use of these methods. It
+provides instructions for installation (on different Conda environments)
+and they work on your computer. I tested it using only CPUs and it
+worked, though quite slowly as compared with the use of online servers
+or Colabs.
+
+\begin{centering}\begin{tcolorbox}[hbox,
+colframe=lightgray,
+colback=white]
+
+\textcolor{ProcessBlue}{{\Large {\faTwitterSquare}}} %
+
+\href{https://twitter.com/c01_by/status/1867227053197574556}{\raisebox{0.1 em}{Click to view embedded Twitter post.}}
+
+\end{tcolorbox}\end{centering}
+\vspace{1em}
+
+\section{Corollary 2: A Nobel prize to the
+field}\label{corollary-2-a-nobel-prize-to-the-field}
+
+Between 2021 and 2024, I used to conclude my lectures on protein
+modeling by proposing a wager to my students, predicting that the
+creators of AF2 and RoseTTAFold would win a Nobel Prize. Indeed, the
+\href{https://www.nobelprize.org/prizes/chemistry/2024/press-release/}{Nobel
+Prize in Chemistry for 2024} was awarded to \textbf{David Baker} (1/2)
+for ``computational protein design'' and to \textbf{Demis Hassabis}
+(1/4) along with \textbf{John Jumper} (1/4) for ``protein structure
+prediction''.
+
+As stated by David Baker (Baker and Lin 2025), this Nobel Prize serves
+as recognition for the field and an encouragement for future
+advancements, highlighting the significant impact that protein design
+can have on the world.
+
+\chapter{\texorpdfstring{{Review Quizz}}{Review Quizz}}\label{quizz}
+
+\textbf{AlphaFold and RoseTTAFold are two programs that have been
+designed to?}
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Predict how proteins fold (The protein folding problem)\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Predict putative binding sites on proteins (for drug design)\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Predict the native structure of a protein (The protein structure
+    prediction problem)\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Predict if two proteins interact, and, if they do, the structure of
+    the complex
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Which of these statements related to AlphaFold is most likely to
+be incorrect?}
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    AlphaFold needs information from large databases of protein
+    sequences and structures\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    AlphaFold performs \emph{best} on multimeric proteins\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    AlphaFold is likely to perform poorly on a protein that has a very
+    small number of homologs\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    AlphaFold does not predict the structures of RNA
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Protein sequence co-evolution gives information on}
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    The conformations of sidechains in a protein\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    The presence of tryptophanes in a protein\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    The stability of a protein\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    3D contacts between residues in a protein
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Your target sequence is 90\% identical to a template structure.
+You\ldots{} }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Use SwissModel or Modeller, because AlphaFold cannot outperform
+    homology modeling with that high sequence similarity\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Use Alphafold because the model generation is better\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Use Alphafold only if the proteins are orphans\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Use I-Tasser
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Two protein sequences differ by a single amino acid. You use
+AlphaFold to predict the structures of those sequences and find two
+structure models that are basically identical. You\ldots{} }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Trust those results as this is exactly what you expected\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Do not fully trust those results in high detail as single mutations
+    are known to often alter the structure of a protein\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Trust those results as AlphaFold has solved the protein structure
+    prediction problem\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Do not trust those results at all as AlphaFold has not solved the
+    protein structure prediction problem
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Which of the following statements is incorrect?}
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    AlphaFold relies heavily on multiple sequence alignment\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    AlphaFold is an end-to-end modelling software, i.e., it predicts the
+    full conformation of a protein, including the conformations of its
+    sidechains\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Last version of AlphaFold does not rely on MSAs\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    AlphaFold does not consider information about ions or ligands when
+    reading a file defining the structure of a protein
+  \end{enumerate}
+\end{itemize}
+
+\textbf{To assess the quality of a protein structure prediction, we
+compute either the RMSD or the TM score between the model and the actual
+experimental structure of the protein. What can you say about those
+scores? }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    The higher the RMSD, the better the prediction\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    The higher the TM score, the better the prediction\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    A reasonable value for a good TM score is 10
+  \end{enumerate}
+\end{itemize}
+
+\textbf{To assess the quality of AlphaFold models, it provides the pLDDT
+score and the PAE. What can you say about those scores? }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    The PAE is used to color the model and it is stored in the PDB
+    file\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    The PAE assess confidence in the domain packing and domain topology
+    of the protein\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Regions with low pLDDT are expected to be modelled to high accuracy
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Which of the following best describes the key advancement of
+AlphaFold2 compared to the original AlphaFold? }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Introduction of diffusion models\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Significantly improved accuracy due to attention mechanisms and
+    iterative refinement\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Reliance on purely ab initio folding\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Ability to predict protein-ligand interactions
+  \end{enumerate}
+\end{itemize}
+
+\textbf{The ``Invariant Point Attention'' (IPA) mechanism in AlphaFold2
+is essential for }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Building a 3D protein structure that is rotationally and
+    translationally invariant\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Generating multiple sequence alignments\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Capturing long-range interactions in the protein sequence\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Performing energy minimization
+  \end{enumerate}
+\end{itemize}
+
+\textbf{How do protein natural language-based models (like ESMFold)
+represent proteins? }
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    As a 3D coordinate map\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    As a set of torsion angles\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    As a sequence of amino acid tokens, similar to words in a sentence\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    As a graph of interacting residues
+  \end{enumerate}
+\end{itemize}
+
+\chapter{Useful links}\label{links}
+
+\begin{itemize}
+\item
+  Introductory article to Neural Networks at the IBM site:
+  \url{https://www.ibm.com/cloud/learn/neural-networks}
+\item
+  ColabFold Tutorial presented presented by Sergey Ovchinnikov and
+  Martin Steineggerat the Boston Protein Design and Modeling Club (6 ago
+  2021). \href{https://www.youtube.com/watch?v=Rfw7thgGTwI}{{[}video{]}}
+  \href{https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI}{{[}slides{]}}.
+\item
+  Post about Alphafold2 in the Oxford Protein Informatics Group site:
+  \url{https://www.blopig.com/blog/2021/07/alphafold-2-is-here-whats-behind-the-structure-prediction-miracle/}
+\item
+  A very good digest article about the AlphaFold2 paper:
+  \url{https://moalquraishi.wordpress.com/2021/07/25/the-alphafold2-method-paper-a-fount-of-good-ideas/}
+\item
+  Post on the AlphaFold revolution meaning in biomedicine at the the UK
+  Institute for Cancer Research website:
+  \url{https://www.icr.ac.uk/blogs/the-drug-discoverer/page-details/reflecting-on-deepmind-s-alphafold-artificial-intelligence-success-what-s-the-real-significance-for-protein-folding-research-and-drug-discovery}
+\item
+  A post that explain how AlphaFold and related methods can be used to
+  create new structures:
+  \url{https://theconversation.com/when-researchers-dont-have-the-proteins-they-need-they-can-get-ai-to-hallucinate-new-structures-173209}
+\item
+  Selected interesting posts about Alphafold3 modeling process and its
+  potential:
+
+  \begin{itemize}
+  \item
+    \url{https://elanapearl.github.io/blog/2024/the-illustrated-alphafold/}
+  \item
+    \url{https://carlos.outeiral.net/alphafold-3/}
+  \item
+    \href{https://research.dimensioncap.com/p/an-opinionated-alphafold3-field-guide}{\textbf{https://research.dimensioncap.com/p/an-opinionated-alphafold3-field-guide}}
+  \item
+    \url{https://www.labiotech.eu/in-depth/alpha-fold-3-drug-discovery/}
+  \end{itemize}
+\end{itemize}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-abramson2024}
+Abramson, Josh, Jonas Adler, Jack Dunger, Richard Evans, Tim Green,
+Alexander Pritzel, Olaf Ronneberger, et al. 2024a. {``Accurate structure
+prediction of biomolecular interactions with AlphaFold 3.''}
+\emph{Nature} 630 (8016): 493--500.
+\url{https://doi.org/10.1038/s41586-024-07487-w}.
+
+\bibitem[\citeproctext]{ref-abramson2024a}
+---------, et al. 2024b. {``Addendum: Accurate structure prediction of
+biomolecular interactions with AlphaFold 3.''} \emph{Nature} 636 (8042):
+E4. \url{https://doi.org/10.1038/s41586-024-08416-7}.
+
+\bibitem[\citeproctext]{ref-adiyaman2023}
+Adiyaman, Recep, Nicholas S Edmunds, Ahmet G Genc, Shuaa M A Alharbi,
+and Liam J McGuffin. 2023. {``Improvement of Protein Tertiary and
+Quaternary Structure Predictions Using the ReFOLD Refinement Method and
+the AlphaFold2 Recycling Process.''} \emph{Bioinformatics Advances} 3
+(1): vbad078. \url{https://doi.org/10.1093/bioadv/vbad078}.
+
+\bibitem[\citeproctext]{ref-aljanabi2022}
+Al-Janabi, Aisha. 2022. {``Has DeepMind's AlphaFold Solved the Protein
+Folding Problem?''} \emph{BioTechniques} 72 (3): 73--76.
+\url{https://doi.org/10.2144/btn-2022-0007}.
+
+\bibitem[\citeproctext]{ref-alphafol2024}
+{``AlphaFold3 {\textemdash} Why Did Nature Publish It Without Its
+Code?''} 2024. \emph{Nature} 629 (8013): 728--28.
+\url{https://doi.org/10.1038/d41586-024-01463-0}.
+
+\bibitem[\citeproctext]{ref-baek}
+Baek, Minkyung, Ivan Anishchenko, Ian R. Humphreys, Qian Cong, David
+Baker, and Frank DiMaio. n.d. {``Efficient and Accurate Prediction of
+Protein Structure Using RoseTTAFold2.''}
+\url{https://doi.org/10.1101/2023.05.24.542179}.
+
+\bibitem[\citeproctext]{ref-baek2021}
+Baek, Minkyung, Frank DiMaio, Ivan Anishchenko, Justas Dauparas, Sergey
+Ovchinnikov, Gyu Rie Lee, Jue Wang, et al. 2021. {``Accurate prediction
+of protein structures and interactions using a three-track neural
+network.''} \emph{Science (New York, N.Y.)} 373 (6557): 871--76.
+\url{https://doi.org/10.1126/science.abj8754}.
+
+\bibitem[\citeproctext]{ref-baker2025}
+Baker, David, and Fay Lin. 2025. {``The Promise of Protein Design: A
+q\&a with Nobel Laureate David Baker.''} \emph{GEN Biotechnology} 4 (1):
+16--18. \url{https://doi.org/10.1089/genbio.2025.0004}.
+
+\bibitem[\citeproctext]{ref-bhattacharya2021}
+Bhattacharya, Sutanu, Rahmatullah Roche, Md Hossain Shuvo, and Debswapna
+Bhattacharya. 2021. {``Recent Advances in Protein Homology Detection
+Propelled by Inter-Residue Interaction Map Threading.''} \emph{Frontiers
+in Molecular Biosciences} 8: 643752.
+\url{https://doi.org/10.3389/fmolb.2021.643752}.
+
+\bibitem[\citeproctext]{ref-callaway2022}
+Callaway, Ewen. 2022. {``AlphaFold{'}s New Rival? Meta AI Predicts Shape
+of 600 Million Proteins.''} \emph{Nature} 611 (7935): 211--12.
+\url{https://doi.org/10.1038/d41586-022-03539-1}.
+
+\bibitem[\citeproctext]{ref-callaway2024}
+---------. 2024. {``Who Will Make AlphaFold3 Open Source? Scientists
+Race to Crack AI Model.''} \emph{Nature} 630 (8015): 14--15.
+\url{https://doi.org/10.1038/d41586-024-01555-x}.
+
+\bibitem[\citeproctext]{ref-discovery}
+Discovery, Chai, Jacques Boitreaud, Jack Dent, Matthew McPartlon, Joshua
+Meier, Vinicius Reis, Alex Rogozhnikov, and Kevin Wu. n.d. {``Chai-1:
+Decoding the Molecular Interactions of Life.''}
+\url{https://doi.org/10.1101/2024.10.10.615955}.
+
+\bibitem[\citeproctext]{ref-elofsson2023}
+Elofsson, Arne. 2023. {``Progress at protein structure prediction, as
+seen in CASP15.''} \emph{Current Opinion in Structural Biology} 80
+(June): 102594. \url{https://doi.org/10.1016/j.sbi.2023.102594}.
+
+\bibitem[\citeproctext]{ref-evans2022}
+Evans, Richard, Michael O'Neill, Alexander Pritzel, Natasha Antropova,
+Andrew Senior, Tim Green, Augustin Žídek, et al. 2022. {``Protein
+Complex Prediction with AlphaFold-Multimer.''}
+\url{https://www.biorxiv.org/content/10.1101/2021.10.04.463034v2}.
+
+\bibitem[\citeproctext]{ref-ford}
+Ford, Colby T., Samee Ullah, Dinler Amaral Antunes, and Tarsis Gesteira
+Ferreira. n.d. {``PyMOLfold: Interactive Protein and Ligand Structure
+Prediction in PyMOL.''} \url{https://doi.org/10.48550/arXiv.2502.00508}.
+
+\bibitem[\citeproctext]{ref-garg2025}
+Garg, Sriram G., and Georg K. A. Hochberg. 2025. {``A General
+Substitution Matrix for Structural Phylogenetics.''} \emph{Molecular
+Biology and Evolution} 42 (6): msaf124.
+\url{https://doi.org/10.1093/molbev/msaf124}.
+
+\bibitem[\citeproctext]{ref-guo2022a}
+Guo, Hao-Bo, Alexander Perminov, Selemon Bekele, Gary Kedziora, Sanaz
+Farajollahi, Vanessa Varaljay, Kevin Hinkle, et al. 2022. {``AlphaFold2
+models indicate that protein sequence determines both structure and
+dynamics.''} \emph{Scientific Reports} 12 (1): 10696.
+\url{https://doi.org/10.1038/s41598-022-14382-9}.
+
+\bibitem[\citeproctext]{ref-holm2022}
+Holm, Liisa. 2022. {``Dali Server: Structural Unification of Protein
+Families.''} \emph{Nucleic Acids Research} 50 (W1): W210--15.
+\url{https://doi.org/10.1093/nar/gkac387}.
+
+\bibitem[\citeproctext]{ref-jumper2021}
+Jumper, John, Richard Evans, Alexander Pritzel, Tim Green, Michael
+Figurnov, Olaf Ronneberger, Kathryn Tunyasuvunakool, et al. 2021.
+{``Highly Accurate Protein Structure Prediction with AlphaFold.''}
+\emph{Nature} 596 (7873): 583--89.
+\url{https://doi.org/10.1038/s41586-021-03819-2}.
+
+\bibitem[\citeproctext]{ref-kempen}
+Kempen, Michel van, Stephanie S. Kim, Charlotte Tumescheit, Milot
+Mirdita, Cameron L. M. Gilchrist, Johannes Söding, and Martin
+Steinegger. n.d. {``Foldseek: Fast and Accurate Protein Structure
+Search.''} \url{https://doi.org/10.1101/2022.02.07.479398}.
+
+\bibitem[\citeproctext]{ref-vankempen2023a}
+Kempen, Michel van, Stephanie S. Kim, Charlotte Tumescheit, Milot
+Mirdita, Jeongjae Lee, Cameron L. M. Gilchrist, Johannes Söding, and
+Martin Steinegger. 2023. {``Fast and Accurate Protein Structure Search
+with Foldseek.''} \emph{Nature Biotechnology}, May, 1--4.
+\url{https://doi.org/10.1038/s41587-023-01773-0}.
+
+\bibitem[\citeproctext]{ref-kumar2025}
+Kumar, Ashwani, Aanchal Gupta, Shubham Kumar, Apoorva Haldkar, and Hansa
+Wali. 2025. {``Artificial Intelligence (AI)-Based Protein Structure
+Prediction and Analysis.''} In, edited by Sudip Mandal, 39--57. New
+York, NY: Springer US.
+\url{https://doi.org/10.1007/978-1-0716-4690-8_3}.
+
+\bibitem[\citeproctext]{ref-lee}
+Lee, Sewon, Gyuri Kim, Eli Levy Karin, Milot Mirdita, Sukhwan Park,
+Rayan Chikhi, Artem Babaian, Andriy Kryshtafovych, and Martin
+Steinegger. n.d. {``Petascale Homology Search for Structure
+Prediction.''} \url{https://doi.org/10.1101/2023.07.10.548308}.
+
+\bibitem[\citeproctext]{ref-lin2023}
+Lin, Zeming, Halil Akin, Roshan Rao, Brian Hie, Zhongkai Zhu, Wenting
+Lu, Nikita Smetanin, et al. 2023. {``Evolutionary-Scale Prediction of
+Atomic-Level Protein Structure with a Language Model.''} \emph{Science}
+379 (6637): 1123--30. \url{https://doi.org/10.1126/science.ade2574}.
+
+\bibitem[\citeproctext]{ref-mirdita2022}
+Mirdita, Milot, Konstantin Schütze, Yoshitaka Moriwaki, Lim Heo, Sergey
+Ovchinnikov, and Martin Steinegger. 2022. {``ColabFold: making protein
+folding accessible to all.''} \emph{Nature Methods} 19 (6): 679--82.
+\url{https://doi.org/10.1038/s41592-022-01488-1}.
+
+\bibitem[\citeproctext]{ref-moi2025}
+Moi, David, Charles Bernard, Martin Steinegger, Yannis Nevers, Mauricio
+Langleib, and Christophe Dessimoz. 2025. {``Structural Phylogenetics
+Unravels the Evolutionary Diversification of Communication Systems in
+Gram-Positive Bacteria and Their Viruses.''} \emph{Nature Structural \&
+Molecular Biology} 32 (12): 2492--502.
+\url{https://doi.org/10.1038/s41594-025-01649-8}.
+
+\bibitem[\citeproctext]{ref-molodenskiy}
+Molodenskiy, Dmitry, Valentin J. Maurer, Dingquan Yu, Grzegorz
+Chojnowski, Stefan Bienert, Gerardo Tauriello, Konstantin Gilep, Torsten
+Schwede, and Jan Kosinski. n.d. {``AlphaPulldown2 {\textendash} A
+General Pipeline for High-Throughput Structural Modeling.''}
+\url{https://doi.org/10.1101/2024.11.28.625873}.
+
+\bibitem[\citeproctext]{ref-notin2024}
+Notin, Pascal, Nathan Rollins, Yarin Gal, Chris Sander, and Debora
+Marks. 2024. {``Machine Learning for Functional Protein Design.''}
+\emph{Nature Biotechnology} 42 (2): 216--28.
+\url{https://doi.org/10.1038/s41587-024-02127-0}.
+
+\bibitem[\citeproctext]{ref-outeiral}
+Outeiral, Carlos, Daniel A. Nissley, and Charlotte M. Deane. n.d.
+{``Current Protein Structure Predictors Do Not Produce Meaningful
+Folding Pathways.''} \url{https://doi.org/10.1101/2021.09.20.461137}.
+
+\bibitem[\citeproctext]{ref-pakhrin2021}
+Pakhrin, Subash C., Bikash Shrestha, Badri Adhikari, and Dukka B. Kc.
+2021. {``Deep Learning-Based Advances in Protein Structure
+Prediction.''} \emph{International Journal of Molecular Sciences} 22
+(11): 5553. \url{https://doi.org/10.3390/ijms22115553}.
+
+\bibitem[\citeproctext]{ref-pederson2021}
+Pederson, Thoru. 2021. {``Protein Structure: Has Levinthal's Paradox
+{``}Folded{''}?''} \emph{The FASEB Journal} 35 (3): e21416.
+\url{https://doi.org/10.1096/fj.202100136}.
+
+\bibitem[\citeproctext]{ref-peng2023}
+Peng, Zhenling, Wenkai Wang, Hong Wei, Xiaoge Li, and Jianyi Yang. 2023.
+{``Improved protein structure prediction with trRosettaX2, AlphaFold2,
+and optimized MSAs in CASP15.''} \emph{Proteins}, August.
+\url{https://doi.org/10.1002/prot.26570}.
+
+\bibitem[\citeproctext]{ref-portapardo2022}
+Porta-Pardo, Eduard, Victoria Ruiz-Serra, Samuel Valentini, and Alfonso
+Valencia. 2022. {``The Structural Coverage of the Human Proteome Before
+and After AlphaFold.''} \emph{PLOS Computational Biology} 18 (1):
+e1009818. \url{https://doi.org/10.1371/journal.pcbi.1009818}.
+
+\bibitem[\citeproctext]{ref-puente-lelievre}
+Puente-Lelievre, Caroline, Ashar J. Malik, Jordan Douglas, David Ascher,
+Matthew Baker, Jane Allison, Anthony Poole, et al. n.d.
+{``Tertiary-Interaction Characters Enable Fast, Model-Based Structural
+Phylogenetics Beyond the Twilight Zone.''}
+\url{https://doi.org/10.1101/2023.12.12.571181}.
+
+\bibitem[\citeproctext]{ref-rouger}
+Rouger, Quentin, Emmanuel Giudice, Damien F. Meyer, and Kévin Macé. n.d.
+{``PPIFold: A Tool for Analysis of Protein-Protein Interaction from
+AlphaPullDown.''} \url{https://doi.org/10.1101/2025.01.08.631489}.
+
+\bibitem[\citeproctext]{ref-senior2020}
+Senior, Andrew W., Richard Evans, John Jumper, James Kirkpatrick,
+Laurent Sifre, Tim Green, Chongli Qin, et al. 2020. {``Improved protein
+structure prediction using potentials from deep learning.''}
+\emph{Nature} 577 (7792): 706--10.
+\url{https://doi.org/10.1038/s41586-019-1923-7}.
+
+\bibitem[\citeproctext]{ref-shin2025}
+Shin, Heewhan, Alexandria Holland, Abdulrazak Alsaleh, Alyssa D. Retiz,
+Ying Z. Pigli, Oluwateniola T. Taiwo-Aiyerin, Tania Peña Reyes, et al.
+2025. {``Identification of cognate recombination directionality factors
+for large serine recombinases by virtual pulldown.''} \emph{Nucleic
+Acids Research} 53 (14): gkaf691.
+\url{https://doi.org/10.1093/nar/gkaf691}.
+
+\bibitem[\citeproctext]{ref-team}
+Team, ByteDance AML AI4Science, Xinshi Chen, Yuxuan Zhang, Chan Lu,
+Wenzhi Ma, Jiaqi Guan, Chengyue Gong, et al. n.d. {``Protenix -
+Advancing Structure Prediction Through a Comprehensive AlphaFold3
+Reproduction.''} \url{https://doi.org/10.1101/2025.01.08.631967}.
+
+\bibitem[\citeproctext]{ref-varadi2022}
+Varadi, Mihaly, Stephen Anyango, Mandar Deshpande, Sreenath Nair, Cindy
+Natassia, Galabina Yordanova, David Yuan, et al. 2022. {``AlphaFold
+Protein Structure Database: Massively Expanding the Structural Coverage
+of Protein-Sequence Space with High-Accuracy Models.''} \emph{Nucleic
+Acids Research} 50 (D1): D439--44.
+\url{https://doi.org/10.1093/nar/gkab1061}.
+
+\bibitem[\citeproctext]{ref-wang2022}
+Wang, Wenkai, Zhenling Peng, and Jianyi Yang. 2022. {``Single-sequence
+protein structure prediction using supervised transformer protein
+language models.''} \emph{Nature Computational Science} 2 (12): 804--14.
+\url{https://doi.org/10.1038/s43588-022-00373-3}.
+
+\bibitem[\citeproctext]{ref-wankowicz2024}
+Wankowicz, Stephanie, Pedro Beltrao, Benjamin Cravatt, Roland Dunbrack,
+Anthony Gitter, Kresten Lindorff-Larsen, Sergey Ovchinnikov, Nicholas
+Polizzi, Brian Shoichet, and James Fraser. 2024. {``AlphaFold3
+Transparency and Reproducibility,''} May.
+\url{https://zenodo.org/records/11391920}.
+
+\bibitem[\citeproctext]{ref-wilson2022}
+Wilson, Carter J., Wing-Yiu Choy, and Mikko Karttunen. 2022.
+{``AlphaFold2: A Role for Disordered Protein/Region Prediction?''}
+\emph{International Journal of Molecular Sciences} 23 (9): 4591.
+\url{https://doi.org/10.3390/ijms23094591}.
+
+\bibitem[\citeproctext]{ref-wohlwend}
+Wohlwend, Jeremy, Gabriele Corso, Saro Passaro, Mateo Reveiz, Ken
+Leidal, Wojtek Swiderski, Tally Portnoi, et al. n.d. {``Boltz-1:
+Democratizing Biomolecular Interaction Modeling.''}
+\url{https://doi.org/10.1101/2024.11.19.624167}.
+
+\bibitem[\citeproctext]{ref-yang2020}
+Yang, Jianyi, Ivan Anishchenko, Hahnbeom Park, Zhenling Peng, Sergey
+Ovchinnikov, and David Baker. 2020. {``Improved Protein Structure
+Prediction Using Predicted Interresidue Orientations.''}
+\emph{Proceedings of the National Academy of Sciences} 117 (3):
+1496--1503. \url{https://doi.org/10.1073/pnas.1914677117}.
+
+\bibitem[\citeproctext]{ref-yu2023}
+Yu, Dingquan, Grzegorz Chojnowski, Maria Rosenthal, and Jan Kosinski.
+2023. {``AlphaPulldown{\textemdash}a Python Package for
+Protein{\textendash}protein Interaction Screens Using
+AlphaFold-Multimer.''} \emph{Bioinformatics} 39 (1): btac749.
+\url{https://doi.org/10.1093/bioinformatics/btac749}.
+
+\bibitem[\citeproctext]{ref-zheng2021}
+Zheng, Wei, Chengxin Zhang, Yang Li, Robin Pearce, Eric W. Bell, and
+Yang Zhang. 2021. {``Folding non-homologous proteins by coupling
+deep-learning contact maps with I-TASSER assembly simulations.''}
+\emph{Cell Reports Methods} 1 (3): 100014.
+\url{https://doi.org/10.1016/j.crmeth.2021.100014}.
+
+\end{CSLReferences}
+
+
+\backmatter
+
+
+\end{document}

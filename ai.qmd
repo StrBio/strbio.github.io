@@ -115,14 +115,36 @@ and then led to several new dedicated methods, including AlphaFold-multimer
 
 ## Why is Alphafold so freaking accurate?
 
-The philosophy behind Alphafold v.2 (from now on, just Alphafold) and related
-methods is to treat the protein folding problem as a machine learning problem,
-similar to image processing. In all of these problems, the input to the Deep
-Learning model is a volume (3D tensor). In the case of computer vision, 2D
-images expand as volumes because of the RGB or HSV channels. Similarly, in the
-case of distance prediction, predicted 1D and 2D features are transformed and
-packed into a 3D volume with many channels of inter-residue information
-[@pakhrin2021].
+The emergence of the AlphaFold era is the result of decades of previous work
+that progressively incorporated neural networks (NNs) and deep learning into
+protein structure prediction. Because NNs can learn subtle patterns and
+correlations from very large datasets, they are exceptionally well suited to the
+challenge of inferring 3D protein structures from sequence information. Over the
+last 20–30 years, advances in protein structure prediction have closely followed
+developments in deep learning, gradually integrating convolutional neural
+networks (CNNs), recurrent neural networks (RNNs), and eventually Transformer
+models [@kumar2025].
+
+The Transformer architecture, originally designed for machine translation,
+achieved outstanding performance thanks to its encoder–decoder structure. The
+encoder converts the input sequence into internal vector representations, while
+the decoder generates the output. Its key innovation is the multi-head attention
+mechanism, which identifies complex relationships between tokens by assigning
+attention weights according to their relevance. This enables the model to
+capture long-range dependencies in sequences far more effectively than previous
+architectures. Transformers typically consist of six encoder layers and six
+decoder layers, each including multi-head attention and feed‑forward networks.
+These components are highly parallelizable, which makes Transformer-based models
+both efficient and powerful [@wang2022].
+
+The core idea behind AlphaFold v2 (referred to here simply as AlphaFold) and
+related methods is analogous to strategies used in image processing. In computer
+vision, a 2D image is represented as a 3D tensor because of the RGB or HSV color
+channels. Protein structure prediction uses a similar approach: 1D and 2D
+sequence-derived features are transformed into a 3D volume with multiple
+channels encoding inter-residue relationships. This rich, multi-channel tensor
+serves as the input to deep learning models that predict distances and
+structural constraints between residues [@pakhrin2021].
 
 ![From the perspective of Deep Learning method development, the problem of
 protein distogram or real-valued distance prediction (bottom row) is similar to
@@ -139,13 +161,13 @@ related to model accuracy, as has been recently shown in CASP15 [@lee.;
 @peng2023].
 
 In the second part of the diagram, AlphaFold takes the multiple sequence
-alignment and the templates, and processes them in a *transformer* that they
-named *Evoformer*. This process has been referred by some authors as
-inter-residue interaction map-threading [@bhattacharya2021]. The objective of
-this part is to extract layers of information to generate residue interaction
-maps. The Evoformer refines both its understanding of the MSA and the predicted
-3D structure in an iterative process. Improved predictions of amino acid
-interactions help refine the MSA representation, and vice-versa.
+alignment and the templates, and processes them in a Transformer that they named
+*Evoformer*. This process has been referred by some authors as inter-residue
+interaction map-threading [@bhattacharya2021]. The objective of this part is to
+extract layers of information to generate residue interaction maps. The
+Evoformer refines both its understanding of the MSA and the predicted 3D
+structure in an iterative process to refine the model. Improved predictions of
+amino acid interactions help refine the MSA representation, and vice-versa.
 
 The AF2 transformer architecture allows the model to process all amino acids in
 a protein sequence simultaneously, rather than one at a time, through a
@@ -180,14 +202,14 @@ information from the previous steps to construct a 3D model structure protein of
 the query sequence. This network will give you a single model, without heavy
 energy optimization steps (only a relax protocol). Model building is based in a
 new concept of 3D structures generation, named **IPA** (Invariant Point
-Attention) and the use of a curated list of parametrized list of torsion angles
-to generate the side chains. IPA allows the network to maintain rotational and
-translational invariance, which is crucial for accurate 3D structure prediction.
-Earlier attempts to develop and end-to-end method were unsuccessful because the
-structure representation was not optimal. Even methods implemented after
-AlphaFold, like RoseTTAFold, use less efficient methods and often predict very
-quickly and accurately the backbone coordinates but require external programs to
-generate an all-atoms model.
+Attention), a core neural network module that uses of a curated list of
+parametrized list of torsion angles to generate the side chains. IPA allows the
+network to maintain rotational and translational invariance, which is crucial
+for accurate 3D structure prediction. Earlier attempts to develop and end-to-end
+method were unsuccessful because the structure representation was not optimal.
+Even methods implemented after AlphaFold, like RoseTTAFold, use less efficient
+methods and often predict very quickly and accurately the backbone coordinates
+but require external programs to generate an all-atoms model.
 
 ![Oxford Proteins Informatics Group Blog, modified from
 @jumper2021](pics/alphafols2.png "Alphafold2"){#fig-af2 .figure}
@@ -467,6 +489,12 @@ Ovchinnikov and colleages (check out his talks
 
 {{< share-post https://twitter.com/sokrypton/status/1514227001183416320 >}}
 
+# Protein structural phylogenetics
+
+Phylogenetic inference can be performed using either DNA or protein sequences. DNA‑based phylogenetics is often preferable when comparing closely related genes or species. However, as evolutionary distances increase, nucleotide substitution matrices tend to saturate, making protein‑based analyses more informative. Even so, deep sequence‑based phylogenetics remains challenging. A major obstacle is substitution saturation, where individual sites in an alignment accumulate multiple substitutions along long branches. When this occurs, and especially when substitution models fail to fully capture the true evolutionary process, saturation can generate misleading signals and produce artifacts in phylogenetic trees.
+Structural phylogenetics offers a promising alternative to overcome these limitations. Protein structures evolve much more slowly than their underlying sequences, and if models of structural evolution can be inferred, they may help resolve phylogenetic relationships that lie beyond the reach of classical sequence‑based methods. The development of protein language alphabets that encode structural information now enables the integration of these “structural characters” within standard amino‑acid likelihood frameworks.
+Examples of such approaches include FoldTree [@moi2025] and 3DiPhy [@puente-lelievre], both of which use the set of 20 3Di structural characters originally introduced in FoldSeek [@vankempen2023a]. More recently, new 3Di‑based substitution matrices have further improved the performance of these structural phylogenetic methods [@garg2025].
+
 # Alphafold3 expanded the scope
 
 Proteins are composed of amino acids, but they also include other components.
@@ -539,9 +567,9 @@ components simultaneously. Unlike protein language models, which primarily focus
 on learning statistical patterns from large training sets of protein sequences,
 AlphaFold3 relies on the diffusion model facilitated by tokenization.
 
-**Therefore, it is more accurate to describe AlphaFold3 as a hybrid model that
-integrates principles of language modeling rather than being purely based on
-protein language models.**
+**Therefore, it is more accurate to describe AlphaFold3 as a *hybrid* or
+*evolved* model that integrates core principles of language modeling rather than
+integrating (at any step) protein language models.**
 :::
 
 Unlike its predecessor, AF3 is a generative model. This means it can give
